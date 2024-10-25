@@ -119,7 +119,7 @@ var gZenVerticalTabsManager = {
 
     if (onHover) {
       // if the sidebar is not expanded, and hover detection is enabled, show the sidebar
-      sidebar.setAttribute('zen-expanded', 'false');
+      sidebar.removeAttribute('zen-expanded');
       sidebar.setAttribute('zen-user-hover', 'true');
 
       sidebar.removeAttribute('zen-has-hover');
@@ -127,13 +127,13 @@ var gZenVerticalTabsManager = {
     else if (expanded) {
       // if the sidebar is expanded, close, and remove hover detection
       sidebar.setAttribute('zen-expanded', 'true');
-      sidebar.setAttribute('zen-user-hover', 'false');
-      sidebar.setAttribute('zen-has-hover','false');
+      sidebar.removeAttribute('zen-user-hover');
+      sidebar.removeAttribute('zen-has-hover');
     } else {
       // if the sidebar is not expanded, and hover detection is disabled, hide the sidebar
-      sidebar.setAttribute('zen-expanded','false');
-      sidebar.setAttribute('zen-user-show','false');
-      sidebar.setAttribute('zen-user-hover','false');
+      sidebar.removeAttribute('zen-expanded');
+      sidebar.removeAttribute('zen-user-show');
+      sidebar.removeAttribute('zen-user-hover');
     }
   },
 
