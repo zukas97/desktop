@@ -44,7 +44,7 @@
 }
 
 #tabbrowser-tabpanels[zen-split-view='true'] .browserSidebarContainer.deck-selected {
-  border: 2px solid var(--zen-primary-color) !important;
+  outline: 2px solid var(--zen-primary-color) !important;
 }
 
 #tabbrowser-tabbox {
