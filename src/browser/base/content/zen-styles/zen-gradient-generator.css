@@ -1,7 +1,76 @@
 
 #PanelUI-zen-gradient-generator {
   --panel-width: 300px;
+  --panel-padding: 10px;
   min-width: var(--panel-width);
+}
+
+#PanelUI-zen-gradient-degrees {
+  position: relative;
+  border-radius: 999px;
+  min-height: 50px;
+  min-width: 50px;
+  max-height: 50px;
+  max-width: 50px;
+  border: 1px solid var(--zen-colors-border);
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  margin-left: 5px;
+  margin-right: 25px;
+  z-index: 1;
+
+  & .dot {
+    position: absolute;
+    z-index: 2;
+    width: 50px;
+    height: 50px;
+    top: 0;
+    left: 0;
+
+    &::after {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--zen-colors-tertiary);
+      box-shadow: 0 0 0 2px var(--zen-themed-toolbar-bg);
+      cursor: grab;
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      right: 0;
+      border: 2px solid var(--zen-colors-border);
+      animation: zen-theme-picker-dot-animation .5s;
+      transition: transform .2s;
+    }
+
+    &[dragging='true']::after {
+      transform: scale(1.2);
+    }
+  }
+
+  & .text {
+    margin: 0 auto;
+  }
+}
+
+#PanelUI-zen-gradient-generator-controls {
+  padding-top: 15px;
+  margin-bottom: 5px;
+  border-top: 1px solid color-mix(in srgb, var(--zen-colors-border) 50%, transparent 50%);
+}
+
+#PanelUI-zen-gradient-colors-wrapper {
+  & label {
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 5px;
+  }
+}
+
+#PanelUI-zen-gradient-generator-opacity {
+  margin-right: 5px;
+  width: 100%;
 }
 
 .zen-theme-picker-gradient {
@@ -12,10 +81,12 @@
   min-height: calc(var(--panel-width) - var(--panel-padding) * 2);
   min-width: calc(var(--panel-width) - var(--panel-padding) * 2);
 
+  margin-bottom: 15px;
+
   background: var(--zen-theme-picker-gradient-image) center center / cover no-repeat;
 
   &::before {
-    background: color-mix(in srgb, var(--zen-themed-toolbar-bg) 50%, transparent 50%);
+    background: color-mix(in srgb, var(--zen-themed-toolbar-bg) 20%, transparent 80%);
     backdrop-filter: blur(5px);
     content: '';
     position: absolute;
@@ -38,9 +109,10 @@
     border: 2px solid #fff;
     animation: zen-theme-picker-dot-animation .5s;
     transition: transform .2s;
+    transform: translate(-50%, -50%);
 
     &[dragging='true'] {
-      transform: scale(1.2);
+      transform: scale(1.2) translate(-50%, -50%);
     }
   }
 }

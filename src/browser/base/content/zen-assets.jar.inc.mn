@@ -49,6 +49,7 @@
 
         # Images
         content/browser/zen-images/gradient.png                 (content/zen-images/gradient.png)
+        content/browser/zen-images/gradient-display.png         (content/zen-images/gradient-display.png)
 
         # Actors
         content/browser/zen-components/actors/ZenThemeMarketplaceParent.sys.mjs (content/zen-components/src/actors/ZenThemeMarketplaceParent.sys.mjs)
