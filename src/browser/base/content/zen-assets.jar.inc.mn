@@ -47,6 +47,9 @@
 
         content/browser/zen-styles/zen-compact-mode.css         (content/zen-styles/zen-compact-mode.css)
 
+        # Images
+        content/browser/zen-images/gradient.png                 (content/zen-images/gradient.png)
+
         # Actors
         content/browser/zen-components/actors/ZenThemeMarketplaceParent.sys.mjs (content/zen-components/src/actors/ZenThemeMarketplaceParent.sys.mjs)
         content/browser/zen-components/actors/ZenThemeMarketplaceChild.sys.mjs  (content/zen-components/src/actors/ZenThemeMarketplaceChild.sys.mjs)
