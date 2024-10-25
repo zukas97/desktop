@@ -123,6 +123,7 @@ pref('zen.pinned-tab-manager.close-shortcut-behavior', 'switch');
 pref('zen.sidebar.data', "{\"data\":\n {\"p1\":{\n   \"url\":\"https://www.wikipedia.org/\"\n  },\n\"p2\":{\n   \"url\":\"https://m.twitter.com/\",\n\"ua\": true\n  },\n\"p3\": {\n   \"url\": \"https://www.youtube.com/\",\n\"ua\": true\n},\n\"p4\": {\n   \"url\": \"https://translate.google.com/\",\n\"ua\": true\n},\n\"p5\": {\n   \"url\": \"https://todoist.com/\",\n\"ua\": true\n}},\n\"index\":[\"p1\",\"p2\",\"p3\",\"p4\",\"p5\"]}");
 pref('zen.sidebar.enabled', true);
 pref('zen.sidebar.close-on-blur', true);
+pref('zen.sidebar.max-webpanels', 8);
 
 // Zen Split View
 pref('zen.splitView.working', false);
