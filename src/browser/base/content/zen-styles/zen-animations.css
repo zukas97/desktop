@@ -25,6 +25,16 @@
   }
 }
 
+@keyframes zen-main-app-wrapper-animation {
+  from {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  to {
+    transform: translate(50%, 100%);
+  }
+}
+
 @keyframes zen-jello-out-animation {
   0% {
     transform: scale3d(1, 1, 1);

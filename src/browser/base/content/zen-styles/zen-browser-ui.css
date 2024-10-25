@@ -41,6 +41,18 @@
 
 #zen-main-app-wrapper {
   background: var(--zen-main-browser-background);
+
+  &[animating='true']::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--zen-main-browser-background-old);
+    backdrop-filter: blur(5px);
+    animation: zen-main-app-wrapper-animation 1s ease-in-out forwards;
+  }
 }
 
 #tabbrowser-tabbox {
