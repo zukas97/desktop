@@ -121,7 +121,7 @@
       }
 
       // remove all styles except for the width, since we are xulstoring the complet style list
-      const width = toolbox.style.width;
+      const width = toolbox.style.width || '250px';
       toolbox.removeAttribute('style');
       toolbox.style.width = width;
 

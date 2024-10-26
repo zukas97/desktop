@@ -155,7 +155,7 @@
     }
 
     & .tab-background:not(:hover):not([selected]):not([multiselected]) {
-      --zen-pinned-tabs-bgcolor: rgba(255, 255, 255, 0.075);
+      --zen-pinned-tabs-bgcolor: rgba(255, 255, 255, 0.12);
       @media not (prefers-color-scheme: dark) {
         --zen-pinned-tabs-bgcolor: rgba(1, 1, 1, 0.075);
       }

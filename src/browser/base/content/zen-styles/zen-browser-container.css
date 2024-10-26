@@ -6,7 +6,10 @@
     position: relative;
 
     box-shadow: 0 0 1px 1px light-dark(rgba(0, 0, 0, 0.1), var(--zen-colors-border));
+    & .browserContainer,
     & browser {
+      mix-blend-mode: hue;
+      overflow: hidden;
       border-radius: var(--zen-webview-border-radius, var(--zen-border-radius));
     }
   }

@@ -77,7 +77,7 @@ pref('zen.tabs.vertical', true);
 pref('zen.tabs.vertical.right-side', false);
 pref('zen.tabs.show-newtab-under', false);
 pref('zen.theme.accent-color', "#aac7ff");
-pref('zen.theme.border-radius', 5); // In pixels
+pref('zen.theme.border-radius', 8); // In pixels
 pref('zen.theme.content-element-separation', 6); // In pixels
 pref('zen.theme.toolbar-themed', true);
 pref('zen.theme.pill-button', false);
