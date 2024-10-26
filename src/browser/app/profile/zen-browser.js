@@ -80,6 +80,7 @@ pref('zen.theme.border-radius', 5); // In pixels
 pref('zen.theme.content-element-separation', 6); // In pixels
 pref('zen.theme.toolbar-themed', true);
 pref('zen.theme.pill-button', false);
+pref('zen.theme.gradient', true);
 pref('zen.view.compact', false);
 
 pref('zen.theme.color-prefs.amoled', false);

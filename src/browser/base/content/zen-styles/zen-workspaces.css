@@ -383,7 +383,8 @@
 }
 
 #PanelUI-zen-workspaces-new,
-#PanelUI-zen-workspaces-reorder-mode {
+#PanelUI-zen-workspaces-reorder-mode,
+#PanelUI-zen-gradient-generator-color-custom-add {
   margin-left: auto;
   min-height: 1px !important;
   padding: 3px;

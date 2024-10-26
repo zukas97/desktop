@@ -84,7 +84,7 @@
     border-bottom: 0px solid transparent !important;
 
     --tab-block-margin: 2px;
-    --tab-selected-bgcolor: light-dark(color-mix(in srgb, var(--zen-colors-primary) 1%, white 99%), var(--zen-colors-secondary));
+    --tab-selected-bgcolor: light-dark(rgba(255,255,255,.7), color-mix(in srgb, var(--zen-colors-secondary) 50%, transparent 50%));
     grid-gap: 0 !important;
 
     & .tabbrowser-tab {
@@ -107,6 +107,10 @@
           margin: 0 0px !important;
           width: 3px !important;
         }
+      }
+
+      &[selected] .tab-background {
+        backdrop-filter: blur(10px);
       }
 
       @media (-moz-bool-pref: 'zen.tabs.dim-pending') {
@@ -296,7 +300,7 @@
         & .tab-background {
           @media not (prefers-color-scheme: dark) {
             &:is([selected], [multiselected]) {
-              box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1) !important;
+              box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.15) !important;
             }
           }
           margin-inline: var(--tab-block-margin);
