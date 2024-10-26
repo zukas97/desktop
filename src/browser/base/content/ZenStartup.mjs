@@ -47,6 +47,8 @@
           0
         );
 
+        document.l10n.setAttributes(document.getElementById('tabs-newtab-button'), 'tabs-toolbar-new-tab');
+
         function throttle(f, delay) {
           let timer = 0;
           return function (...args) {

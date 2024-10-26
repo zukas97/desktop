@@ -89,7 +89,7 @@
   padding-inline-start: 8px !important;
 }
 
-#identity-box[pageproxystate="invalid"].chromeUI #identity-icon {
+#identity-box:not([pageproxystate="invalid"]).chromeUI #identity-icon {
   display: none;
 }
 

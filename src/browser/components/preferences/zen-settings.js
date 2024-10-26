@@ -1075,4 +1075,9 @@ Preferences.addAll([
     type: 'bool',
     default: true,
   },
+  {
+    id: 'zen.tabs.show-newtab-under',
+    type: 'bool',
+    default: false,
+  }
 ]);

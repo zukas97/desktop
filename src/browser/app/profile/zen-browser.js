@@ -75,6 +75,7 @@ pref('zen.welcomeScreen.enabled', true);
 pref('zen.welcomeScreen.seen', false);
 pref('zen.tabs.vertical', true);
 pref('zen.tabs.vertical.right-side', false);
+pref('zen.tabs.show-newtab-under', false);
 pref('zen.theme.accent-color', "#aac7ff");
 pref('zen.theme.border-radius', 5); // In pixels
 pref('zen.theme.content-element-separation', 6); // In pixels

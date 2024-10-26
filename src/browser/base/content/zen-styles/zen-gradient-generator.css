@@ -16,7 +16,6 @@
   display: flex;
   justify-items: center;
   align-items: center;
-  margin-right: 0 auto;
   z-index: 1;
 
   & .dot {
@@ -54,11 +53,9 @@
 }
 
 #PanelUI-zen-gradient-generator-controls {
-  padding-top: 15px;
-  margin-bottom: 5px;
+  padding-right: var(--panel-padding);
   align-items: center;
-  gap: calc(var(--panel-padding) * 2);
-  border-top: 1px solid color-mix(in srgb, var(--zen-colors-border) 50%, transparent 50%);
+  gap: var(--panel-padding);
   border-bottom: 1px solid color-mix(in srgb, var(--zen-colors-border) 50%, transparent 50%);
   padding-bottom: 15px;
   margin-bottom: 15px;
@@ -104,17 +101,19 @@
 }
 
 #PanelUI-zen-gradient-generator-options {
-  padding-left: calc(var(--panel-padding) * 2);
-  padding-right: var(--panel-padding);
-  border-left: 1px solid color-mix(in srgb, var(--zen-colors-border) 50%, transparent 50%);
   align-items: center;
-  margin-left: auto;
+  margin: auto;
   height: 100%;
   justify-content: center;
 }
 
 #PanelUI-zen-gradient-generator-custom-list {
   margin-top: 15px;
+
+  &:not(:has(.zen-theme-picker-custom-list-item)) {
+    display: none;
+  }
+
   & .zen-theme-picker-custom-list-item {
     display: flex;
     padding: 5px;
@@ -240,7 +239,7 @@
     transform: translate(-50%, -50%);
 
     &[dragging='true'] {
-      transform: scale(1.2) translate(-50%, -50%);
+      transform: scale(1.2) translate(-50%, -50%) !important;
     }
   }
 }
