@@ -74,6 +74,12 @@ jobs:
 
           brew install watchman
 
+      - name: Fix rust version
+        run: |
+          # Install a rust version compatible with 17
+          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain 1.79
+          source $HOME/.cargo/env
+
       - name: Force usage fo gnu-tar
         run: |
           echo 'export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"' >> ~/.bash_profile
