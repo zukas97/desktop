@@ -155,12 +155,15 @@
     }
 
     & .tab-background:not(:hover):not([selected]):not([multiselected]) {
-      --zen-pinned-tabs-bgcolor: color-mix(in srgb, var(--zen-colors-secondary) 10%, transparent 90%);
+      --zen-pinned-tabs-bgcolor: rgba(255, 255, 255, 0.075);
       @media not (prefers-color-scheme: dark) {
-        --zen-pinned-tabs-bgcolor: color-mix(in srgb, #e7e7e7 30%, transparent 70%);
+        --zen-pinned-tabs-bgcolor: rgba(1, 1, 1, 0.075);
       }
       background: var(--zen-pinned-tabs-bgcolor) !important;
       backdrop-filter: blur(10px);
+    }
+
+    &[selected] {
       box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.05);
     }
 
@@ -212,9 +215,7 @@
         content: '';
         display: block;
         height: 1px;
-        background: var(--zen-main-browser-background);
-        opacity: 0.5;
-        filter: invert(0.4);
+        background: light-dark(rgba(1, 1, 1, 0.075), rgba(255, 255, 255, 0.075));
         width: 99%;
         left: 50%;
         transform: translateX(-50%);
@@ -364,6 +365,17 @@
       display: none !important;
     }
 
+    & #tabbrowser-arrowscrollbox-periphery {
+      & > toolbarbutton {
+        margin: 0 auto !important;
+        padding: 0 !important;
+      }
+
+      &::before {
+        width: 60% !important;
+      }
+    }
+
     & #vertical-pinned-tabs-container:has(tab:not([hidden])) {
       margin-bottom: 12px;
       position: relative;
@@ -373,9 +385,7 @@
         content: '';
         display: block;
         height: 1px;
-        background: var(--zen-main-browser-background);
-        opacity: 0.5;
-        filter: invert(0.4);
+        background: light-dark(rgba(1, 1, 1, 0.075), rgba(255, 255, 255, 0.075));
         width: 70%;
         left: 50%;
         transform: translateX(-50%);
@@ -695,9 +705,7 @@
         content: '';
         display: block;
         height: 1px;
-        background: var(--zen-main-browser-background);
-        opacity: 0.5;
-        filter: invert(0.4);
+        background: light-dark(rgba(1, 1, 1, 0.075), rgba(255, 255, 255, 0.075));
         width: 96%;
         position: absolute;
         top: -5px;
