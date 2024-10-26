@@ -1001,11 +1001,6 @@ Preferences.addAll([
     default: true,
   },
   {
-    id: 'zen.view.sidebar-expanded.show-button',
-    type: 'bool',
-    default: true,
-  },
-  {
     id: 'zen.view.sidebar-expanded',
     type: 'bool',
     default: true,
