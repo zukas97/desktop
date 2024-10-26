@@ -5,7 +5,7 @@
     init() {
       this.logHeader();
       this.openWatermark();
-      window.SessionStore.promiseInitialized.then(async () => {
+      window.SessionStore.promiseInitialized.then(() => {
         this._changeSidebarLocation();
         this._zenInitBrowserLayout();
         this._initSearchBar();
