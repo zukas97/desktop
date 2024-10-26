@@ -212,18 +212,13 @@
         content: '';
         display: block;
         height: 1px;
-        background: var(--zen-colors-border);
+        background: var(--zen-main-browser-background);
+        opacity: 0.5;
+        filter: invert(0.4);
         width: 99%;
         left: 50%;
         transform: translateX(-50%);
         position: absolute;
-      }
-
-      @media (prefers-color-scheme: dark) {
-        &::after {
-          filter: invert(0.1);
-          mix-blend-mode: difference;
-        }
       }
     }
 
@@ -378,18 +373,13 @@
         content: '';
         display: block;
         height: 1px;
-        background: var(--zen-colors-border);
+        background: var(--zen-main-browser-background);
+        opacity: 0.5;
+        filter: invert(0.4);
         width: 70%;
         left: 50%;
         transform: translateX(-50%);
         position: absolute;
-      }
-
-      @media (prefers-color-scheme: dark) {
-        &::after {
-          filter: invert(0.1);
-          mix-blend-mode: difference;
-        }
       }
     }
 
@@ -705,19 +695,14 @@
         content: '';
         display: block;
         height: 1px;
-        background: var(--zen-colors-border);
+        background: var(--zen-main-browser-background);
+        opacity: 0.5;
+        filter: invert(0.4);
         width: 96%;
         position: absolute;
         top: -5px;
         left: 50%;
         transform: translateX(-50%);
-      }
-
-      @media (prefers-color-scheme: dark) {
-        &::before {
-          filter: invert(0.1);
-          mix-blend-mode: difference;
-        }
       }
     }
   }
