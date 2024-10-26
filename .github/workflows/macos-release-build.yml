@@ -76,8 +76,7 @@ jobs:
 
           brew install watchman
 
-          brew uninstall llvm
-          brew install llvm@19 --force
+          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain 1.79
 
       - name: Force usage fo gnu-tar
         run: |
