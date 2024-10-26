@@ -74,12 +74,6 @@ jobs:
 
           brew install watchman
 
-      - name: Fix rust version
-        run: |
-          # Install a rust version compatible with LLVM 19
-          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y 
-          source $HOME/.cargo/env
-
       - name: Force usage fo gnu-tar
         run: |
           echo 'export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"' >> ~/.bash_profile
