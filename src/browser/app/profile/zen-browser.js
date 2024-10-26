@@ -83,6 +83,7 @@ pref('zen.theme.toolbar-themed', true);
 pref('zen.theme.pill-button', false);
 pref('zen.theme.gradient', true);
 pref('zen.view.compact', false);
+pref('zen.view.experimental-rounded-view', true);
 
 pref('zen.theme.color-prefs.amoled', false);
 pref('zen.theme.color-prefs.colorful', false);
