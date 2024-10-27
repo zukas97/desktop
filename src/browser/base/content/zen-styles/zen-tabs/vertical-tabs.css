@@ -594,8 +594,6 @@
       }
 
       &[zen-right-side='true'] #TabsToolbar {
-        animation: zen-sidebar-panel-animation-right 0.3s ease-in-out;
-
         right: 0;
         border-right: 0;
         border-left: 1px solid var(--zen-colors-border);
