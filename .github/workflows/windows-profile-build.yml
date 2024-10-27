@@ -65,7 +65,9 @@ jobs:
           pnpm surfer download
 
       - name: Import patches
-        run: pnpm surfer import
+        env:
+          SURFER_NO_BRANDING_PATCH: true
+        run: pnpm surfer import 
 
       - name: Generate
         run: |
