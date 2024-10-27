@@ -200,11 +200,11 @@
     top: 0;
     left: 0;
     pointer-events: none;
-    margin: 10px;
+    margin: var(--panel-padding);
     box-shadow: 0 0 0 1px 1px var(--zen-colors-border);
-    width: calc(100% - 20px);
-    height: calc(100% - 20px);
-    border-radius: calc(var(--zen-border-radius) + 5px);
+    width: calc(100% - var(--panel-padding) * 2);
+    height: calc(100% - var(--panel-padding) * 2);
+    border-radius: var(--zen-border-radius);
   }
 
   &::after {
@@ -218,9 +218,9 @@
     position: absolute;
     top: 0;
     left: 0;
-    margin: 10px;
-    width: calc(100% - 20px);
-    height: calc(100% - 20px);
+    margin: var(--panel-padding);
+    width: calc(100% - var(--panel-padding) * 2);
+    height: calc(100% - var(--panel-padding) * 2);
     opacity: 0.1;
   }
 

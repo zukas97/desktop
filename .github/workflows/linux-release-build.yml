@@ -98,8 +98,8 @@ jobs:
 
       - name: Fix rust version
         run: |
-          # Install a rust version compatible with LLVM 19
-          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y 
+          # Install a rust version compatible with LLVM 18
+          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain 1.79
           source $HOME/.cargo/env
 
       - name: Import
