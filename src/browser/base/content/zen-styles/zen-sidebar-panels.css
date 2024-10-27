@@ -192,10 +192,6 @@
 #zen-sidebar-web-panel-browser-containers {
   height: 100%;
   position: relative;
-
-  @media (-moz-bool-pref: 'zen.view.experimental-rounded-view') {
-    mix-blend-mode: multiply;
-  }
 }
 
 #zen-sidebar-introduction-panel {
@@ -243,7 +239,6 @@
 }
 
 #zen-sidebar-web-panel[pinned] {
-  --sideper: 4000px;
   transform-origin: 50% 20%;
 }
 
@@ -257,7 +252,6 @@
 
 /** UNPINNED **/
 #zen-sidebar-web-panel {
-  --sideper: 4000px;
   /* Sets perspective */
   transform-origin: 50% 20%;
 }
