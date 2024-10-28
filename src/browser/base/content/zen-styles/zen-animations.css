@@ -226,3 +226,33 @@
     transform: scale(1);
   }
 }
+
+@keyframes zen-glance-content-animation {
+  /* make the box appear from initial width/height and x/y coordinates */
+  0% {
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  75% {
+    /* make the box grow to full width/height */
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    width: 92%;
+    height: 92%;
+  }
+
+  100% {
+    /* make the box shrink to final width/height and x/y coordinates */
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    width: 90%;
+    height: 90%;
+    top: 50%;
+    left: 50%;
+  }
+}
