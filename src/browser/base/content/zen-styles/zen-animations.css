@@ -227,32 +227,105 @@
   }
 }
 
+@keyframes zen-glance-overlay-animation-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
 @keyframes zen-glance-content-animation {
   /* make the box appear from initial width/height and x/y coordinates */
   0% {
-  }
-
-  25% {
     opacity: 1;
   }
 
-  75% {
+  30% {
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  70% {
     /* make the box grow to full width/height */
     opacity: 1;
-    transform: translate(-50%, -50%);
-    top: 50%;
+    transform: translateX(-50%);
+    top: -5px;
     left: 50%;
-    width: 92%;
-    height: 92%;
+    width: 78%;
+    height: 103%;
   }
 
   100% {
     /* make the box shrink to final width/height and x/y coordinates */
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     opacity: 1;
-    width: 90%;
-    height: 90%;
-    top: 50%;
+    width: 75%;
+    height: 100%;
+    top: -5px;
     left: 50%;
+  }
+}
+
+@keyframes zen-glance-content-animation-out {
+  0% {
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 1;
+  }
+
+  96% {
+    opacity: 1;
+  }
+
+  98% {
+    /* make the box grow to full width/height */
+    opacity: 1;
+    transform: translateX(-50%);
+    top: -5px;
+    left: 50%;
+    width: 77%;
+    height: 102%;
+  }
+
+  100% {
+    transform: translateX(-50%);
+    opacity: 1;
+    width: 75%;
+    height: 100%;
+    top: -5px;
+    left: 50%;
+  }
+}
+
+@keyframes zen-glance-loading-animation {
+  0% {
+    opacity: 1;
+    width: 80%;
+  }
+
+  90% {
+    width: 100%; 
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes zen-glance-buttons-animation {
+  from {
+    right: 0;
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(105%);
   }
 }

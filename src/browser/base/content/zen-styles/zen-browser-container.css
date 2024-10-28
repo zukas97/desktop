@@ -5,13 +5,15 @@
     position: relative;
 
     box-shadow: 0 0 1px 1px light-dark(rgba(0, 0, 0, 0.1), var(--zen-colors-border));
-    & .browserContainer {
+    & .browserContainer,
+    #zen-glance-browser-container browser {
       overflow: hidden;
       border-radius: var(--zen-webview-border-radius, var(--zen-border-radius));
     }
 
     @media (-moz-bool-pref: 'zen.view.experimental-rounded-view') {
-      &.deck-selected .browserContainer {
+      &.deck-selected .browserContainer,
+      #zen-glance-browser-container {
         mix-blend-mode: multiply;
       }
     }
