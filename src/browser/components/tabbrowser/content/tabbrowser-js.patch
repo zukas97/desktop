@@ -1,5 +1,5 @@
 diff --git a/browser/components/tabbrowser/content/tabbrowser.js b/browser/components/tabbrowser/content/tabbrowser.js
-index c89ae2cbb978d6218bd56a059c5ca1e371231607..58c05bd5c935f73e154e84f66b39f58e5741caf6 100644
+index c89ae2cbb978d6218bd56a059c5ca1e371231607..15cc611a9b08227abcf2e0137ed9e82a90704a89 100644
 --- a/browser/components/tabbrowser/content/tabbrowser.js
 +++ b/browser/components/tabbrowser/content/tabbrowser.js
 @@ -456,11 +456,26 @@
@@ -39,6 +39,15 @@ index c89ae2cbb978d6218bd56a059c5ca1e371231607..58c05bd5c935f73e154e84f66b39f58e
          oldTab.updateLastAccessed();
          // if this is the foreground window, update the last-seen timestamps.
          if (this.ownerGlobal == BrowserWindowTracker.getTopWindow()) {
+@@ -2485,7 +2501,7 @@
+       // hasSiblings=false on both the existing browser and the new browser.
+       if (this.tabs.length == 2) {
+         this.tabs[0].linkedBrowser.browsingContext.hasSiblings = true;
+-        this.tabs[1].linkedBrowser.browsingContext.hasSiblings = true;
++        if (this.tabs[1].linkedBrowser.browsingContext) this.tabs[1].linkedBrowser.browsingContext.hasSiblings = true;
+       } else {
+         aTab.linkedBrowser.browsingContext.hasSiblings = this.tabs.length > 1;
+       }
 @@ -2705,6 +2721,11 @@
          );
        }

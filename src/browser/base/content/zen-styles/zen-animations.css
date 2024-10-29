@@ -279,18 +279,8 @@
     opacity: 1;
   }
 
-  96% {
+  80% {
     opacity: 1;
-  }
-
-  98% {
-    /* make the box grow to full width/height */
-    opacity: 1;
-    transform: translateX(-50%);
-    top: -5px;
-    left: 50%;
-    width: 77%;
-    height: 102%;
   }
 
   100% {
