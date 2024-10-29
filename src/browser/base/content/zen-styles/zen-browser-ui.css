@@ -82,3 +82,9 @@
 .titlebar-buttonbox-container {
   height: 100%;
 }
+
+@media (-moz-platform: macos) {
+  .titlebar-buttonbox-container {
+    margin-inline-end: 8px;
+  }
+}

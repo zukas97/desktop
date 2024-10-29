@@ -98,7 +98,7 @@
     & .tabbrowser-tab {
       animation: zen-slide-in 0.2s ease-in-out;
 
-      max-width: unset !important;
+      max-width: unset;
       padding: 0 !important;
 
       position: relative;
@@ -406,6 +406,10 @@
         transform: translateX(-50%);
         position: absolute;
       }
+
+      & .tabbrowser-tab {
+        max-width: var(--tab-min-width);
+      }
     }
 
     & #TabsToolbar-customization-target {
@@ -417,7 +421,7 @@
     }
 
     & #tabbrowser-tabs {
-      margin-top: -3px;
+      margin-top: -2px;
       --tab-min-width: 36px !important;
 
       & .tabbrowser-tab {
@@ -427,6 +431,8 @@
           margin-inline: auto !important;
 
           &:is([selected], [multiselected]) {
+            box-shadow: 0 0 1px 1px rgba(0,0,0,.1);
+            
             @media not (prefers-color-scheme: dark) {
               box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.12) !important;
             }
@@ -571,7 +577,6 @@
 
         position: absolute;
         padding: var(--zen-toolbox-padding);
-        padding-top: 0;
         transition: 0 !important;
         /*animation: zen-vtabs-animation 0.3s ease-in-out;*/
         -moz-window-dragging: no-drag;

@@ -183,10 +183,3 @@
     }
   }
 }
-
-@media not (-moz-bool-pref: 'zen.theme.toolbar-themed') {
-  :root {
-    --toolbar-bgcolor: light-dark(#e6e6e6, #1b1b1b) !important;
-    --zen-themed-toolbar-bg: var(--toolbar-bgcolor);
-  }
-}

@@ -79,12 +79,12 @@ pref('zen.tabs.show-newtab-under', false);
 pref('zen.theme.accent-color', "#aac7ff");
 pref('zen.theme.border-radius', 8); // In pixels
 pref('zen.theme.content-element-separation', 6); // In pixels
-pref('zen.theme.toolbar-themed', true);
 pref('zen.theme.pill-button', false);
 pref('zen.theme.gradient', true);
 pref('zen.view.compact', false);
 pref('zen.view.experimental-rounded-view', true);
 
+pref('zen.theme.color-prefs.use-workspace-colors', true);
 pref('zen.theme.color-prefs.amoled', false);
 pref('zen.theme.color-prefs.colorful', false);
 
