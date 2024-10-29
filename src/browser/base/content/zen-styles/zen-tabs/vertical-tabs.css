@@ -95,6 +95,12 @@
     --tab-selected-bgcolor: light-dark(rgba(255,255,255,.7), color-mix(in srgb, var(--zen-colors-secondary) 50%, transparent 50%));
     grid-gap: 0 !important;
 
+    &[overflow]::after,
+    #vertical-tabs-newtab-button {
+      /* Hide separator they give us, eww */
+      display: none !important;
+    }
+
     & .tabbrowser-tab {
       animation: zen-slide-in 0.2s ease-in-out;
 
@@ -354,11 +360,23 @@
           #navigator-toolbox[zen-expanded='true']:not([zen-user-hover='true'])
         )
     ) {
+    --tab-min-width: 36px !important;
+
     /* Important: When changin this value, make sure expand on hover doesn't break! */
-    --zen-toolbox-max-width: 49px; /* 1px more because the browser view has one pixel of padding to avoid the border being cut off */
-    --zen-toolbox-padding: 8px;
+    --zen-toolbox-padding: 6px;
+    --zen-toolbox-max-width: calc(var(--tab-min-width) + var(--zen-toolbox-padding) * 2);
     max-width: var(--zen-toolbox-max-width) !important;
     min-width: var(--zen-toolbox-max-width) !important;
+
+    --zen-tabbar-offset: 1px; /* Fix the tabbar offset, because there's a shadow */
+    &[zen-right-side='true'] {
+      margin-left: var(--zen-tabbar-offset);
+    }
+
+    &:not([zen-right-side='true']) {
+      margin-right: var(--zen-tabbar-offset);
+    }
+
 
     & #vertical-tabs-newtab-button {
       padding: 0 !important;
@@ -422,7 +440,6 @@
 
     & #tabbrowser-tabs {
       margin-top: -2px;
-      --tab-min-width: 36px !important;
 
       & .tabbrowser-tab {
         margin: 0 auto;

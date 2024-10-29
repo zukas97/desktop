@@ -75,7 +75,7 @@ pref('zen.welcomeScreen.enabled', true);
 pref('zen.welcomeScreen.seen', false);
 pref('zen.tabs.vertical', true);
 pref('zen.tabs.vertical.right-side', false);
-pref('zen.tabs.show-newtab-under', false);
+pref('zen.tabs.show-newtab-under', true);
 pref('zen.theme.accent-color', "#aac7ff");
 pref('zen.theme.border-radius', 8); // In pixels
 pref('zen.theme.content-element-separation', 6); // In pixels
@@ -247,3 +247,5 @@ pref("network.fetchpriority.enabled", true);
 // No Proxy should be default, Use system proxy allows antivirus, virus or system proxy to MITM or slowing down Zen
 pref("network.proxy.type", 0);
 
+// for the new layout:
+pref('browser.download.autohideButton', false);
