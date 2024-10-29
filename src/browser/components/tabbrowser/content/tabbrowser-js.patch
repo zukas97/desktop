@@ -131,14 +131,6 @@ index c89ae2cbb978d6218bd56a059c5ca1e371231607..15cc611a9b08227abcf2e0137ed9e82a
        // Handle requests for synchronously removing an already
        // asynchronously closing tab.
        if (!animate && aTab.closing) {
-@@ -4198,6 +4246,7 @@
-         isLastTab ||
-         aTab.pinned ||
-         aTab.hidden ||
-+        true ||
-         this._removingTabs.size >
-           3 /* don't want lots of concurrent animations */ ||
-         !aTab.hasAttribute(
 @@ -5131,10 +5180,10 @@
        SessionStore.deleteCustomTabValue(aTab, "hiddenBy");
      },

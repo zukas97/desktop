@@ -1,5 +1,4 @@
 #browser,
-#appcontent,
 #tabbrowser-tabpanels {
   background: transparent !important;
 }
@@ -33,7 +32,6 @@
   width: 100%;
 }
 
-:root:not([inDOMFullscreen='true']) #appcontent,
 #sidebar-box {
   /** Sidebar is already hidden in full screen mode */
   border: none;

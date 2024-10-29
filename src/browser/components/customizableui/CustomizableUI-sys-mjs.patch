@@ -48,8 +48,8 @@ index 289c3df7dcd6fa6b35681ce61c1e920b6a2651d7..a31dc07c8b756e09f43cd5f81bad8d4a
 +//          "new-tab-button",
 +//          "alltabs-button",
          ],
+         verticalTabsDefaultPlacements: [],
          defaultCollapsed: null,
-       },
 @@ -331,6 +333,7 @@ var CustomizableUIInternal = {
        CustomizableUI.AREA_NAVBAR,
        CustomizableUI.AREA_BOOKMARKS,

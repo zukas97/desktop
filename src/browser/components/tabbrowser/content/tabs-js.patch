@@ -24,7 +24,7 @@ index 137f1a3854f10aca0d0e3233a82c1c18fbdc2823..419e0ad674b76454e6e3e1ed4ae1a854
  
      _handleTabSelect(aInstant) {
        let selectedTab = this.selectedItem;
--      if (this.hasAttribute("overflow")) {
+-      if (this.overflowing) {
 -        this.arrowScrollbox.ensureElementIsVisible(selectedTab, aInstant);
 -      }
 +      this.arrowScrollbox.ensureElementIsVisible(selectedTab, aInstant);
@@ -55,9 +55,9 @@ index 137f1a3854f10aca0d0e3233a82c1c18fbdc2823..419e0ad674b76454e6e3e1ed4ae1a854
              // keep tabs the same width
              tab.style.transition = "none";
 @@ -1558,9 +1560,9 @@
+       let verticalTabsContainer = document.getElementById(
          "vertical-pinned-tabs-container"
        );
-       let newTabButton = document.getElementById("newtab-button-container");
 -      let numPinned = gBrowser._numPinnedTabs;
 +      let numPinned = gBrowser._numVisiblePinTabs;
  
@@ -66,15 +66,6 @@ index 137f1a3854f10aca0d0e3233a82c1c18fbdc2823..419e0ad674b76454e6e3e1ed4ae1a854
          let tabs = this._getVisibleTabs();
          for (let i = 0; i < numPinned; i++) {
            tabs[i].style.marginInlineStart = "";
-@@ -1568,7 +1570,7 @@
-         }
-       }
- 
--      newTabButton.toggleAttribute("showborder", gBrowser._numPinnedTabs !== 0);
-+      newTabButton.toggleAttribute("showborder", gBrowser._numVisiblePinTabs !== 0);
-       this.style.removeProperty("--tab-overflow-pinned-tabs-width");
-     }
- 
 @@ -1589,7 +1591,7 @@
  
      _positionPinnedTabs() {
@@ -82,8 +73,8 @@ index 137f1a3854f10aca0d0e3233a82c1c18fbdc2823..419e0ad674b76454e6e3e1ed4ae1a854
 -      let numPinned = gBrowser._numPinnedTabs;
 +      let numPinned = gBrowser._numVisiblePinTabs;
        let absPositionHorizontalTabs =
-         this.hasAttribute("overflow") &&
-         tabs.length > numPinned &&
+         this.overflowing && tabs.length > numPinned && numPinned > 0;
+
 @@ -1672,7 +1674,7 @@
        }
  

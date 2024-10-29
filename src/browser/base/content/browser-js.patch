@@ -38,15 +38,6 @@ index ccd83c15d0d73a1e53bdbfdfbe6fed43a26c961d..f18a6abf7debb97539a4cdf8422315b4
      PictureInPicture.updateUrlbarToggle(gBrowser.selectedBrowser);
  
      if (!gMultiProcessBrowser) {
-@@ -4608,7 +4623,7 @@ function setToolbarVisibility(
-       );
-     }
- 
--    const overlapAttr = "BookmarksToolbarOverlapsBrowser";
-+    const overlapAttr = "BookmarksToolbarOverlapsBrowser__ignore"; // Original string was "BookmarksToolbarOverlapsBrowser" but it's not used and it only bugs the UI.
-     switch (isVisible) {
-       case true:
-       case "always":
 @@ -7289,6 +7304,12 @@ var gDialogBox = {
      parentElement.showModal();
      this._didOpenHTMLDialog = true;

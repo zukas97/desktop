@@ -94,6 +94,7 @@ pref('zen.view.compact.toolbar-flash-popup', true);
 pref('zen.view.compact.toolbar-flash-popup.duration', 800);
 pref('zen.view.compact.toolbar-hide-after-hover.duration', 1000);
 
+pref('zen.glance.enabled', true);
 pref('zen.glance.activation-method', 'ctrl'); // ctrl, alt, shift, none, hold
 pref('zen.glance.hold-duration', 300); // in ms
 
