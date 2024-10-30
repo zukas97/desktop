@@ -1,7 +1,16 @@
 diff --git a/browser/components/tabbrowser/content/tabs.js b/browser/components/tabbrowser/content/tabs.js
-index f3a2f226a9056c5a75023281fdeb704cec49b4a6..128a8ce2bb5738913ce4900beb7e8be27f62c420 100644
+index f3a2f226a9056c5a75023281fdeb704cec49b4a6..6864f4011676e2c114bacc4b55adca470b97b2a8 100644
 --- a/browser/components/tabbrowser/content/tabs.js
 +++ b/browser/components/tabbrowser/content/tabs.js
+@@ -894,7 +894,7 @@
+             let postTransitionCleanup = () => {
+               tab.removeAttribute("tabdrop-samewindow");
+ 
+-              this._finishAnimateTabMove();
++              this._finishAnimateTabMove(true);
+               if (dropIndex !== false) {
+                 gBrowser.moveTabTo(tab, dropIndex);
+                 if (incrementDropIndex) {
 @@ -904,7 +904,7 @@
  
                gBrowser.syncThrobberAnimations(tab);
@@ -84,6 +93,17 @@ index f3a2f226a9056c5a75023281fdeb704cec49b4a6..128a8ce2bb5738913ce4900beb7e8be2
        let tabs = this._getVisibleTabs().slice(
          pinned ? 0 : numPinned,
          pinned ? numPinned : undefined
+@@ -2059,8 +2061,8 @@
+       }
+     }
+ 
+-    _finishAnimateTabMove() {
+-      if (!this.hasAttribute("movingtab")) {
++    _finishAnimateTabMove(always = false) {
++      if (!this.hasAttribute("movingtab") && !always) {
+         return;
+       }
+ 
 @@ -2218,9 +2220,9 @@
        function newIndex(aTab, index) {
          // Don't allow mixing pinned and unpinned tabs.
