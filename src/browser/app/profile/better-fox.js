@@ -106,12 +106,6 @@ pref("privacy.userContext.ui.enabled", true);
 /** SAFE BROWSING ***/
 pref("browser.safebrowsing.downloads.remote.enabled", false);
 
-/** MOZILLA ***/
-pref("permissions.default.desktop-notification", 2);
-pref("permissions.default.geo", 2);
-pref("permissions.manager.defaultsUrl", "");
-pref("webchannel.allowObject.urlWhitelist", "");
-
 /** TELEMETRY ***/
 pref("datareporting.policy.dataSubmissionEnabled", false, locked);
 pref("datareporting.healthreport.uploadEnabled", false, locked);
