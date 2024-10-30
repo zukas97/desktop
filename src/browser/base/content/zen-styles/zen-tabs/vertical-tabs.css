@@ -207,7 +207,7 @@
       padding-left: var(--zen-toolbox-padding);
     }
 
-    & #zen-workspaces-button {
+    & #zen-workspaces-button[as-button='true'] {
       width: calc(100% - 10px) !important;
     }
 
