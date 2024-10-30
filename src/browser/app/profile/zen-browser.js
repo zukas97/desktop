@@ -81,18 +81,20 @@ pref('zen.theme.border-radius', 8); // In pixels
 pref('zen.theme.content-element-separation', 6); // In pixels
 pref('zen.theme.pill-button', false);
 pref('zen.theme.gradient', true);
-pref('zen.view.compact', false);
 pref('zen.view.experimental-rounded-view', true);
 
 pref('zen.theme.color-prefs.use-workspace-colors', true);
 pref('zen.theme.color-prefs.amoled', false);
 pref('zen.theme.color-prefs.colorful', false);
 
+pref('zen.view.compact', false);
 pref('zen.view.compact.hide-tabbar', true);
 pref('zen.view.compact.hide-toolbar', false);
 pref('zen.view.compact.toolbar-flash-popup', true);
 pref('zen.view.compact.toolbar-flash-popup.duration', 800);
 pref('zen.view.compact.toolbar-hide-after-hover.duration', 1000);
+pref('zen.view.compact.color-toolbar', true);
+pref('zen.view.compact.color-sidebar', true);
 
 pref('zen.glance.enabled', true);
 pref('zen.glance.activation-method', 'alt'); // ctrl, alt, shift, none, hold

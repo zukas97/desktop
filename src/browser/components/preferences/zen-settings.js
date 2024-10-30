@@ -1088,4 +1088,14 @@ Preferences.addAll([
     type: "bool",
     default: false,
   },
+  {
+    id: "zen.view.compact.color-toolbar",
+    type: "bool",
+    default: true,
+  },
+  {
+    id: "zen.view.compact.color-sidebar",
+    type: "bool",
+    default: true,
+  }
 ]);
