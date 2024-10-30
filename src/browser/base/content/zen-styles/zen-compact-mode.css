@@ -2,6 +2,11 @@
 
 @media (-moz-bool-pref: 'zen.view.compact') {
   :root:not([customizing]):not([inDOMFullscreen='true']) {
+    #zen-glance-overlay {
+      height: calc(100% - var(--zen-element-separation) * 2);
+      width: calc(100% - var(--zen-element-separation) * 2);
+    }
+    
     @media (-moz-bool-pref: 'zen.view.compact.hide-tabbar') {
       #zen-sidebar-web-panel-wrapper:has(#zen-sidebar-web-panel[pinned='true']) {
         margin-left: calc(var(--zen-sidebar-web-panel-spacing) * 2) !important;
@@ -9,6 +14,11 @@
 
       #zen-sidebar-top-buttons-customization-target {
         padding-inline-start: calc(var(--zen-toolbox-padding) - var(--toolbarbutton-outer-padding)) !important;
+      }
+
+      &:not([inDOMFullscreen='true']) #zen-glance-overlay {
+        margin-left: var(--zen-element-separation) !important;
+        padding-right: var(--zen-element-separation) !important;
       }
 
       /* Set the extra paddings */
@@ -105,6 +115,10 @@
 
       &:not([inDOMFullscreen='true']) #tabbrowser-tabpanels {
         padding-top: var(--zen-element-separation) !important;
+      }
+
+      &:not([inDOMFullscreen='true']) #zen-glance-overlay {
+        margin-top: var(--zen-element-separation) !important;
       }
 
       #sidebar-box,
