@@ -293,6 +293,25 @@
   }
 }
 
+@keyframes zen-glance-buttons-animation-full {
+  from {
+    width: 75%;
+    height: 100%;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  to {
+    width: calc(100% - var(--zen-element-separation));
+    height: calc(100% - var(--zen-element-separation));
+    top: 0;
+    left: 0;
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @keyframes zen-glance-loading-animation {
   0% {
     opacity: 1;
@@ -312,10 +331,11 @@
   from {
     right: 0;
     opacity: 0;
+    width: fit-content;
   }
 
   to {
     opacity: 1;
-    transform: translateX(105%);
+    transform: translateX(-100%) translateY(-50%);
   }
 }

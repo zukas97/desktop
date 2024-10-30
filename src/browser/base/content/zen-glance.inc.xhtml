@@ -1,11 +1,12 @@
 <hbox id="zen-glance-overlay" hidden="true" onclick="gZenGlanceManager.onOverlayClick(event)">
   <hbox id="zen-glance-content">
     <vbox id="zen-glance-browser-container">
-      <vbox id="zen-glance-browser">
-        <hbox id="zen-glance-loading"></hbox>
-      </vbox>
       <vbox id="zen-glance-sidebar-container">
         <toolbarbutton id="zen-glance-sidebar-close" class="toolbarbutton-1" oncommand="gZenGlanceManager.closeGlance()"/>
+        <toolbarbutton id="zen-glance-sidebar-open" class="toolbarbutton-1" oncommand="gZenGlanceManager.fullyOpenGlance()"/>
+      </vbox>
+      <vbox id="zen-glance-browser">
+        <hbox id="zen-glance-loading"></hbox>
       </vbox>
     </vbox>
   </hbox>

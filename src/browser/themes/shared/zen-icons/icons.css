@@ -264,6 +264,7 @@
 
 #restore-button,
 #fullscreen-button,
+#zen-glance-sidebar-open,
 #appMenu-fullscreen-button2 {
   list-style-image: url('fullscreen.svg') !important;
 }
