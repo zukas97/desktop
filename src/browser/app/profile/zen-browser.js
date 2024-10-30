@@ -170,7 +170,8 @@ pref('browser.migrate.opera.enabled', true);
 // DNS
 // pref('network.trr.mode', 5);
 
-pref('xpinstall.signatures.required', false);
+// security: They must enable this themselves, to avoid people downloading malware
+//pref('xpinstall.signatures.required', false);
 
 // Experimental Zen Features
 // Strategy to use for bytecode cache (Thanks https://github.com/gunir)
