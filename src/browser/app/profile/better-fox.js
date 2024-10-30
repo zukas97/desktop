@@ -130,9 +130,6 @@ pref("browser.tabs.crashReporting.sendReport", false);
 pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
 
 /** DETECTION ***/
-pref("captivedetect.canonicalURL", "");
-pref("network.captive-portal-service.enabled", false);
-pref("network.connectivity-service.enabled", false);
 pref("dom.private-attribution.submission.enabled", false);
 
 /****************************************************************************
