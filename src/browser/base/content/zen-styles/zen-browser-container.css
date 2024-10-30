@@ -18,6 +18,7 @@
     #zen-glance-browser-container {
       mix-blend-mode: multiply;
       -moz-osx-font-smoothing: grayscale;
+      isolation: isolate;
     }
   }
 }
