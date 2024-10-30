@@ -70,11 +70,6 @@ pref("browser.download.start_downloads_in_tmp_dir", true);
 pref("browser.helperApps.deleteTempFileOnExit", true);
 pref("browser.uitour.enabled", false);
 
-/** OCSP & CERTS / HPKP ***/
-pref("security.OCSP.enabled", 0);
-pref("security.remote_settings.crlite_filters.enabled", true);
-pref("security.pki.crlite_mode", 2);
-
 /** SSL / TLS ***/
 pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
 pref("browser.xul.error_pages.expert_bad_cert", true);
