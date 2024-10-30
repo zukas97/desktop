@@ -244,28 +244,28 @@
   }
 
   30% {
-    top: -5px;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
   }
 
   70% {
     /* make the box grow to full width/height */
     opacity: 1;
-    transform: translateX(-50%);
-    top: -5px;
+    transform: translate(-50%, -50%);
+    top: 50%;
     left: 50%;
-    width: 78%;
-    height: 103%;
+    width: 87%;
+    height: 87%;
   }
 
   100% {
     /* make the box shrink to final width/height and x/y coordinates */
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
     opacity: 1;
-    width: 75%;
-    height: 100%;
-    top: -5px;
+    width: 85%;
+    height: 85%;
+    top: 50%;
     left: 50%;
   }
 }
@@ -284,22 +284,22 @@
   }
 
   100% {
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
     opacity: 1;
-    width: 75%;
-    height: 100%;
-    top: -5px;
+    width: 85%;
+    height: 85%;
+    top: 50%;
     left: 50%;
   }
 }
 
 @keyframes zen-glance-buttons-animation-full {
   from {
-    width: 75%;
-    height: 100%;
-    top: -5px;
+    width: 85%;
+    height: 85%;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
   }
 
   to {

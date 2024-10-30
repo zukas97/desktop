@@ -60,6 +60,7 @@
       width: var(--initial-width);
       height: var(--initial-height);
       position: absolute;
+      border-radius: var(--zen-border-radius);
       opacity: 0;
       top: 0;
       left: 0;
@@ -126,7 +127,7 @@
 
       &[animate-full='true'] {
         opacity: 1;
-        animation: zen-glance-buttons-animation-full 0.2s ease-in-out forwards !important;
+        animation: zen-glance-buttons-animation-full 0.3s ease-in-out forwards !important;
 
         & #zen-glance-sidebar-container {
           opacity: 0 !important;
