@@ -733,6 +733,10 @@
     }
   }
 
+  #tabs-newtab-button {
+    display: none;
+  }
+
   @media (-moz-bool-pref: 'zen.tabs.show-newtab-under') {
     #tabs-newtab-button {
       display: flex !important;
