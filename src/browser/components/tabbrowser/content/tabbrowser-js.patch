@@ -1,5 +1,5 @@
 diff --git a/browser/components/tabbrowser/content/tabbrowser.js b/browser/components/tabbrowser/content/tabbrowser.js
-index 14de79b543cf07b04d06ef5a3f94d9aa988ea39a..7468ca5d73c343579d591e0dfbecf1bd9a102248 100644
+index 14de79b543cf07b04d06ef5a3f94d9aa988ea39a..1dab566aa17efd996f7082c709ab2a3e1e46aca1 100644
 --- a/browser/components/tabbrowser/content/tabbrowser.js
 +++ b/browser/components/tabbrowser/content/tabbrowser.js
 @@ -462,11 +462,26 @@
@@ -58,7 +58,7 @@ index 14de79b543cf07b04d06ef5a3f94d9aa988ea39a..7468ca5d73c343579d591e0dfbecf1bd
        let panel = this.getPanel(browser);
        let uniqueId = this._generateUniquePanelID();
 -      panel.id = uniqueId;
-+      if (!panel.id) panel.id = uniqueId;
++      if (!panel.id?.startsWith("zen-")) panel.id = uniqueId;
        aTab.linkedPanel = uniqueId;
  
        // Inject the <browser> into the DOM if necessary.
