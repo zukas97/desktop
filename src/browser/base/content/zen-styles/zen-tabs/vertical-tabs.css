@@ -128,6 +128,26 @@
           opacity: 0.5;
         }
       }
+
+      /* We have a tab inside a tab, this means, it's a glance tab */
+      & .tabbrowser-tab {
+        border-radius: 5px;
+        pointer-events: none;
+        margin: 0;
+
+        & .tab-background {
+          background: transparent;
+          box-shadow: none !important;
+        }
+        & label { display: none !important; }
+        & .tab-close-button { 
+          display: none !important; 
+        }
+
+        & .tab-icon-image {
+          --toolbarbutton-inner-padding: 0 !important;
+        }
+      }
     }
   }
 
@@ -321,7 +341,7 @@
         & .tab-background {
           @media not (prefers-color-scheme: dark) {
             &:is([selected], [multiselected]) {
-              box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.15) !important;
+              box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.15);
             }
           }
           margin-inline: var(--tab-block-margin);
@@ -329,7 +349,7 @@
         }
 
         &:not([pinned]):is(:hover, [visuallyselected]) .tab-close-button {
-          display: block !important;
+          display: block;
         }
 
         .tab-throbber,
@@ -473,6 +493,11 @@
           & .tab-icon-image,
           & .tab-icon-pending {
             margin-inline-end: 0 !important;
+          }
+
+          /* Hide glances */
+          & .tabbrowser-tab {
+            display: none !important;
           }
         }
       }
