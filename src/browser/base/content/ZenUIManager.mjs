@@ -48,7 +48,8 @@ var gZenUIManager = {
   onPopupShowing(showEvent) {
     for (const el of this._popupTrackingElements) {
       // target may be inside a shadow root, not directly under the element
-      if (!el.contains(showEvent.explicitOriginalTarget)) {
+      // we also ignore menus inside panels
+      if (!el.contains(showEvent.explicitOriginalTarget) || showEvent.explicitOriginalTarget.closest('panel')) {
         continue;
       }
       document.removeEventListener('mousemove', this.__removeHasPopupAttribute);
