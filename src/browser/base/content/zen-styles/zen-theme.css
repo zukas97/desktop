@@ -39,8 +39,8 @@
     color-mix(in srgb, var(--zen-primary-color) 40%, white 60%)
   ) !important;
   --in-content-primary-button-background-active: light-dark(
-    color-mix(in srgb, var(--zen-primary-color) 30%, black 70%),
-    color-mix(in srgb, var(--zen-primary-color) 30%, white 70%)
+    color-mix(in srgb, var(--zen-primary-color) 50%, black 50%),
+    color-mix(in srgb, var(--zen-primary-color) 80%, rgba(255,255,255,.2) 20%)
   ) !important;
   --in-content-primary-button-text-color: light-dark(white, black) !important;
   --in-content-primary-button-border-color: transparent !important;
