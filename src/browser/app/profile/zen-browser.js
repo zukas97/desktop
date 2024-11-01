@@ -77,11 +77,20 @@ pref('zen.tabs.vertical', true);
 pref('zen.tabs.vertical.right-side', false);
 pref('zen.tabs.show-newtab-under', true);
 pref('zen.theme.accent-color', "#aac7ff");
-pref('zen.theme.border-radius', 8); // In pixels
 pref('zen.theme.content-element-separation', 6); // In pixels
 pref('zen.theme.pill-button', false);
 pref('zen.theme.gradient', true);
 pref('zen.view.experimental-rounded-view', true);
+
+#ifdef XP_MACOSX
+pref('zen.theme.border-radius', 10); // In pixels
+#else
+#ifdef XP_WIN
+pref('zen.theme.border-radius', 6); // In pixels
+#else
+pref('zen.theme.border-radius', 8); // In pixels
+#endif
+#endif
 
 pref('zen.theme.color-prefs.use-workspace-colors', true);
 pref('zen.theme.color-prefs.amoled', false);
