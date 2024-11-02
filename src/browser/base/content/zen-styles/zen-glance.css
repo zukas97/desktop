@@ -20,6 +20,10 @@
 
 #zen-glance-sidebar-container {
   display: none;
+
+  & toolbarbutton:hover {
+    background: var(--button-background-color-hover);
+  }
 }
 
 .browserSidebarContainer.zen-glance-overlay {
