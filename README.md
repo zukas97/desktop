@@ -21,7 +21,7 @@
     Documentation
   </a>
   •
-  <a href="https//zen-browser.app/release-notes/latest">
+  <a href="https://zen-browser.app/release-notes/latest">
     Release Notes
   </a>
 </div>
