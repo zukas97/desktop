@@ -208,6 +208,7 @@ pref('image.jxl.enabled', true);
 #endif
 
 pref('browser.sessionstore.restore_pinned_tabs_on_demand', true);
+pref('browser.newtabpage.activity-stream.system.showWeather', true);
 
 // Enable experimental settings page (Usef for Zen Labs)
 pref('browser.preferences.experimental', true);
