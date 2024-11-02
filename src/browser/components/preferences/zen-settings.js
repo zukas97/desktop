@@ -1099,5 +1099,10 @@ Preferences.addAll([
     id: "zen.view.compact.color-sidebar",
     type: "bool",
     default: true,
+  },
+  {
+  id: "zen.essentials.enabled",
+  type: "bool",
+  default: true,
   }
 ]);
