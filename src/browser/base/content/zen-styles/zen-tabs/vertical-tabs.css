@@ -254,17 +254,18 @@
       margin-bottom: 12px;
       position: relative;
 
-      &::after {
-        bottom: -6px;
-        content: '';
-        display: block;
-        height: 1px;
-        background: light-dark(rgba(1, 1, 1, 0.075), rgba(255, 255, 255, 0.075));
-        width: 99%;
-        left: 50%;
-        transform: translateX(-50%);
-        position: absolute;
-      }
+      /*TODO: figure out if we want this line*/
+      /*&::after {*/
+      /*  bottom: -6px;*/
+      /*  content: '';*/
+      /*  display: block;*/
+      /*  height: 1px;*/
+      /*  background: light-dark(rgba(1, 1, 1, 0.075), rgba(255, 255, 255, 0.075));*/
+      /*  width: 99%;*/
+      /*  left: 50%;*/
+      /*  transform: translateX(-50%);*/
+      /*  position: absolute;*/
+      /*}*/
 
       & .tabbrowser-tab {
         width: 100%;
@@ -442,6 +443,14 @@
       &::before {
         width: 60% !important;
       }
+    }
+
+    & #EssentialsToolbar {
+      display: none !important;
+    }
+
+    & #essentials-accordion-header {
+      display: none !important;
     }
 
     & #vertical-pinned-tabs-container:has(tab:not([hidden])) {

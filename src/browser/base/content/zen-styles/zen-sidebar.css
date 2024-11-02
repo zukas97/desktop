@@ -73,3 +73,78 @@
 #toolbar-menubar {
   display: none !important;
 }
+
+/* Essentials styles */
+#EssentialsToolbar {
+  border-bottom: 1px solid var(--zen-colors-border);
+  padding-bottom: 6px;
+  & .bookmark-item {
+    max-width: unset;
+    padding: 8px;
+    gap: 8px;
+
+    & .toolbarbutton-icon {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  overflow: hidden;
+}
+
+#essentials-accordion-header {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  background: none !important;
+  border: none !important;
+  appearance: unset !important;
+  padding: 4px 8px;
+  gap: 6px;
+  cursor: pointer;
+  width: 100%;
+  transition: 0.3s;
+}
+
+.accordion-header-line {
+  flex: 1;
+  height: 1px;
+  width: 100%;
+  background-color: currentColor;
+}
+
+#essentials-accordion-header[expanded] #essentials-accordion-icon image {
+  transform: rotate(90deg);
+}
+
+#essentials-accordion-icon {
+  width: 12px;
+  height: 12px;
+  appearance: none !important;
+
+  color:inherit !important;
+  -moz-context-properties: fill, fill-opacity !important;
+  fill: currentColor !important;
+  & image {
+
+    color: inherit !important;
+    list-style-image: url("chrome://global/skin/icons/chevron.svg") !important;
+    transition: transform 0.3s ease;
+    appearance: unset !important;
+  }
+}
+
+#EssentialsToolbarItems {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  padding: 0 4px;
+  opacity: 0;
+}
+
+#EssentialsToolbarItems[expanded] {
+  opacity: 1;
+}
+
+#EssentialsToolbarItems .bookmark-item {
+  max-width: unset;
+}

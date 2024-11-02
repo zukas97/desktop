@@ -1,0 +1,30 @@
+diff --git a/browser/components/places/content/browserPlacesViews.js b/browser/components/places/content/browserPlacesViews.js
+index 1bfa0af16178c9b42172bc1b1e0249d28ff8e9e6..e7e76a6d548b32887c1d39053e42c5e3dafbb839 100644
+--- a/browser/components/places/content/browserPlacesViews.js
++++ b/browser/components/places/content/browserPlacesViews.js
+@@ -393,6 +393,7 @@ class PlacesViewBase {
+           "scheme",
+           PlacesUIUtils.guessUrlSchemeForUI(aPlacesNode.uri)
+         );
++        element.addEventListener("command", gZenGlanceManager.openGlanceForBookmark.bind(gZenGlanceManager));
+       } else if (PlacesUtils.containerTypes.includes(type)) {
+         element = document.createXULElement("menu");
+         element.setAttribute("container", "true");
+@@ -1087,6 +1088,8 @@ class PlacesToolbar extends PlacesViewBase {
+           "scheme",
+           PlacesUIUtils.guessUrlSchemeForUI(aChild.uri)
+         );
++        button.hidden = ZenWorkspaces.isBookmarkInAnotherWorkspace(aChild);
++        button.addEventListener("command", gZenGlanceManager.openGlanceForBookmark.bind(gZenGlanceManager));
+       }
+     }
+ 
+@@ -2235,7 +2238,7 @@ this.PlacesPanelview = class PlacesPanelview extends PlacesViewBase {
+         PlacesUIUtils.guessUrlSchemeForUI(placesNode.uri)
+       );
+       element.setAttribute("label", PlacesUIUtils.getBestTitle(placesNode));
+-
++      element.addEventListener("command", gZenGlanceManager.openGlanceForBookmark.bind(gZenGlanceManager));
+       let icon = placesNode.icon;
+       if (icon) {
+         element.setAttribute("image", icon);
