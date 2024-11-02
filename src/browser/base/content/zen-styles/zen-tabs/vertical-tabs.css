@@ -149,6 +149,10 @@
           --toolbarbutton-inner-padding: 0 !important;
         }
       }
+
+      &[pinned] .tabbrowser-tab {
+        display: none;
+      }
     }
   }
 
