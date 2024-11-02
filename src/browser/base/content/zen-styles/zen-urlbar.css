@@ -51,21 +51,6 @@
   outline-color: none !important;
 }
 
-#urlbar #tracking-protection-icon-container {
-  border-radius: var(--toolbarbutton-border-radius);
-}
-
-#urlbar .urlbar-page-action {
-  border-radius: calc(var(--toolbarbutton-border-radius) / 1.5);
-}
-
-#urlbar[breakout-extend='true'] .urlbar-page-action,
-#urlbar[breakout-extend='true'] #tracking-protection-icon-container,
-#urlbar[breakout-extend='true'] #identity-box #identity-icon-box,
-.searchbar-engine-one-off-item {
-  border-radius: var(--toolbarbutton-border-radius) !important;
-}
-
 #urlbar[breakout-extend='true'] {
   border-radius: 12px;
 }
@@ -111,16 +96,14 @@
 
 .urlbar-page-action,
 #tracking-protection-icon-container {
-  width: calc(var(--urlbar-min-height) - 4px - 4 * var(--urlbar-container-padding)) !important;
-  height: calc(var(--urlbar-min-height) - 4px - 4 * var(--urlbar-container-padding)) !important;
   padding: 0 !important;
   justify-content: center !important;
   align-items: center !important;
   margin: 0 0 0 2px !important;
 }
 
-#urlbar[breakout-extend='true'] .urlbar-page-action,
-#urlbar[breakout-extend='true'] #tracking-protection-icon-container {
+.urlbar-page-action,
+#tracking-protection-icon-container {
   width: calc(var(--urlbar-min-height) - 4 * var(--urlbar-container-padding)) !important;
   height: calc(var(--urlbar-min-height) - 4 * var(--urlbar-container-padding)) !important;
 }
