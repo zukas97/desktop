@@ -445,6 +445,14 @@
       }
     }
 
+    & #EssentialsToolbar {
+      display: none !important;
+    }
+
+    & #essentials-accordion-header {
+      display: none !important;
+    }
+
     & #vertical-pinned-tabs-container:has(tab:not([hidden])) {
       margin-bottom: 12px;
       position: relative;
