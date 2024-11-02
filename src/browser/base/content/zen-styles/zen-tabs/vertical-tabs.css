@@ -134,6 +134,7 @@
         border-radius: 5px;
         pointer-events: none;
         margin: 0;
+        --toolbarbutton-inner-padding: 0;
 
         & .tab-background {
           background: transparent;
@@ -355,6 +356,7 @@
 
         &:not([pinned]):is(:hover, [visuallyselected]) .tab-close-button {
           display: block;
+          --tab-inline-padding: 0; /* Avoid weird padding */
         }
 
         .tab-throbber,
