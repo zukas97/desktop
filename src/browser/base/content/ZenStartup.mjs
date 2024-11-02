@@ -34,11 +34,7 @@
 
         // Disable smooth scroll
         gBrowser.tabContainer.arrowScrollbox.smoothScroll = false;
-        new ZenEssentialsToolbar(
-            `place:parent=pfgqteRgY-Wr`,
-            document.getElementById("EssentialsToolbarItems"),
-            document.getElementById("EssentialsToolbar")
-        );
+
         ZenWorkspaces.init();
         gZenUIManager.init();
         gZenVerticalTabsManager.init();
