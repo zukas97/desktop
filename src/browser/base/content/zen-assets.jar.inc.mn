@@ -22,8 +22,6 @@
         content/browser/zen-components/ZenGradientGenerator.mjs (content/zen-components/src/ZenGradientGenerator.mjs)
         content/browser/zen-components/ZenGlanceManager.mjs     (content/zen-components/src/ZenGlanceManager.mjs)
         content/browser/zen-components/ZenActorsManager.mjs     (content/zen-components/src/ZenActorsManager.mjs)
-        content/browser/zen-components/ZenPinnedTabsStorage.mjs (content/zen-components/src/ZenPinnedTabsStorage.mjs)
-        content/browser/zen-components/ZenPinnedTabManager.mjs  (content/zen-components/src/ZenPinnedTabManager.mjs)
 
         content/browser/zen-styles/zen-theme.css                (content/zen-styles/zen-theme.css)
         content/browser/zen-styles/zen-buttons.css              (content/zen-styles/zen-buttons.css)
