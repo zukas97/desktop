@@ -127,7 +127,7 @@
         border-bottom-left-radius: var(--zen-border-radius);
         border-bottom-right-radius: var(--zen-border-radius);
         transition: all 0.1s ease-in-out;
-        width: calc(100% - ((var(--zen-element-separation) + var(--zen-compact-toolbar-offset)) * 2));
+        width: 100%;
         opacity: 0;
         background: var(--zen-dialog-background);
 

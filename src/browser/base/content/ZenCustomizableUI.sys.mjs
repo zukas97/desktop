@@ -2,14 +2,14 @@ export var ZenCustomizableUI = new (class {
   constructor() {}
 
   TYPE_TOOLBAR = 'toolbar';
-  defaultSidebarIcons = ['zen-sidepanel-button', 'zen-workspaces-button', 'downloads-button'];
+  defaultSidebarIcons = ['zen-profile-button', 'zen-workspaces-button', 'downloads-button'];
 
   startup(CustomizableUIInternal) {
     CustomizableUIInternal.registerArea(
       'zen-sidebar-top-buttons',
       {
         type: this.TYPE_TOOLBAR,
-        defaultPlacements: ['preferences-button', 'zen-expand-sidebar-button', 'zen-profile-button'],
+        defaultPlacements: ['zen-sidepanel-button', 'preferences-button', 'zen-expand-sidebar-button'],
         defaultCollapsed: null,
       },
       true
@@ -61,6 +61,7 @@ export var ZenCustomizableUI = new (class {
               <image id="zen-profile-button-icon" />
             </vbox>
           </toolbarbutton>
+          <toolbarbutton removeable="true" class="toolbarbutton-1 zen-sidebar-action-button" id="zen-sidepanel-button" data-l10n-id="sidebar-zen-sidepanel" onclick="gZenBrowserManagerSidebar.toggle();"></toolbarbutton>
         </hbox>
       </toolbar>
     `);

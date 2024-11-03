@@ -4,7 +4,8 @@
     border-radius: var(--zen-webview-border-radius, var(--zen-border-radius));
     position: relative;
 
-    box-shadow: 0 0 1px 1px light-dark(rgba(0, 0, 0, 0.1), var(--zen-colors-border));
+    box-shadow: 0 0 1px 1px light-dark(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3));
+    border: 1px solid light-dark(transparent, rgba(255,255,255,.08));
     
     & .browserContainer,
     #zen-glance-browser browser {

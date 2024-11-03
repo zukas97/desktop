@@ -16,14 +16,19 @@
   }
 
   #browser {
-    --zen-toolbox-padding: 5px;
+    --zen-toolbox-padding: calc(var(--zen-element-separation) / 1.5);
   }
 
   #vertical-pinned-tabs-container-separator {
-    background: light-dark(rgba(1, 1, 1, 0.075), rgba(255, 255, 255, 0.075));
-    margin: var(--zen-toolbox-padding) 0;
+    background: light-dark(rgba(1, 1, 1, 0.075), rgba(255, 255, 255, 0.18));
+    margin: var(--zen-toolbox-padding) auto;
     border: none;
     height: 1px;
+    width: 98%;
+
+    #vertical-pinned-tabs-container:not(:has(tab:not([hidden]))) + & {
+      display: none;
+    }
   }
 
   #navigator-toolbox {
@@ -256,8 +261,6 @@
 
       width: 100%;
       position: relative;
-
-      --toolbarbutton-inner-padding: var(--zen-toolbar-button-inner-padding) !important;
     }
 
     /* Mark: Fix separator paddings */
@@ -373,7 +376,7 @@
     --tab-min-width: 36px !important;
 
     /* Important: When changin this value, make sure expand on hover doesn't break! */
-    --zen-toolbox-padding: 6px;
+    --zen-toolbox-padding: calc(var(--zen-element-separation) / 2 + 1px);
     --zen-toolbox-max-width: calc(var(--tab-min-width) + var(--zen-toolbox-padding) * 2);
     max-width: var(--zen-toolbox-max-width) !important;
     min-width: var(--zen-toolbox-max-width) !important;
@@ -415,7 +418,7 @@
       }
 
       &::before {
-        width: 60% !important;
+        width: 90% !important;
       }
     }
 
@@ -718,17 +721,17 @@
         --zen-colors-border: var(--zen-colors-tertiary);
       }
 
-      margin-top: 10px;
+      margin-top: 11px;
       position: relative;
 
       &::before {
         content: '';
         display: block;
         height: 1px;
-        background: light-dark(rgba(1, 1, 1, 0.075), rgba(255, 255, 255, 0.075));
-        width: 96%;
+        background: light-dark(rgba(1, 1, 1, 0.075), rgba(255, 255, 255, 0.18));
+        width: 98%;
         position: absolute;
-        top: -5px;
+        top: -7px;
         left: 50%;
         transform: translateX(-50%);
       }
@@ -738,7 +741,6 @@
 
 /* Mark: Essentials Toolbar */
 #EssentialsToolbar {
-  border-bottom: 1px solid light-dark(rgba(1, 1, 1, 0.075), rgba(255, 255, 255, 0.075));
   padding-bottom: var(--zen-toolbox-padding);
   margin-bottom: var(--zen-toolbox-padding);
   & .bookmark-item {
@@ -765,7 +767,7 @@
   max-width: unset;
 
   border-radius: var(--border-radius-medium);
-  --zen-essential-tabs-bgcolor: light-dark(rgba(1, 1, 1, 0.075), rgba(255, 255, 255, 0.12));
+  --zen-essential-tabs-bgcolor: light-dark(rgba(1, 1, 1, 0.075), rgba(255, 255, 255, 0.18));
   background: var(--tab-hover-background-color);
   
   &:hover {
