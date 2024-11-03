@@ -489,7 +489,7 @@
           padding: 0 !important;
 
           & .tab-label-container {
-            display: none;
+            display: none !important;
           }
 
           & .tab-icon-image,
