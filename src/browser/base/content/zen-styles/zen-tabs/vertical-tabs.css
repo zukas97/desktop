@@ -184,7 +184,7 @@
     display: flex !important;
     flex-direction: column;
 
-    &:not(:hover) .tab-background:not([selected]):not([multiselected]) {
+    & .tabbrowser-tab:not(:hover) .tab-background:not([selected]):not([multiselected]) {
       background: transparent !important;
     }
 
@@ -192,25 +192,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-    }
-
-    & .tab-label-container {
-      display: flex !important;
-    }
-
-    & .tab-throbber,
-    & .tab-icon-pending,
-    & .tab-icon-image,
-    & .tab-sharing-icon-overlay,
-    & .tab-icon-overlay {
-      margin-inline-end: var(--toolbarbutton-inner-padding) !important;
-    }
-
-    .tabbrowser-tab:is(:hover, [visuallyselected], [selected]) {
-      & .tab-close-button {
-        display: block;
-        --tab-inline-padding: 0; /* Avoid weird padding */
-      }
     }
 
     .tabbrowser-tab[zen-glance-tab='true'] {
@@ -340,7 +321,7 @@
       --tab-inline-padding: 8px;
       & .tabbrowser-tab {
 
-        &:not([pinned]) .tab-label-container {
+        & .tab-label-container {
           display: flex;
         }
 
@@ -354,7 +335,7 @@
           width: -moz-available;
         }
 
-        &:not([pinned]):is(:hover, [visuallyselected]) .tab-close-button {
+        &:is(:hover, [visuallyselected]) .tab-close-button {
           display: block;
           --tab-inline-padding: 0; /* Avoid weird padding */
         }
@@ -364,10 +345,8 @@
         .tab-icon-image,
         .tab-sharing-icon-overlay,
         .tab-icon-overlay {
-          &:not([pinned]) {
-            margin-inline-end: var(--toolbarbutton-inner-padding) !important;
-            margin-inline-start: calc(var(--toolbarbutton-inner-padding) / 4) !important;
-          }
+          margin-inline-end: var(--toolbarbutton-inner-padding) !important;
+          margin-inline-start: calc(var(--toolbarbutton-inner-padding) / 4) !important;
         }
       }
     }
