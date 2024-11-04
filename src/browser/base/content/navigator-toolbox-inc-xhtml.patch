@@ -1,5 +1,5 @@
 diff --git a/browser/base/content/navigator-toolbox.inc.xhtml b/browser/base/content/navigator-toolbox.inc.xhtml
-index 12fa0cf79aade28581016adf96df85386dabdcef..8ad1d14884e8698437ebf0d1f41a16fe654515d2 100644
+index 12fa0cf79aade28581016adf96df85386dabdcef..5198bbbee13df7acfab9a7446c618d5627b4b830 100644
 --- a/browser/base/content/navigator-toolbox.inc.xhtml
 +++ b/browser/base/content/navigator-toolbox.inc.xhtml
 @@ -2,7 +2,7 @@
@@ -27,7 +27,7 @@ index 12fa0cf79aade28581016adf96df85386dabdcef..8ad1d14884e8698437ebf0d1f41a16fe
                           aria-pressed="false"
                           oncommand="FirefoxViewHandler.openTab();"
                           onmousedown="FirefoxViewHandler.openToolbarMouseEvent(event);"
-@@ -50,7 +51,7 @@
+@@ -50,16 +51,17 @@
                  aria-multiselectable="true"
                  setfocus="false"
                  tooltip="tabbrowser-tab-tooltip"
@@ -36,8 +36,10 @@ index 12fa0cf79aade28581016adf96df85386dabdcef..8ad1d14884e8698437ebf0d1f41a16fe
                  stopwatchid="FX_TAB_CLICK_MS">
              <hbox class="tab-drop-indicator" hidden="true"/>
  # If the name (tabbrowser-arrowscrollbox) or structure of this changes
-@@ -59,7 +60,7 @@
+ # significantly, there is an optimization in
+ # DisplayPortUtils::MaybeCreateDisplayPortInFirstScrollFrameEncountered based
  # the current structure that we may want to revisit.
++            <html:div id="zen-essentials-container"></html:div>
              <html:div id="vertical-pinned-tabs-container"></html:div>
              <html:div id="vertical-pinned-tabs-container-separator"></html:div>
 -            <arrowscrollbox id="tabbrowser-arrowscrollbox" orient="horizontal" flex="1" clicktoscroll="" scrolledtostart="" scrolledtoend="">
@@ -45,7 +47,7 @@ index 12fa0cf79aade28581016adf96df85386dabdcef..8ad1d14884e8698437ebf0d1f41a16fe
                <tab is="tabbrowser-tab" class="tabbrowser-tab" selected="true" visuallyselected="" fadein=""/>
                <hbox id="tabbrowser-arrowscrollbox-periphery">
                  <toolbartabstop/>
-@@ -113,9 +114,10 @@
+@@ -113,9 +115,10 @@
        <toolbarbutton id="content-analysis-indicator"
                       oncommand="ContentAnalysis.showPanel(this, PanelUI);"
                       class="toolbarbutton-1 content-analysis-indicator-icon"/>
@@ -58,7 +60,7 @@ index 12fa0cf79aade28581016adf96df85386dabdcef..8ad1d14884e8698437ebf0d1f41a16fe
      </toolbar>
  
    </vbox>
-@@ -531,6 +533,7 @@
+@@ -531,6 +534,7 @@
                       consumeanchor="PanelUI-button"
                       data-l10n-id="appmenu-menu-button-closed2"/>
      </toolbaritem>

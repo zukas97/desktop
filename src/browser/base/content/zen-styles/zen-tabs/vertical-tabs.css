@@ -21,7 +21,7 @@
 
   #vertical-pinned-tabs-container-separator {
     background: light-dark(rgba(1, 1, 1, 0.075), rgba(255, 255, 255, 0.18));
-    margin: var(--zen-toolbox-padding) auto;
+    margin: 8px auto;
     border: none;
     height: 1px;
     width: 98%;
@@ -721,7 +721,7 @@
         --zen-colors-border: var(--zen-colors-tertiary);
       }
 
-      margin-top: 11px;
+      margin-top: 15px;
       position: relative;
 
       &::before {
@@ -731,7 +731,7 @@
         background: light-dark(rgba(1, 1, 1, 0.075), rgba(255, 255, 255, 0.18));
         width: 98%;
         position: absolute;
-        top: -7px;
+        top: -8px;
         left: 50%;
         transform: translateX(-50%);
       }
@@ -740,18 +740,14 @@
 }
 
 /* Mark: Essentials Toolbar */
-#EssentialsToolbar {
+#zen-essentials-container {
   padding-bottom: var(--zen-toolbox-padding);
   margin-bottom: var(--zen-toolbox-padding);
-  & .bookmark-item {
-    max-width: unset;
-    padding: 10px 0;
-    gap: 8px;
-  }
+  gap: 3px;
   overflow: hidden;
 }
 
-#EssentialsToolbarItems {
+#zen-essentials-container {
   overflow: hidden;
   transition: max-height 0.3s ease-out;
   opacity: 1;
@@ -763,21 +759,33 @@
   padding: 0;
 }
 
-#EssentialsToolbarItems .bookmark-item {
+#zen-essentials-container .tabbrowser-tab {
   max-width: unset;
-
+  width: 100% !important;
   border-radius: var(--border-radius-medium);
-  --zen-essential-tabs-bgcolor: light-dark(rgba(1, 1, 1, 0.075), rgba(255, 255, 255, 0.18));
-  background: var(--tab-hover-background-color);
-  
-  &:hover {
-    background: var(--zen-essential-tabs-bgcolor) !important;
+
+  &:not([selected]):not(:hover) .tab-background {
+    background: light-dark(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
   }
 
   backdrop-filter: blur(10px);
 
-  & label {
+  & .tab-content {
+    display: flex;
+    justify-content: center;
+  }
+
+  & .tab-label-container {
     display: none !important;
+  }
+
+  & .tab-close-button {
+    display: none !important;
+  }
+
+  & .tab-icon-image,
+  & .tab-icon-overlay {
+    margin-inline-end: 0 !important;
   }
 }
 

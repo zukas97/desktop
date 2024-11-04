@@ -920,7 +920,8 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
       this._createNewTabForWorkspace(window);
     }
     for (let tab of gBrowser.tabs) {
-      if (tab.getAttribute('zen-workspace-id') !== window.uuid && !(tab.pinned && !tab.hasAttribute('zen-workspace-id'))) {
+      if (tab.getAttribute('zen-workspace-id') !== window.uuid && !(tab.pinned && !tab.hasAttribute('zen-workspace-id'))
+          && !tab.hasAttribute("zen-essential")) {
         gBrowser.hideTab(tab, undefined, true);
       }
     }

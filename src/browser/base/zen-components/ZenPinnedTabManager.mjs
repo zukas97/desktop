@@ -49,7 +49,7 @@
 
     async initTabs() {
       await ZenPinnedTabsStorage.init();
-      await  this._refreshPinnedTabs();
+      await this._refreshPinnedTabs();
     }
 
     async _refreshPinnedTabs() {
@@ -313,8 +313,6 @@
         default:
           return;
       }
-
-
     }
 
     _handleTabSwitch(selectedTab) {
@@ -366,15 +364,25 @@
       }
     }
 
-    _addGlobalPin() {
-      const tab = TabContextMenu.contextTab;
-      if (!tab || tab.pinned) {
-        return;
+    addToEssentials() {
+      const tabs = TabContextMenu.contextTab.multiselected ? gBrowser.selectedTabs : [TabContextMenu.contextTab];
+      for (let i = 0; i < tabs.length; i++) {
+        const tab = tabs[i];
+        tab.setAttribute("zen-essential", "true");
+        if (tab.pinned) {
+          gBrowser.unpinTab(tab);
+        }
+        gBrowser.pinTab(tab);
       }
+    }
 
-      tab.removeAttribute("zen-workspace-id");
-
-      gBrowser.pinTab(tab);
+    removeEssentials() {
+      const tabs = TabContextMenu.contextTab.multiselected ? gBrowser.selectedTabs : [TabContextMenu.contextTab];
+      for (let i = 0; i < tabs.length; i++) {
+        const tab = tabs[i];
+        tab.removeAttribute("zen-essential");
+        gBrowser.unpinTab(tab);
+      }
     }
 
     _insertItemsIntoTabContextMenu() {
@@ -393,9 +401,9 @@
 
       const element = window.MozXULElement.parseXULToFragment(`
             <menuitem id="context_zen-pin-tab-global"
-                      data-lazy-l10n-id="pin-tab-global"
+                      data-lazy-l10n-id="tab-context-zen-pin-tab-global"
                       hidden="true"
-                      oncommand="gZenPinnedTabManager._addGlobalPin();"/>   
+                      oncommand="gZenPinnedTabManager.addToEssentials();"/>
         `);
 
       document.getElementById('context_pinTab').after(element);
