@@ -154,6 +154,10 @@
           newTab.setAttribute("zen-workspace-id", pin.workspaceUuid);
         }
 
+        if (pin.isEssential) {
+          newTab.setAttribute("zen-essential", "true");
+        }
+
         gBrowser.pinTab(newTab);
       }
 
@@ -178,10 +182,9 @@
             delete tab._zenClickEventListener;
           }
           break;
-          // TODO: Do this in a better way. Closing a second window could trigger remove tab and delete it from db
-        // case "TabClose":
-        //   this._removePinnedAttributes(tab);
-        //   break;
+        case "TabClose":
+          this._removePinnedAttributes(tab);
+          break;
         default:
           console.warn('ZenPinnedTabManager: Unhandled tab event', action);
           break;
@@ -189,8 +192,8 @@
     }
 
     _onTabClick(e) {
-      const tab = e.target;
-      if (e.button === 1) {
+      const tab = e.target?.closest("tab");
+      if (e.button === 1 && tab) {
         this._onCloseTabShortcut(e, tab);
       }
     }
@@ -246,7 +249,8 @@
         title: tab.label || browser.contentTitle,
         url: browser.currentURI.spec,
         containerTabId: tab.getAttribute("userContextId"),
-        workspaceUuid: tab.getAttribute("zen-workspace-id")
+        workspaceUuid: tab.getAttribute("zen-workspace-id"),
+        isEssential: tab.getAttribute("zen-essential") === "true"
       });
 
       tab.setAttribute("zen-pin-id", uuid);
