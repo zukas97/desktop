@@ -36,7 +36,7 @@
     --tab-border-radius: var(--border-radius-medium);
     --zen-toolbox-min-width: 1px;
 
-    --tab-hover-background-color: color-mix(in srgb, var(--toolbarbutton-hover-background) 80%, transparent 20%);
+    --tab-hover-background-color: color-mix(in srgb, var(--toolbarbutton-hover-background) 50%, transparent 50%);
 
     min-width: var(--zen-toolbox-min-width);
     margin-top: 0 !important; /* Fix full screen mode */
