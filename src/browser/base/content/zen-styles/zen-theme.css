@@ -126,7 +126,11 @@
 
   --input-bgcolor: var(--zen-colors-tertiary) !important;
   --input-border-color: var(--zen-input-border-color) !important;
-  --zen-themed-toolbar-bg: light-dark(#f7f7f7, var(--zen-colors-tertiary)) !important;
+  --zen-themed-toolbar-bg: light-dark(#f7f7f7, var(--zen-colors-tertiary));
+
+  @media (-moz-platform: macos) {
+    --zen-themed-toolbar-bg: light-dark(rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.2)) !important;
+  }
 
   --toolbar-field-background-color: var(--zen-colors-input-bg) !important;
   --arrowpanel-background: var(--zen-dialog-background) !important;

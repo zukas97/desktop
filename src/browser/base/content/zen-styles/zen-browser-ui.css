@@ -38,6 +38,14 @@
   border: none;
 }
 
+@media (-moz-platform: macos) {
+  :root #zen-main-app-wrapper {
+    /** Add transparency to the titlebar */
+    -moz-default-appearance: menupopup !important;
+    appearance: auto !important;
+  }
+}
+
 #zen-main-app-wrapper {
   background: var(--zen-main-browser-background);
 
