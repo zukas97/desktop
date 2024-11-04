@@ -5,7 +5,7 @@
 }
 
 #urlbar {
-  --toolbarbutton-border-radius: 5px;
+  --toolbarbutton-border-radius: 6px;
   --urlbarView-separator-color: var(--zen-colors-border);
   --urlbarView-hover-background: var(--toolbarbutton-hover-background);
   --urlbarView-highlight-background: var(--toolbarbutton-hover-background);
@@ -49,10 +49,6 @@
   outline: none !important;
   outline-offset: none !important;
   outline-color: none !important;
-}
-
-#urlbar[breakout-extend='true'] {
-  border-radius: 12px;
 }
 
 #identity-icon-box,

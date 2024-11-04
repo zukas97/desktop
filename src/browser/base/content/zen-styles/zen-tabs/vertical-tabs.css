@@ -263,6 +263,10 @@
       position: relative;
     }
 
+    & #zen-essentials-container {
+      --tab-min-height: 40px;
+    }
+
     /* Mark: Fix separator paddings */
     &[zen-right-side='true'] {
       padding-left: 0;
@@ -743,7 +747,6 @@
 #zen-essentials-container {
   padding-bottom: var(--zen-toolbox-padding);
   margin-bottom: var(--zen-toolbox-padding);
-  gap: 3px;
   overflow: hidden;
 }
 
@@ -760,12 +763,13 @@
 }
 
 #zen-essentials-container .tabbrowser-tab {
+  --toolbarbutton-inner-padding: 0;
   max-width: unset;
   width: 100% !important;
   border-radius: var(--border-radius-medium);
 
-  &:not([selected]):not(:hover) .tab-background {
-    background: light-dark(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
+  &:not([selected]) .tab-background {
+    background: light-dark(rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.07));
   }
 
   backdrop-filter: blur(10px);
