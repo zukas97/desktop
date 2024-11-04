@@ -100,7 +100,7 @@
     border-bottom: 0px solid transparent !important;
 
     --tab-block-margin: 2px;
-    --tab-selected-bgcolor: light-dark(rgba(255,255,255,.7), color-mix(in srgb, var(--zen-colors-secondary) 50%, rgba(255,255,255,.2) 50%));
+    --tab-selected-bgcolor: light-dark(rgba(255,255,255,.7), color-mix(in srgb, var(--zen-colors-secondary) 30%, rgba(255,255,255,.2) 70%));
     grid-gap: 0 !important;
 
     &[overflow]::after,
