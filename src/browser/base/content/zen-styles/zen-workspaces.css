@@ -412,7 +412,6 @@
 #zen-current-workspace-indicator {
   margin: calc(var(--zen-toolbox-padding) * 3) calc(4px + var(--tab-inline-padding)) calc(var(--zen-toolbox-padding) * 2);
   font-weight: 600;
-  opacity: 0.5;
   align-items: center;
 
   & #zen-current-workspace-indicator-icon {
@@ -421,6 +420,7 @@
 
   #zen-current-workspace-indicator-name {
     font-size: 13px;
+    opacity: 0.5;
   }
 
   & #zen-current-workspace-indicator-icon:not([hidden]) + #zen-current-workspace-indicator-name {
