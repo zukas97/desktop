@@ -407,3 +407,23 @@
 #PanelUI-zen-workspaces-edit-footer button[default='true'] {
   width: 100%;
 }
+
+/* Mark workspaces indicator */
+#zen-current-workspace-indicator {
+  margin: calc(var(--zen-toolbox-padding) * 3) calc(4px + var(--tab-inline-padding)) calc(var(--zen-toolbox-padding) * 2);
+  font-weight: 600;
+  opacity: 0.5;
+  align-items: center;
+
+  & #zen-current-workspace-indicator-icon {
+    font-size: 14px;
+  }
+
+  #zen-current-workspace-indicator-name {
+    font-size: 13px;
+  }
+
+  & #zen-current-workspace-indicator-icon:not([hidden]) + #zen-current-workspace-indicator-name {
+    margin-left: 10px;
+  }
+}

@@ -941,11 +941,18 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
       placesToolbar._placesView.invalidateContainer(placesToolbar._placesView._resultNode);
     }
 
-    const essentialsToolbar = document.getElementById("EssentialsToolbar");
-    if(essentialsToolbar?._placesView) {
-      essentialsToolbar._placesView.invalidateContainer(essentialsToolbar._placesView._resultNode);
-    }
+    // Update current workspace indicator
+    const currentWorkspace = await this.getActiveWorkspace();
+    const indicatorName = document.getElementById('zen-current-workspace-indicator-name');
+    const indicatorIcon = document.getElementById('zen-current-workspace-indicator-icon');
 
+    if (this.workspaceHasIcon(currentWorkspace)) {
+      indicatorIcon.textContent = this.getWorkspaceIcon(currentWorkspace);
+      indicatorIcon.removeAttribute('hidden');
+    } else {
+      indicatorIcon.setAttribute('hidden', 'true');
+    }
+    indicatorName.textContent = currentWorkspace.name;
 
     this._inChangingWorkspace = false;
   }

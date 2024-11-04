@@ -394,6 +394,9 @@
       margin-right: var(--zen-tabbar-offset);
     }
 
+    & #zen-current-workspace-indicator-name {
+      display: none;
+    }
 
     & #vertical-tabs-newtab-button {
       padding: 0 !important;
@@ -746,7 +749,6 @@
 /* Mark: Essentials Toolbar */
 #zen-essentials-container {
   padding-bottom: var(--zen-toolbox-padding);
-  margin-bottom: var(--zen-toolbox-padding);
   overflow: hidden;
 }
 
@@ -769,7 +771,7 @@
   border-radius: var(--border-radius-medium);
 
   &:not([selected]) .tab-background {
-    background: light-dark(rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.07));
+    background: light-dark(rgba(0, 0, 0, 0.06), rgba(255, 255, 255, 0.04));
   }
 
   backdrop-filter: blur(10px);
