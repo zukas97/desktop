@@ -893,7 +893,8 @@ menuitem[contexttype='fullscreen'][label*='Exit'] {
 #context_pinSelectedTabs,
 #context_unpinSelectedTabs,
 .customize-context-moveToPanel,
-#context_zen-replace-pinned-url-with-current {
+#context_zen-replace-pinned-url-with-current,
+#context_zen-pin-tab-global{
   --menu-image: url('pin.svg');
 }
 
