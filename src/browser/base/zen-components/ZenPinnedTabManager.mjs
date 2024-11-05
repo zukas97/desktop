@@ -225,10 +225,12 @@
         return;
       }
 
+      const userContextId = tab.getAttribute("usercontextid");
+
       pin.title = tab.label || browser.contentTitle;
       pin.url = browser.currentURI.spec;
       pin.workspaceUuid = tab.getAttribute("zen-workspace-id");
-      pin.userContextId = tab.getAttribute("userContextId");
+      pin.userContextId = userContextId ? parseInt(userContextId, 10) : 0;
 
       await ZenPinnedTabsStorage.savePin(pin);
       await this._refreshPinnedTabs();
@@ -243,12 +245,13 @@
       const browser = tab.linkedBrowser;
 
       const uuid = gZenUIManager.generateUuidv4();
+      const userContextId = tab.getAttribute("usercontextid");
 
       await ZenPinnedTabsStorage.savePin({
         uuid,
         title: tab.label || browser.contentTitle,
         url: browser.currentURI.spec,
-        containerTabId: tab.getAttribute("userContextId"),
+        containerTabId: userContextId ? parseInt(userContextId, 10) : 0,
         workspaceUuid: tab.getAttribute("zen-workspace-id"),
         isEssential: tab.getAttribute("zen-essential") === "true"
       });
