@@ -354,6 +354,7 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
 
   async _propagateWorkspaceData({ ignoreStrip = false, clearCache = true } = {}) {
     await this.foreachWindowAsActive(async (browser) => {
+      await browser.ZenWorkspaces.updateWorkspaceIndicator();
       let workspaceList = browser.document.getElementById('PanelUI-zen-workspaces-list');
       const createWorkspaceElement = (workspace) => {
         let element = browser.document.createXULElement('toolbarbutton');
@@ -940,7 +941,11 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
     if(placesToolbar?._placesView) {
       placesToolbar._placesView.invalidateContainer(placesToolbar._placesView._resultNode);
     }
+    await this.updateWorkspaceIndicator();
+    this._inChangingWorkspace = false;
+  }
 
+  async updateWorkspaceIndicator() {
     // Update current workspace indicator
     const currentWorkspace = await this.getActiveWorkspace();
     const indicatorName = document.getElementById('zen-current-workspace-indicator-name');
@@ -953,8 +958,6 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
       indicatorIcon.setAttribute('hidden', 'true');
     }
     indicatorName.textContent = currentWorkspace.name;
-
-    this._inChangingWorkspace = false;
   }
 
   async _updateWorkspacesChangeContextMenu() {
