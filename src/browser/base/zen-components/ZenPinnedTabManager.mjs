@@ -376,6 +376,9 @@
       for (let i = 0; i < tabs.length; i++) {
         const tab = tabs[i];
         tab.setAttribute("zen-essential", "true");
+        if(tab.hasAttribute("zen-workspace-id")) {
+          tab.removeAttribute("zen-workspace-id");
+        }
         if (tab.pinned) {
           gBrowser.unpinTab(tab);
         }
@@ -388,6 +391,9 @@
       for (let i = 0; i < tabs.length; i++) {
         const tab = tabs[i];
         tab.removeAttribute("zen-essential");
+        if(ZenWorkspaces.workspaceEnabled && ZenWorkspaces.getActiveWorkspaceFromCache.uuid) {
+          tab.setAttribute("zen-workspace-id", ZenWorkspaces.getActiveWorkspaceFromCache.uuid);
+        }
         gBrowser.unpinTab(tab);
       }
     }
@@ -407,13 +413,17 @@
       document.getElementById('tabContextMenu').appendChild(elements);
 
       const element = window.MozXULElement.parseXULToFragment(`
-            <menuitem id="context_zen-pin-tab-global"
-                      data-lazy-l10n-id="tab-context-zen-pin-tab-global"
+            <menuitem id="context_zen-add-essential"
+                      data-lazy-l10n-id="tab-context-zen-add-essential"
                       hidden="true"
                       oncommand="gZenPinnedTabManager.addToEssentials();"/>
+            <menuitem id="context_zen-remove-essential"
+                      data-lazy-l10n-id="tab-context-zen-remove-essential"
+                      hidden="true"
+                      oncommand="gZenPinnedTabManager.removeEssentials();"/>
         `);
 
-      document.getElementById('context_pinTab').after(element);
+      document.getElementById('context_pinTab')?.after(element);
     }
 
     resetPinnedTabData(tabData) {
@@ -428,7 +438,10 @@
       const isVisible = contextTab.pinned  && !contextTab.multiselected;
       document.getElementById("context_zen-reset-pinned-tab").hidden = !isVisible || !contextTab.getAttribute("zen-pin-id");
       document.getElementById("context_zen-replace-pinned-url-with-current").hidden = !isVisible;
-      document.getElementById("context_zen-pin-tab-global").hidden = contextTab.pinned;
+      document.getElementById("context_zen-add-essential").hidden = contextTab.pinned;
+      document.getElementById("context_zen-remove-essential").hidden = !contextTab.getAttribute("zen-essential");
+      document.getElementById("context_unpinTab").hidden = document.getElementById("context_unpinTab").hidden || contextTab.getAttribute("zen-essential");
+      document.getElementById("context_unpinSelectedTabs").hidden = document.getElementById("context_unpinSelectedTabs").hidden || contextTab.getAttribute("zen-essential");
       document.getElementById("context_zen-pinned-tab-separator").hidden = !isVisible;
     }
   }
