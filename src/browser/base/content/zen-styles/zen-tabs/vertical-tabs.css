@@ -600,6 +600,7 @@
         z-index: 100 !important;
         width: 250px !important;
         
+        --zen-themed-toolbar-bg-transparency: 1 !important;
         background: var(--zen-main-browser-background) !important;
         background-attachment: fixed !important;
         background-size: 2000px !important; /* Dont ask me why */
