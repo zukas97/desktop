@@ -80,7 +80,13 @@ pref('zen.theme.accent-color', "#aac7ff");
 pref('zen.theme.content-element-separation', 6); // In pixels
 pref('zen.theme.pill-button', false);
 pref('zen.theme.gradient', true);
+
+#ifdef XP_MACOSX
+// Disable for macos in the meantime until @HarryHeres finds a solution for hight DPI screens
+pref('zen.view.experimental-rounded-view', false);
+#else
 pref('zen.view.experimental-rounded-view', true);
+#endif
 
 #ifdef XP_MACOSX
 pref('zen.theme.border-radius', 10); // In pixels
@@ -270,3 +276,8 @@ pref("network.proxy.type", 0);
 
 // for the new layout:
 pref('browser.download.autohideButton', false);
+
+// Enable transparent background for macos
+#ifdef XP_MACOSX
+pref('widget.macos.titlebar-blend-mode.behind-window', true);
+#endif

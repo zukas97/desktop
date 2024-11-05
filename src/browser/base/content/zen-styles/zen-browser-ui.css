@@ -38,11 +38,10 @@
   border: none;
 }
 
-@media (-moz-platform: macos) {
-  :root #zen-main-app-wrapper {
-    /** Add transparency to the titlebar */
-    -moz-default-appearance: menupopup !important;
-    appearance: auto !important;
+
+@supports (-moz-osx-font-smoothing: auto) {
+  #zen-main-app-wrapper {
+    appearance: -moz-window-titlebar !important;
   }
 }
 
