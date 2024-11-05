@@ -154,6 +154,10 @@
           newTab.setAttribute("zen-workspace-id", pin.workspaceUuid);
         }
 
+        if (pin.isEssential) {
+          newTab.setAttribute("zen-essential", "true");
+        }
+
         gBrowser.pinTab(newTab);
       }
 
@@ -178,10 +182,9 @@
             delete tab._zenClickEventListener;
           }
           break;
-          // TODO: Do this in a better way. Closing a second window could trigger remove tab and delete it from db
-        // case "TabClose":
-        //   this._removePinnedAttributes(tab);
-        //   break;
+        case "TabClose":
+          this._removePinnedAttributes(tab);
+          break;
         default:
           console.warn('ZenPinnedTabManager: Unhandled tab event', action);
           break;
@@ -189,8 +192,8 @@
     }
 
     _onTabClick(e) {
-      const tab = e.target;
-      if (e.button === 1) {
+      const tab = e.target?.closest("tab");
+      if (e.button === 1 && tab) {
         this._onCloseTabShortcut(e, tab);
       }
     }
@@ -222,10 +225,12 @@
         return;
       }
 
+      const userContextId = tab.getAttribute("usercontextid");
+
       pin.title = tab.label || browser.contentTitle;
       pin.url = browser.currentURI.spec;
       pin.workspaceUuid = tab.getAttribute("zen-workspace-id");
-      pin.userContextId = tab.getAttribute("userContextId");
+      pin.userContextId = userContextId ? parseInt(userContextId, 10) : 0;
 
       await ZenPinnedTabsStorage.savePin(pin);
       await this._refreshPinnedTabs();
@@ -240,13 +245,15 @@
       const browser = tab.linkedBrowser;
 
       const uuid = gZenUIManager.generateUuidv4();
+      const userContextId = tab.getAttribute("usercontextid");
 
       await ZenPinnedTabsStorage.savePin({
         uuid,
         title: tab.label || browser.contentTitle,
         url: browser.currentURI.spec,
-        containerTabId: tab.getAttribute("userContextId"),
-        workspaceUuid: tab.getAttribute("zen-workspace-id")
+        containerTabId: userContextId ? parseInt(userContextId, 10) : 0,
+        workspaceUuid: tab.getAttribute("zen-workspace-id"),
+        isEssential: tab.getAttribute("zen-essential") === "true"
       });
 
       tab.setAttribute("zen-pin-id", uuid);
@@ -369,6 +376,9 @@
       for (let i = 0; i < tabs.length; i++) {
         const tab = tabs[i];
         tab.setAttribute("zen-essential", "true");
+        if(tab.hasAttribute("zen-workspace-id")) {
+          tab.removeAttribute("zen-workspace-id");
+        }
         if (tab.pinned) {
           gBrowser.unpinTab(tab);
         }
@@ -381,6 +391,9 @@
       for (let i = 0; i < tabs.length; i++) {
         const tab = tabs[i];
         tab.removeAttribute("zen-essential");
+        if(ZenWorkspaces.workspaceEnabled && ZenWorkspaces.getActiveWorkspaceFromCache.uuid) {
+          tab.setAttribute("zen-workspace-id", ZenWorkspaces.getActiveWorkspaceFromCache.uuid);
+        }
         gBrowser.unpinTab(tab);
       }
     }
@@ -400,13 +413,17 @@
       document.getElementById('tabContextMenu').appendChild(elements);
 
       const element = window.MozXULElement.parseXULToFragment(`
-            <menuitem id="context_zen-pin-tab-global"
-                      data-lazy-l10n-id="tab-context-zen-pin-tab-global"
+            <menuitem id="context_zen-add-essential"
+                      data-lazy-l10n-id="tab-context-zen-add-essential"
                       hidden="true"
                       oncommand="gZenPinnedTabManager.addToEssentials();"/>
+            <menuitem id="context_zen-remove-essential"
+                      data-lazy-l10n-id="tab-context-zen-remove-essential"
+                      hidden="true"
+                      oncommand="gZenPinnedTabManager.removeEssentials();"/>
         `);
 
-      document.getElementById('context_pinTab').after(element);
+      document.getElementById('context_pinTab')?.after(element);
     }
 
     resetPinnedTabData(tabData) {
@@ -421,7 +438,10 @@
       const isVisible = contextTab.pinned  && !contextTab.multiselected;
       document.getElementById("context_zen-reset-pinned-tab").hidden = !isVisible || !contextTab.getAttribute("zen-pin-id");
       document.getElementById("context_zen-replace-pinned-url-with-current").hidden = !isVisible;
-      document.getElementById("context_zen-pin-tab-global").hidden = contextTab.pinned;
+      document.getElementById("context_zen-add-essential").hidden = contextTab.pinned;
+      document.getElementById("context_zen-remove-essential").hidden = !contextTab.getAttribute("zen-essential");
+      document.getElementById("context_unpinTab").hidden = document.getElementById("context_unpinTab").hidden || contextTab.getAttribute("zen-essential");
+      document.getElementById("context_unpinSelectedTabs").hidden = document.getElementById("context_unpinSelectedTabs").hidden || contextTab.getAttribute("zen-essential");
       document.getElementById("context_zen-pinned-tab-separator").hidden = !isVisible;
     }
   }
