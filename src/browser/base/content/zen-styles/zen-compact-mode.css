@@ -55,7 +55,7 @@
         padding: var(--zen-toolbox-padding) !important;
         position: relative;
         background: var(--zen-dialog-background);
-        border: 1px solid var(--zen-colors-border);
+        outline: 1px solid light-dark(rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
 
         @media (-moz-bool-pref: 'zen.view.compact.color-sidebar') {
           --zen-themed-toolbar-bg-transparency: 1 !important;

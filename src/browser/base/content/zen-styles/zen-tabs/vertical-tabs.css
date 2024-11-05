@@ -751,6 +751,7 @@
 #zen-essentials-container {
   padding-bottom: var(--zen-toolbox-padding);
   overflow: hidden;
+  gap: 1px;
 }
 
 #zen-essentials-container {
