@@ -1,0 +1,13 @@
+diff --git a/widget/cocoa/VibrancyManager.mm b/widget/cocoa/VibrancyManager.mm
+index e8263ee480a0249cae760ee5b9037bb87acafecc..aefc887208659e46191eebfde1f9f74f1eac77a5 100644
+--- a/widget/cocoa/VibrancyManager.mm
++++ b/widget/cocoa/VibrancyManager.mm
+@@ -39,7 +39,7 @@ static NSVisualEffectMaterial VisualEffectMaterialForVibrancyType(
+     case VibrancyType::Sidebar:
+       return NSVisualEffectMaterialSidebar;
+     case VibrancyType::Titlebar:
+-      return NSVisualEffectMaterialTitlebar;
++      return NSVisualEffectMaterialUnderWindowBackground;
+   }
+ }
+ 
