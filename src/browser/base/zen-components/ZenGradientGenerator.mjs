@@ -220,7 +220,7 @@
       return imageData.data;
     }
 
-    createDot(color, fromWorkspace = false,) {
+    createDot(color, fromWorkspace = false) {
       const [r, g, b] = color.c;
       const dot = document.createElement('div');
       dot.classList.add('zen-theme-picker-dot');
