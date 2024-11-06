@@ -414,8 +414,7 @@
   font-weight: 600;
   align-items: center;
   position: relative;
-  max-width: 140px;
-
+  
   & #zen-current-workspace-indicator-icon {
     font-size: 14px;
   }
@@ -428,9 +427,12 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     display: block;
+
+    position: absolute;
+    max-width: 100%;
   }
 
-  & #zen-current-workspace-indicator-icon:not([hidden]) + #zen-current-workspace-indicator-name {
-    margin-left: 10px;
+  & #zen-current-workspace-indicator-icon:not([hidden]) + #zen-current-workspace-indicator-name  {
+    margin-left: 23px;
   }
 }

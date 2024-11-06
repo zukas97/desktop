@@ -328,5 +328,12 @@ var ZenPinnedTabsStorage = {
     });
 
     this._notifyPinsChanged("zen-pin-updated", Array.from(changedUUIDs));
+  },
+
+  async __dropTables() {
+    await PlacesUtils.withConnectionWrapper('ZenPinnedTabsStorage.__dropTables', async (db) => {
+      await db.execute(`DROP TABLE IF EXISTS zen_pins`);
+      await db.execute(`DROP TABLE IF EXISTS zen_pins_changes`);
+    });
   }
 };

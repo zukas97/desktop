@@ -398,6 +398,14 @@
       display: none;
     }
 
+    & #zen-current-workspace-indicator {
+      margin-left: 0;
+      margin-right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     & #vertical-tabs-newtab-button {
       padding: 0 !important;
       background: transparent !important;
