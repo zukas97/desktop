@@ -1,4 +1,3 @@
-
 {
   class ZenThemePicker extends ZenMultiWindowFeature {
     static GRADIENT_IMAGE_URL = 'chrome://browser/content/zen-images/gradient.png';
@@ -32,6 +31,7 @@
 
       this.initRotation();
       this.initCanvas();
+      this.initCustomColorInput();
 
       ZenWorkspaces.addChangeListeners(this.onWorkspaceChange.bind(this));
       window.matchMedia('(prefers-color-scheme: dark)').addListener(this.onDarkModeChange.bind(this));
@@ -164,6 +164,18 @@
       this.rotationInputDot.style.transform = `rotate(${degrees - 20}deg)`;
       this.rotationInputText.textContent = `${fixedRotation}°`;
     }
+    
+    initCustomColorInput() {
+      this.customColorInput.addEventListener('keydown', this.onCustomColorKeydown.bind(this));
+    }
+    
+    onCustomColorKeydown(event) {
+      //checks for enter key for custom colors
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        this.addCustomColor();
+      }
+    }
 
     initThemePicker() {
       const themePicker = this.panel.querySelector('.zen-theme-picker-gradient');
@@ -209,9 +221,6 @@
     }
 
     createDot(color, fromWorkspace = false) {
-      if (color.isCustom) {
-        this.addColorToCustomList(color.c);
-      }
       const [r, g, b] = color.c;
       const dot = document.createElement('div');
       dot.classList.add('zen-theme-picker-dot');
@@ -237,7 +246,6 @@
 
     onThemePickerClick(event) {
       event.preventDefault();
-      
       
       if (event.button !== 0 || this.dragging ) return;
   
@@ -349,14 +357,20 @@
       listItems.querySelector('.zen-theme-picker-custom-list-item').setAttribute('data-color', color);
       listItems.querySelector('.zen-theme-picker-dot-custom').style.setProperty('--zen-theme-picker-dot-color', color);
       listItems.querySelector('.zen-theme-picker-custom-list-item-label').textContent = color;
+
+      
       this.customColorList.appendChild(listItems);
     }
 
     async addCustomColor() {
+      
       const color = this.customColorInput.value;
       if (!color) {
+        
         return;
       }
+    
+
       // can be any color format, we just add it to the list as a dot, but hidden
       const dot = document.createElement('div');
       dot.classList.add('zen-theme-picker-dot', 'hidden', 'custom');
@@ -578,6 +592,7 @@
     }
 
     async onWorkspaceChange(workspace, skipUpdate = false, theme = null) {
+      
       const uuid = workspace.uuid;
       // Use theme from workspace object or passed theme
       let workspaceTheme = theme || workspace.theme;
@@ -594,6 +609,13 @@
 
         // get the theme from the window
         workspaceTheme = theme || windowWorkspace.theme;
+
+        if (!skipUpdate) {
+          for (const dot of browser.gZenThemePicker.panel.querySelectorAll('.zen-theme-picker-dot')) {
+            dot.remove();
+          }
+        }
+    
 
         const appWrapper = browser.document.getElementById('zen-main-app-wrapper');
         if (!skipUpdate) {
@@ -613,11 +635,6 @@
         if (!workspaceTheme || workspaceTheme.type !== 'gradient') {
           browser.document.documentElement.style.removeProperty('--zen-main-browser-background');
           browser.gZenThemePicker.updateNoise(0);
-          if (!skipUpdate) {
-            for (const dot of browser.gZenThemePicker.panel.querySelectorAll('.zen-theme-picker-dot')) {
-              dot.remove();
-            }
-          }
           browser.document.documentElement.style.setProperty('--zen-primary-color', this.getNativeAccentColor());
           return;
         }
@@ -634,7 +651,7 @@
 
         const gradient = browser.gZenThemePicker.getGradient(workspaceTheme.gradientColors);
         browser.gZenThemePicker.updateNoise(workspaceTheme.texture);
-
+        
         for (const dot of workspaceTheme.gradientColors) {
           if (dot.isCustom) {
             browser.gZenThemePicker.addColorToCustomList(dot.c);
@@ -677,16 +694,14 @@
     }
 
     recalculateDots(colors) {
-      const dots = this.panel.querySelectorAll('.zen-theme-picker-dot');
-      for (let i = 0; i < colors.length; i++) {
-        dots[i]?.remove();
-      }
+      //THIS IS PART OF THE ISSUE
       for (const color of colors) {
         this.createDot(color, true);
       }
     }
 
     async updateCurrentWorkspace(skipSave = true) {
+
       this.updated = skipSave;
       const dots = this.panel.querySelectorAll('.zen-theme-picker-dot');
       const colors = Array.from(dots).map(dot => {
