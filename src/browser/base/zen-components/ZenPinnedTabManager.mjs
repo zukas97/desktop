@@ -369,8 +369,10 @@
           title: pin.title,
           triggeringPrincipal_base64: lazy.E10SUtils.SERIALIZED_SYSTEMPRINCIPAL
         }];
-        if (icon) {
+        if (icon instanceof Ci.nsIURI || typeof icon === "string") {
           state.image = icon;
+        } else {
+          state.image = null;
         }
         state.index = 0;
 
