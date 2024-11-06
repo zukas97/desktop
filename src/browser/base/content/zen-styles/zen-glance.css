@@ -59,6 +59,7 @@
     top: 0;
     left: 0;
     flex: unset !important;
+    border: 1px solid var(--zen-colors-border);
 
     &[has-finished-animation='true'] {
       position: relative !important;
@@ -67,16 +68,6 @@
       margin: auto !important;
       top: 0 !important;
       left: 0 !important;
-    }
-
-    & #zen-glance-browser {
-      border-radius: var(--zen-border-radius);
-      background: var(--zen-dialog-background);
-      overflow: hidden;
-      width: 100%;
-      position: relative;
-      border-radius: var(--zen-border-radius);
-      height: 100%;
     }
 
     & #zen-glance-sidebar-container {
