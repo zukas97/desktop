@@ -58,8 +58,7 @@
         outline: 1px solid light-dark(rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
 
         @media (-moz-bool-pref: 'zen.view.compact.color-sidebar') {
-          --zen-themed-toolbar-bg-transparency: 1 !important;
-          background: var(--zen-main-browser-background) !important;
+          background: var(--zen-main-browser-background-toolbar) !important;
           background-attachment: fixed !important;
           background-size: 2000px !important; /* Dont ask me why */
           backdrop-filter: blur(5px) !important;
@@ -135,10 +134,9 @@
         background: var(--zen-dialog-background);
 
         @media (-moz-bool-pref: 'zen.view.compact.color-toolbar') {
-          --zen-themed-toolbar-bg-transparency: 1 !important;
           background-attachment: fixed;
           backdrop-filter: blur(5px);
-          background: var(--zen-main-browser-background);
+          background: var(--zen-main-browser-background-toolbar);
           background-size: 100% 2000px;
           border-bottom: 1px solid var(--zen-colors-border);
         }

@@ -357,14 +357,21 @@
       if (pin) {
         const tabState = SessionStore.getTabState(tab);
         const state = JSON.parse(tabState);
-        const icon = await PlacesUtils.promiseFaviconData(pin.url);
+        let icon = undefined;
+        try {
+          icon = await PlacesUtils.promiseFaviconData(pin.url);
+        } catch (e) {
+          console.warn("Error trying to get favicon for pinned tab", e);
+        }
 
         state.entries = [{
           url: pin.url,
           title: pin.title,
           triggeringPrincipal_base64: lazy.E10SUtils.SERIALIZED_SYSTEMPRINCIPAL
         }];
-        state.image = icon;
+        if (icon) {
+          state.image = icon;
+        }
         state.index = 0;
 
         SessionStore.setTabState(tab, state);
@@ -438,7 +445,7 @@
       const isVisible = contextTab.pinned  && !contextTab.multiselected;
       document.getElementById("context_zen-reset-pinned-tab").hidden = !isVisible || !contextTab.getAttribute("zen-pin-id");
       document.getElementById("context_zen-replace-pinned-url-with-current").hidden = !isVisible;
-      document.getElementById("context_zen-add-essential").hidden = contextTab.pinned;
+      document.getElementById("context_zen-add-essential").hidden = contextTab.getAttribute("zen-essential");
       document.getElementById("context_zen-remove-essential").hidden = !contextTab.getAttribute("zen-essential");
       document.getElementById("context_unpinTab").hidden = document.getElementById("context_unpinTab").hidden || contextTab.getAttribute("zen-essential");
       document.getElementById("context_unpinSelectedTabs").hidden = document.getElementById("context_unpinSelectedTabs").hidden || contextTab.getAttribute("zen-essential");

@@ -497,22 +497,22 @@
       this.updateCurrentWorkspace();
     }
 
-    getSingleRGBColor(color) {
+    getSingleRGBColor(color, forToolbar = false) {
       if (color.isCustom) {
         return color.c;
       }
-      return `color-mix(in srgb, rgb(${color.c[0]}, ${color.c[1]}, ${color.c[2]}) ${this.currentOpacity * 100}%, var(--zen-themed-toolbar-bg) ${(1 - this.currentOpacity) * 100}%)`;
+      const toolbarBg = forToolbar ? 'var(--zen-themed-toolbar-bg)' : 'var(--zen-themed-toolbar-bg-transparent)';
+      return `color-mix(in srgb, rgb(${color.c[0]}, ${color.c[1]}, ${color.c[2]}) ${this.currentOpacity * 100}%, ${toolbarBg} ${(1 - this.currentOpacity) * 100}%)`;
     }
 
-
-    getGradient(colors) {
+    getGradient(colors, forToolbar = false) {
       const themedColors = this.themedColors(colors);
       if (themedColors.length === 0) {
-        return "var(--zen-themed-toolbar-bg)";
+        return forToolbar ? "var(--zen-themed-toolbar-bg)" : "var(--zen-themed-toolbar-bg-transparent)";
       } else if (themedColors.length === 1) {
-        return this.getSingleRGBColor(themedColors[0]);
+        return this.getSingleRGBColor(themedColors[0], forToolbar);
       }
-      return `linear-gradient(${this.currentRotation}deg, ${themedColors.map(color => this.getSingleRGBColor(color)).join(', ')})`;
+      return `linear-gradient(${this.currentRotation}deg, ${themedColors.map(color => this.getSingleRGBColor(color, forToolbar)).join(', ')})`;
     }
 
     getTheme(colors, opacity = 0.5, rotation = 45, texture = 0) {
@@ -586,7 +586,7 @@
         }
       }
       const result = this.pSBC(
-        this.isDarkMode ? 0.5 : -0.5, 
+        this.isDarkMode ? 0.2 : -0.5, 
         `rgb(${dominantColor[0]}, ${dominantColor[1]}, ${dominantColor[2]})`);
       return result?.match(/\d+/g).map(Number);
     }
@@ -634,6 +634,7 @@
         browser.gZenThemePicker.resetCustomColorList();
         if (!workspaceTheme || workspaceTheme.type !== 'gradient') {
           browser.document.documentElement.style.removeProperty('--zen-main-browser-background');
+          browser.document.documentElement.style.removeProperty('--zen-main-browser-background-toolbar');
           browser.gZenThemePicker.updateNoise(0);
           browser.document.documentElement.style.setProperty('--zen-primary-color', this.getNativeAccentColor());
           return;
@@ -650,6 +651,7 @@
         browser.gZenThemePicker.setRotationInput(browser.gZenThemePicker.currentRotation);
 
         const gradient = browser.gZenThemePicker.getGradient(workspaceTheme.gradientColors);
+        const gradientToolbar = browser.gZenThemePicker.getGradient(workspaceTheme.gradientColors, true);
         browser.gZenThemePicker.updateNoise(workspaceTheme.texture);
         
         for (const dot of workspaceTheme.gradientColors) {
@@ -659,6 +661,7 @@
         }
 
         browser.document.documentElement.style.setProperty('--zen-main-browser-background', gradient);
+        browser.document.documentElement.style.setProperty('--zen-main-browser-background-toolbar', gradientToolbar);
 
         const dominantColor = this.getMostDominantColor(workspaceTheme.gradientColors);
         if (dominantColor) {

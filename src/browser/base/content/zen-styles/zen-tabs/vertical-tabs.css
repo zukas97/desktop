@@ -20,7 +20,7 @@
   }
 
   #vertical-pinned-tabs-container-separator {
-    background: light-dark(rgba(1, 1, 1, 0.075), rgba(255, 255, 255, 0.18));
+    background: light-dark(rgba(1, 1, 1, 0.075), rgba(255, 255, 255, 0.1));
     margin: 8px auto;
     border: none;
     height: 1px;
@@ -264,7 +264,7 @@
     }
 
     & #zen-essentials-container {
-      --tab-min-height: 40px;
+      --tab-min-height: 38px;
     }
 
     /* Mark: Fix separator paddings */
@@ -608,8 +608,7 @@
         z-index: 100 !important;
         width: 250px !important;
         
-        --zen-themed-toolbar-bg-transparency: 1 !important;
-        background: var(--zen-main-browser-background) !important;
+        background: var(--zen-main-browser-background-toolbar) !important;
         background-attachment: fixed !important;
         background-size: 2000px !important; /* Dont ask me why */
 
@@ -744,7 +743,7 @@
         content: '';
         display: block;
         height: 1px;
-        background: light-dark(rgba(1, 1, 1, 0.075), rgba(255, 255, 255, 0.18));
+        background: light-dark(rgba(1, 1, 1, 0.075), rgba(255, 255, 255, 0.1));
         width: 98%;
         position: absolute;
         top: -8px;
