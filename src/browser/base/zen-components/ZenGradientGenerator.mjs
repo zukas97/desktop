@@ -633,8 +633,10 @@
 
         browser.gZenThemePicker.resetCustomColorList();
         if (!workspaceTheme || workspaceTheme.type !== 'gradient') {
-          browser.document.documentElement.style.removeProperty('--zen-main-browser-background');
-          browser.document.documentElement.style.removeProperty('--zen-main-browser-background-toolbar');
+          const gradient = browser.gZenThemePicker.getGradient([]);
+          const gradientToolbar = browser.gZenThemePicker.getGradient([], true);
+          browser.document.documentElement.style.setProperty('--zen-main-browser-background', gradient);
+          browser.document.documentElement.style.setProperty('--zen-main-browser-background-toolbar', gradientToolbar);
           browser.gZenThemePicker.updateNoise(0);
           browser.document.documentElement.style.setProperty('--zen-primary-color', this.getNativeAccentColor());
           return;
