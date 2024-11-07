@@ -96,15 +96,6 @@
     _initializePinnedTabs() {
       const pins = this._pinsCache;
       if (!pins?.length) {
-        // If there are no pins in the database it's probably migration from an older version - save all pinned tabs to the database
-        for (let tab of gBrowser.tabs) {
-          if (tab.pinned) {
-            if(tab.hasAttribute("zen-pin-id")) {
-              tab.removeAttribute("zen-pin-id");
-            }
-            this._setPinnedAttributes(tab);
-          }
-        }
         return;
       }
 
@@ -250,16 +241,28 @@
       const uuid = gZenUIManager.generateUuidv4();
       const userContextId = tab.getAttribute("usercontextid");
 
+      let entry = null;
+
+      if(tab.getAttribute("zen-pinned-entry")) {
+        entry = JSON.parse(tab.getAttribute("zen-pinned-entry"));
+      }
+
       await ZenPinnedTabsStorage.savePin({
         uuid,
-        title: tab.label || browser.contentTitle,
-        url: browser.currentURI.spec,
+        title: entry?.title || tab.label || browser.contentTitle,
+        url: entry?.url || browser.currentURI.spec,
         containerTabId: userContextId ? parseInt(userContextId, 10) : 0,
         workspaceUuid: tab.getAttribute("zen-workspace-id"),
         isEssential: tab.getAttribute("zen-essential") === "true"
       });
 
       tab.setAttribute("zen-pin-id", uuid);
+
+      // This is used while migrating old pins to new system - we don't want to refresh when migrating
+      if (tab.getAttribute("zen-pinned-entry")) {
+        tab.removeAttribute("zen-pinned-entry");
+        return;
+      }
 
       await this._refreshPinnedTabs();
     }
