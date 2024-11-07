@@ -96,10 +96,13 @@
     _initializePinnedTabs() {
       const pins = this._pinsCache;
       if (!pins?.length) {
-        // If there are no pins, we should remove any existing pinned tabs
+        // If there are no pins in the database it's probably migration from an older version - save all pinned tabs to the database
         for (let tab of gBrowser.tabs) {
-          if (tab.pinned && !tab.getAttribute("zen-pin-id")) {
-            gBrowser.removeTab(tab);
+          if (tab.pinned) {
+            if(tab.hasAttribute("zen-pin-id")) {
+              tab.removeAttribute("zen-pin-id");
+            }
+            this._setPinnedAttributes(tab);
           }
         }
         return;
