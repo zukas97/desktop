@@ -730,9 +730,13 @@
     display: none;
   }
 
-  @media (-moz-bool-pref: 'zen.tabs.show-newtab-under') {
+  @media (-moz-bool-pref: 'zen.tabs.show-newtab-vertical') {
     #tabs-newtab-button {
       display: flex !important;
+
+      @media (-moz-bool-pref: 'zen.view.show-newtab-button-top') {
+        order: -1;
+      }
     }
 
     #tabbrowser-arrowscrollbox-periphery {
@@ -740,19 +744,20 @@
         --zen-colors-border: var(--zen-colors-tertiary);
       }
 
-      margin-top: 15px;
-      position: relative;
-
-      &::before {
-        content: '';
-        display: block;
-        height: 1px;
-        background: light-dark(rgba(1, 1, 1, 0.075), rgba(255, 255, 255, 0.1));
-        width: 98%;
-        position: absolute;
-        top: -8px;
-        left: 50%;
-        transform: translateX(-50%);
+      @media (-moz-bool-pref: 'zen.view.show-newtab-button-border-top') and (not (-moz-bool-pref: 'zen.view.show-newtab-button-top')) {
+        margin-top: 15px;
+        position: relative;
+        &::before {
+          content: '';
+          display: block;
+          height: 1px;
+          background: light-dark(rgba(1, 1, 1, 0.075), rgba(255, 255, 255, 0.1));
+          width: 98%;
+          position: absolute;
+          top: -8px;
+          left: 50%;
+          transform: translateX(-50%);
+        }
       }
     }
   }

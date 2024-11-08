@@ -410,7 +410,7 @@
 
 /* Mark workspaces indicator */
 #zen-current-workspace-indicator {
-  margin: calc(var(--zen-toolbox-padding) * 4) calc(4px + var(--tab-inline-padding)) calc(var(--zen-toolbox-padding) * 3);
+  margin: 20px calc(4px + var(--tab-inline-padding)) 15px;
   font-weight: 600;
   align-items: center;
   position: relative;
@@ -433,7 +433,7 @@
   }
 
   & #zen-current-workspace-indicator-icon:not([hidden]) + #zen-current-workspace-indicator-name  {
-    margin-left: 23px;
+    margin-left: 27px;
   }
 }
 

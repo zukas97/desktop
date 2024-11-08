@@ -75,11 +75,14 @@ pref('zen.welcomeScreen.enabled', true);
 pref('zen.welcomeScreen.seen', false);
 pref('zen.tabs.vertical', true);
 pref('zen.tabs.vertical.right-side', false);
-pref('zen.tabs.show-newtab-under', true);
 pref('zen.theme.accent-color', "#aac7ff");
 pref('zen.theme.content-element-separation', 6); // In pixels
 pref('zen.theme.pill-button', false);
 pref('zen.theme.gradient', true);
+
+pref('zen.tabs.show-newtab-vertical', true);
+pref('zen.view.show-newtab-button-border-top', false);
+pref('zen.view.show-newtab-button-top', true);
 
 #ifdef XP_MACOSX
 // Disable for macos in the meantime until @HarryHeres finds a solution for hight DPI screens
