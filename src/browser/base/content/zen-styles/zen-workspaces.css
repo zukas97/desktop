@@ -8,9 +8,7 @@
   position: relative;
 
   &[dont-show='true'] {
-    /* We need to keep the button visible to keep the toolbar layout */
-    opacity: 0;
-    pointer-events: none;
+    display: none !important;
   }
 
   &:not([as-button='true']) {
