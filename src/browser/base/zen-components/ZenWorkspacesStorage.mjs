@@ -58,6 +58,13 @@ var ZenWorkspacesStorage = {
       await db.execute(`
         CREATE INDEX IF NOT EXISTS idx_zen_workspaces_changes_uuid ON zen_workspaces_changes(uuid)
       `);
+
+      if (!Weave.Service.engineManager.get('workspaces')) {
+        Weave.Service.engineManager.register(ZenWorkspacesEngine);
+        await ZenWorkspacesStorage.migrateWorkspacesFromJSON();
+      }
+
+      ZenWorkspaces._delayedStartup();
     });
   },
 

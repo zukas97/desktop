@@ -47,6 +47,8 @@ var ZenPinnedTabsStorage = {
       await db.execute(`
         CREATE INDEX IF NOT EXISTS idx_zen_pins_changes_uuid ON zen_pins_changes(uuid)
       `);
+
+      await gZenPinnedTabManager._refreshPinnedTabs();
     });
   },
 

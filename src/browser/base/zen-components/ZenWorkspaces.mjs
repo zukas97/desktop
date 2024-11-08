@@ -34,10 +34,9 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
     ChromeUtils.defineLazyGetter(this, 'tabContainer', () => document.getElementById('tabbrowser-tabs'));
     this._activeWorkspace = Services.prefs.getStringPref('zen.workspaces.active', '');
     await ZenWorkspacesStorage.init();
-    if (!Weave.Service.engineManager.get('workspaces')) {
-      Weave.Service.engineManager.register(ZenWorkspacesEngine);
-      await ZenWorkspacesStorage.migrateWorkspacesFromJSON();
-    }
+  }
+
+  async _delayedStartup() {
     await this.initializeWorkspaces();
     console.info('ZenWorkspaces: ZenWorkspaces initialized');
 

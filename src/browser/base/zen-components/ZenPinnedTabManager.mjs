@@ -49,7 +49,6 @@
 
     async initTabs() {
       await ZenPinnedTabsStorage.init();
-      await this._refreshPinnedTabs();
     }
 
     async _refreshPinnedTabs() {
