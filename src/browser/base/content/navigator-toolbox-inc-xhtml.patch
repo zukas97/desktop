@@ -1,5 +1,5 @@
 diff --git a/browser/base/content/navigator-toolbox.inc.xhtml b/browser/base/content/navigator-toolbox.inc.xhtml
-index 12fa0cf79aade28581016adf96df85386dabdcef..846add9b040abf0f7378ebaaadef007013f5a1ec 100644
+index 12fa0cf79aade28581016adf96df85386dabdcef..52f15cd79388cefa1e07644602df93dce5d6fa74 100644
 --- a/browser/base/content/navigator-toolbox.inc.xhtml
 +++ b/browser/base/content/navigator-toolbox.inc.xhtml
 @@ -2,7 +2,7 @@
@@ -51,7 +51,15 @@ index 12fa0cf79aade28581016adf96df85386dabdcef..846add9b040abf0f7378ebaaadef0070
                <tab is="tabbrowser-tab" class="tabbrowser-tab" selected="true" visuallyselected="" fadein=""/>
                <hbox id="tabbrowser-arrowscrollbox-periphery">
                  <toolbartabstop/>
-@@ -113,9 +119,10 @@
+@@ -90,7 +96,6 @@
+                          ondrop="newTabButtonObserver.onDrop(event)"
+                          ondragover="newTabButtonObserver.onDragOver(event)"
+                          ondragenter="newTabButtonObserver.onDragOver(event)"
+-                         cui-areatype="toolbar"
+                          removable="true"/>
+ 
+           <toolbarbutton id="alltabs-button"
+@@ -113,9 +118,10 @@
        <toolbarbutton id="content-analysis-indicator"
                       oncommand="ContentAnalysis.showPanel(this, PanelUI);"
                       class="toolbarbutton-1 content-analysis-indicator-icon"/>
@@ -64,7 +72,7 @@ index 12fa0cf79aade28581016adf96df85386dabdcef..846add9b040abf0f7378ebaaadef0070
      </toolbar>
  
    </vbox>
-@@ -531,6 +538,7 @@
+@@ -531,6 +537,7 @@
                       consumeanchor="PanelUI-button"
                       data-l10n-id="appmenu-menu-button-closed2"/>
      </toolbaritem>

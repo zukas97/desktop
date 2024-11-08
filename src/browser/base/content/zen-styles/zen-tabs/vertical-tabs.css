@@ -74,7 +74,7 @@
 
     @media (-moz-bool-pref: 'zen.view.show-bottom-border') {
       &::after {
-        background: color-mix(in srgb, var(--zen-colors-border) 70%, transparent 30%);
+        background: light-dark(rgba(1, 1, 1, 0.075), rgba(255, 255, 255, 0.1));
       }
     }
 
@@ -733,15 +733,15 @@
   @media (-moz-bool-pref: 'zen.tabs.show-newtab-vertical') {
     #tabs-newtab-button {
       display: flex !important;
-
-      @media (-moz-bool-pref: 'zen.view.show-newtab-button-top') {
-        order: -1;
-      }
     }
 
     #tabbrowser-arrowscrollbox-periphery {
       @media not (prefers-color-scheme: dark) {
         --zen-colors-border: var(--zen-colors-tertiary);
+      }
+
+      @media (-moz-bool-pref: 'zen.view.show-newtab-button-top') {
+        order: -1;
       }
 
       @media (-moz-bool-pref: 'zen.view.show-newtab-button-border-top') and (not (-moz-bool-pref: 'zen.view.show-newtab-button-top')) {

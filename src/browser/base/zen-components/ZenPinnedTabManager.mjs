@@ -36,7 +36,7 @@
     }
   }
 
-  class ZenPinnedTabManager extends ZenDOMOperatedFeature {
+  class ZenPinnedTabManager extends ZenPreloadedFeature {
 
     init() {
       this.observer = new ZenPinnedTabsObserver();

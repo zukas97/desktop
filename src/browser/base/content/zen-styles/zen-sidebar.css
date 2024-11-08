@@ -21,14 +21,15 @@
   }
 
   & #zen-profile-button-icon {
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     list-style-image: var(--avatar-image-url);
     border-radius: 50%;
     pointer-events: none;
     list-style-image: var(--avatar-image-url);
     -moz-context-properties: fill;
     fill: currentColor;
+    border: 1px solid var(--zen-colors-border);
   }
 }
 

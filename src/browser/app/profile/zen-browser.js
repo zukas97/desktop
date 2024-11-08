@@ -81,8 +81,8 @@ pref('zen.theme.pill-button', false);
 pref('zen.theme.gradient', true);
 
 pref('zen.tabs.show-newtab-vertical', true);
-pref('zen.view.show-newtab-button-border-top', false);
-pref('zen.view.show-newtab-button-top', true);
+pref('zen.view.show-newtab-button-border-top', true);
+pref('zen.view.show-newtab-button-top', false);
 
 #ifdef XP_MACOSX
 // Disable for macos in the meantime until @HarryHeres finds a solution for hight DPI screens

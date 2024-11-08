@@ -157,7 +157,7 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
       await SessionStore.promiseInitialized;
       let workspaces = await this._workspaces();
       if (workspaces.workspaces.length === 0) {
-        await this.createAndSaveWorkspace('Default Workspace', true);
+        await this.createAndSaveWorkspace('Default Workspace', true, '🏠');
       } else {
         let activeWorkspace = await this.getActiveWorkspace();
         if (!activeWorkspace) {
@@ -176,6 +176,16 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
         console.error('ZenWorkspaces: Error initializing theme picker', e);
       }
     }
+    this.initIndicatorContextMenu();
+  }
+
+  initIndicatorContextMenu() {
+    const indicator = document.getElementById('zen-current-workspace-indicator');
+    indicator.addEventListener('contextmenu', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      this.openWorkspacesDialog(event);
+    });
   }
 
   handleTabBeforeClose(tab) {
@@ -640,7 +650,7 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
     if (!this.workspaceEnabled) {
       return;
     }
-    let target = document.getElementById('zen-workspaces-button');
+    let target = event.target.closest("#zen-current-workspace-indicator") ? event.target : document.getElementById('zen-workspaces-button');
     let panel = document.getElementById('PanelUI-zen-workspaces');
     await this._propagateWorkspaceData({
       ignoreStrip: true,
@@ -732,6 +742,12 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
         icon.textContent = this.getWorkspaceIcon(workspace);
         workspaceButton.appendChild(icon);
         button.appendChild(workspaceButton);
+      }
+
+      if (workspaces.workspaces.length <= 1) {
+        button.setAttribute('dont-show', true);
+      } else {
+        button.removeAttribute('dont-show');
       }
 
       this._workspaceButtonContextMenuListener = (event) => {
@@ -948,6 +964,7 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
   async updateWorkspaceIndicator() {
     // Update current workspace indicator
     const currentWorkspace = await this.getActiveWorkspace();
+    if (!currentWorkspace) return;
     const indicatorName = document.getElementById('zen-current-workspace-indicator-name');
     const indicatorIcon = document.getElementById('zen-current-workspace-indicator-icon');
 

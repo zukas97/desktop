@@ -7,6 +7,12 @@
 
   position: relative;
 
+  &[dont-show='true'] {
+    /* We need to keep the button visible to keep the toolbar layout */
+    opacity: 0;
+    pointer-events: none;
+  }
+
   &:not([as-button='true']) {
     --toolbarbutton-hover-background: transparent !important;
     border-radius: var(--zen-button-border-radius) !important;
@@ -26,10 +32,6 @@
       padding: 0 !important;
       align-items: center;
       position: relative;
-
-      & > * {
-        opacity: 0.6;
-      }
 
       @media (-moz-bool-pref: 'zen.workspaces.hide-deactivated-workspaces') {
         &:not([active='true']):not(:hover) {
@@ -410,7 +412,7 @@
 
 /* Mark workspaces indicator */
 #zen-current-workspace-indicator {
-  margin: 20px calc(4px + var(--tab-inline-padding)) 15px;
+  margin: 15px calc(4px + var(--tab-inline-padding));
   font-weight: 600;
   align-items: center;
   position: relative;
@@ -433,7 +435,7 @@
   }
 
   & #zen-current-workspace-indicator-icon:not([hidden]) + #zen-current-workspace-indicator-name  {
-    margin-left: 27px;
+    margin-left: 25px;
   }
 }
 
