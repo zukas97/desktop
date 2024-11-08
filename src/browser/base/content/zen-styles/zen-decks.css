@@ -27,7 +27,7 @@
 
 #tabbrowser-tabpanels[zen-split-view='true'] > [zen-split='true'], #zen-splitview-dropzone {
   flex: 1;
-  margin: calc(var(--zen-split-column-gap) / 2) calc(var(--zen-split-row-gap) / 2);
+  margin: calc(var(--zen-split-column-gap) / 2) calc(var(--zen-split-row-gap) / 2 + 1px);
   position: absolute !important;
   overflow: hidden;
 }
@@ -45,6 +45,7 @@
 
 #tabbrowser-tabpanels[zen-split-view='true'] .browserSidebarContainer.deck-selected {
   outline: 2px solid var(--zen-primary-color) !important;
+  outline-offset: -1px;
 }
 
 #tabbrowser-tabbox {
