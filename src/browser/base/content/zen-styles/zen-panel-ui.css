@@ -1,7 +1,7 @@
-panel[type='arrow'][animate][animate='open'] {
+panel[type='arrow'][animate][animate='open']::part(content) {
   animation: zen-jello-animation 0.3s ease-in-out;
 }
 
-panel[type='arrow'][animate]:not([animate='open']) {
+panel[type='arrow'][animate]:not([animate='open'])::part(content) {
   animation: zen-jello-out-animation 0.3s ease-in-out;
 }
