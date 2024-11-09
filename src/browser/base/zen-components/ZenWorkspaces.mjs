@@ -162,7 +162,6 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
       this._swipeState.direction = this._swipeState.cumulativeDelta > 0 ? 'right' : 'left';
     }
 
-    console.log('MozSwipeGestureUpdateEND', this._swipeState);
   }
 
   async _handleSwipeEnd(event) {
