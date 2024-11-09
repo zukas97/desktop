@@ -11,6 +11,7 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
     cumulativeDelta: 0,
     direction: null
   };
+  _hoveringSidebar = false;
 
   async init() {
     if (!this.shouldHaveWorkspaces) {
@@ -47,8 +48,56 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
     console.info('ZenWorkspaces: ZenWorkspaces initialized');
 
     this.initializeGestureHandlers();
+    this.initializeWorkspaceNavigation();
 
     Services.obs.addObserver(this, 'weave:engine:sync:finish');
+  }
+
+  initializeWorkspaceNavigation() {
+    this._setupAppCommandHandlers();
+    this._setupHoverDetection();
+  }
+
+  _setupAppCommandHandlers() {
+    // Remove existing handler temporarily - this is needed so that _handleAppCommand is called before the original
+    window.removeEventListener("AppCommand", HandleAppCommandEvent, true);
+
+    // Add our handler first
+    window.addEventListener("AppCommand", this._handleAppCommand.bind(this), true);
+
+    // Re-add original handler
+    window.addEventListener("AppCommand", HandleAppCommandEvent, true);
+  }
+
+  _handleAppCommand(event) {
+    if (!this.workspaceEnabled || !this._hoveringSidebar) {
+      return;
+    }
+
+    switch (event.command) {
+      case "Forward":
+        this.changeWorkspaceShortcut(1);
+        event.stopImmediatePropagation();
+        event.preventDefault();
+        break;
+      case "Back":
+        this.changeWorkspaceShortcut(-1);
+        event.stopImmediatePropagation();
+        event.preventDefault();
+        break;
+    }
+  }
+
+  _setupHoverDetection() {
+    const toolbox = document.getElementById('navigator-toolbox');
+
+    toolbox.addEventListener('mouseenter', () => {
+      this._hoveringSidebar = true;
+    });
+
+    toolbox.addEventListener('mouseleave', () => {
+      this._hoveringSidebar = false;
+    });
   }
 
   initializeGestureHandlers() {
@@ -113,7 +162,6 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
       this._swipeState.direction = this._swipeState.cumulativeDelta > 0 ? 'right' : 'left';
     }
 
-    console.log('MozSwipeGestureUpdateEND', this._swipeState);
   }
 
   async _handleSwipeEnd(event) {
