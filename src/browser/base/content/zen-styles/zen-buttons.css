@@ -21,7 +21,7 @@ xul|button {
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.05) !important;
 }
 
-button:active {
+button:not(#zen-workspaces-button):active {
   transform: scale(0.98);
 }
 
