@@ -40,8 +40,34 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
     await this.initializeWorkspaces();
     console.info('ZenWorkspaces: ZenWorkspaces initialized');
 
+    const toolbox = document.getElementById('navigator-toolbox');
+    toolbox.addEventListener('MozSwipeGestureStart', this.handleSwipeGestureStart.bind(this));
+    toolbox.addEventListener('MozSwipeGestureEnd', this.handleSwipeGestureEnd.bind(this));
+    toolbox.addEventListener('MozSwipeGesture', this.handleSwipeGesture.bind(this));
+
     // Add observer for sync completion
     Services.obs.addObserver(this, 'weave:engine:sync:finish');
+  }
+
+  handleSwipeGestureStart(event) {
+    // We can move to the right or left
+    const direction = event.direction;
+    if (direction === 'right' || direction === 'left') {
+      this._swipeGestureDirection = direction;
+      event.preventDefault();
+      event.stopPropagation();
+    }
+  }
+
+  handleSwipeGestureEnd(event) {
+    if (!this._swipeGestureDirection) {
+      return;
+    }
+    this.changeWorkspaceShortcut(this._swipeGestureDirection === 'right' ? 1 : -1);
+    this._swipeGestureDirection = null;
+  }
+
+  handleSwipeGesture(event) {
   }
 
   get activeWorkspace() {
