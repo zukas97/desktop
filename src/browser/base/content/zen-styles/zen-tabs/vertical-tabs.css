@@ -264,7 +264,7 @@
     }
 
     & #zen-essentials-container {
-      --tab-min-height: 38px;
+      --tab-min-height: 44px;
     }
 
     /* Mark: Fix separator paddings */
@@ -767,7 +767,7 @@
 #zen-essentials-container {
   padding-bottom: var(--zen-toolbox-padding);
   overflow: hidden;
-  gap: 1px;
+  gap: 3px;
 }
 
 #zen-essentials-container {
@@ -789,7 +789,7 @@
   border-radius: var(--border-radius-medium);
 
   &:not([selected]) .tab-background {
-    background: light-dark(rgba(0, 0, 0, 0.06), rgba(255, 255, 255, 0.04));
+    background: light-dark(rgba(0, 0, 0, 0.06), rgba(255, 255, 255, 0.1));
   }
 
   backdrop-filter: blur(10px);
