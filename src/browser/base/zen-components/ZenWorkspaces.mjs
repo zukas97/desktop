@@ -6,6 +6,12 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
   _inChangingWorkspace = false;
   draggedElement = null;
 
+  _swipeState = {
+    isGestureActive: true,
+    cumulativeDelta: 0,
+    direction: null
+  };
+
   async init() {
     if (!this.shouldHaveWorkspaces) {
       console.warn('ZenWorkspaces: !!! ZenWorkspaces is disabled in hidden windows !!!');
@@ -40,34 +46,107 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
     await this.initializeWorkspaces();
     console.info('ZenWorkspaces: ZenWorkspaces initialized');
 
-    const toolbox = document.getElementById('navigator-toolbox');
-    toolbox.addEventListener('MozSwipeGestureStart', this.handleSwipeGestureStart.bind(this));
-    toolbox.addEventListener('MozSwipeGestureEnd', this.handleSwipeGestureEnd.bind(this));
-    toolbox.addEventListener('MozSwipeGesture', this.handleSwipeGesture.bind(this));
+    this.initializeGestureHandlers();
 
-    // Add observer for sync completion
     Services.obs.addObserver(this, 'weave:engine:sync:finish');
   }
 
-  handleSwipeGestureStart(event) {
-    // We can move to the right or left
-    const direction = event.direction;
-    if (direction === 'right' || direction === 'left') {
-      this._swipeGestureDirection = direction;
+  initializeGestureHandlers() {
+    const elements = [
+      document.getElementById('navigator-toolbox'),
+      // event handlers do not work on elements inside shadow DOM so we need to attach them directly
+      document.getElementById("tabbrowser-arrowscrollbox").shadowRoot.querySelector("scrollbox"),
+    ];
+
+    // Attach gesture handlers to each element
+    for (const element of elements) {
+      if (!element) continue;
+
+      this.attachGestureHandlers(element);
+    }
+  }
+
+  attachGestureHandlers(element) {
+    element.addEventListener('MozSwipeGestureMayStart', this._handleSwipeMayStart.bind(this), true);
+    element.addEventListener('MozSwipeGestureStart', this._handleSwipeStart.bind(this), true);
+    element.addEventListener('MozSwipeGestureUpdate', this._handleSwipeUpdate.bind(this), true);
+    element.addEventListener('MozSwipeGestureEnd', this._handleSwipeEnd.bind(this), true);
+  }
+
+  _handleSwipeMayStart(event) {
+    if (!this.workspaceEnabled) return;
+
+    // Only handle horizontal swipes
+    if (event.direction === event.DIRECTION_LEFT || event.direction === event.DIRECTION_RIGHT) {
       event.preventDefault();
       event.stopPropagation();
+
+      // Set allowed directions based on available workspaces
+      event.allowedDirections |= event.DIRECTION_LEFT | event.DIRECTION_RIGHT;
     }
   }
 
-  handleSwipeGestureEnd(event) {
-    if (!this._swipeGestureDirection) {
-      return;
-    }
-    this.changeWorkspaceShortcut(this._swipeGestureDirection === 'right' ? 1 : -1);
-    this._swipeGestureDirection = null;
+  _handleSwipeStart(event) {
+    if (!this.workspaceEnabled) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    this._swipeState = {
+      isGestureActive: true,
+      cumulativeDelta: 0,
+      direction: null
+    };
   }
 
-  handleSwipeGesture(event) {
+  _handleSwipeUpdate(event) {
+    if (!this.workspaceEnabled || !this._swipeState?.isGestureActive) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    // Update cumulative delta
+    this._swipeState.cumulativeDelta += event.delta;
+
+    // Determine swipe direction based on cumulative delta
+    if (Math.abs(this._swipeState.cumulativeDelta) > 0.25) {
+      this._swipeState.direction = this._swipeState.cumulativeDelta > 0 ? 'right' : 'left';
+    }
+
+    console.log('MozSwipeGestureUpdateEND', this._swipeState);
+  }
+
+  async _handleSwipeEnd(event) {
+    if (!this.workspaceEnabled || !this._swipeState?.isGestureActive) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (this._swipeState.direction) {
+      const workspaces = (await this._workspaces()).workspaces;
+      const currentIndex = workspaces.findIndex(w => w.uuid === this.activeWorkspace);
+
+      if (currentIndex !== -1) {
+        const isRTL = document.documentElement.matches(':-moz-locale-dir(rtl)');
+        const moveForward = (this._swipeState.direction === 'right') !== isRTL;
+
+        let targetIndex;
+        if (moveForward) {
+          targetIndex = (currentIndex + 1) % workspaces.length;
+        } else {
+          targetIndex = (currentIndex - 1 + workspaces.length) % workspaces.length;
+        }
+
+        await this.changeWorkspace(workspaces[targetIndex]);
+      }
+    }
+
+    // Reset swipe state
+    this._swipeState = {
+      isGestureActive: false,
+      cumulativeDelta: 0,
+      direction: null
+    };
   }
 
   get activeWorkspace() {
