@@ -47,8 +47,10 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
     await this.initializeWorkspaces();
     console.info('ZenWorkspaces: ZenWorkspaces initialized');
 
-    this.initializeGestureHandlers();
-    this.initializeWorkspaceNavigation();
+    if (Services.prefs.getBoolPref('zen.workspaces.swipe-actions', false) && this.workspaceEnabled) {
+      this.initializeGestureHandlers();
+      this.initializeWorkspaceNavigation();
+    }
 
     Services.obs.addObserver(this, 'weave:engine:sync:finish');
   }
@@ -802,7 +804,7 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
     if (!this.workspaceEnabled) {
       return;
     }
-    let target = event.target.closest("#zen-current-workspace-indicator") ? event.target : document.getElementById('zen-workspaces-button');
+    let target = event.target.closest("#zen-current-workspace-indicator") || document.getElementById('zen-workspaces-button');
     let panel = document.getElementById('PanelUI-zen-workspaces');
     await this._propagateWorkspaceData({
       ignoreStrip: true,
