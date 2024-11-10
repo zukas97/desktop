@@ -287,6 +287,3 @@ pref('browser.download.autohideButton', false);
 #ifdef XP_MACOSX
 pref('widget.macos.titlebar-blend-mode.behind-window', true);
 #endif
-
-// Support URL to FAQ
-pref('app.support.baseURL', 'https://docs.zen-browser.app/faq#');
