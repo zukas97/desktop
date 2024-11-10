@@ -32,7 +32,8 @@
     opacity: 1;
 
     & .browserContainer {
-      animation: zen-glance-content-animation-out .2s ease-in-out forwards !important;
+      opacity: 1 !important;
+      animation: zen-glance-content-animation-out .3s ease-out forwards !important;
       animation-direction: reverse !important;
 
       & browser {

@@ -86,6 +86,7 @@
       this.browserWrapper?.removeAttribute("animate-full");
       this.browserWrapper?.removeAttribute("animate-full-end");
       this.browserWrapper?.removeAttribute("has-finished-animation");
+      this.overlay?.removeAttribute("post-fade-out");
 
       const url = data.url;
       const currentTab = gBrowser.selectedTab;
@@ -118,7 +119,7 @@
           this.browserWrapper.setAttribute("has-finished-animation", true);
           this.#animating = false;
           this.animatingOpen = false;
-        }, 400);
+        }, 500);
       });
     }
 
@@ -199,8 +200,8 @@
             this.#currentBrowser = null;
 
             this.lastCurrentTab = null;
-            this._duringOpening = false;
-          }, 500);
+            this._duringOpening = false;            
+          }, 400);
         });
       });  
     }
