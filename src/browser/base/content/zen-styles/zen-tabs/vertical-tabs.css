@@ -184,8 +184,6 @@
 
   #vertical-pinned-tabs-container {
     padding-inline-end: 0 !important;
-    max-height: unset !important;
-    overflow: visible !important;
     display: flex !important;
     flex-direction: column;
 

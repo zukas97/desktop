@@ -39,6 +39,9 @@
   class ZenPinnedTabManager extends ZenPreloadedFeature {
 
     init() {
+      if (!this.enabled) {
+        return;
+      }
       this.observer = new ZenPinnedTabsObserver();
       this._initClosePinnedTabShortcut();
       this._insertItemsIntoTabContextMenu();
@@ -48,7 +51,21 @@
     }
 
     async initTabs() {
+      if (!this.enabled) {
+        return;
+      }
       await ZenPinnedTabsStorage.init();
+    }
+
+    get enabled() {
+      if (!this._enabled) {
+        this._enabled = !(
+          docElement.hasAttribute('privatebrowsingmode') ||
+          docElement.getAttribute('chromehidden').includes('toolbar') ||
+          docElement.getAttribute('chromehidden').includes('menubar')
+        );
+      }
+      return this._enabled;
     }
 
     async _refreshPinnedTabs() {
@@ -161,6 +178,7 @@
     }
 
     _onPinnedTabEvent(action, event) {
+      if (!this.enabled) return;
       const tab = event.target;
       switch (action) {
         case "TabPinned":
@@ -449,6 +467,9 @@
     }
 
     updatePinnedTabContextMenu(contextTab) {
+      if (!this.enabled) {
+        return;
+      }
       const isVisible = contextTab.pinned  && !contextTab.multiselected;
       document.getElementById("context_zen-reset-pinned-tab").hidden = !isVisible || !contextTab.getAttribute("zen-pin-id");
       document.getElementById("context_zen-replace-pinned-url-with-current").hidden = !isVisible;

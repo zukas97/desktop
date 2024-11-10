@@ -250,7 +250,7 @@
 
     canUnloadTab(tab, currentTimestamp, excludedUrls, ignoreTimestamp = false) {
       if (
-        tab.pinned ||
+        (tab.pinned && !ignoreTimestamp) ||
         tab.selected ||
         tab.multiselected ||
         tab.hasAttribute('busy') ||
@@ -259,9 +259,9 @@
         tab.splitView ||
         tab.attention ||
         tab.linkedBrowser?.zenModeActive ||
-        tab.pictureinpicture ||
-        tab.soundPlaying ||
-        tab.zenIgnoreUnload ||
+        (tab.pictureinpicture && !ignoreTimestamp) ||
+        (tab.soundPlaying && !ignoreTimestamp) ||
+        (tab.zenIgnoreUnload && !ignoreTimestamp) ||
         excludedUrls.some((url) => url.test(tab.linkedBrowser.currentURI.spec))
       ) {
         return false;
