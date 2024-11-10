@@ -160,6 +160,7 @@
         this.browserWrapper.removeAttribute("animate-end");
         this.overlay.setAttribute("fade-out", true);
         window.requestAnimationFrame(() => {
+          this.quickCloseGlance({ justAnimateParent: true });
           this.browserWrapper.setAttribute("animate", true);
           setTimeout(() => {
             if (!this.currentParentTab) {
@@ -227,26 +228,28 @@
       this._duringOpening = false;
     }
 
-    quickCloseGlance({ closeCurrentTab = true, closeParentTab = true } = {}) {
+    quickCloseGlance({ closeCurrentTab = true, closeParentTab = true, justAnimateParent = false } = {}) {
       const parentHasBrowser = !!(this.currentParentTab.linkedBrowser);
-      if (parentHasBrowser) {
-        if (closeParentTab) {
-          this.currentParentTab.linkedBrowser.closest(".browserSidebarContainer").classList.remove("deck-selected");
+      if (!justAnimateParent) { 
+        if (parentHasBrowser) {
+          if (closeParentTab) {
+            this.currentParentTab.linkedBrowser.closest(".browserSidebarContainer").classList.remove("deck-selected");
+          }
+          this.currentParentTab.linkedBrowser.zenModeActive = false;
         }
-        this.currentParentTab.linkedBrowser.zenModeActive = false;
+        this.#currentBrowser.zenModeActive = false;
+        if (closeParentTab && parentHasBrowser) {
+          this.currentParentTab.linkedBrowser.docShellIsActive = false;
+        }
+        if (closeCurrentTab) {
+          this.#currentBrowser.docShellIsActive = false;
+          this.overlay.classList.remove("deck-selected");
+        }
+        if (!this.currentParentTab._visuallySelected && closeParentTab) {
+          this.currentParentTab._visuallySelected = false;
+        }
+        this.#currentBrowser.removeAttribute("zen-glance-selected");
       }
-      this.#currentBrowser.zenModeActive = false;
-      if (closeParentTab && parentHasBrowser) {
-        this.currentParentTab.linkedBrowser.docShellIsActive = false;
-      }
-      if (closeCurrentTab) {
-        this.#currentBrowser.docShellIsActive = false;
-        this.overlay.classList.remove("deck-selected");
-      }
-      if (!this.currentParentTab._visuallySelected && closeParentTab) {
-        this.currentParentTab._visuallySelected = false;
-      }
-      this.#currentBrowser.removeAttribute("zen-glance-selected");
       if (parentHasBrowser) {
         this.currentParentTab.linkedBrowser.closest(".browserSidebarContainer").classList.remove("zen-glance-background");
       }

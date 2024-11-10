@@ -9,7 +9,7 @@
 }
 
 #tabbrowser-tabpanels:has(.zen-glance-background) {
-  transform: scale(0.97);
+  transform: scale(0.98);
   backdrop-filter: blur(5px);
 
   & .zen-glance-background {
