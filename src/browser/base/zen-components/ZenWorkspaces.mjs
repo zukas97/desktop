@@ -15,6 +15,7 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
 
   async init() {
     if (!this.shouldHaveWorkspaces) {
+      document.getElementById('zen-current-workspace-indicator').setAttribute('hidden', 'true');
       console.warn('ZenWorkspaces: !!! ZenWorkspaces is disabled in hidden windows !!!');
       return; // We are in a hidden window, don't initialize ZenWorkspaces
     }
