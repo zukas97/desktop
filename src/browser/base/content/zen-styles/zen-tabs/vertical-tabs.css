@@ -278,7 +278,7 @@
     }
 
     & #zen-essentials-container {
-      --tab-min-height: 44px;
+      --tab-min-height: 42px;
     }
 
     /* Mark: Fix separator paddings */
