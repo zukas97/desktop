@@ -408,17 +408,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      opacity: .5;
-      &::after {
-        content: '';
-        width: 80%;
-        height: 1px;
-        position: absolute;
-        background: light-dark(rgba(1, 1, 1, 0.075), rgba(255, 255, 255, 0.1));
-        bottom: 4px;
-        left: 50%;
-        transform: translateX(-50%);
-      }
+      opacity: .4;
     }
 
     & #zen-essentials-container {
