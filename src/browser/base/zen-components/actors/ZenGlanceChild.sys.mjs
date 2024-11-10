@@ -56,9 +56,14 @@ export class ZenGlanceChild extends JSWindowActorChild {
   }
 
   openGlance(target) {
+    let url = target.href;
+    // Add domain to relative URLs
+    if (!url.match(/^(?:[a-z]+:)?\/\//i)) {
+      url = this.contentWindow.location.origin + url;
+    }
     const rect = target.getBoundingClientRect();
     this.sendAsyncMessage('ZenGlance:OpenGlance', { 
-      url: target.href,
+      url,
       x: rect.left,
       y: rect.top,
       width: rect.width,

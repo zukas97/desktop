@@ -256,7 +256,7 @@
     top: 50%;
     left: 50%;
     width: 87%;
-    height: 87%;
+    height: calc(102% + 10px);
   }
 
   100% {
@@ -264,7 +264,7 @@
     transform: translate(-50%, -50%) translateZ(0);
     opacity: 1;
     width: 85%;
-    height: 85%;
+    height: calc(100% + 10px);
     top: 50%;
     left: 50%;
   }
@@ -287,7 +287,7 @@
     transform: translate(-50%, -50%);
     opacity: 1;
     width: 85%;
-    height: 85%;
+    height: calc(100% + 10px);
     top: 50%;
     left: 50%;
   }
