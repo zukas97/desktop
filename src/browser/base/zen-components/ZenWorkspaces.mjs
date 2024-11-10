@@ -335,11 +335,13 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
 
   initIndicatorContextMenu() {
     const indicator = document.getElementById('zen-current-workspace-indicator');
-    indicator.addEventListener('contextmenu', (event) => {
+    const th = (event) => {
       event.preventDefault();
       event.stopPropagation();
       this.openWorkspacesDialog(event);
-    });
+    };
+    indicator.addEventListener('contextmenu', th);
+    indicator.addEventListener('click', th);
   }
 
   handleTabBeforeClose(tab) {

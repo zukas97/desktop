@@ -404,6 +404,17 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      opacity: .5;
+      &::after {
+        content: '';
+        width: 80%;
+        height: 1px;
+        position: absolute;
+        background: light-dark(rgba(1, 1, 1, 0.075), rgba(255, 255, 255, 0.1));
+        bottom: 4px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
     }
 
     & #zen-essentials-container {
@@ -603,7 +614,7 @@
     #navigator-toolbox[has-popup-menu],
     #navigator-toolbox:has(.tabbrowser-tab:active),
     #navigator-toolbox:has(*[open='true']:not(tab):not(#zen-sidepanel-button)) {
-      --zen-toolbox-max-width: 49px;
+      --zen-toolbox-max-width: 45px;
       max-width: var(--zen-toolbox-max-width) !important;
       min-width: var(--zen-toolbox-max-width) !important;
       padding: 0 !important;
