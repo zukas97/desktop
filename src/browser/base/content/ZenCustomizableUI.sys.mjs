@@ -46,22 +46,7 @@ export var ZenCustomizableUI = new (class {
         mode="icons">
         <hbox id="zen-sidebar-top-buttons-customization-target" class="customization-target" flex="1">
           <toolbarbutton removable="true" class="chromeclass-toolbar-additional toolbarbutton-1 zen-sidebar-action-button" id="zen-expand-sidebar-button" data-l10n-id="sidebar-zen-expand" cui-areatype="toolbar" oncommand="gZenVerticalTabsManager.toggleExpand();"></toolbarbutton>
-          <toolbarbutton id="zen-profile-button" 
-            class="zen-sidebar-action-button toolbarbutton-1 chromeclass-toolbar-additional"
-            delegatesanchor="true"
-            onmousedown="ZenProfileDialogUI.showSubView(this, event)"
-            onkeypress="ZenProfileDialogUI.showSubView(this, event)"
-            consumeanchor="zen-profile-button"
-            closemenu="none"
-            data-l10n-id="toolbar-button-account"
-            cui-areatype="toolbar"
-            badged="true"
-            removable="true">
-            <vbox>
-              <image id="zen-profile-button-icon" />
-            </vbox>
-          </toolbarbutton>
-          <toolbarbutton removeable="true" class="toolbarbutton-1 zen-sidebar-action-button" id="zen-sidepanel-button" data-l10n-id="sidebar-zen-sidepanel" onclick="gZenBrowserManagerSidebar.toggle();"></toolbarbutton>
+          <toolbarbutton removable="true" class="toolbarbutton-1 zen-sidebar-action-button" id="zen-sidepanel-button" data-l10n-id="sidebar-zen-sidepanel" onclick="gZenBrowserManagerSidebar.toggle();"></toolbarbutton>
         </hbox>
       </toolbar>
     `);

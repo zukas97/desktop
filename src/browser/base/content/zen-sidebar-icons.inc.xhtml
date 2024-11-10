@@ -7,4 +7,19 @@
   skipintoolbarset="true"
   context="toolbar-context-menu"
   mode="icons">
+  <toolbarbutton id="zen-profile-button" 
+    class="zen-sidebar-action-button toolbarbutton-1 chromeclass-toolbar-additional"
+    delegatesanchor="true"
+    onmousedown="ZenProfileDialogUI.showSubView(this, event)"
+    onkeypress="ZenProfileDialogUI.showSubView(this, event)"
+    consumeanchor="zen-profile-button"
+    closemenu="none"
+    data-l10n-id="toolbar-button-account"
+    cui-areatype="toolbar"
+    badged="true"
+    removable="true">
+    <vbox>
+      <image id="zen-profile-button-icon" />
+    </vbox>
+  </toolbarbutton>
 </toolbar>
