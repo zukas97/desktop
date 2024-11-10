@@ -58,11 +58,11 @@
     }
 
     get enabled() {
-      if (!this._enabled) {
+      if (typeof this._enabled === 'undefined') {
         this._enabled = !(
-          docElement.hasAttribute('privatebrowsingmode') ||
-          docElement.getAttribute('chromehidden').includes('toolbar') ||
-          docElement.getAttribute('chromehidden').includes('menubar')
+          document.documentElement.hasAttribute('privatebrowsingmode') ||
+          document.documentElement.getAttribute('chromehidden')?.includes('toolbar') ||
+          document.documentElement.getAttribute('chromehidden')?.includes('menubar')
         );
       }
       return this._enabled;
