@@ -157,6 +157,18 @@
           --toolbarbutton-inner-padding: 0 !important;
         }
       }
+
+      /* On essentials, glance tabs are floating */
+      &[zen-essential='true'] .tabbrowser-tab {
+        position: absolute;
+        top: 3px;
+        right: 5px;
+        --tab-collapsed-width: 15px;
+        --tab-min-height: 15px;
+        width: var(--tab-collapsed-width) !important;
+        z-index: 1;
+        pointer-events: none;
+      }
     }
   }
 
@@ -748,18 +760,20 @@
       }
 
       @media (-moz-bool-pref: 'zen.view.show-newtab-button-border-top') and (not (-moz-bool-pref: 'zen.view.show-newtab-button-top')) {
-        margin-top: 15px;
-        position: relative;
-        &::before {
-          content: '';
-          display: block;
-          height: 1px;
-          background: light-dark(rgba(1, 1, 1, 0.075), rgba(255, 255, 255, 0.1));
-          width: 98%;
-          position: absolute;
-          top: -8px;
-          left: 50%;
-          transform: translateX(-50%);
+        #tabbrowser-arrowscrollbox:has(tab:not([hidden])) & {
+          margin-top: 15px;
+          position: relative;
+          &::before {
+            content: '';
+            display: block;
+            height: 1px;
+            background: light-dark(rgba(1, 1, 1, 0.075), rgba(255, 255, 255, 0.1));
+            width: 98%;
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+          }
         }
       }
     }
