@@ -236,6 +236,10 @@
       width: calc(100% - 10px) !important;
     }
 
+    & #zen-current-workspace-indicator-icon[no-icon='true'] {
+      display: none;
+    }
+
     & #zen-workspaces-button {
       margin-left: 2px;
       margin-right: 2px;

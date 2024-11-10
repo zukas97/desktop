@@ -1125,11 +1125,11 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
     const indicatorIcon = document.getElementById('zen-current-workspace-indicator-icon');
 
     if (this.workspaceHasIcon(currentWorkspace)) {
-      indicatorIcon.textContent = this.getWorkspaceIcon(currentWorkspace);
-      indicatorIcon.removeAttribute('hidden');
+      indicatorIcon.removeAttribute('no-icon');
     } else {
-      indicatorIcon.setAttribute('hidden', 'true');
+      indicatorIcon.setAttribute('no-icon', 'true');
     }
+    indicatorIcon.textContent = this.getWorkspaceIcon(currentWorkspace);
     indicatorName.textContent = currentWorkspace.name;
   }
 
