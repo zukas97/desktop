@@ -455,7 +455,7 @@
                       oncommand="gZenPinnedTabManager.removeEssentials();"/>
         `);
 
-      document.getElementById('context_pinTab')?.after(element);
+      document.getElementById('context_pinTab')?.before(element);
     }
 
     resetPinnedTabData(tabData) {
