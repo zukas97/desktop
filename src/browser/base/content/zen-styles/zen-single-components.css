@@ -49,6 +49,6 @@
   }
 }
 
-#customization-toolbar-visibility-button{
+#customization-footer #customization-toolbar-visibility-button {
   display: none !important;
 }
