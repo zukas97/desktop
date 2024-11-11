@@ -49,6 +49,10 @@
   list-style-image: url('close.svg') !important;
 }
 
+.reset-icon {
+  list-style-image: url('reload.svg') !important;
+}
+
 #sidebar-button {
   list-style-image: url('sidebars-right.svg') !important;
 }

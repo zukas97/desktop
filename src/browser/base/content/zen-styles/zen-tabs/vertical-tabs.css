@@ -683,6 +683,18 @@
   #tabbrowser-tabs {
     & .tabbrowser-tab {
       &[pinned] .tab-close-button {
+        display: none !important;
+      }
+
+      &[pinned]:not([zen-essential]):hover .tab-reset-button {
+        display: block;
+      }
+
+      &[zen-essential] .tab-reset-button {
+        display: none;
+      }
+
+      &:not([pinned]) .tab-reset-button {
         display: none;
       }
 
@@ -691,6 +703,53 @@
       }
     }
   }
+
+  .tab-reset-button {
+    display: none;
+    -moz-context-properties: fill, fill-opacity;
+    border-radius: 4px;
+    color: inherit;
+    fill: currentColor;
+    padding: 6px;
+    width: 24px;
+    height: 24px;
+    outline: var(--toolbarbutton-outline);
+
+    &:hover {
+      outline-color: var(--toolbarbutton-hover-outline-color);
+    }
+
+    &:hover:active {
+      outline-color: var(--toolbarbutton-active-outline-color);
+    }
+  }
+
+  .reset-icon {
+    appearance: none;
+
+  }
+
+  @media not (forced-colors) {
+    .tab-reset-button:hover {
+      background-color: color-mix(in srgb, currentColor 10%, transparent);
+    }
+
+    .tab-reset-button:hover:active {
+      background-color: color-mix(in srgb, currentColor 20%, transparent);
+    }
+  }
+
+  .tab-reset-button> .button-icon,
+  .tab-reset-button > .button-box > .button-icon,
+  .tab-reset-button > .toolbarbutton-icon {
+    margin: 0;
+  }
+
+  .tab-reset-button > .button-box > .button-text,
+  .tab-reset-button > .toolbarbutton-text {
+    display: none;
+  }
+
 
   /* Customization mode */
   /*:root[customizing] #TabsToolbar > *:not(#zen-sidebar-icons-wrapper) {
@@ -760,22 +819,22 @@
       }
 
       @media (-moz-bool-pref: 'zen.view.show-newtab-button-border-top') and (not (-moz-bool-pref: 'zen.view.show-newtab-button-top')) {
-        #tabbrowser-arrowscrollbox:has(tab:not([hidden])) & {
-          margin-top: 15px;
-          position: relative;
-          &::before {
-            content: '';
-            display: block;
-            height: 1px;
-            background: light-dark(rgba(1, 1, 1, 0.075), rgba(255, 255, 255, 0.1));
-            width: 98%;
-            position: absolute;
-            top: -8px;
-            left: 50%;
-            transform: translateX(-50%);
-          }
+      #tabbrowser-arrowscrollbox:has(tab:not([hidden])) & {
+        margin-top: 15px;
+        position: relative;
+        &::before {
+          content: '';
+          display: block;
+          height: 1px;
+          background: light-dark(rgba(1, 1, 1, 0.075), rgba(255, 255, 255, 0.1));
+          width: 98%;
+          position: absolute;
+          top: -8px;
+          left: 50%;
+          transform: translateX(-50%);
         }
       }
+    }
     }
   }
 }
