@@ -149,7 +149,8 @@
           box-shadow: none !important;
         }
         & label { display: none !important; }
-        & .tab-close-button { 
+        & .tab-close-button,
+        & .tab-reset-button { 
           display: none !important; 
         }
 
@@ -498,6 +499,10 @@
           }
         }
 
+        & .tab-reset-button {
+          display: none !important;
+        }
+
         & .tab-content {
           display: flex;
           align-content: center;
@@ -686,7 +691,8 @@
         display: none !important;
       }
 
-      &[pinned]:not([zen-essential]):hover .tab-reset-button {
+      &[pinned]:not([zen-essential]):hover .tab-reset-button,
+      &[pinned][visuallyselected]:not([zen-essential]) .tab-reset-button {
         display: block;
       }
 
@@ -707,7 +713,7 @@
   .tab-reset-button {
     display: none;
     -moz-context-properties: fill, fill-opacity;
-    border-radius: 4px;
+    border-radius: var(--tab-border-radius);
     color: inherit;
     fill: currentColor;
     padding: 6px;
