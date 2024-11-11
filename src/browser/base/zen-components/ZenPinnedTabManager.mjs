@@ -2,7 +2,7 @@
   const lazy = {};
 
   class ZenPinnedTabsObserver {
-    static ALL_EVENTS = ['TabPinned', 'TabUnpinned', 'TabClose'];
+    static ALL_EVENTS = ['TabPinned', 'TabUnpinned'];
 
     #listeners = [];
 
@@ -219,9 +219,6 @@
             delete tab._zenClickEventListener;
           }
           break;
-        case "TabClose":
-          this._removePinnedAttributes(tab);
-          break;
         default:
           console.warn('ZenPinnedTabManager: Unhandled tab event', action);
           break;
@@ -310,18 +307,20 @@
       await this._refreshPinnedTabs();
     }
 
-    async _removePinnedAttributes(tab) {
+    async _removePinnedAttributes(tab, isClosing = false) {
       if(!tab.getAttribute("zen-pin-id")) {
         return;
       }
 
       await ZenPinnedTabsStorage.removePin(tab.getAttribute("zen-pin-id"));
 
-      tab.removeAttribute("zen-pin-id");
+      if(!isClosing) {
+        tab.removeAttribute("zen-pin-id");
 
-      if(!tab.hasAttribute("zen-workspace-id") && ZenWorkspaces.workspaceEnabled) {
-        const workspace = await ZenWorkspaces.getActiveWorkspace();
-        tab.setAttribute("zen-workspace-id", workspace.uuid);
+        if (!tab.hasAttribute("zen-workspace-id") && ZenWorkspaces.workspaceEnabled) {
+          const workspace = await ZenWorkspaces.getActiveWorkspace();
+          tab.setAttribute("zen-workspace-id", workspace.uuid);
+        }
       }
 
       await this._refreshPinnedTabs();
@@ -349,6 +348,7 @@
 
       switch (behavior) {
         case 'close':
+          this._removePinnedAttributes(selectedTab, true);
           gBrowser.removeTab(selectedTab, { animate: true });
           break;
         case 'reset-unload-switch':
@@ -499,6 +499,7 @@
       document.getElementById('context_pinTab')?.after(element);
     }
 
+    // TODO: remove this as it's not possible to know the base pinned url any more as it's now stored in tab state
     resetPinnedTabData(tabData) {
       if (lazy.zenPinnedTabRestorePinnedTabsToPinnedUrl && tabData.pinned && tabData.zenPinnedEntry) {
         tabData.entries = [JSON.parse(tabData.zenPinnedEntry)];
