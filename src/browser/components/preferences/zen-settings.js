@@ -1106,6 +1106,11 @@ Preferences.addAll([
     default: true,
   },
   {
+    id: 'zen.workspaces.container-specific-essentials-enabled',
+    type: 'bool',
+    default: false,
+  },
+  {
     id: "zen.tabs.show-newtab-vertical",
     type: "bool",
     default: true,

@@ -40,6 +40,12 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
         'zen.workspaces.open-new-tab-if-last-unpinned-tab-is-closed',
         false
     );
+    XPCOMUtils.defineLazyPreferenceGetter(
+        this,
+        'containerSpecificEssentials',
+        'zen.workspaces.container-specific-essentials-enabled',
+        false
+    );
     ChromeUtils.defineLazyGetter(this, 'tabContainer', () => document.getElementById('tabbrowser-tabs'));
     this._activeWorkspace = Services.prefs.getStringPref('zen.workspaces.active', '');
     await ZenWorkspacesStorage.init();
@@ -1092,6 +1098,8 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
 
     this._inChangingWorkspace = true;
     this.activeWorkspace = window.uuid;
+    const containerId = window.containerTabId?.toString();
+    const workspaces = await this._workspaces();
 
     this.tabContainer._invalidateCachedTabs();
     let firstTab = undefined;
@@ -1105,8 +1113,8 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
           firstTab = null; // note: Do not add "undefined" here, a new tab would be created
         }
         gBrowser.showTab(tab);
-        if (!tab.hasAttribute('zen-workspace-id') && !tab.pinned) {
-          // We add the id to those tabs that got inserted before we initialize the workspaces
+        if (!tab.hasAttribute('zen-workspace-id') && tab.getAttribute('zen-essential') !== 'true') {
+          // We add the id to those tabs that got inserted before we initialize the workspaces or those who lost the id for any reason
           // example use case: opening a link from an external app
           tab.setAttribute('zen-workspace-id', window.uuid);
         }
@@ -1119,8 +1127,28 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
       this._createNewTabForWorkspace(window);
     }
     for (let tab of gBrowser.tabs) {
-      if (tab.getAttribute('zen-workspace-id') !== window.uuid && !(tab.pinned && !tab.hasAttribute('zen-workspace-id'))
-          && !tab.hasAttribute("zen-essential")) {
+      // Skip tabs that are in the current workspace
+      if (tab.getAttribute('zen-workspace-id') === window.uuid) {
+        continue;
+      }
+
+      // Handle essentials
+      if (tab.getAttribute("zen-essential") === "true") {
+        if(this.containerSpecificEssentials) {
+          if (containerId) {
+            // In workspaces with default container: Hide essentials that don't match the container
+            if (tab.getAttribute("usercontextid") !== containerId) {
+              gBrowser.hideTab(tab, undefined, true);
+            }
+          } else {
+            // In workspaces without a default container: Hide essentials that are opened in a container and some workspace has that container as default
+            if (tab.hasAttribute("usercontextid") && workspaces.workspaces.some((workspace) => workspace.containerTabId === parseInt(tab.getAttribute("usercontextid") || "0" , 10))) {
+              gBrowser.hideTab(tab, undefined, true);
+            }
+          }
+        }
+      } else {
+        // For non-pinned tabs: Hide if they're not in the current workspace
         gBrowser.hideTab(tab, undefined, true);
       }
     }
