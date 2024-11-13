@@ -496,7 +496,7 @@
                       oncommand="gZenPinnedTabManager.removeEssentials();"/>
         `);
 
-      document.getElementById('context_pinTab')?.after(element);
+      document.getElementById('context_pinTab')?.before(element);
     }
 
     // TODO: remove this as it's not possible to know the base pinned url any more as it's now stored in tab state
