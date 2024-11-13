@@ -177,6 +177,7 @@ pref('zen.workspaces.icons', '["⌚","⌛","⏪","⏫","⏬","⏰","⏳","⚽","
 pref('services.sync.prefs.sync.zen.workspaces.icons', true);
 pref('services.sync.engine.workspaces', false);
 pref('zen.essentials.enabled', true);
+pref('zen.workspaces.container-specific-essentials-enabled', false);
 
 // Zen Watermark
 pref('zen.watermark.enabled', true, sticky);
