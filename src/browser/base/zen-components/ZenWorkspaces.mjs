@@ -1122,7 +1122,7 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
     }
     if (firstTab) {
       // Don't change the selected tab if it's an essential tab, it becomes annoying
-      if (!gBrowser.selectedTab.hasAttribute('zen-esential')) {
+      if (!gBrowser.selectedTab.hasAttribute('zen-essential')) {
         gBrowser.selectedTab = this._lastSelectedWorkspaceTabs[window.uuid] ?? firstTab;
       }
     }
