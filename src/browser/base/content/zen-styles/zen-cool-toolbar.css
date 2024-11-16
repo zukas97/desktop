@@ -2,7 +2,6 @@
 :root:not([inDOMFullscreen='true']):not([chromehidden~='location']):not([chromehidden~='toolbar']) {
   & #zen-appcontent-wrapper {
     box-shadow: 0 0 1px 1px light-dark(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5));
-    background: var(--zen-colors-tertiary);
     border-radius: var(--zen-border-radius);
     padding: 0;
     overflow: hidden;
@@ -12,6 +11,10 @@
     #browser:has(#navigator-toolbox[zen-right-side='true']) & {
       margin-right: 0;
       margin-left: var(--zen-element-separation);
+    }
+
+    & #zen-appcontent-navbar-container {
+      background: color-mix(in srgb, var(--zen-colors-tertiary) 90%, transparent 10%);
     }
   }
 
