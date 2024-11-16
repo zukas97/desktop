@@ -7,19 +7,12 @@
         margin-left: calc(var(--zen-sidebar-web-panel-spacing) * 2) !important;
       }
 
-      #zen-sidebar-top-buttons-customization-target {
-        padding-inline-start: calc(var(--zen-toolbox-padding) - var(--toolbarbutton-outer-padding)) !important;
+      #zen-appcontent-wrapper {
+        margin-left: var(--zen-element-separation) !important;
       }
 
-      /* Set the extra paddings */
-      #tabbrowser-tabpanels {
-        :root:not([inDOMFullscreen='true']) #browser:has(#navigator-toolbox[zen-right-side='true']) & {
-          padding-right: var(--zen-element-separation) !important;
-        }
-
-        :root:not([inDOMFullscreen='true']) #browser:has(#navigator-toolbox:not([zen-right-side='true'])) & {
-          padding-left: var(--zen-element-separation) !important;
-        }
+      #zen-sidebar-top-buttons-customization-target {
+        padding-inline-start: calc(var(--zen-toolbox-padding) - var(--toolbarbutton-outer-padding)) !important;
       }
 
       #zen-sidebar-splitter {
@@ -103,10 +96,6 @@
     @media (-moz-bool-pref: 'zen.view.compact.hide-toolbar') {
       #navigator-toolbox {
         --zen-toolbox-top-align: var(--zen-element-separation);
-      }
-
-      &:not([inDOMFullscreen='true']) #tabbrowser-tabpanels {
-        padding-top: var(--zen-element-separation) !important;
       }
 
       #sidebar-box,

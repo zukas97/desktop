@@ -41,7 +41,6 @@
     min-width: var(--zen-toolbox-min-width);
     margin-top: 0 !important; /* Fix full screen mode */
 
-    padding-top: var(--zen-toolbox-top-align);
     padding-bottom: var(--zen-element-separation) !important;
 
     border: none;
@@ -372,12 +371,6 @@
         }
       }
     }
-
-    @media (-moz-bool-pref: 'zen.view.compact') and (-moz-bool-pref: 'zen.view.compact.hide-toolbar') and (not (-moz-bool-pref: 'zen.view.compact.hide-tabbar')) {
-      & {
-        margin-top: var(--zen-element-separation) !important;
-      }
-    }
   }
 
   /* Mark: toolbox as collapsed */
@@ -411,6 +404,10 @@
 
     & #zen-current-workspace-indicator-name {
       display: none;
+    }
+
+    & #TabsToolbar {
+      padding-top: var(--zen-element-separation);
     }
 
     & #zen-current-workspace-indicator {

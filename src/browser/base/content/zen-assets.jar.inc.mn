@@ -43,6 +43,7 @@
         content/browser/zen-styles/zen-popup.css                (content/zen-styles/zen-popup.css)
         content/browser/zen-styles/zen-sidebar-panels.css       (content/zen-styles/zen-sidebar-panels.css)
         content/browser/zen-styles/zen-gradient-generator.css   (content/zen-styles/zen-gradient-generator.css)
+        content/browser/zen-styles/zen-cool-toolbar.css         (content/zen-styles/zen-cool-toolbar.css)
         
         content/browser/zen-styles/zen-panels/bookmarks.css     (content/zen-styles/zen-panels/bookmarks.css)
         content/browser/zen-styles/zen-panels/extensions.css    (content/zen-styles/zen-panels/extensions.css)

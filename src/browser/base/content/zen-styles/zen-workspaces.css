@@ -431,7 +431,7 @@
   }
 
   & #zen-current-workspace-indicator-icon:not([hidden]) + #zen-current-workspace-indicator-name  {
-    margin-left: 25px;
+    margin-left: 22px;
   }
 }
 

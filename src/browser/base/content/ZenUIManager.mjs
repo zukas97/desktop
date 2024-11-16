@@ -173,10 +173,10 @@ var gZenVerticalTabsManager = {
       !Services.prefs.getBoolPref('zen.view.sidebar-expanded.on-hover')
     ) {
       this.navigatorToolbox.prepend(topButtons);
-      browser.prepend(this.navigatorToolbox);
+    //  browser.prepend(this.navigatorToolbox);
     } else {
       customizationTarget.prepend(topButtons);
-      tabboxWrapper.prepend(this.navigatorToolbox);
+    //  tabboxWrapper.prepend(this.navigatorToolbox);
     }
 
     // Always move the splitter next to the sidebar
