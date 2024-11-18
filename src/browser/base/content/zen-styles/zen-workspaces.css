@@ -55,17 +55,13 @@
       }
 
       @media not (-moz-bool-pref: 'zen.workspaces.hide-deactivated-workspaces') {
-        &[active='true']::after {
-          content: '';
-          position: absolute;
-          width: 4px;
-          border-radius: 99px;
-          height: 4px;
-          background: var(--zen-primary-color);
-          bottom: -2px;
-          left: 50%;
-          transform: translateX(-50%);
-          animation: zen-workspaces-button-active 0.1s ease-in-out;
+        & {
+          opacity: 0.4;
+          transition: opacity 0.2s;
+        }
+        
+        &[active='true'] {
+          opacity: 1;
         }
       }
     }
