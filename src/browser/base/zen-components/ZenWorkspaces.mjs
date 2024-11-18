@@ -1160,6 +1160,7 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
     await this._updateWorkspacesChangeContextMenu();
 
     document.getElementById('tabbrowser-tabs')._positionPinnedTabs();
+    gZenUIManager.updateTabsToolbar();
 
     await this._propagateWorkspaceData({clearCache: onInit});
     for (let listener of this._changeListeners ?? []) {
