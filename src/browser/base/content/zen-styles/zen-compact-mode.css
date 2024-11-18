@@ -99,6 +99,7 @@
       }
 
       #sidebar-box,
+      #titlebar,
       #zen-sidebar-web-panel-wrapper:has(#zen-sidebar-web-panel:not([pinned='true'])) {
         margin-top: var(--zen-element-separation) !important;
       }

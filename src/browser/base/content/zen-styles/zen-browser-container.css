@@ -4,7 +4,9 @@
     border-radius: var(--zen-webview-border-radius, var(--zen-border-radius));
     position: relative;
 
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+    &:not([zen-split="true"]) {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
   }
 }

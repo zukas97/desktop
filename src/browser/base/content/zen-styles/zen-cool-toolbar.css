@@ -1,5 +1,5 @@
 
-:root:not([inDOMFullscreen='true']):not([chromehidden~='location']):not([chromehidden~='toolbar']) {
+:root:not([inDOMFullscreen='true']):not([chromehidden~='location']):not([chromehidden~='toolbar']):not(:has(#tabbrowser-tabpanels[zen-split-view='true'])) {
   & #zen-appcontent-wrapper {
     box-shadow: 0 0 1px 1px light-dark(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5));
     border-radius: var(--zen-border-radius);
@@ -15,6 +15,10 @@
 
     & #zen-appcontent-navbar-container {
       background: color-mix(in srgb, var(--zen-colors-tertiary) 90%, transparent 10%);
+    }
+
+    :root[zen-no-padding='true'] & {
+      border-radius: 0 !important;
     }
   }
 

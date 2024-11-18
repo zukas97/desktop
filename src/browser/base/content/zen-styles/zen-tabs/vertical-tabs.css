@@ -17,6 +17,10 @@
 
   #browser {
     --zen-toolbox-padding: calc(var(--zen-element-separation) / 1.5);
+
+    :root[zen-no-padding='true'] & {
+      --zen-toolbox-padding: 4px;
+    }
   }
 
   #vertical-pinned-tabs-container-separator {
@@ -239,7 +243,8 @@
     }
 
     & #zen-sidebar-top-buttons {
-      padding-left: var(--zen-toolbox-padding);
+      padding: var(--zen-element-separation);
+      margin-top: var(--zen-element-separation);
     }
 
     & #zen-workspaces-button[as-button='true'] {
