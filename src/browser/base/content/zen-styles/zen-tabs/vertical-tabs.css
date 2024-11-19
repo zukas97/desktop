@@ -247,11 +247,6 @@
       margin-inline: var(--tab-block-margin);
     }
 
-    & #zen-sidebar-top-buttons,
-    & #nav-bar {
-      padding: var(--zen-element-separation);
-      margin-top: var(--zen-element-separation);
-    }
 
     & #nav-bar {
       margin-top: 0;
@@ -316,11 +311,11 @@
 
       & > *:not(tabs):not(#search-container):not(#zen-workspaces-button),
       & #tabbrowser-arrowscrollbox-periphery > toolbarbutton {
-        width: 100%;
-        border-radius: var(--tab-border-radius);
+        width: 100% !important;
+        border-radius: var(--tab-border-radius) !important;
 
-        padding-left: var(--toolbarbutton-inner-padding);
-        padding-right: var(--toolbarbutton-inner-padding);
+        padding-left: var(--toolbarbutton-inner-padding) !important;
+        padding-right: var(--toolbarbutton-inner-padding) !important;
 
         & label {
           display: flex;
