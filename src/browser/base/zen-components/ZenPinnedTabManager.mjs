@@ -196,6 +196,10 @@
 
         gBrowser.pinTab(newTab);
 
+        if(newTab.getAttribute("zen-workspace-id") !== ZenWorkspaces.activeWorkspace && newTab.getAttribute("zen-essential") !== "true") {
+          gBrowser.hideTab(newTab, undefined, true);
+        }
+
         newTab.initialize();
       }
 
