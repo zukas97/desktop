@@ -77,6 +77,19 @@
   overflow-x: hidden;
 }
 
+:root:not([inDOMFullscreen='true']):not([chromehidden~='location']):not([chromehidden~='toolbar']) {
+  & #zen-appcontent-wrapper {
+    margin: var(--zen-element-separation);
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+  #browser:has(#navigator-toolbox[zen-right-side='true']) & #zen-appcontent-wrapper {
+    margin-right: 0;
+    margin-left: var(--zen-element-separation);
+  }
+}
+
 #tabbrowser-tabbox {
   display: flex;
   flex-direction: row;

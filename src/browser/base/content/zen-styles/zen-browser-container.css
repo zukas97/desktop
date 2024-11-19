@@ -4,9 +4,17 @@
     border-radius: var(--zen-webview-border-radius, var(--zen-border-radius));
     position: relative;
 
-    &:not([zen-split="true"]) {
-      border-bottom-left-radius: 0;
-      border-bottom-right-radius: 0;
+    box-shadow: 0 0 1px 1px light-dark(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5));
+    border-radius: var(--zen-border-radius);
+    overflow: hidden;
+    
+    #browser:has(#navigator-toolbox[zen-right-side='true']) & {
+      margin-right: 0;
+      margin-left: var(--zen-element-separation);
+    }
+
+    :root[zen-no-padding='true'] &:not([zen-split="true"]) {
+      border-radius: 0 !important;
     }
   }
 }

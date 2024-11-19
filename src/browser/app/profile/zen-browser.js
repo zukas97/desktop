@@ -118,12 +118,10 @@ pref('zen.glance.activation-method', 'ctrl'); // ctrl, alt, shift, none, hold
 #endif
 
 pref('zen.view.sidebar-height-throttle', 200); // in ms
-pref('zen.view.sidebar-expanded', true);
-pref('zen.view.sidebar-expanded.on-hover', false);
 pref('zen.view.sidebar-expanded.max-width', 400);
 
 pref('zen.view.show-bottom-border', false);
-pref('zen.view.sidebar-collapsed.hide-mute-button', true);
+pref('zen.view.use-single-toolbar', true);
 
 pref('zen.tabs.dim-pending', true);
 pref('zen.tabs.newtab-on-middle-click', true);

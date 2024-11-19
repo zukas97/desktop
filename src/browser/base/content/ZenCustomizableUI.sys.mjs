@@ -9,7 +9,7 @@ export var ZenCustomizableUI = new (class {
       'zen-sidebar-top-buttons',
       {
         type: this.TYPE_TOOLBAR,
-        defaultPlacements: ['preferences-button', 'zen-expand-sidebar-button', 'zen-sidepanel-button'],
+        defaultPlacements: ['zen-sidepanel-button'],
         defaultCollapsed: null,
       },
       true
@@ -45,7 +45,6 @@ export var ZenCustomizableUI = new (class {
         customizationtarget="zen-sidebar-top-buttons-customization-target"
         mode="icons">
         <hbox id="zen-sidebar-top-buttons-customization-target" class="customization-target" flex="1">
-          <toolbarbutton removable="true" class="chromeclass-toolbar-additional toolbarbutton-1 zen-sidebar-action-button" id="zen-expand-sidebar-button" data-l10n-id="sidebar-zen-expand" cui-areatype="toolbar" oncommand="gZenVerticalTabsManager.toggleExpand();"></toolbarbutton>
           <toolbarbutton removable="true" class="toolbarbutton-1 zen-sidebar-action-button zen-compact-mode-ignore" id="zen-sidepanel-button" data-l10n-id="sidebar-zen-sidepanel" onclick="gZenBrowserManagerSidebar.toggle();"></toolbarbutton>
         </hbox>
       </toolbar>
