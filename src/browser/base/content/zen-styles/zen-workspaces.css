@@ -108,46 +108,37 @@
   font-size: 13px;
 }
 
-@media (-moz-bool-pref: 'zen.view.sidebar-expanded') {
-  /** Keep these selectors in sync with the ones in vertical-tabs.css */
-  #navigator-toolbox:is(
-      #navigator-toolbox[zen-user-hover='true'][zen-has-hover],
-      #navigator-toolbox[zen-user-hover='true'][has-popup-menu],
-      #navigator-toolbox[zen-user-hover='true']:focus-within,
-      #mainPopupSet[zen-user-hover='true']:has(> #appMenu-popup:hover) ~ toolbox,
-      #navigator-toolbox[zen-user-hover='true']:has(*[open='true']:not(tab):not(#zen-sidepanel-button)),
-      :not([zen-user-hover='true'])
-    ) {
-    & #zen-workspaces-button[as-button='true'] {
-      width: calc(100% - var(--toolbarbutton-outer-padding));
-      margin: 2px;
-      min-width: calc(2 * var(--toolbarbutton-inner-padding) + 16px);
-      height: calc(2 * var(--toolbarbutton-inner-padding) + 16px);
-    }
+/** Keep these selectors in sync with the ones in vertical-tabs.css */
+#navigator-toolbox {
+  & #zen-workspaces-button[as-button='true'] {
+    width: calc(100% - var(--toolbarbutton-outer-padding));
+    margin: 2px;
+    min-width: calc(2 * var(--toolbarbutton-inner-padding) + 16px);
+    height: calc(2 * var(--toolbarbutton-inner-padding) + 16px);
+  }
 
-    & #zen-workspaces-button .zen-workspace-sidebar-name {
-      display: block;
-    }
+  & #zen-workspaces-button .zen-workspace-sidebar-name {
+    display: block;
+  }
 
-    & #zen-workspaces-button .zen-workspace-sidebar-icon {
-      margin-inline-end: 5px;
+  & #zen-workspaces-button .zen-workspace-sidebar-icon {
+    margin-inline-end: 5px;
 
-      & [no-icon='true'] {
-        display: none;
-      }
+    & [no-icon='true'] {
+      display: none;
     }
+  }
 
-    & #zen-workspaces-button .zen-workspace-sidebar-icon[no-icon='true'] + .zen-workspace-sidebar-name {
-      margin-left: 0;
-    }
+  & #zen-workspaces-button .zen-workspace-sidebar-icon[no-icon='true'] + .zen-workspace-sidebar-name {
+    margin-left: 0;
+  }
 
-    & #zen-workspaces-button {
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      display: flex;
-      gap: 0.5ch;
-    }
+  & #zen-workspaces-button {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: flex;
+    gap: 0.5ch;
   }
 }
 

@@ -4,11 +4,11 @@
   visibility: inherit;
 }
 
-#zen-appcontent-wrapper {
+#tabbrowser-tabpanels {
   transition: transform 0.1s ease-in-out;
 }
 
-#zen-appcontent-wrapper:has(.zen-glance-background) {
+#tabbrowser-tabpanels:has(.zen-glance-background) {
   transform: scale(0.98);
   backdrop-filter: blur(5px);
 
