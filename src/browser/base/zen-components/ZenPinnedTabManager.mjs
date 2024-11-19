@@ -36,10 +36,10 @@
     }
   }
 
-  class ZenPinnedTabManager extends ZenPreloadedFeature {
+  class ZenPinnedTabManager extends ZenDOMOperatedFeature {
 
     init() {
-      if (!this.enabled || PrivateBrowsingUtils.isWindowPrivate(window)) {
+      if (!this.enabled) {
         return;
       }
       this.observer = new ZenPinnedTabsObserver();
@@ -51,7 +51,7 @@
     }
 
     async initTabs() {
-      if (!this.enabled || PrivateBrowsingUtils.isWindowPrivate(window)) {
+      if (!this.enabled) {
         return;
       }
       await ZenPinnedTabsStorage.init();
@@ -60,7 +60,7 @@
     get enabled() {
       if (typeof this._enabled === 'undefined') {
         this._enabled = !(
-          document.documentElement.hasAttribute('privatebrowsingmode') ||
+          PrivateBrowsingUtils.isWindowPrivate(window) ||
           document.documentElement.getAttribute('chromehidden')?.includes('toolbar') ||
           document.documentElement.getAttribute('chromehidden')?.includes('menubar')
         );

@@ -86,13 +86,6 @@ pref('zen.view.show-newtab-button-border-top', true);
 pref('zen.view.show-newtab-button-top', false);
 
 #ifdef XP_MACOSX
-// Disable for macos in the meantime until @HarryHeres finds a solution for hight DPI screens
-pref('zen.view.experimental-rounded-view', false);
-#else
-pref('zen.view.experimental-rounded-view', true);
-#endif
-
-#ifdef XP_MACOSX
 pref('zen.theme.border-radius', 10); // In pixels
 #else
 #ifdef XP_WIN

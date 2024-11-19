@@ -4,11 +4,11 @@
   visibility: inherit;
 }
 
-#tabbrowser-tabpanels {
+#zen-appcontent-wrapper {
   transition: transform 0.1s ease-in-out;
 }
 
-#tabbrowser-tabpanels:has(.zen-glance-background) {
+#zen-appcontent-wrapper:has(.zen-glance-background) {
   transform: scale(0.98);
   backdrop-filter: blur(5px);
 
@@ -54,8 +54,9 @@
     transform: translate(var(--initial-x), var(--initial-y));
     width: var(--initial-width);
     height: var(--initial-height);
-    position: absolute;
+    position: fixed;
     border-radius: var(--zen-border-radius);
+    overflow: hidden;
     opacity: 0;
     top: 0;
     left: 0;

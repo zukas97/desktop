@@ -17,6 +17,10 @@
 
   #browser {
     --zen-toolbox-padding: calc(var(--zen-element-separation) / 1.5);
+
+    :root[zen-no-padding='true'] & {
+      --zen-toolbox-padding: 4px;
+    }
   }
 
   #vertical-pinned-tabs-container-separator {
@@ -41,7 +45,6 @@
     min-width: var(--zen-toolbox-min-width);
     margin-top: 0 !important; /* Fix full screen mode */
 
-    padding-top: var(--zen-toolbox-top-align);
     padding-bottom: var(--zen-element-separation) !important;
 
     border: none;
@@ -240,7 +243,8 @@
     }
 
     & #zen-sidebar-top-buttons {
-      padding-left: var(--zen-toolbox-padding);
+      padding: var(--zen-element-separation);
+      margin-top: var(--zen-element-separation);
     }
 
     & #zen-workspaces-button[as-button='true'] {
@@ -372,12 +376,6 @@
         }
       }
     }
-
-    @media (-moz-bool-pref: 'zen.view.compact') and (-moz-bool-pref: 'zen.view.compact.hide-toolbar') and (not (-moz-bool-pref: 'zen.view.compact.hide-tabbar')) {
-      & {
-        margin-top: var(--zen-element-separation) !important;
-      }
-    }
   }
 
   /* Mark: toolbox as collapsed */
@@ -411,6 +409,10 @@
 
     & #zen-current-workspace-indicator-name {
       display: none;
+    }
+
+    & #TabsToolbar {
+      padding-top: var(--zen-element-separation);
     }
 
     & #zen-current-workspace-indicator {
@@ -562,19 +564,6 @@
           &[active='true']::after {
             bottom: 50% !important;
             transform: translateY(50%) !important;
-          }
-
-          @media not (-moz-bool-pref: 'zen.workspaces.hide-deactivated-workspaces') {
-            :root:has(#navigator-toolbox:not([zen-right-side='true'])) &[active='true']::after {
-              left: -2px;
-              animation: zen-workspaces-button-active-collapsed-left 0.1s ease-in-out !important;
-            }
-
-            :root:has(#navigator-toolbox[zen-right-side='true']) &[active='true']::after {
-              left: unset !important;
-              right: -2px;
-              animation: zen-workspaces-button-active-collapsed-right 0.1s ease-in-out !important;
-            }
           }
         }
       }

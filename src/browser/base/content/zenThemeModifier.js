@@ -73,6 +73,11 @@ var ZenThemeModifier = {
   updateElementSeparation() {
     const separation = Services.prefs.getIntPref('zen.theme.content-element-separation');
     document.documentElement.style.setProperty('--zen-element-separation', separation + 'px');
+    if (separation == 0) {
+      document.documentElement.setAttribute("zen-no-padding", true);
+    } else {
+      document.documentElement.removeAttribute("zen-no-padding");
+    }
   },
 
   /**
