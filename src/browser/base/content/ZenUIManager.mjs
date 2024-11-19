@@ -200,6 +200,7 @@ var gZenVerticalTabsManager = {
       for (const button of elements) {
         buttonsTarget.append(button);
       }
+      topButtons.appendChild(document.getElementById('unified-extensions-button'));
       topButtons.appendChild(document.getElementById('PanelUI-button'));
       if (this.isWindowsStyledButtons) {
         document.getElementById('zen-appcontent-navbar-container').append(

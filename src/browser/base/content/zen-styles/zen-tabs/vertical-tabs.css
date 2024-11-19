@@ -247,7 +247,6 @@
       margin-inline: var(--tab-block-margin);
     }
 
-    & #zen-sidebar-top-buttons,
     & #nav-bar {
       padding: var(--zen-element-separation);
       padding-right: 0;
