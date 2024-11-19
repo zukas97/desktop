@@ -57,10 +57,12 @@
       @media not (-moz-bool-pref: 'zen.workspaces.hide-deactivated-workspaces') {
         & {
           opacity: 0.4;
+          filter: grayscale(1);
           transition: opacity 0.2s;
         }
         
         &[active='true'] {
+          filter: none;
           opacity: 1;
         }
       }
