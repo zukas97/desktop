@@ -121,7 +121,7 @@ pref('zen.view.sidebar-height-throttle', 200); // in ms
 pref('zen.view.sidebar-expanded.max-width', 400);
 
 pref('zen.view.show-bottom-border', false);
-pref('zen.view.use-single-toolbar', true);
+pref('zen.view.use-single-toolbar', false);
 
 pref('zen.tabs.dim-pending', true);
 pref('zen.tabs.newtab-on-middle-click', true);
