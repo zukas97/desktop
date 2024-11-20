@@ -376,8 +376,7 @@ jobs:
           ls -al
           find .
           ls -al "$APPDIR"
-          ARCH=${{ matrix.arch == 'aarch64' && 'aarch64' || 'x86_64' }}
-          $ARCH ./appimagetool-x86_64.AppImage --comp zstd --mksquashfs-opt -Xcompression-level --mksquashfs-opt 10 \
+          ARCH=${{ matrix.arch == 'aarch64' && 'aarch64' || 'x86_64' }} ./appimagetool-x86_64.AppImage --comp zstd --mksquashfs-opt -Xcompression-level --mksquashfs-opt 10 \
           -u "gh-releases-zsync|$GITHUB_REPOSITORY_OWNER|desktop|latest|zen-${{ matrix.arch == 'x86_64' && 'generic' || matrix.arch == 'x86_64-v3' && 'specific' || matrix.arch == 'aarch64' && 'aarch64' }}.AppImage.zsync" \
           "$APPDIR" zen-${{ matrix.arch == 'x86_64' && 'generic' || matrix.arch == 'x86_64-v3' && 'specific' || matrix.arch == 'aarch64' && 'aarch64' }}.AppImage
           mkdir dist
