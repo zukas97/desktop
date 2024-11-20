@@ -167,6 +167,16 @@ var gZenVerticalTabsManager = {
     return !(window.AppConstants.platform === 'macosx'|| window.matchMedia('(-moz-gtk-csd-reversed-placement)').matches);
   },
 
+  get _topButtonsSeparatorElement() {
+    if (this.__topButtonsSeparatorElement) {
+      return this.__topButtonsSeparatorElement;
+    }
+    this.__topButtonsSeparatorElement = document.createElement('div');
+    this.__topButtonsSeparatorElement.id = 'zen-sidebar-top-buttons-separator';
+    this.__topButtonsSeparatorElement.setAttribute('skipintoolbarset', 'true');
+    return this.__topButtonsSeparatorElement;
+  },
+
   _updateEvent() {
     this._updateMaxWidth();
     const topButtons = document.getElementById('zen-sidebar-top-buttons');
@@ -197,16 +207,22 @@ var gZenVerticalTabsManager = {
       let elements = document.querySelectorAll('#nav-bar-customization-target > *:is(toolbarbutton, #stop-reload-button)');
       elements = Array.from(elements);
       const buttonsTarget = document.getElementById('zen-sidebar-top-buttons-customization-target');
+      // Add separator if it doesn't exist
+      if (!buttonsTarget.contains(this._topButtonsSeparatorElement)) {
+        buttonsTarget.append(this._topButtonsSeparatorElement);
+      }
       for (const button of elements) {
         buttonsTarget.append(button);
       }
-      topButtons.appendChild(document.getElementById('unified-extensions-button'));
-      topButtons.appendChild(document.getElementById('PanelUI-button'));
+      buttonsTarget.prepend(document.getElementById('unified-extensions-button'));
+      buttonsTarget.prepend(document.getElementById('PanelUI-button'));
       if (this.isWindowsStyledButtons) {
-        document.getElementById('zen-appcontent-navbar-container').append(
-          document.querySelector('#nav-bar > .titlebar-buttonbox-container')
-        );
+        const windowButtons = document.querySelector('#nav-bar > .titlebar-buttonbox-container');
+        if (windowButtons) {
+          document.getElementById('zen-appcontent-navbar-container').append(windowButtons);
+        }
       }
+      document.documentElement.setAttribute("zen-single-toolbar", true);
     }
     
     // Always move the splitter next to the sidebar

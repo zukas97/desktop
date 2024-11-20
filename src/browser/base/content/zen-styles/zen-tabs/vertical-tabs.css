@@ -7,6 +7,24 @@
     height: 100%;
   }
 
+  :root[zen-single-toolbar='true'] {
+    & #zen-appcontent-navbar-container,
+    & #zen-sidebar-top-buttons {
+      --zen-toolbar-height: 32px;
+      height: var(--zen-toolbar-height);
+    } 
+    
+    & #zen-sidebar-top-buttons .toolbarbutton-1 {
+      & > .toolbarbutton-icon {
+        padding: 5px;
+      }
+    }
+
+    & #zen-sidebar-top-buttons-separator {
+      width: 100%;
+    }
+  }
+
   #TabsToolbar > * {
     justify-content: center;
   }
@@ -17,9 +35,50 @@
 
   #browser {
     --zen-toolbox-padding: calc(var(--zen-element-separation) / 1.5);
-
     :root[zen-no-padding='true'] & {
       --zen-toolbox-padding: 4px;
+    }
+  }
+
+  :root[zen-single-toolbar='true'] {
+    #urlbar-container {
+      width: -moz-available !important;
+    }
+
+    .sharing-icon,
+    #identity-icon,
+    .urlbar-icon,
+    #permissions-granted-icon,
+    #tracking-protection-icon,
+    #tracking-protection-icon-box,
+    #blocked-permissions-container > .blocked-permission-icon {
+      width: 12px;
+      height: 12px;
+    }
+
+    #identity-icon-box,
+    #identity-permission-box {
+      margin-top: auto;
+      margin-bottom: auto;
+      padding: 6px;
+    }
+
+    & #urlbar-container,
+    & #urlbar {
+      --urlbar-container-height: 40px !important;
+      --urlbar-height: 38px !important;
+    }
+
+    & #nav-bar {
+      margin-bottom: 8px;
+    }
+
+    & #zen-sidebar-top-buttons {
+      margin: 4px 0;
+    }
+
+    & #PanelUI-menu-button {
+      padding: 0 !important;
     }
   }
 
@@ -55,20 +114,49 @@
     & toolbarspring { display: none; }
   }
 
-  @media (-moz-bool-pref: 'zen.view.use-single-toolbar') { 
-    & #zen-appcontent-navbar-container > .titlebar-buttonbox-container {
-      margin-left: auto;
-      width: fit-content;
-    }
-
-    & #urlbar-container {
-      width: -moz-available !important;
-    }
-  }
-
   .titlebar-spacer[type='pre-tabs'],
   .titlebar-spacer[type='post-tabs'] {
     display: none;
+  }
+
+  :root[zen-single-toolbar='true'] {
+    #zen-appcontent-navbar-container {
+      display: flex;
+      -moz-window-dragging: drag;
+
+      & #PersonalToolbar {
+        width: -moz-available;
+      }
+      
+      @media (not (-moz-platform: macos)) and (not (-moz-gtk-csd-reversed-placement)) {
+        @media (-moz-bool-pref: 'zen.view.hide-window-controls') { 
+          & {
+            transition: height 0.2s ease-out, opacity 0.2s ease-out;
+          }
+
+          &:not([zen-has-hover='true']):not([has-popup-menu]):not(:focus-within) {
+            transition-delay: 0.2s;
+            height: var(--zen-element-separation);
+            overflow: hidden;
+            opacity: 0;
+            & > * {
+              pointer-events: none;
+            }
+          }
+        }
+        
+        & .titlebar-buttonbox-container {
+          margin-left: auto;
+          width: fit-content;
+        }
+      }
+
+      @media (-moz-platform: macos) and (-moz-gtk-csd-reversed-placement) {
+        &:has(#PersonalToolbar[collapsed="true"]) {
+          display: none;
+        }
+      }
+    }
   }
 
   #TabsToolbar-customization-target {
@@ -248,12 +336,24 @@
     }
 
     & #nav-bar {
-      padding: var(--zen-element-separation);
       padding-right: 0;
 
-      #browser:has(#navigator-toolbox[zen-right-side='true']) & {
-        padding-left: 0;
-        padding-right: var(--zen-element-separation);
+      :root[zen-single-toolbar='true'] & {
+        margin-left: var(--zen-toolbox-padding);
+        width: calc(100% - var(--zen-toolbox-padding));
+        & .urlbar-input-container {
+          padding-left: 2px;
+        }
+        
+        #browser:has(#navigator-toolbox[zen-right-side='true']) & {
+          padding-left: 0;
+          margin-right: var(--zen-toolbox-padding);
+  
+          & .urlbar-input-container {
+            padding-right: 2px;
+            padding-left: 0;
+          }
+        }
       }
     }
 
@@ -503,18 +603,20 @@
     order: -1;
 
     min-width: unset !important;
-    --toolbarbutton-inner-padding: var(--zen-toolbar-button-inner-padding) !important;
+    --toolbarbutton-inner-padding: calc(var(--zen-toolbar-button-inner-padding) - 2px) !important;
 
     & #zen-sidebar-top-buttons-customization-target {
       height: 100%;
       align-items: center;
+      padding-inline-start: var(--zen-toolbox-padding);
 
       #nav-bar:has(&) & {
         padding-inline-start: var(--toolbarbutton-outer-padding);
       }
 
       #browser:has(#navigator-toolbox[zen-right-side='true']) & {
-        padding-inline-start: calc(var(--zen-toolbox-padding) - var(--toolbarbutton-outer-padding)) !important;
+        padding-inline-start: 0;
+        padding-inline-end: var(--zen-toolbox-padding);
       }
 
       & toolbarbutton {

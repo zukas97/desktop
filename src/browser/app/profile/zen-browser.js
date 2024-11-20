@@ -123,6 +123,10 @@ pref('zen.view.sidebar-expanded.max-width', 400);
 pref('zen.view.show-bottom-border', false);
 pref('zen.view.use-single-toolbar', true);
 
+#ifndef XP_MACOSX
+pref('zen.view.hide-window-controls', true);
+#endif
+
 pref('zen.tabs.dim-pending', true);
 pref('zen.tabs.newtab-on-middle-click', true);
 
