@@ -34,7 +34,6 @@
         // Disable smooth scroll
         gBrowser.tabContainer.arrowScrollbox.smoothScroll = false;
 
-        gZenPinnedTabManager.initTabs();
         ZenWorkspaces.init();
         gZenUIManager.init();
         gZenVerticalTabsManager.init();

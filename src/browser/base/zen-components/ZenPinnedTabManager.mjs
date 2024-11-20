@@ -48,13 +48,16 @@
       this.observer.addPinnedTabListener(this._onPinnedTabEvent.bind(this));
 
       this._zenClickEventListener = this._onTabClick.bind(this);
+      ZenWorkspaces.addChangeListeners(this.onWorkspaceChange.bind(this));
+
     }
 
-    async initTabs() {
-      if (!this.enabled) {
+    async onWorkspaceChange(newWorkspace, onInit) {
+      if (!this.enabled || PrivateBrowsingUtils.isWindowPrivate(window)) {
         return;
       }
-      await ZenPinnedTabsStorage.init();
+
+      await this._refreshPinnedTabs(newWorkspace,{ init: onInit });
     }
 
     get enabled() {
@@ -68,9 +71,12 @@
       return this._enabled;
     }
 
-    async _refreshPinnedTabs({ init = false } = {}) {
+    async _refreshPinnedTabs(currentWorkspace,{ init = false } = {}) {
+      if(init) {
+        await ZenPinnedTabsStorage.init();
+      }
       await this._initializePinsCache();
-      this._initializePinnedTabs(init);
+      await this._initializePinnedTabs(init,currentWorkspace);
     }
 
     async _initializePinsCache() {
@@ -109,11 +115,13 @@
       return this._pinsCache;
     }
 
-    _initializePinnedTabs(init = false) {
+    async _initializePinnedTabs(init = false, currentWorkspace) {
       const pins = this._pinsCache;
       if (!pins?.length) {
         return;
       }
+
+      const workspaces = await ZenWorkspaces._workspaces();
 
       const activeTab = gBrowser.selectedTab;
       const pinnedTabsByUUID = new Map();
@@ -131,7 +139,7 @@
           pinnedTabsByUUID.set(pinId, tab);
           pinsToCreate.delete(pinId);
 
-          if(lazy.zenPinnedTabRestorePinnedTabsToPinnedUrl && init) {
+          if (lazy.zenPinnedTabRestorePinnedTabsToPinnedUrl && init) {
             this._resetTabToStoredState(tab);
           }
         } else {
@@ -144,6 +152,10 @@
       for (let pin of pins) {
         if (!pinsToCreate.has(pin.uuid)) {
           continue; // Skip pins that already have tabs
+        }
+
+        if (!this._shouldShowPin(pin, currentWorkspace, workspaces)) {
+          continue; // Skip pins not relevant to current workspace
         }
 
         let params = {
@@ -196,9 +208,6 @@
 
         gBrowser.pinTab(newTab);
 
-        if(newTab.getAttribute("zen-workspace-id") !== ZenWorkspaces.activeWorkspace && newTab.getAttribute("zen-essential") !== "true") {
-          gBrowser.hideTab(newTab, undefined, true);
-        }
 
         newTab.initialize();
       }
@@ -209,6 +218,41 @@
       }
 
       gBrowser._updateTabBarForPinnedTabs();
+    }
+
+    _shouldShowPin(pin, currentWorkspace, workspaces) {
+      const isEssential = pin.isEssential;
+      const pinWorkspaceUuid = pin.workspaceUuid;
+      const pinContextId = pin.containerTabId ? pin.containerTabId.toString() : "0";
+      const workspaceContextId = currentWorkspace.containerTabId?.toString() || "0";
+      const containerSpecificEssentials = ZenWorkspaces.containerSpecificEssentials;
+
+      // Handle essential pins
+      if (isEssential) {
+        if (!containerSpecificEssentials) {
+          return true; // Show all essential pins when containerSpecificEssentials is false
+        }
+
+        if (workspaceContextId !== "0") {
+          // In workspaces with default container: Show essentials that match the container
+          return pinContextId === workspaceContextId;
+        } else {
+          // In workspaces without a default container: Show essentials that aren't in container-specific workspaces
+          // or have userContextId="0" or no userContextId
+          return !pinContextId || pinContextId === "0" || !workspaces.workspaces.some(
+              workspace => workspace.containerTabId === parseInt(pinContextId, 10)
+          );
+        }
+      }
+
+      // For non-essential pins
+      if (!pinWorkspaceUuid) {
+        // Pins without a workspace belong to all workspaces (if that's your desired behavior)
+        return true;
+      }
+
+      // Show if pin belongs to current workspace
+      return pinWorkspaceUuid === currentWorkspace.uuid;
     }
 
     _onPinnedTabEvent(action, event) {
@@ -275,7 +319,8 @@
       pin.userContextId = userContextId ? parseInt(userContextId, 10) : 0;
 
       await ZenPinnedTabsStorage.savePin(pin);
-      await this._refreshPinnedTabs();
+      const currentWorkspace = await ZenWorkspaces.getActiveWorkspace();
+      await this._refreshPinnedTabs(currentWorkspace);
     }
 
     async _setPinnedAttributes(tab) {
@@ -311,8 +356,8 @@
         tab.removeAttribute("zen-pinned-entry");
         return;
       }
-
-      await this._refreshPinnedTabs();
+      const currentWorkspace = await ZenWorkspaces.getActiveWorkspace();
+      await this._refreshPinnedTabs(currentWorkspace);
     }
 
     async _removePinnedAttributes(tab, isClosing = false) {
@@ -330,8 +375,8 @@
           tab.setAttribute("zen-workspace-id", workspace.uuid);
         }
       }
-
-      await this._refreshPinnedTabs();
+      const currentWorkspace = await ZenWorkspaces.getActiveWorkspace();
+      await this._refreshPinnedTabs(currentWorkspace);
     }
 
     _initClosePinnedTabShortcut() {
