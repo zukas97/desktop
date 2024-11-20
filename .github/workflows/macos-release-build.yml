@@ -96,8 +96,6 @@ jobs:
       - name: Install dependencies
         run: |
           pnpm install
-          pnpm uninstall @zen-browser/surfer
-          pnpm install github:omove/surfer
         
       - name: Load surfer CI setup
         run: pnpm surfer ci --brand ${{ inputs.release-branch }} --display-version ${{ inputs.build-version }}
@@ -138,11 +136,11 @@ jobs:
           export SURFER_PLATFORM="darwin"
           sh .github/workflows/src/release-build.sh
 
-#:      - name: import APPLE DEVELOPER ID CERTIFICATE for .app
-#:        uses: apple-actions/import-codesign-certs@v3
-#:        with:
-#:          p12-file-base64: ${{ secrets.macOS_CERTIFICATES_P12_For_App_BASE64 }}
-#:          p12-password: ${{ secrets.macOS_CERTIFICATES_P12_PASSWORD }}
+      - name: import APPLE DEVELOPER ID CERTIFICATE for .app
+        uses: apple-actions/import-codesign-certs@v3
+        with:
+          p12-file-base64: ${{ secrets.macOS_CERTIFICATES_P12_For_App_BASE64 }}
+          p12-password: ${{ secrets.macOS_CERTIFICATES_P12_PASSWORD }}
 
       - name: Package
         env:
