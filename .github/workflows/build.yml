@@ -115,7 +115,10 @@ jobs:
           echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
 
       - name: Install dependencies
-        run: pnpm install
+        run: |
+          pnpm install
+          pnpm uninstall @zen-browser/surfer
+          pnpm install github:omove/surfer
 
       - name: Setup Surfer
         run: |
@@ -176,7 +179,10 @@ jobs:
           echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
 
       - name: Install dependencies
-        run: pnpm install
+        run: |
+          pnpm install
+          pnpm uninstall @zen-browser/surfer
+          pnpm install github:omove/surfer
 
       - name: Setup surfer
         run: |
@@ -231,7 +237,10 @@ jobs:
           echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
 
       - name: Install dependencies
-        run: pnpm install
+        run: |
+          pnpm install
+          pnpm uninstall @zen-browser/surfer
+          pnpm install github:omove/surfer
 
       - name: Load surfer CI setup
         run: pnpm surfer ci --brand ${{ inputs.update_branch }} --display-version ${{ needs.build-data.outputs.version }}
@@ -265,7 +274,7 @@ jobs:
     with:
       build-version: ${{ needs.build-data.outputs.version }}
       generate-gpo: true
-      profile-data-path-archive: zen-windows-x86_64-profile-data-and-jarlog.zip
+      profile-data-path-archive: zen-windows-profile-data-and-jarlog.zip
       release-branch: ${{ inputs.update_branch }}
 
   windows-step-2:
@@ -315,13 +324,13 @@ jobs:
       release-branch: ${{ inputs.update_branch }}
 
   appimage:
-    name: AppImage build - Linux ${{ matrix.generic == true && 'generic' || 'specific' }}
+    name: AppImage build - Linux ${{ matrix.arch == 'x86_64' && 'generic' || matrix.arch == 'x86_64-v3' && 'specific' }}
     permissions:
       contents: write
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        generic: [true, false]
+        arch: [x86_64, x86_64-v3]
     needs: [linux]
     steps:
       - name: Install Node.js
@@ -343,7 +352,7 @@ jobs:
       - name: Download linux build
         uses: actions/download-artifact@v4
         with:
-          name: zen.linux-${{ matrix.generic == true && 'generic' || 'specific' }}.tar.bz2
+          name: zen.linux-${{ matrix.arch == 'x86_64' && 'generic' || matrix.arch == 'x86_64-v3' && 'specific' }}.tar.bz2
 
       - name: Execute AppImage build
         run: |
@@ -368,22 +377,22 @@ jobs:
           find .
           ls -al "$APPDIR"
           ARCH=x86_64 ./appimagetool-x86_64.AppImage --comp zstd --mksquashfs-opt -Xcompression-level --mksquashfs-opt 10 \
-          -u "gh-releases-zsync|$GITHUB_REPOSITORY_OWNER|desktop|latest|zen-${{ matrix.generic == true && 'generic' || 'specific' }}.AppImage.zsync" \
-          "$APPDIR" zen-${{ matrix.generic == true && 'generic' || 'specific' }}.AppImage
+          -u "gh-releases-zsync|$GITHUB_REPOSITORY_OWNER|desktop|latest|zen-${{ matrix.arch == 'x86_64' && 'generic' || matrix.arch == 'x86_64-v3' && 'specific' }}.AppImage.zsync" \
+          "$APPDIR" zen-${{ matrix.arch == 'x86_64' && 'generic' || matrix.arch == 'x86_64-v3' && 'specific' }}.AppImage
           mkdir dist
           mv zen*AppImage* dist/.
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: zen-${{ matrix.generic == true && 'generic' || 'specific' }}.AppImage
-          path: ./dist/zen-${{ matrix.generic == true && 'generic' || 'specific' }}.AppImage
+          name: zen-${{ matrix.arch == 'x86_64' && 'generic' || matrix.arch == 'x86_64-v3' && 'specific' }}.AppImage
+          path: ./dist/zen-${{ matrix.arch == 'x86_64' && 'generic' || matrix.arch == 'x86_64-v3' && 'specific' }}.AppImage
 
       - name: Upload artifact (ZSync)
         uses: actions/upload-artifact@v4
         with:
-          name: zen-${{ matrix.generic == true && 'generic' || 'specific' }}.AppImage.zsync
-          path: ./dist/zen-${{ matrix.generic == true && 'generic' || 'specific' }}.AppImage.zsync
+          name: zen-${{ matrix.arch == 'x86_64' && 'generic' || matrix.arch == 'x86_64-v3' && 'specific' }}.AppImage.zsync
+          path: ./dist/zen-${{ matrix.arch == 'x86_64' && 'generic' || matrix.arch == 'x86_64-v3' && 'specific' }}.AppImage.zsync
 
   release:
     if: ${{ inputs.create_release || inputs.update_branch == 'twilight' }}
@@ -432,9 +441,11 @@ jobs:
           if [[ $RELEASE_BRANCH == 'alpha' ]]; then
             cp -a ../.github/workflows/object/windows-x64-signed-generic/update_manifest/.  updates/
             cp -a ../.github/workflows/object/windows-x64-signed-specific/update_manifest/.  updates/
+            cp -a ../.github/workflows/object/windows-x64-signed-arm64/update_manifest/.  updates/
           else
             cp -a ../windows_update_manifest_generic/.  updates/
             cp -a ../windows_update_manifest_specific/.  updates/
+            cp -a ../windows_update_manifest_arm64/.  updates/
           fi
 
           cp -a ../macos_update_manifest_aarch64/.  updates/
@@ -466,10 +477,12 @@ jobs:
             linux-generic.mar
             windows-generic.mar
             windows.mar
+            windows-arm64.mar
             macos-x64.mar
             macos-aarch64.mar
             zen.installer.exe
             zen.installer-generic.exe
+            zen.installer-arm64.exe
             zen.macos-x64.dmg
             zen.macos-aarch64.dmg
           automatic_release_tag: 'twilight'
@@ -498,15 +511,18 @@ jobs:
             zen-specific.AppImage.zsync
             .github/workflows/object/windows-x64-signed-generic/zen.win-generic.zip
             .github/workflows/object/windows-x64-signed-specific/zen.win-specific.zip
+            .github/workflows/object/windows-x64-signed-arm64/zen.win-arm64.zip
             linux.mar
             linux-generic.mar
             .github/workflows/object/windows-x64-signed-generic/windows-generic.mar
             .github/workflows/object/windows-x64-signed-specific/windows.mar
-            macos-x64.mar
+            .github/workflows/object/windows-x64-signed-arm64/windows-arm64.mar
+            macos-x86_64.mar
             macos-aarch64.mar
             .github/workflows/object/windows-x64-signed-specific/zen.installer.exe
             .github/workflows/object/windows-x64-signed-generic/zen.installer-generic.exe
-            zen.macos-x64.dmg
+            .github/workflows/object/windows-x64-signed-arm64/zen.installer-arm64.exe
+            zen.macos-x86_64.dmg
             zen.macos-aarch64.dmg
 
   prepare-flatpak:

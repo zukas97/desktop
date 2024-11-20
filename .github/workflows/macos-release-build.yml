@@ -22,7 +22,7 @@ jobs:
         include:
           - arch: aarch64
             os: macos-14
-          - arch: x64
+          - arch: x86_64
             os: macos-13
 
     steps:
@@ -94,7 +94,11 @@ jobs:
           echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
 
       - name: Install dependencies
-        run: pnpm install
+        run: |
+          pnpm install
+          pnpm uninstall @zen-browser/surfer
+          pnpm install github:omove/surfer
+        
       - name: Load surfer CI setup
         run: pnpm surfer ci --brand ${{ inputs.release-branch }} --display-version ${{ inputs.build-version }}
 
@@ -104,13 +108,14 @@ jobs:
       - name: Bootstrap
         run: |
           cd engine
+          export SURFER_PLATFORM="darwin"
           export PATH="$(python3 -m site --user-base)/bin":$PATH
           ./mach --no-interactive bootstrap --application-choice browser --no-system-changes
           cd ..
 
       - name: Import
         env:
-          SURFER_COMPAT: ${{ matrix.arch == 'x64' }}
+          SURFER_COMPAT: ${{ matrix.arch }}
         run: |
           pnpm surfer import --verbose
 
@@ -119,28 +124,32 @@ jobs:
 
       - name: build Zen
         env:
-          SURFER_COMPAT: ${{ matrix.arch == 'x64' }}
+          SURFER_COMPAT: ${{ matrix.arch }}
         run: |
-          if test "${{ matrix.arch }}" = "x64"; then
+          export SURFER_PLATFORM="darwin"
+          if test "${{ matrix.arch }}" = "x86_64"; then
             export ZEN_DISABLE_LTO=1
           fi
           sh .github/workflows/src/release-build.sh
 
       - name: Rebuild Zen if failed
         if: failure()
-        run: sh .github/workflows/src/release-build.sh
+        run: |
+          export SURFER_PLATFORM="darwin"
+          sh .github/workflows/src/release-build.sh
 
-      - name: import APPLE DEVELOPER ID CERTIFICATE for .app
-        uses: apple-actions/import-codesign-certs@v3
-        with:
-          p12-file-base64: ${{ secrets.macOS_CERTIFICATES_P12_For_App_BASE64 }}
-          p12-password: ${{ secrets.macOS_CERTIFICATES_P12_PASSWORD }}
+#:      - name: import APPLE DEVELOPER ID CERTIFICATE for .app
+#:        uses: apple-actions/import-codesign-certs@v3
+#:        with:
+#:          p12-file-base64: ${{ secrets.macOS_CERTIFICATES_P12_For_App_BASE64 }}
+#:          p12-password: ${{ secrets.macOS_CERTIFICATES_P12_PASSWORD }}
 
       - name: Package
         env:
-          SURFER_COMPAT: ${{ matrix.arch == 'x64' }}
+          SURFER_COMPAT: ${{ matrix.arch }}
         run: |
-          export MACOS_APPLE_DEVELOPER_ID="${{ secrets.macOS_AppleDeveloperId }}"
+          export SURFER_PLATFORM="darwin"
+          #export MACOS_APPLE_DEVELOPER_ID="${{ secrets.macOS_AppleDeveloperId }}"
           pnpm package
 
       - name: Rename artifacts
@@ -152,7 +161,7 @@ jobs:
           set -ex
           hdiutil convert ./dist/*.dmg -format UDZO -imagekey zlib-level=9 -o zen.macos-${{ matrix.arch }}.dmg
           xattr -cr zen.macos-${{ matrix.arch }}.dmg
-          codesign -s "${{ secrets.macOS_AppleDeveloperId }}" zen.macos-${{ matrix.arch }}.dmg
+          #codesign -s "${{ secrets.macOS_AppleDeveloperId }}" zen.macos-${{ matrix.arch }}.dmg
           xcrun notarytool submit "zen.macos-${{ matrix.arch }}.dmg" \
             --apple-id "${{ secrets.macOS_AppleAccountId }}" \
             --team-id "${{ secrets.macOS_AppleDeveloperIdTeamId }}" \
