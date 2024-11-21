@@ -36,7 +36,9 @@ var ZenThemeModifier = {
   },
 
   listenForEvents() {
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', this._onPrefersColorSchemeChange.bind(this));
+    if (this._inMainBrowserWindow) {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', this._onPrefersColorSchemeChange.bind(this));
+    }
 
     var handleEvent = this.handleEvent.bind(this);
     // Listen for changes in the accent color and border radius
