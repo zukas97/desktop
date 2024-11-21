@@ -133,6 +133,7 @@ var gZenVerticalTabsManager = {
     });
 
     var updateEvent = this._updateEvent.bind(this);
+    Services.prefs.addObserver('zen.tabs.vertical', updateEvent);
     Services.prefs.addObserver('zen.tabs.vertical.right-side', updateEvent);
     Services.prefs.addObserver('zen.view.sidebar-expanded.max-width', updateEvent);
     Services.prefs.addObserver('zen.view.compact', updateEvent);
@@ -199,11 +200,14 @@ var gZenVerticalTabsManager = {
     const topButtons = document.getElementById('zen-sidebar-top-buttons');
     const customizationTarget = document.getElementById('nav-bar-customization-target');
     const isCompactMode = Services.prefs.getBoolPref('zen.view.compact');
+    const isVerticalTabs = Services.prefs.getBoolPref('zen.tabs.vertical');
+
+    gBrowser.tabContainer.setAttribute('orient', isVerticalTabs ? 'vertical' : 'horizontal');
+    gBrowser.tabContainer.arrowScrollbox.setAttribute('orient', isVerticalTabs ? 'vertical' : 'horizontal');
 
     const buttonsTarget = document.getElementById('zen-sidebar-top-buttons-customization-target');
-    if (Services.prefs.getBoolPref('zen.tabs.vertical.right-side')) {
+    if (Services.prefs.getBoolPref('zen.tabs.vertical.right-side') && isVerticalTabs) {
       this.navigatorToolbox.setAttribute('zen-right-side', 'true');
-      
     } else {
       this.navigatorToolbox.removeAttribute('zen-right-side');
     }
@@ -220,7 +224,12 @@ var gZenVerticalTabsManager = {
     //  tabboxWrapper.prepend(this.navigatorToolbox);
     }
 
-    if (Services.prefs.getBoolPref('zen.view.use-single-toolbar')) {
+    if (!isVerticalTabs) {
+      const navbarContainer = document.getElementById('zen-appcontent-navbar-container');
+      document.getElementById("urlbar-container").after(document.getElementById('navigator-toolbox'));
+    }
+
+    if (Services.prefs.getBoolPref('zen.view.use-single-toolbar') && isVerticalTabs) {
       const navBar = document.getElementById('nav-bar');
       this._navbarParent = navBar.parentElement;
       let elements = document.querySelectorAll('#nav-bar-customization-target > *:is(toolbarbutton, #stop-reload-button)');
