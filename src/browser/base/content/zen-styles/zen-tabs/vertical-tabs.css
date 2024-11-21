@@ -128,26 +128,29 @@
         width: -moz-available;
       }
       
-      @media (not (-moz-platform: macos)) and (not (-moz-gtk-csd-reversed-placement)) {
-        @media (-moz-bool-pref: 'zen.view.hide-window-controls') { 
-          & {
-            transition: height 0.2s ease-out, opacity 0.2s ease-out;
-          }
+      :root:not([customizing]) & {
+        @media (not (-moz-platform: macos)) and (not (-moz-gtk-csd-reversed-placement)) {
+          @media (-moz-bool-pref: 'zen.view.hide-window-controls') { 
+            & {
+              transition: height 0.2s ease-out, opacity 0.2s ease-out;
+              transition-delay: 0.05s;
+            }
 
-          &:not([zen-has-hover='true']):not([has-popup-menu]):not(:focus-within) {
-            transition-delay: 0.2s;
-            height: var(--zen-element-separation);
-            overflow: hidden;
-            opacity: 0;
-            & > * {
-              pointer-events: none;
+            &:not([zen-has-hover='true']):not([has-popup-menu]):not(:focus-within) {
+              transition-delay: 0.2s;
+              height: var(--zen-element-separation);
+              overflow: hidden;
+              opacity: 0;
+              & > * {
+                pointer-events: none;
+              }
             }
           }
-        }
-        
-        & .titlebar-buttonbox-container {
-          margin-left: auto;
-          width: fit-content;
+          
+          & .titlebar-buttonbox-container {
+            margin-left: auto;
+            width: fit-content;
+          }
         }
       }
 
@@ -497,6 +500,13 @@
     opacity: 0;
     width: var(--zen-toolbox-padding);
     height: 100%;
+    transition: opacity 0.2s ease-in-out;
+    background: var(--zen-colors-border);
+    appearance: none;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 
   /* Mark: Move sidebar to the right */
