@@ -117,6 +117,21 @@ var gZenUIManager = {
 
 var gZenVerticalTabsManager = {
   init() {
+
+    const lazy = {};
+
+    ChromeUtils.defineESModuleGetters(lazy, {
+      AddonManager: "resource://gre/modules/AddonManager.sys.mjs",
+      AddonManagerPrivate: "resource://gre/modules/AddonManager.sys.mjs",
+      BrowserUsageTelemetry: "resource:///modules/BrowserUsageTelemetry.sys.mjs",
+      CustomizableWidgets: "resource:///modules/CustomizableWidgets.sys.mjs",
+      ZenCustomizableUI: "chrome://browser/content/ZenCustomizableUI.sys.mjs",
+      HomePage: "resource:///modules/HomePage.sys.mjs",
+      PanelMultiView: "resource:///modules/PanelMultiView.sys.mjs",
+      PrivateBrowsingUtils: "resource://gre/modules/PrivateBrowsingUtils.sys.mjs",
+      ShortcutUtils: "resource://gre/modules/ShortcutUtils.sys.mjs",
+    });
+
     var updateEvent = this._updateEvent.bind(this);
     Services.prefs.addObserver('zen.tabs.vertical.right-side', updateEvent);
     Services.prefs.addObserver('zen.view.sidebar-expanded.max-width', updateEvent);
@@ -207,6 +222,7 @@ var gZenVerticalTabsManager = {
 
     if (Services.prefs.getBoolPref('zen.view.use-single-toolbar')) {
       const navBar = document.getElementById('nav-bar');
+      this._navbarParent = navBar.parentElement;
       let elements = document.querySelectorAll('#nav-bar-customization-target > *:is(toolbarbutton, #stop-reload-button)');
       elements = Array.from(elements);
       // Add separator if it doesn't exist
@@ -214,6 +230,7 @@ var gZenVerticalTabsManager = {
         buttonsTarget.append(this._topButtonsSeparatorElement);
       }
       for (const button of elements) {
+        button.setAttribute('zen-single-toolbar', 'true');
         buttonsTarget.append(button);
       }
       buttonsTarget.prepend(document.getElementById('unified-extensions-button'));
@@ -234,6 +251,33 @@ var gZenVerticalTabsManager = {
         titlebar.before(topButtons);
         titlebar.before(navBar);
       }
+      document.documentElement.setAttribute("zen-has-set-single-toolbar", true);
+    } else if (document.documentElement.hasAttribute("zen-has-set-single-toolbar")) {
+      // Do the opposite
+      const navBar = document.getElementById('nav-bar');
+      this._navbarParent.prepend(navBar);
+      const elements = document.querySelectorAll('#zen-sidebar-top-buttons-customization-target > *:is(toolbarbutton, #stop-reload-button)');
+      for (const button of elements) {
+        if (button.hasAttribute('zen-single-toolbar')) {
+          button.removeAttribute('zen-single-toolbar');
+          document.getElementById('nav-bar-customization-target').append(button);
+        }
+      }
+      document.documentElement.removeAttribute("zen-single-toolbar");
+      document.documentElement.removeAttribute("zen-has-set-single-toolbar");
+      navBar.appendChild(document.getElementById('PanelUI-button'));
+      if (this.isWindowsStyledButtons) {
+        const windowButtons = document.querySelector('#zen-appcontent-navbar-container > .titlebar-buttonbox-container');
+        if (windowButtons) {
+          document.getElementById('nav-bar').append(windowButtons);
+        }
+      } else {
+        const windowButtons = document.querySelector('#zen-appcontent-navbar-container > .titlebar-buttonbox-container');
+        if (windowButtons) {
+          document.getElementById('nav-bar').prepend(windowButtons);
+        }
+      }
+      CustomizableUI.zenInternalCU._rebuildRegisteredAreas();
     }
     
     // Always move the splitter next to the sidebar

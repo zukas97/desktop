@@ -1,5 +1,5 @@
 diff --git a/browser/components/customizableui/CustomizableUI.sys.mjs b/browser/components/customizableui/CustomizableUI.sys.mjs
-index 989e69245aeb1185125752db6b9c58e462d554e4..7f03aa20386ace32a340131a84c484865883905f 100644
+index 989e69245aeb1185125752db6b9c58e462d554e4..3eef114cc711505c647e21e35a063fb7bc9a0477 100644
 --- a/browser/components/customizableui/CustomizableUI.sys.mjs
 +++ b/browser/components/customizableui/CustomizableUI.sys.mjs
 @@ -13,6 +13,7 @@ ChromeUtils.defineESModuleGetters(lazy, {
@@ -86,3 +86,11 @@ index 989e69245aeb1185125752db6b9c58e462d554e4..7f03aa20386ace32a340131a84c48486
            if (defaultCollapsed !== null) {
              win.setToolbarVisibility(
                areaNode,
+@@ -4558,6 +4565,7 @@ export var CustomizableUI = {
+   unregisterArea(aName, aDestroyPlacements) {
+     CustomizableUIInternal.unregisterArea(aName, aDestroyPlacements);
+   },
++  get zenInternalCU() { return CustomizableUIInternal; },
+   /**
+    * Add a widget to an area.
+    * If the area to which you try to add is not known to CustomizableUI,
