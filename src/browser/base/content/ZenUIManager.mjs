@@ -117,21 +117,6 @@ var gZenUIManager = {
 
 var gZenVerticalTabsManager = {
   init() {
-
-    const lazy = {};
-
-    ChromeUtils.defineESModuleGetters(lazy, {
-      AddonManager: "resource://gre/modules/AddonManager.sys.mjs",
-      AddonManagerPrivate: "resource://gre/modules/AddonManager.sys.mjs",
-      BrowserUsageTelemetry: "resource:///modules/BrowserUsageTelemetry.sys.mjs",
-      CustomizableWidgets: "resource:///modules/CustomizableWidgets.sys.mjs",
-      ZenCustomizableUI: "chrome://browser/content/ZenCustomizableUI.sys.mjs",
-      HomePage: "resource:///modules/HomePage.sys.mjs",
-      PanelMultiView: "resource:///modules/PanelMultiView.sys.mjs",
-      PrivateBrowsingUtils: "resource://gre/modules/PrivateBrowsingUtils.sys.mjs",
-      ShortcutUtils: "resource://gre/modules/ShortcutUtils.sys.mjs",
-    });
-
     var updateEvent = this._updateEvent.bind(this);
     Services.prefs.addObserver('zen.tabs.vertical', updateEvent);
     Services.prefs.addObserver('zen.tabs.vertical.right-side', updateEvent);
