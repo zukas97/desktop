@@ -519,7 +519,7 @@ jobs:
             .github/workflows/object/windows-x64-signed-generic/windows-generic.mar
             .github/workflows/object/windows-x64-signed-specific/windows.mar
             .github/workflows/object/windows-x64-signed-arm64/windows-arm64.mar
-            macos-x86_64.mar
+            macos-x64.mar
             macos-aarch64.mar
             .github/workflows/object/windows-x64-signed-specific/zen.installer.exe
             .github/workflows/object/windows-x64-signed-generic/zen.installer-generic.exe
