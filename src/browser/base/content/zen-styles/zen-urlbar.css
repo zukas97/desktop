@@ -83,10 +83,6 @@
   position: relative;
 }
 
-#urlbar:not([extend='true']) #identity-box:is(:not(.chromeUI), [pageproxystate='invalid']) #identity-icon-box {
-  margin-right: 5px;
-}
-
 #urlbar:not([extend='true']) #identity-box:is(:not(.chromeUI), [pageproxystate='invalid']) {
   margin-inline-end: 0 !important;
 }
@@ -113,7 +109,7 @@
 
 #identity-box:has(#notification-popup-box:not([hidden='true'])) #identity-icon-box,
 #identity-box:has(#notification-popup-box:not([hidden='true'])) #identity-permission-box {
-  margin-right: 4px !important;
+  margin-right: 0px !important;
 }
 
 #identity-box:has(#identity-permission-box:is([hasPermissions], [hasSharingIcon])):not([pageproxystate='invalid'])
@@ -128,24 +124,49 @@
   order: 2 !important;
 }
 
-#notification-popup-box {
-  border-radius: 999px;
-  margin: 0 4px 0 0 !important;
-  padding: 0 4px;
-  min-width: calc(var(--urlbar-min-height) - 4px - 4 * var(--urlbar-container-padding)) !important;
-  height: calc(var(--urlbar-min-height) - 4px - 4 * var(--urlbar-container-padding)) !important;
-  justify-content: center;
-  gap: 8px;
+:root[zen-single-toolbar='true'] {
+  #notification-popup-box {
+    align-items: center;
+    justify-content: center;
+    height: unset !important;
+    background: transparent !important;
+
+    & > image {
+      margin-top: auto;
+      margin-bottom: auto;
+      height: 24px; /* double 12px */
+      width: 24px;
+
+      &:hover {
+        background: var(--toolbarbutton-hover-background);
+        border-radius: var(--toolbarbutton-border-radius);
+        overflow: visible;
+      }
+    }
+  }
+}
+
+:root:not([zen-single-toolbar='true']) {
+  #notification-popup-box {
+    border-radius: 999px;
+    margin: 0 4px 0 0 !important;
+    padding: 0 4px;
+    min-width: calc(var(--urlbar-min-height) - 4px - 4 * var(--urlbar-container-padding)) !important;
+    height: calc(var(--urlbar-min-height) - 4px - 4 * var(--urlbar-container-padding)) !important;
+    justify-content: center;
+    gap: 8px;
+
+    & > image {
+      padding: 0;
+      margin-top: auto;
+      margin-bottom: auto;
+    }    
+  }
 }
 
 #urlbar[breakout-extend='true'] #notification-popup-box {
   min-width: calc(var(--urlbar-min-height) - 4 * var(--urlbar-container-padding)) !important;
   height: calc(var(--urlbar-min-height) - 4 * var(--urlbar-container-padding)) !important;
-}
-
-#notification-popup-box > image {
-  margin: 0;
-  padding: 0;
 }
 
 button.popup-notification-dropmarker {
