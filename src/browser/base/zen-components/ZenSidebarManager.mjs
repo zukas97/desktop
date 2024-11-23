@@ -29,6 +29,7 @@ class ZenBrowserManagerSidebar extends ZenDOMOperatedFeature {
     this.initProgressListener();
     this.update();
     this.close(); // avoid caching
+    this.tabBox.prepend(this.sidebarWrapper);
     this.listenForPrefChanges();
     this.insertIntoContextMenu();
     this.addPositioningListeners();
@@ -269,11 +270,6 @@ class ZenBrowserManagerSidebar extends ZenDOMOperatedFeature {
 
   open() {
     let sidebar = document.getElementById('zen-sidebar-web-panel');
-    if (!this.sidebar.hasAttribute('pinned')) {
-      this.moveToTabBoxWrapper();
-    } else {
-      this.moveToTabBox();
-    }
     sidebar.removeAttribute('hidden');
     this.update();
   }
@@ -302,6 +298,11 @@ class ZenBrowserManagerSidebar extends ZenDOMOperatedFeature {
       this.sidebarElement.setAttribute('hidden', 'true');
       this._closeSidebarPanel();
       return;
+    }
+
+    // Don't reload content if at least one of the panel tabs was loaded
+    if (this._lastOpenedPanel) {
+        return;
     }
 
     let data = this.sidebarData;
@@ -598,24 +599,13 @@ class ZenBrowserManagerSidebar extends ZenDOMOperatedFeature {
     this._updateSidebarButton();
   }
 
-  moveToTabBoxWrapper() {
-    document.getElementById('zen-appcontent-wrapper').before(this.sidebarWrapper);
-    this.sidebarWrapper.style.order = '';
-  }
-
-  moveToTabBox() {
-    this.tabBox.prepend(this.sidebarWrapper);
-  }
-
   togglePinned(elem) {
     if (this.sidebar.hasAttribute('pinned')) {
       this._removePinnedFromElements();
-      this.moveToTabBoxWrapper();
     } else {
       this._setPinnedToElements();
-      this.moveToTabBox();
     }
-    this.update();  
+    this.update();
   }
 
   get sidebarElement() {
