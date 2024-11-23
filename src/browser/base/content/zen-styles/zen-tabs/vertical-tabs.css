@@ -60,7 +60,7 @@
     #identity-permission-box {
       margin-top: auto;
       margin-bottom: auto;
-      padding: 6px;
+      padding: 6px !important;
     }
 
     & #urlbar-container,
@@ -123,38 +123,45 @@
     #zen-appcontent-navbar-container {
       display: flex;
       -moz-window-dragging: drag;
+      min-height: var(--zen-element-separation);
 
       & #PersonalToolbar {
         width: -moz-available;
       }
       
-      :root:not([customizing]) & {
-        @media (not (-moz-platform: macos)) and (not (-moz-gtk-csd-reversed-placement)) {
-          @media (-moz-bool-pref: 'zen.view.hide-window-controls') { 
-            & {
-              transition: height 0.2s ease-out, opacity 0.2s ease-out;
-              transition-delay: 0.05s;
-            }
+      /* We enable this trick IF we follow any of theses conditions: 
+        * - We are on a Mac
+        * - We are on a Linux with reversed CSD
+        * - If we are not in any of the above, we can still enable it if the user has bookmarks toolbar enabled
+        */
+      :root:is(
+        [zen-window-buttons-reversed='true']:has(#TabsToolbar:not([collapsed='true'])),
+        :not([zen-window-buttons-reversed='false'])
+      ):not([customizing]) & {
+        @media (-moz-bool-pref: 'zen.view.hide-window-controls') { 
+          & {
+            transition: height 0.2s ease-out, opacity 0.2s ease-out;
+            transition-delay: 0.05s;
+          }
 
-            &:not([zen-has-hover='true']):not([has-popup-menu]):not(:focus-within) {
-              transition-delay: 0.2s;
-              height: var(--zen-element-separation);
-              overflow: hidden;
-              opacity: 0;
-              & > * {
-                pointer-events: none;
-              }
+          &:not([zen-has-hover='true']):not([has-popup-menu]):not(:focus-within) {
+            transition-delay: 0.2s;
+            height: var(--zen-element-separation);
+            overflow: hidden;
+            opacity: 0;
+            & > * {
+              pointer-events: none;
             }
           }
-          
-          & .titlebar-buttonbox-container {
-            margin-left: auto;
-            width: fit-content;
-          }
+        }
+        
+        & .titlebar-buttonbox-container {
+          margin-left: auto;
+          width: fit-content;
         }
       }
 
-      @media (-moz-platform: macos) and (-moz-gtk-csd-reversed-placement) {
+      :root[zen-window-buttons-reversed='true'] & {
         &:has(#PersonalToolbar[collapsed="true"]) {
           display: none;
         }
@@ -349,12 +356,11 @@
         }
         
         #browser:has(#navigator-toolbox[zen-right-side='true']) & {
-          padding-left: 0;
+          margin-left: 0;
           margin-right: var(--zen-toolbox-padding);
   
           & .urlbar-input-container {
             padding-right: 2px;
-            padding-left: 0;
           }
         }
       }

@@ -52,8 +52,14 @@
   outline-color: none !important;
 }
 
-#identity-icon-box {
-  background: light-dark(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1)) !important;
+#identity-box.chromeUI:not([pageproxystate="invalid"]) { 
+  & #identity-icon-box {
+    background: light-dark(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1)) !important;
+  }
+
+  & #identity-icon-label {
+    display: none;
+  }
 }
 
 #identity-permission-box:not(:hover):not(:focus-within) {
@@ -67,10 +73,6 @@
 
 #identity-box:not(.chromeUI) #identity-icon-label {
   padding-inline-start: 8px !important;
-}
-
-#identity-box:not([pageproxystate="invalid"]).chromeUI #identity-icon {
-  display: none;
 }
 
 #identity-box.chromeUI:not([pageproxystate='invalid']) #identity-icon-box {

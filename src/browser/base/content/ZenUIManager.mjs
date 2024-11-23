@@ -117,11 +117,14 @@ var gZenUIManager = {
 
 var gZenVerticalTabsManager = {
   init() {
+    ChromeUtils.defineLazyGetter(this, 'isWindowsStyledButtons', () => {
+      return !(window.AppConstants.platform === 'macosx' || window.matchMedia('(-moz-gtk-csd-reversed-placement)').matches);
+    });
+
     var updateEvent = this._updateEvent.bind(this);
     Services.prefs.addObserver('zen.tabs.vertical', updateEvent);
     Services.prefs.addObserver('zen.tabs.vertical.right-side', updateEvent);
     Services.prefs.addObserver('zen.view.sidebar-expanded.max-width', updateEvent);
-    Services.prefs.addObserver('zen.view.compact', updateEvent);
     Services.prefs.addObserver('zen.view.use-single-toolbar', updateEvent);
 
     gZenCompactModeManager.addEventListener(updateEvent);
@@ -131,6 +134,10 @@ var gZenVerticalTabsManager = {
     const tabs = document.getElementById('tabbrowser-tabs');
 
     XPCOMUtils.defineLazyPreferenceGetter(this, 'canOpenTabOnMiddleClick', 'zen.tabs.newtab-on-middle-click', true);
+
+    if (this.isWindowsStyledButtons) {
+      document.documentElement.setAttribute("zen-window-buttons-reversed", true);
+    }
 
     if (tabs) {
       tabs.addEventListener('mouseup', this.openNewTabOnTabsMiddleClick.bind(this));
@@ -166,10 +173,6 @@ var gZenVerticalTabsManager = {
     document.getElementById('viewToolbarsMenuSeparator').before(fragment);
   },
 
-  get isWindowsStyledButtons() {
-    return !(window.AppConstants.platform === 'macosx'|| window.matchMedia('(-moz-gtk-csd-reversed-placement)').matches);
-  },
-
   get _topButtonsSeparatorElement() {
     if (this.__topButtonsSeparatorElement) {
       return this.__topButtonsSeparatorElement;
@@ -180,18 +183,27 @@ var gZenVerticalTabsManager = {
     return this.__topButtonsSeparatorElement;
   },
 
+  get actualWindowButtons() {
+    // we have multiple ".titlebar-buttonbox-container" in the DOM, because of the titlebar
+    if (!this.__actualWindowButtons) {
+      this.__actualWindowButtons = document.querySelector('#nav-bar .titlebar-buttonbox-container');
+    }
+    return this.__actualWindowButtons;
+  },
+
   _updateEvent() {
     this._updateMaxWidth();
     const topButtons = document.getElementById('zen-sidebar-top-buttons');
-    const customizationTarget = document.getElementById('nav-bar-customization-target');
     const isCompactMode = Services.prefs.getBoolPref('zen.view.compact');
     const isVerticalTabs = Services.prefs.getBoolPref('zen.tabs.vertical');
+    const isRightSide = Services.prefs.getBoolPref('zen.tabs.vertical.right-side') && isVerticalTabs;
+    const isSingleToolbar = Services.prefs.getBoolPref('zen.view.use-single-toolbar') && isVerticalTabs;
 
     gBrowser.tabContainer.setAttribute('orient', isVerticalTabs ? 'vertical' : 'horizontal');
     gBrowser.tabContainer.arrowScrollbox.setAttribute('orient', isVerticalTabs ? 'vertical' : 'horizontal');
 
     const buttonsTarget = document.getElementById('zen-sidebar-top-buttons-customization-target');
-    if (Services.prefs.getBoolPref('zen.tabs.vertical.right-side') && isVerticalTabs) {
+    if (isRightSide && isVerticalTabs) {
       this.navigatorToolbox.setAttribute('zen-right-side', 'true');
     } else {
       this.navigatorToolbox.removeAttribute('zen-right-side');
@@ -210,11 +222,13 @@ var gZenVerticalTabsManager = {
     }
 
     if (!isVerticalTabs) {
-      const navbarContainer = document.getElementById('zen-appcontent-navbar-container');
       document.getElementById("urlbar-container").after(document.getElementById('navigator-toolbox'));
     }
 
-    if (Services.prefs.getBoolPref('zen.view.use-single-toolbar') && isVerticalTabs) {
+    let windowButtons = this.actualWindowButtons;
+    let doNotChangeWindowButtons = !isCompactMode && isRightSide && this.isWindowsStyledButtons;
+
+    if (isSingleToolbar) {
       const navBar = document.getElementById('nav-bar');
       this._navbarParent = navBar.parentElement;
       let elements = document.querySelectorAll('#nav-bar-customization-target > *:is(toolbarbutton, #stop-reload-button)');
@@ -229,11 +243,8 @@ var gZenVerticalTabsManager = {
       }
       buttonsTarget.prepend(document.getElementById('unified-extensions-button'));
       buttonsTarget.prepend(document.getElementById('PanelUI-button'));
-      if (this.isWindowsStyledButtons) {
-        const windowButtons = document.querySelector('#nav-bar > .titlebar-buttonbox-container');
-        if (windowButtons) {
-          document.getElementById('zen-appcontent-navbar-container').append(windowButtons);
-        }
+      if (this.isWindowsStyledButtons && !doNotChangeWindowButtons) {
+        document.getElementById('zen-appcontent-navbar-container').append(windowButtons);
       }
       document.documentElement.setAttribute("zen-single-toolbar", true);
       if (isCompactMode) {
@@ -245,8 +256,9 @@ var gZenVerticalTabsManager = {
         titlebar.before(topButtons);
         titlebar.before(navBar);
       }
-      document.documentElement.setAttribute("zen-has-set-single-toolbar", true);
-    } else if (document.documentElement.hasAttribute("zen-has-set-single-toolbar")) {
+      this._hasSetSingleToolbar = true;
+    } else if (this._hasSetSingleToolbar) {
+      this._hasSetSingleToolbar = false;
       // Do the opposite
       const navBar = document.getElementById('nav-bar');
       this._navbarParent.prepend(navBar);
@@ -258,22 +270,21 @@ var gZenVerticalTabsManager = {
         }
       }
       document.documentElement.removeAttribute("zen-single-toolbar");
-      document.documentElement.removeAttribute("zen-has-set-single-toolbar");
       navBar.appendChild(document.getElementById('PanelUI-button'));
-      if (this.isWindowsStyledButtons) {
-        const windowButtons = document.querySelector('#zen-appcontent-navbar-container > .titlebar-buttonbox-container');
-        if (windowButtons) {
-          document.getElementById('nav-bar').append(windowButtons);
-        }
-      } else {
-        const windowButtons = document.querySelector('#zen-appcontent-navbar-container > .titlebar-buttonbox-container');
-        if (windowButtons) {
-          document.getElementById('nav-bar').prepend(windowButtons);
+      if (!doNotChangeWindowButtons) {
+        if (this.isWindowsStyledButtons) {
+          navBar.append(windowButtons);
+        } else {
+          navBar.prepend(windowButtons);
         }
       }
       CustomizableUI.zenInternalCU._rebuildRegisteredAreas();
     }
-    
+
+    if (doNotChangeWindowButtons) {
+      document.getElementById("zen-sidebar-top-buttons-customization-target").appendChild(windowButtons);
+    }
+
     // Always move the splitter next to the sidebar
     this.navigatorToolbox.after(document.getElementById('zen-sidebar-splitter'));
   },
