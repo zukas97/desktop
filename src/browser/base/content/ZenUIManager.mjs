@@ -135,7 +135,7 @@ var gZenVerticalTabsManager = {
 
     XPCOMUtils.defineLazyPreferenceGetter(this, 'canOpenTabOnMiddleClick', 'zen.tabs.newtab-on-middle-click', true);
 
-    if (this.isWindowsStyledButtons) {
+    if (!this.isWindowsStyledButtons) {
       document.documentElement.setAttribute("zen-window-buttons-reversed", true);
     }
 
@@ -198,6 +198,7 @@ var gZenVerticalTabsManager = {
     const isVerticalTabs = Services.prefs.getBoolPref('zen.tabs.vertical');
     const isRightSide = Services.prefs.getBoolPref('zen.tabs.vertical.right-side') && isVerticalTabs;
     const isSingleToolbar = Services.prefs.getBoolPref('zen.view.use-single-toolbar') && isVerticalTabs;
+    const titlebar = document.getElementById('titlebar');
 
     gBrowser.tabContainer.setAttribute('orient', isVerticalTabs ? 'vertical' : 'horizontal');
     gBrowser.tabContainer.arrowScrollbox.setAttribute('orient', isVerticalTabs ? 'vertical' : 'horizontal');
@@ -247,15 +248,6 @@ var gZenVerticalTabsManager = {
         document.getElementById('zen-appcontent-navbar-container').append(windowButtons);
       }
       document.documentElement.setAttribute("zen-single-toolbar", true);
-      if (isCompactMode) {
-        const titlebar = document.getElementById('titlebar');
-        titlebar.prepend(navBar);
-        titlebar.prepend(topButtons);
-      } else {
-        const titlebar = document.getElementById('titlebar');
-        titlebar.before(topButtons);
-        titlebar.before(navBar);
-      }
       this._hasSetSingleToolbar = true;
     } else if (this._hasSetSingleToolbar) {
       this._hasSetSingleToolbar = false;
@@ -279,6 +271,14 @@ var gZenVerticalTabsManager = {
         }
       }
       CustomizableUI.zenInternalCU._rebuildRegisteredAreas();
+    }
+
+    if (isCompactMode) {
+      titlebar.prepend(navBar);
+      titlebar.prepend(topButtons);
+    } else {
+      titlebar.before(topButtons);
+      titlebar.before(navBar);
     }
 
     if (doNotChangeWindowButtons) {

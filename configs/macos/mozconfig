@@ -33,6 +33,7 @@ else
     export LDFLAGS="-Wl,-O3 -march=armv8.3-a+simd -mcpu=apple-m1"
     export RUSTFLAGS="-C target-feature=+v8.3a -C codegen-units=1 -Ctarget-cpu=apple-m1"
 fi
+
 export VERBOSE=1
 
 # Enable polly for macos, since they have a more stable set of GPU drivers,

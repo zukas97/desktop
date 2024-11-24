@@ -1,3 +1,4 @@
+
 if test "$ZEN_CROSS_COMPILING"; then
 
   export WINSYSROOT="$(echo ~)/win-cross/vs2022"
@@ -23,7 +24,7 @@ fi
 #? https://phabricator.services.mozilla.com/D170170
 ac_add_options --disable-maintenance-service
 ac_add_options --disable-bits-download
- 
+
 if test "$SURFER_COMPAT" = "x86_64"; then
   ac_add_options --target=x86_64-pc-windows-msvc
   ac_add_options --enable-eme=widevine
@@ -59,6 +60,7 @@ else
   export LDFLAGS="-Wl,-O3 -march=x86-64-v3"
   export RUSTFLAGS="-Clink-args=--icf=safe -C target-feature=+avx2 -C codegen-units=1 -Ctarget-cpu=x86-64-v3"    
 fi
+
 #export POLLY="-mllvm -polly -mllvm -polly-2nd-level-tiling -mllvm -polly-loopfusion-greedy -mllvm -polly-pattern-matching-based-opts -mllvm -polly-position=before-vectorizer -mllvm -polly-vectorizer=stripmine"
 export VERBOSE=1
 

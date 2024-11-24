@@ -431,6 +431,7 @@ jobs:
           mkdir -p updates
           cp -a ../linux_update_manifest_generic/.  updates/
           cp -a ../linux_update_manifest_specific/.  updates/
+          cp -a ../linux_update_manifest_aarch64/.  updates/ 
 
           if [[ $RELEASE_BRANCH == 'alpha' ]]; then
             cp -a ../.github/workflows/object/windows-x64-signed-generic/update_manifest/.  updates/
@@ -443,7 +444,7 @@ jobs:
           fi
 
           cp -a ../macos_update_manifest_aarch64/.  updates/
-          cp -a ../macos_update_manifest_x64/.  updates/
+          cp -a ../macos_update_manifest_x86_64/.  updates/
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
