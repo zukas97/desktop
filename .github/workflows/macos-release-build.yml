@@ -73,6 +73,12 @@ jobs:
           brew install watchman
 
           curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain 1.79
+          source $HOME/.cargo/env
+          if test "${{ matrix.arch }}" = "aarch64"; then
+            rustup target add aarch64-apple-darwin
+          else
+            rustup target add x86_64-apple-darwin
+          fi
 
       - name: Force usage fo gnu-tar
         run: |
