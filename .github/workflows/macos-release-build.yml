@@ -15,7 +15,7 @@ jobs:
   mac-build:
     name: Build macOS - ${{ matrix.arch }}
     
-    runs-on: macos-latest
+    runs-on: macos-14
     strategy:
       fail-fast: false
       matrix:
