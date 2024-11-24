@@ -35,6 +35,10 @@
 
         :root[zen-single-toolbar='true'] & {
           top: var(--zen-element-separation);
+
+          & #nav-bar {
+            margin-left: calc(var(--zen-toolbox-padding) / 2) !important;
+          }
         }
       }
 
