@@ -15,15 +15,11 @@ jobs:
   mac-build:
     name: Build macOS - ${{ matrix.arch }}
     
-    runs-on: ${{ matrix.os }}
+    runs-on: macos-latest
     strategy:
       fail-fast: false
       matrix:
-        include:
-          - arch: aarch64
-            os: macos-14
-          - arch: x86_64
-            os: macos-13
+        arch: [x86_64, aarch64]
 
     steps:
       - name: Install Node.js
