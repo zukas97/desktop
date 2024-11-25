@@ -190,6 +190,16 @@ button.popup-notification-dropmarker {
   margin-top: 5px;
 }
 
+#urlbar-container {
+  container: urlbar-container / inline-size;
+}
+
+@container urlbar-container (width < 350px) {
+  #userContext-label {
+    display: none;
+  }
+}
+
 @media (max-width: 550px) {
   #urlbar-container {
     width: calc(176px + 2 * (24px + 2 * var(--toolbarbutton-inner-padding)));
