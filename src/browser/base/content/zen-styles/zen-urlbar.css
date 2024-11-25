@@ -192,6 +192,7 @@ button.popup-notification-dropmarker {
 
 #urlbar-container {
   container: urlbar-container / inline-size;
+  z-index: 1;
 }
 
 @container urlbar-container (width < 350px) {
