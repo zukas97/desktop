@@ -42,7 +42,7 @@
         }
       }
 
-      & #browser:has(#navigator-toolbox[zen-right-side='true']) {
+      &[zen-right-side='true'] {
         & #navigator-toolbox {
           --zen-compact-float: calc(var(--zen-element-separation) + 1px);
           padding-left: unset !important;
@@ -91,7 +91,7 @@
         opacity: 1;
 
         transform: translateX(calc(100% - var(--zen-element-separation)));
-        #browser:has(#navigator-toolbox[zen-right-side='true']) & {
+        :root[zen-right-side='true'] & {
           transform: translateX(calc(-100% + var(--zen-element-separation) + 1px));
         }
       }

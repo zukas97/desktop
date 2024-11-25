@@ -9,7 +9,7 @@
     overflow: hidden;
     margin: 1px;
     
-    #browser:has(#navigator-toolbox[zen-right-side='true']) & {
+    :root[zen-right-side='true'] & {
       margin-right: 0;
       margin-left: var(--zen-element-separation);
     }

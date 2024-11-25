@@ -84,7 +84,7 @@
     margin-top: 0;
   }
 
-  & #browser:has(#navigator-toolbox[zen-right-side='true']) #zen-appcontent-wrapper {
+  &[zen-right-side='true'] #zen-appcontent-wrapper {
     margin-right: 0;
   }
 }

@@ -250,7 +250,7 @@
   animation: better-sidebar-pinned-hide 0.15s ease-in-out forwards !important;
 }
 
-:root:has(#navigator-toolbox:not([zen-right-side='true'])) {
+:root:not([zen-right-side='true']) {
   #zen-sidebar-web-panel-wrapper:not(:has(#zen-sidebar-web-panel[pinned='true'])) {
     margin-left: 0 !important;
   }

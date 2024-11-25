@@ -212,8 +212,17 @@ var gZenVerticalTabsManager = {
     const buttonsTarget = document.getElementById('zen-sidebar-top-buttons-customization-target');
     if (isRightSide && isVerticalTabs) {
       this.navigatorToolbox.setAttribute('zen-right-side', 'true');
+      document.documentElement.setAttribute('zen-right-side', 'true');
     } else {
       this.navigatorToolbox.removeAttribute('zen-right-side');
+      document.documentElement.removeAttribute('zen-right-side');
+    }
+
+    const appContentNavbarContaienr = document.getElementById('zen-appcontent-navbar-container');
+    if ((!isRightSide && this.isWindowsStyledButtons) || (isRightSide && !this.isWindowsStyledButtons)) {
+      appContentNavbarContaienr.setAttribute('should-hide', 'true');
+    } else {
+      appContentNavbarContaienr.removeAttribute('should-hide');
     }
 
     // Check if the sidebar is in hover mode
@@ -275,13 +284,6 @@ var gZenVerticalTabsManager = {
       }
       document.documentElement.removeAttribute("zen-single-toolbar");
       navBar.appendChild(document.getElementById('PanelUI-button'));
-      if (!doNotChangeWindowButtons) {
-        if (this.isWindowsStyledButtons) {
-          navBar.append(windowButtons);
-        } else {
-          navBar.prepend(windowButtons);
-        }
-      }
       this._toolbarOriginalParent.prepend(navBar);
       CustomizableUI.zenInternalCU._rebuildRegisteredAreas();
     }
@@ -294,6 +296,20 @@ var gZenVerticalTabsManager = {
 
     if (doNotChangeWindowButtons) {
       document.getElementById("zen-sidebar-top-buttons-customization-target").appendChild(windowButtons);
+    } else if (!isSingleToolbar && !isCompactMode) {
+      if (this.isWindowsStyledButtons) {
+        if (isRightSide) {
+          document.getElementById('zen-appcontent-navbar-container').append(windowButtons);
+        } else {
+          navBar.append(windowButtons);
+        }
+      } else {
+        if (isRightSide) {
+          document.getElementById('zen-appcontent-navbar-container').prepend(windowButtons);
+        } else {
+          navBar.prepend(windowButtons);
+        }
+      }
     }
 
     // Always move the splitter next to the sidebar
