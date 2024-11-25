@@ -471,18 +471,19 @@ jobs:
             zen-aarch64.AppImage.zsync
             zen.win-generic.zip
             zen.win-specific.zip
+            zen.win-arm64.zip
             linux.mar
             linux-generic.mar
             linux-aarch64.mar
             windows-generic.mar
             windows.mar
             windows-arm64.mar
-            macos-x64.mar
+            macos-x86_64.mar
             macos-aarch64.mar
             zen.installer.exe
             zen.installer-generic.exe
             zen.installer-arm64.exe
-            zen.macos-x64.dmg
+            zen.macos-x86_64.dmg
             zen.macos-aarch64.dmg
           automatic_release_tag: 'twilight'
           title: 'Twilight build - ${{ needs.build-data.outputs.version }} (${{ needs.build-data.outputs.build_date }} at ${{ needs.build-data.outputs.build_time }})'
@@ -520,12 +521,12 @@ jobs:
             .github/workflows/object/windows-x64-signed-generic/windows-generic.mar
             .github/workflows/object/windows-x64-signed-specific/windows.mar
             .github/workflows/object/windows-x64-signed-arm64/windows-arm64.mar
-            macos-x64.mar
+            macos-x86_64.mar
             macos-aarch64.mar
             .github/workflows/object/windows-x64-signed-specific/zen.installer.exe
             .github/workflows/object/windows-x64-signed-generic/zen.installer-generic.exe
             .github/workflows/object/windows-x64-signed-arm64/zen.installer-arm64.exe
-            zen.macos-x64.dmg
+            zen.macos-x86_64.dmg
             zen.macos-aarch64.dmg
 
   prepare-flatpak:
