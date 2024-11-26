@@ -310,6 +310,8 @@ var gZenVerticalTabsManager = {
           navBar.prepend(windowButtons);
         }
       }
+    } else if (!isSingleToolbar && isCompactMode) {
+      navBar.appendChild(windowButtons);
     }
 
     // Always move the splitter next to the sidebar

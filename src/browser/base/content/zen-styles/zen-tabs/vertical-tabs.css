@@ -25,6 +25,11 @@
     }
   }
 
+  :root:not([zen-window-buttons-reversed='true']) .titlebar-buttonbox-container {
+    margin-left: auto;
+    width: fit-content;
+  }
+
   #TabsToolbar > * {
     justify-content: center;
   }
