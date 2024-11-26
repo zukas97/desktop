@@ -380,13 +380,13 @@ jobs:
           mkdir dist
           mv zen*AppImage* dist/.
 
-      - name: Upload build artifact
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: zen-${{ matrix.arch == 'x86_64' && 'generic' || matrix.arch == 'x86_64-v3' && 'specific' || matrix.arch == 'aarch64' && 'aarch64' }}.AppImage
           path: ./dist/zen-${{ matrix.arch == 'x86_64' && 'generic' || matrix.arch == 'x86_64-v3' && 'specific' || matrix.arch == 'aarch64' && 'aarch64' }}.AppImage
 
-      - name: Upload build artifact (ZSync)
+      - name: Upload artifact (ZSync)
         uses: actions/upload-artifact@v4
         with:
           name: zen-${{ matrix.arch == 'x86_64' && 'generic' || matrix.arch == 'x86_64-v3' && 'specific' || matrix.arch == 'aarch64' && 'aarch64' }}.AppImage.zsync
