@@ -3,7 +3,7 @@ index 14de79b543cf07b04d06ef5a3f94d9aa988ea39a..439879a6b9c8cc69c569edb6318fe338
 --- a/browser/components/tabbrowser/content/tabbrowser.js
 +++ b/browser/components/tabbrowser/content/tabbrowser.js
 @@ -462,11 +462,26 @@
-       return duplicateTabs;
+       return count;
      },
  
 +    get _numVisiblePinTabs() {
@@ -19,7 +19,7 @@ index 14de79b543cf07b04d06ef5a3f94d9aa988ea39a..439879a6b9c8cc69c569edb6318fe338
 +      return i;
 +    },
 +
-     get _numPinnedTabs() {
+     get pinnedTabCount() {
 -      for (var i = 0; i < this.tabs.length; i++) {
 -        if (!this.tabs[i].pinned) {
 +      let i = 0;
@@ -39,7 +39,7 @@ index 14de79b543cf07b04d06ef5a3f94d9aa988ea39a..439879a6b9c8cc69c569edb6318fe338
 +        aTab.hasAttribute("zen-essential") ? document.getElementById("zen-essentials-container").appendChild(aTab) : this.verticalPinnedTabsContainer.appendChild(aTab);
          this._updateAfterMoveTabTo(aTab, oldPosition, wasFocused);
        } else {
-         this.moveTabTo(aTab, this._numPinnedTabs);
+         this.moveTabTo(aTab, this.pinnedTabCount);
 @@ -1107,6 +1122,7 @@
  
        let LOCAL_PROTOCOLS = ["chrome:", "about:", "resource:", "data:"];

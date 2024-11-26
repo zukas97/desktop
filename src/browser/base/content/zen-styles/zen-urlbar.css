@@ -278,6 +278,10 @@ button.popup-notification-dropmarker {
   align-items: center;
 }
 
+:root:not([zen-single-toolbar='true']) #nav-bar {  
+  margin-bottom: -1px;
+}
+
 /* Other small tweaks */
 #nav-bar-customization-target {
   /* Don't grow if potentially-user-sized elements (like the searchbar or the
