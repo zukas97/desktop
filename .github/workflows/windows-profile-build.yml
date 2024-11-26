@@ -69,7 +69,7 @@ jobs:
           (New-Object System.Net.WebClient).DownloadFile("https://ftp.mozilla.org/pub/mozilla/libraries/win32/MozillaBuildSetup-Latest.exe", "C:\MozillaBuildSetup-Latest.exe")
           C:\MozillaBuildSetup-Latest.exe /S | out-null
 
-      - name: Download Firefox
+      - name: Download Firefox and dependencies
         run: |
           git config --global core.safecrlf false  
           pnpm surfer download
