@@ -1,0 +1,74 @@
+diff --git a/browser/themes/shared/places/editBookmark.css b/browser/themes/shared/places/editBookmark.css
+index 4c00982e620f4cfd5aa1d97d45a276f5d41d0d74..b75aa721e75cd3a3e707d1a69fca08d6741746a4 100644
+--- a/browser/themes/shared/places/editBookmark.css
++++ b/browser/themes/shared/places/editBookmark.css
+@@ -158,3 +158,69 @@
+   font-size: 0.9em;
+   margin: 2px 4px;
+ }
++
++/*Bookmark workspace selector styles*/
++#editBMPanel_workspaceRow {
++  margin-top: 4px;
++}
++
++details {
++  position: relative;
++  width: 100%;
++}
++
++summary {
++  display: flex;
++  align-items: center;
++  justify-content: space-between;
++  padding: 8px 12px;
++  border: 1px solid var(--card-outline-color);
++  border-radius: 4px;
++  background-color: var(--in-content-box-background);
++  cursor: pointer;
++}
++
++
++summary:focus {
++  border-color: transparent;
++  outline: var(--in-content-focus-outline);
++  outline-offset: -1px;
++}
++
++details[open] > summary {
++  border-bottom-left-radius: 0;
++  border-bottom-right-radius: 0;
++}
++
++ul {
++  position: absolute;
++  top: calc(100% + 4px);
++  left: 0;
++  right: 0;
++  max-height: 200px;
++  overflow-y: auto;
++  border: 1px solid var(--card-outline-color);
++  border-top: none;
++  background-color: var(--in-content-box-background);
++  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
++  z-index: 1000;
++  padding: 8px 0;
++  border-radius: 0 0 4px 4px;
++}
++
++li {
++  list-style: none;
++  margin: 0;
++  padding: 0;
++}
++
++li > label {
++  display: flex;
++  align-items: center;
++  padding: 8px 12px;
++  cursor: pointer;
++}
++
++input[type="checkbox"] {
++  margin-right: 8px;
++}
