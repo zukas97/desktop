@@ -151,7 +151,7 @@ jobs:
         with:
           commit_message: 🔖 Update version to ${{ steps.data.outputs.version }}
           commit_user_name: Zen Browser Robot
-          commit_user_email: zen-browser-bot@users.noreply.github.com
+          commit_user_email: zen-browser-auto@users.noreply.github.com
 
   check-release:
     runs-on: ubuntu-latest
@@ -450,7 +450,7 @@ jobs:
         with:
           commit_message: 🚀 Update update manifests
           commit_user_name: Zen Browser Robot
-          commit_user_email: zen-browser-bot@users.noreply.github.com
+          commit_user_email: zen-browser-auto@users.noreply.github.com
           repository: ./updates-server
 
         # If we are on twilight, we want to just update the twilight tag's release
@@ -558,7 +558,7 @@ jobs:
         with:
           commit_message: 🚀 Update releases for flatpak
           commit_user_name: Zen Browser Robot
-          commit_user_email: zen-browser-bot@users.noreply.github.com
+          commit_user_email: zen-browser-auto@users.noreply.github.com
 
       - name: Clone flatpak repo
         uses: actions/checkout@v4
@@ -580,7 +580,7 @@ jobs:
         with:
           commit_message: '[release]: Update flatpak manifest'
           commit_user_name: Zen Browser Robot
-          commit_user_email: zen-browser-bot@users.noreply.github.com
+          commit_user_email: zen-browser-auto@users.noreply.github.com
           repository: ./flatpak
 
       - name: Wait 4 minutes for the flatpak repo to update
@@ -681,7 +681,7 @@ jobs:
       - name: Setup git
         uses: Homebrew/actions/git-user-config@master
         with:
-          username: zen-browser-bot
+          username: zen-browser-auto
 
       - name: Bump zen-browser
         uses: Homebrew/actions/bump-packages@master

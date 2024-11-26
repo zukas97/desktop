@@ -27,4 +27,4 @@ jobs:
         with:
           commit_message: "[skip ci] 📦 Update Submodules!"
           commit_user_name: Zen Browser Robot
-          commit_user_email: zen-browser-bot@users.noreply.github.com
+          commit_user_email: zen-browser-auto@users.noreply.github.com
