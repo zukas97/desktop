@@ -183,13 +183,13 @@ jobs:
         run: |
           pnpm install
 
-      - name: Setup surfer
+      - name: Setup Surfer
         run: |
           npm i -g @zen-browser/surfer
 
-      - name: Activate surfer CLI
+      - name: Activate Surfer CLI
         run: |
-          echo "There's a bug in the surfer CLI, we run this so that surfer sets everything up correctly"
+          echo "There's a bug in the Surfer CLI, we run this so that Surfer sets everything up correctly"
           pnpm surfer ci --brand ${{ inputs.update_branch }} --display-version ${{ needs.build-data.outputs.version }}
 
       - name: Check version
@@ -240,7 +240,7 @@ jobs:
         run: |
           pnpm install
 
-      - name: Load surfer CI setup
+      - name: Load Surfer CI setup
         run: pnpm surfer ci --brand ${{ inputs.update_branch }} --display-version ${{ needs.build-data.outputs.version }}
 
       - name: Download Firefox source and dependencies
@@ -252,11 +252,10 @@ jobs:
       - name: Compress
         run: |
           cd engine
-          # -h is used to dereference symlinks
           tar --use-compress-program=zstd -hcf ../zen.source.tar.gz *
           cd ..
 
-      - name: Upload build artifact
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: zen.source.tar.gz
@@ -454,15 +453,15 @@ jobs:
           cp -a ../macos_update_manifest_x86_64/.  updates/
 
       - name: Commit
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: 🚀 Update update manifests
           commit_user_name: Zen Browser Robot
           commit_user_email: zen-browser-bot@users.noreply.github.com
           repository: ./updates-server
 
-        # If we are on twilight, we want to just update the twilight tag's release
-      - name: Update twilight tag
+        # If we are on Twilight, we want to just update the Twilight tag's release
+      - name: Update Twilight tag
         if: ${{ inputs.update_branch == 'twilight' }}
         uses: marvinpinto/action-automatic-releases@master
         with:
@@ -563,7 +562,7 @@ jobs:
             --version ${{ needs.build-data.outputs.version }}
 
       - name: Commit
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: 🚀 Update releases for Flatpak
           commit_user_name: Zen Browser Robot
@@ -586,14 +585,14 @@ jobs:
           echo -n ${{ needs.build-data.outputs.version }} > ./flatpak/version
 
       - name: Commit
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: '[release]: Update Flatpak manifest'
           commit_user_name: Zen Browser Robot
           commit_user_email: zen-browser-bot@users.noreply.github.com
           repository: ./flatpak
 
-      - name: Wait 4 minutes for the flatpak repo to update
+      - name: Wait 4 minutes for the Flatpak repo to update
         run: sleep 240
 
   release-flatpak:
