@@ -31,8 +31,7 @@
       animation: zen-glance-content-animation-out .5s ease-in-out forwards !important;
 
       & browser {
-        opacity: 0;
-        transition: opacity .3s ease-in-out;
+        opacity: 1 !important;
       }
 
       & #zen-glance-sidebar-container {

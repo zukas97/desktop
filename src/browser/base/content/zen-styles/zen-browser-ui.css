@@ -78,13 +78,13 @@
 }
 
 :root:not([inDOMFullscreen='true']):not([chromehidden~='location']):not([chromehidden~='toolbar']) {
-  & #zen-appcontent-wrapper {
+  & #zen-tabbox-wrapper {
     margin: var(--zen-element-separation);
     margin-left: 0;
     margin-top: 0;
   }
 
-  &[zen-right-side='true'] #zen-appcontent-wrapper {
+  &[zen-right-side='true'] #zen-tabbox-wrapper {
     margin-right: 0;
   }
 }

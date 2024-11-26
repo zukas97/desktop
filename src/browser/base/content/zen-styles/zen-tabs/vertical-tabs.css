@@ -28,7 +28,6 @@
   :root:not([zen-window-buttons-reversed='true']) .titlebar-buttonbox-container {
     margin-left: auto;
     width: fit-content;
-    margin-right: var(--zen-element-separation);
   }
 
   #TabsToolbar > * {
