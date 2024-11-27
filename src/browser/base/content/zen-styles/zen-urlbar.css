@@ -28,6 +28,7 @@
 
 #urlbar-background {
   background: var(--zen-dialog-background);
+  outline: none !important;
 }
 
 #urlbar[focused='true'] > #urlbar-background {
