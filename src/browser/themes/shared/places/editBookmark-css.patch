@@ -1,5 +1,5 @@
 diff --git a/browser/themes/shared/places/editBookmark.css b/browser/themes/shared/places/editBookmark.css
-index 4c00982e620f4cfd5aa1d97d45a276f5d41d0d74..b75aa721e75cd3a3e707d1a69fca08d6741746a4 100644
+index 4c00982e620f4cfd5aa1d97d45a276f5d41d0d74..cc4be5f91860383045d7560b34621c53fccc9bf3 100644
 --- a/browser/themes/shared/places/editBookmark.css
 +++ b/browser/themes/shared/places/editBookmark.css
 @@ -158,3 +158,69 @@
@@ -24,7 +24,7 @@ index 4c00982e620f4cfd5aa1d97d45a276f5d41d0d74..b75aa721e75cd3a3e707d1a69fca08d6
 +  padding: 8px 12px;
 +  border: 1px solid var(--card-outline-color);
 +  border-radius: 4px;
-+  background-color: var(--in-content-box-background);
++  background-color: var(--zen-colors-tertiary);
 +  cursor: pointer;
 +}
 +
@@ -49,10 +49,10 @@ index 4c00982e620f4cfd5aa1d97d45a276f5d41d0d74..b75aa721e75cd3a3e707d1a69fca08d6
 +  overflow-y: auto;
 +  border: 1px solid var(--card-outline-color);
 +  border-top: none;
-+  background-color: var(--in-content-box-background);
++  background-color: var(--zen-colors-tertiary);
 +  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 +  z-index: 1000;
-+  padding: 8px 0;
++  padding: 4px 0;
 +  border-radius: 0 0 4px 4px;
 +}
 +
@@ -65,7 +65,7 @@ index 4c00982e620f4cfd5aa1d97d45a276f5d41d0d74..b75aa721e75cd3a3e707d1a69fca08d6
 +li > label {
 +  display: flex;
 +  align-items: center;
-+  padding: 8px 12px;
++  padding: 4px 12px;
 +  cursor: pointer;
 +}
 +
