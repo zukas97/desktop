@@ -782,7 +782,7 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
 
       if(clearCache) {
         browser.ZenWorkspaces._workspaceCache = null;
-        browser.ZenWorkspaces._bookmarkWorkspaceCache = null;
+        browser.ZenWorkspaces._workspaceBookmarksCache = null;
       }
       let workspaces = await browser.ZenWorkspaces._workspaces();
       await browser.ZenWorkspaces.workspaceBookmarks();
