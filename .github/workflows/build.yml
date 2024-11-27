@@ -206,7 +206,7 @@ jobs:
       contents: write
     runs-on: ubuntu-latest
     needs: [build-data, check-release]
-    
+
     steps:
       - name: Install Node.js
         uses: actions/setup-node@v3
@@ -341,7 +341,7 @@ jobs:
         run: |
           npm install -g pnpm
           sudo apt-get update
-          sudo apt-get -y install libfuse2 desktop-file-utils appstream 
+          sudo apt-get -y install libfuse2 desktop-file-utils appstream
 
       - name: Download linux build
         uses: actions/download-artifact@v4
@@ -431,7 +431,7 @@ jobs:
           mkdir -p updates
           cp -a ../linux_update_manifest_generic/.  updates/
           cp -a ../linux_update_manifest_specific/.  updates/
-          cp -a ../linux_update_manifest_aarch64/.  updates/ 
+          cp -a ../linux_update_manifest_aarch64/.  updates/
 
           if [[ $RELEASE_BRANCH == 'alpha' ]]; then
             cp -a ../.github/workflows/object/windows-x64-signed-generic/update_manifest/.  updates/
@@ -664,10 +664,10 @@ jobs:
           git-token: ${{ secrets.DEPLOY_KEY }}
           delete-branch: true
 
-  release-homebrew:
+  release-homebrew-alpha:
     if: ${{ inputs.create_release && inputs.update_branch == 'alpha' }}
     permissions: write-all
-    name: Homebrew release
+    name: Homebrew release for alpha build
     needs: [release, mac, build-data]
     runs-on: macos-latest
 
@@ -683,8 +683,33 @@ jobs:
         with:
           username: zen-browser-auto
 
-      - name: Bump zen-browser
+      - name: Bump cask
         uses: Homebrew/actions/bump-packages@master
         with:
           token: ${{ secrets.DEPLOY_KEY }}
           casks: zen-browser
+
+  release-homebrew-twilight:
+    if: ${{ inputs.create_release && inputs.update_branch == 'twilight' }}
+    permissions: write-all
+    name: Homebrew release for twilight build
+    needs: [release, mac, build-data]
+    runs-on: macos-latest
+
+    steps:
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+        with:
+          cask: true
+          test-bot: false
+
+      - name: Setup git
+        uses: Homebrew/actions/git-user-config@master
+        with:
+          username: zen-browser-auto
+
+      - name: Bump cask
+        uses: Homebrew/actions/bump-packages@master
+        with:
+          token: ${{ secrets.DEPLOY_KEY }}
+          casks: zen-browser@twilight
