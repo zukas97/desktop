@@ -1,5 +1,5 @@
 diff --git a/browser/components/places/content/editBookmark.js b/browser/components/places/content/editBookmark.js
-index 9f17174fdd9cc1eaefb4330da1e10f40eeda2f31..56e504c4348422d30a1afca63ba1e5d44d66436f 100644
+index 9f17174fdd9cc1eaefb4330da1e10f40eeda2f31..cbafb150524af4947218fb6d3ebdadbb05711bc5 100644
 --- a/browser/components/places/content/editBookmark.js
 +++ b/browser/components/places/content/editBookmark.js
 @@ -370,6 +370,10 @@ var gEditItemOverlay = {
@@ -21,7 +21,7 @@ index 9f17174fdd9cc1eaefb4330da1e10f40eeda2f31..56e504c4348422d30a1afca63ba1e5d4
        }
  
        if (this._paneInfo.bulkTagging) {
-@@ -1232,6 +1237,138 @@ var gEditItemOverlay = {
+@@ -1232,6 +1237,142 @@ var gEditItemOverlay = {
    get bookmarkState() {
      return this._bookmarkState;
    },
@@ -58,9 +58,14 @@ index 9f17174fdd9cc1eaefb4330da1e10f40eeda2f31..56e504c4348422d30a1afca63ba1e5d4
 +    // Add new workspaces uuids
 +    const checkboxes = this._workspaceList.querySelectorAll("input[type='checkbox']");
 +    const newWorkspaces = [];
++    const selectedNames = [];
++
 +    checkboxes.forEach(checkbox => {
 +      if (checkbox.checked) {
 +        newWorkspaces.push(checkbox.value);
++
++        const label = checkbox.parentNode.textContent.trim();
++        selectedNames.push(label);
 +      }
 +    });
 +
@@ -72,10 +77,9 @@ index 9f17174fdd9cc1eaefb4330da1e10f40eeda2f31..56e504c4348422d30a1afca63ba1e5d4
 +    }
 +
 +    // Update summary text
-+    const selectedCount = this._selectedWorkspaces.length;
-+    this._workspaceSummary.textContent = selectedCount
-+        ? `${selectedCount} workspace${selectedCount > 1 ? 's' : ''} selected`
-+        : "Choose Workspaces";
++    this._workspaceSummary.textContent = selectedNames.length
++      ? selectedNames.join(", ")
++      : "Choose Workspaces";
 +  },
 +
 +  onWorkspaceDropdownToggle(event) {
@@ -87,22 +91,19 @@ index 9f17174fdd9cc1eaefb4330da1e10f40eeda2f31..56e504c4348422d30a1afca63ba1e5d4
 +
 +    if (!details.open) {
 +      const checkboxes = this._workspaceList.querySelectorAll("input[type='checkbox']");
-+      const selectedWorkspaces = [];
 +      const selectedLabels = [];
 +
 +      checkboxes.forEach(checkbox => {
 +        if (checkbox.checked) {
-+          selectedWorkspaces.push(checkbox.value);
 +          const label = checkbox.parentNode.textContent.trim();
 +          selectedLabels.push(label);
 +        }
 +      });
 +
-+      // Update the summary text
-+      const count = selectedLabels.length;
-+      summary.textContent = count
-+          ? `${count} workspace${count > 1 ? 's' : ''} selected`
-+          : "Choose Workspaces";
++      // Update the summary text with comma-separated list of workspace names
++      summary.textContent = selectedLabels.length
++        ? selectedLabels.join(", ")
++        : "Choose Workspaces";
 +    }
 +
 +    event.stopPropagation();
@@ -117,7 +118,6 @@ index 9f17174fdd9cc1eaefb4330da1e10f40eeda2f31..56e504c4348422d30a1afca63ba1e5d4
 +    if(aInfo.node?.bookmarkGuid) {
 +      this._selectedWorkspaces = await ZenWorkspaceBookmarksStorage.getBookmarkWorkspaces(aInfo.node.bookmarkGuid);
 +    }
-+
 +
 +    // Clear existing items
 +    workspaceList.innerHTML = "";
@@ -143,11 +143,15 @@ index 9f17174fdd9cc1eaefb4330da1e10f40eeda2f31..56e504c4348422d30a1afca63ba1e5d4
 +      workspaceList.appendChild(li);
 +    }
 +
-+    // Update summary text
-+    const selectedCount = this._selectedWorkspaces?.length;
-+    this._workspaceSummary.textContent = selectedCount
-+        ? `${selectedCount} workspace${selectedCount > 1 ? 's' : ''} selected`
-+        : "Choose Workspaces";
++    // Get the names of selected workspaces for initial summary
++    const selectedNames = this._workspaces
++      .filter(ws => this._selectedWorkspaces?.includes(ws.uuid))
++      .map(ws => ws.name);
++
++    // Update summary text with comma-separated list
++    this._workspaceSummary.textContent = selectedNames.length
++      ? selectedNames.join(", ")
++      : "Choose Workspaces";
 +
 +    // Handle read-only state
 +    if (this.readOnly) {
@@ -160,7 +164,7 @@ index 9f17174fdd9cc1eaefb4330da1e10f40eeda2f31..56e504c4348422d30a1afca63ba1e5d4
  };
  
  ChromeUtils.defineLazyGetter(gEditItemOverlay, "_folderTree", () => {
-@@ -1267,6 +1404,9 @@ for (let elt of [
+@@ -1267,6 +1408,9 @@ for (let elt of [
    "locationField",
    "keywordField",
    "tagsField",
