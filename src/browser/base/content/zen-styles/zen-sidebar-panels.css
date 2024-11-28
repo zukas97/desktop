@@ -277,7 +277,7 @@
 }
 
 :root:not([zen-right-side='true']) {
-  #zen-sidebar-web-panel-wrapper:not(:has(#zen-sidebar-web-panel[pinned='true'])) {
+  #zen-sidebar-web-panel-wrapper:not(:has(#zen-sidebar-web-panel:is([hidden='true'], [pinned='true']))) {
     margin-left: 0 !important;
     margin-right: calc(var(--zen-element-separation) * 2 - 3px) !important;
   }
