@@ -1,5 +1,5 @@
 diff --git a/browser/components/places/content/editBookmarkPanel.inc.xhtml b/browser/components/places/content/editBookmarkPanel.inc.xhtml
-index 3ec3f094831c2143a818b43d1761a571f0ffa63d..f543639d4d8e8d59e32a0ef866abd85e816d2571 100644
+index 3ec3f094831c2143a818b43d1761a571f0ffa63d..c4dd904604ee10a909bbcc7c03dd0dd3536020b1 100644
 --- a/browser/components/places/content/editBookmarkPanel.inc.xhtml
 +++ b/browser/components/places/content/editBookmarkPanel.inc.xhtml
 @@ -5,7 +5,7 @@
@@ -29,23 +29,30 @@ index 3ec3f094831c2143a818b43d1761a571f0ffa63d..f543639d4d8e8d59e32a0ef866abd85e
    <label data-l10n-id="bookmark-overlay-location-2"
           class="editBMPanel_folderRow hideable"
           control="editBMPanel_folderMenuList"/>
-@@ -51,6 +51,19 @@
+@@ -51,6 +51,26 @@
              data-l10n-id="bookmark-overlay-folders-expander2"
              oncommand="gEditItemOverlay.toggleFolderTreeVisibility();"/>
    </hbox>
 +</hbox>
-+<vbox class="zenEditBMPanel_fieldContainer">
-+    <label
-+            class="editBMPanel_workspaceRow hideable"
-+            control="editBMPanel_workspaceDropdown">Workspace</label>
-+    <html:details id="editBMPanel_workspaceDropdown"
-+                  class="editBMPanel_workspaceRow hideable"
-+                  onclick="gEditItemOverlay.onWorkspaceDropdownToggle(event)">
-+        <html:summary id="editBMPanel_workspaceSummary">Choose Workspaces</html:summary>
-+        <html:ul id="editBMPanel_workspaceList">
-+        </html:ul>
-+    </html:details>
-+</vbox>
++  <vbox>
++    <label data-l10n-id="zen-bookmark-edit-panel-workspace-selector"
++           class="hideable"
++           control="editBMPanel_workspacesSelectorExpander"/>
++    <div id="editBMPanel_workspaceDropdown"
++         class="editBMPanel_workspaceRow hideable workspace-dropdown">
++      <div
++              id="editBMPanel_workspaceSummary"
++              class="workspace-trigger">-</div>
++      <button id="editBMPanel_workspacesSelectorExpander"
++              class="expander-down panel-button"
++              data-l10n-id="bookmark-overlay-tags-expander2"
++              oncommand="gEditItemOverlay.onWorkspaceDropdownToggle();"/>
++
++    </div>
++  </vbox>
++
++  <ul id="editBMPanel_workspaceList" class="workspace-list hideable" hidden="true">
++  </ul>
  
    <vbox id="editBMPanel_folderTreeRow"
          class="hideable"

@@ -1,5 +1,5 @@
 diff --git a/browser/components/places/content/editBookmark.js b/browser/components/places/content/editBookmark.js
-index 9f17174fdd9cc1eaefb4330da1e10f40eeda2f31..cbafb150524af4947218fb6d3ebdadbb05711bc5 100644
+index 9f17174fdd9cc1eaefb4330da1e10f40eeda2f31..e2c38872ee3a5c45d2e288e67d33f9ce24cab2b9 100644
 --- a/browser/components/places/content/editBookmark.js
 +++ b/browser/components/places/content/editBookmark.js
 @@ -370,6 +370,10 @@ var gEditItemOverlay = {
@@ -21,7 +21,7 @@ index 9f17174fdd9cc1eaefb4330da1e10f40eeda2f31..cbafb150524af4947218fb6d3ebdadbb
        }
  
        if (this._paneInfo.bulkTagging) {
-@@ -1232,6 +1237,142 @@ var gEditItemOverlay = {
+@@ -1232,6 +1237,148 @@ var gEditItemOverlay = {
    get bookmarkState() {
      return this._bookmarkState;
    },
@@ -79,17 +79,26 @@ index 9f17174fdd9cc1eaefb4330da1e10f40eeda2f31..cbafb150524af4947218fb6d3ebdadbb
 +    // Update summary text
 +    this._workspaceSummary.textContent = selectedNames.length
 +      ? selectedNames.join(", ")
-+      : "Choose Workspaces";
++      : "-";
 +  },
 +
-+  onWorkspaceDropdownToggle(event) {
++  onWorkspaceDropdownToggle() {
 +    if(document.documentElement.getAttribute("windowtype") === "Places:Organizer") {
 +      return;
 +    }
-+    const details = this._workspaceDropdown;
-+    const summary = this._workspaceSummary;
 +
-+    if (!details.open) {
++    // Toggle active class on the container
++    const dropdown = this._workspaceList;
++    const button = this._workspaceSummary;
++
++    dropdown.hidden = !dropdown.hidden;
++
++    var expander = this._element("workspacesSelectorExpander");
++    expander.classList.toggle("expander-up", !dropdown.hidden);
++    expander.classList.toggle("expander-down", dropdown.hidden);
++
++    // Only update summary text when closing the dropdown
++    if (dropdown.hidden) {
 +      const checkboxes = this._workspaceList.querySelectorAll("input[type='checkbox']");
 +      const selectedLabels = [];
 +
@@ -100,13 +109,10 @@ index 9f17174fdd9cc1eaefb4330da1e10f40eeda2f31..cbafb150524af4947218fb6d3ebdadbb
 +        }
 +      });
 +
-+      // Update the summary text with comma-separated list of workspace names
-+      summary.textContent = selectedLabels.length
++      button.textContent = selectedLabels.length
 +        ? selectedLabels.join(", ")
-+        : "Choose Workspaces";
++        : "-";
 +    }
-+
-+    event.stopPropagation();
 +  },
 +
 +  async _initWorkspaceDropdown(aInfo) {
@@ -151,7 +157,7 @@ index 9f17174fdd9cc1eaefb4330da1e10f40eeda2f31..cbafb150524af4947218fb6d3ebdadbb
 +    // Update summary text with comma-separated list
 +    this._workspaceSummary.textContent = selectedNames.length
 +      ? selectedNames.join(", ")
-+      : "Choose Workspaces";
++      : "-";
 +
 +    // Handle read-only state
 +    if (this.readOnly) {
@@ -164,7 +170,7 @@ index 9f17174fdd9cc1eaefb4330da1e10f40eeda2f31..cbafb150524af4947218fb6d3ebdadbb
  };
  
  ChromeUtils.defineLazyGetter(gEditItemOverlay, "_folderTree", () => {
-@@ -1267,6 +1408,9 @@ for (let elt of [
+@@ -1267,6 +1414,9 @@ for (let elt of [
    "locationField",
    "keywordField",
    "tagsField",
