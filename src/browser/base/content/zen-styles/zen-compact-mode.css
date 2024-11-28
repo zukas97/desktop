@@ -24,7 +24,7 @@
         --zen-compact-float: calc(var(--zen-element-separation) - 1px);
         position: absolute;
         z-index: 10;
-        transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+        transition: top 0.2s ease-in-out, opacity 0.2s ease-in-out;
         right: calc(100% - var(--zen-element-separation));
         top: 0;
         bottom: var(--zen-element-separation);
