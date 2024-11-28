@@ -23,7 +23,7 @@
         --zen-toolbox-max-width: 54px !important;
         --zen-compact-float: calc(var(--zen-element-separation) - 1px);
         position: absolute;
-        z-index: 9;
+        z-index: 10;
         transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
         right: calc(100% - var(--zen-element-separation));
         top: 0;
