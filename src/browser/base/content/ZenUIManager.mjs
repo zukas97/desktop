@@ -208,9 +208,9 @@ var gZenVerticalTabsManager = {
     const topButtons = document.getElementById('zen-sidebar-top-buttons');
     const isCompactMode = Services.prefs.getBoolPref('zen.view.compact');
     const isVerticalTabs = Services.prefs.getBoolPref('zen.tabs.vertical');
-    const isSidebarExpanded = Services.prefs.getBoolPref('zen.view.sidebar-expanded') && isVerticalTabs;
+    const isSidebarExpanded = Services.prefs.getBoolPref('zen.view.sidebar-expanded') || !isVerticalTabs;
     const isRightSide = Services.prefs.getBoolPref('zen.tabs.vertical.right-side') && isVerticalTabs;
-    const isSingleToolbar = Services.prefs.getBoolPref('zen.view.use-single-toolbar') && isVerticalTabs && isSidebarExpanded;
+    const isSingleToolbar = Services.prefs.getBoolPref('zen.view.use-single-toolbar') && (isVerticalTabs && isSidebarExpanded) || !isVerticalTabs;
     const titlebar = document.getElementById('titlebar');
 
     gBrowser.tabContainer.setAttribute('orient', isVerticalTabs ? 'vertical' : 'horizontal');
@@ -250,9 +250,9 @@ var gZenVerticalTabsManager = {
     //  tabboxWrapper.prepend(this.navigatorToolbox);
     }
 
-    if (!isVerticalTabs) {
-      document.getElementById("urlbar-container").after(document.getElementById('navigator-toolbox'));
-    }
+    //if (!isVerticalTabs) {
+    //  document.getElementById("urlbar-container").after(document.getElementById('navigator-toolbox'));
+    //}
 
     let windowButtons = this.actualWindowButtons;
     let doNotChangeWindowButtons = !isCompactMode && isRightSide && this.isWindowsStyledButtons;

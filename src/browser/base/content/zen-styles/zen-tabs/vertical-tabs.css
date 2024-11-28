@@ -1,4 +1,3 @@
-@media (-moz-bool-pref: 'zen.tabs.vertical') {
   #tabbrowser-tabs,
   #TabsToolbar,
   #titlebar,
@@ -350,16 +349,13 @@
         margin-left: var(--zen-toolbox-padding);
         width: calc(100% - var(--zen-toolbox-padding));
         & .urlbar-input-container {
-          padding-left: 2px;
+          padding-left: 4px;
+          padding-right: 4px;
         }
         
         :root[zen-right-side='true'] & {
           margin-left: 0;
           margin-right: var(--zen-toolbox-padding);
-  
-          & .urlbar-input-container {
-            padding-right: 2px;
-          }
         }
       }
     }
@@ -830,7 +826,7 @@
     }
     }
   }
-}
+
 
 /* Mark: Essentials Toolbar */
 #zen-essentials-container {
@@ -858,8 +854,8 @@
   border-radius: var(--border-radius-medium);
 
   &:not([selected]) .tab-background {
-    background: light-dark(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
-    box-shadow: none;
+    background: light-dark(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.1));
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
   }
 
   backdrop-filter: blur(10px);

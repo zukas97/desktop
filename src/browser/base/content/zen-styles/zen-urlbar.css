@@ -127,7 +127,8 @@
 
 :root[zen-single-toolbar='true'] {
   #urlbar[breakout-extend='true'] {
-    top: calc(var(--zen-toolbar-height) + 2px) !important;
+    top: 0px !important;
+    width: calc(var(--urlbar-width) + 2 * var(--urlbar-margin-inline) * 4);
   }
 
   #notification-popup-box {
