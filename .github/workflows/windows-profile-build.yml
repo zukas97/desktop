@@ -61,13 +61,13 @@ jobs:
           C:\MozillaBuildSetup-Latest.exe /S | out-null
       - name: Download firefox
         run: |
-          git config --global core.safecrlf false  
+          git config --global core.safecrlf false
           pnpm surfer download
 
       - name: Import patches
         env:
           SURFER_NO_BRANDING_PATCH: true
-        run: pnpm surfer import 
+        run: pnpm surfer import
 
       - name: Generate
         run: |

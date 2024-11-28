@@ -658,7 +658,7 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
             <div class="zen-workspace-container" ${containerGroup ? '' : 'hidden="true"'}>
             </div>
           </vbox>
-            <image class="toolbarbutton-icon zen-workspace-actions-reorder-icon" ></image> 
+            <image class="toolbarbutton-icon zen-workspace-actions-reorder-icon" ></image>
           <toolbarbutton closemenu="none" class="toolbarbutton-1 zen-workspace-actions">
             <image class="toolbarbutton-icon" id="zen-workspace-actions-menu-icon"></image>
           </toolbarbutton>

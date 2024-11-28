@@ -874,7 +874,7 @@ var gZenKeyboardShortcutsManager = {
 
       browser.gZenKeyboardShortcutsManager._zenKeyset = browser.document.createXULElement('keyset');
       browser.gZenKeyboardShortcutsManager._zenKeyset.id = ZEN_KEYSET_ID;
-      
+
       const mainKeyset = browser.document.getElementById(ZEN_MAIN_KEYSET_ID);
       mainKeyset.after(browser.gZenKeyboardShortcutsManager._zenKeyset);
     }

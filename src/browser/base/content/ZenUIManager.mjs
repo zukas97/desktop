@@ -12,7 +12,7 @@ var gZenUIManager = {
       'zen.theme.content-element-separation',
       0
     );
-    
+
     function throttle(f, delay) {
       let timer = 0;
       return function (...args) {

@@ -1024,7 +1024,7 @@ Preferences.addAll([
   {
     id: "zen.glance.activation-method",
     type: "string",
-    default: "ctrl", 
+    default: "ctrl",
   },
   {
     id: "zen.glance.enabled",
