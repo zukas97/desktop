@@ -111,11 +111,7 @@ pref('zen.view.compact.color-sidebar', true);
 pref('zen.glance.enabled', true);
 pref('zen.glance.hold-duration', 300); // in ms
 
-#ifdef XP_MACOSX
 pref('zen.glance.activation-method', 'alt'); // ctrl, alt, shift, none, hold
-#else
-pref('zen.glance.activation-method', 'ctrl'); // ctrl, alt, shift, none, hold
-#endif
 
 pref('zen.view.sidebar-height-throttle', 200); // in ms
 pref('zen.view.sidebar-expanded.max-width', 400);
