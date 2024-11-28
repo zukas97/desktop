@@ -121,7 +121,7 @@
         & #zen-appcontent-navbar-container {
           --zen-compact-toolbar-offset: 5px;
           position: absolute;
-          bottom: calc(100% - var(--zen-element-separation) + 1px);
+          top: calc((-1 * var(--zen-toolbar-height)) + var(--zen-element-separation) + 1px);
           left: 0;
           z-index: 10;
           box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.3) !important;
@@ -158,7 +158,7 @@
           opacity: 1;
           border-top-width: 1px;
 
-          bottom: calc(100% - 1px);
+          top: 1px;
         }
       }
     }
