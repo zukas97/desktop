@@ -34,7 +34,7 @@ export var ZenCustomizableUI = new (class {
   _addSidebarButtons(window) {
     const sidebarBox = window.MozXULElement.parseXULToFragment(`
       <toolbar id="zen-sidebar-top-buttons"
-        fullscreentoolbar="true" 
+        fullscreentoolbar="true"
         class="browser-toolbar customization-target zen-dont-hide-on-fullscreen"
         brighttext="true"
         data-l10n-id="tabs-toolbar"

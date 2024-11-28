@@ -14,7 +14,7 @@ on:
 jobs:
   mac-build:
     name: Build macOS - ${{ matrix.arch }}
-    
+
     runs-on: macos-14
     strategy:
       fail-fast: false
@@ -98,7 +98,7 @@ jobs:
       - name: Install dependencies
         run: |
           pnpm install
-        
+
       - name: Load surfer CI setup
         run: pnpm surfer ci --brand ${{ inputs.release-branch }} --display-version ${{ inputs.build-version }}
 

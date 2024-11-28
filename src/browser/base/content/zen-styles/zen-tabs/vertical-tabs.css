@@ -12,8 +12,8 @@
     & #zen-sidebar-top-buttons {
       --zen-toolbar-height: 32px;
       height: var(--zen-toolbar-height);
-    } 
-    
+    }
+
     & #zen-sidebar-top-buttons .toolbarbutton-1 {
       & > .toolbarbutton-icon {
         padding: 5px;
@@ -139,8 +139,8 @@
       & #PersonalToolbar {
         width: -moz-available;
       }
-      
-      /* We enable this trick IF we follow any of theses conditions: 
+
+      /* We enable this trick IF we follow any of theses conditions:
         * - We are on a Mac
         * - We are on a Linux with reversed CSD
         * - If we are not in any of the above, we can still enable it if the user has bookmarks toolbar enabled
@@ -256,8 +256,8 @@
         }
         & label { display: none !important; }
         & .tab-close-button,
-        & .tab-reset-button { 
-          display: none !important; 
+        & .tab-reset-button {
+          display: none !important;
         }
 
         & .tab-icon-image {
@@ -346,11 +346,11 @@
         & .urlbar-input-container {
           padding-left: 2px;
         }
-        
+
         :root[zen-right-side='true'] & {
           margin-left: 0;
           margin-right: var(--zen-toolbox-padding);
-  
+
           & .urlbar-input-container {
             padding-right: 2px;
           }

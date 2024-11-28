@@ -53,7 +53,7 @@
   outline-color: none !important;
 }
 
-#identity-box.chromeUI:not([pageproxystate="invalid"]) { 
+#identity-box.chromeUI:not([pageproxystate="invalid"]) {
   & #identity-icon-box {
     background: light-dark(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1)) !important;
   }
@@ -65,7 +65,7 @@
 
 #identity-permission-box:not(:hover):not(:focus-within) {
   background: transparent !important;
-} 
+}
 
 #urlbar:is([focused], [open]) > #urlbar-background,
 #searchbar:focus-within {
@@ -161,7 +161,7 @@
       padding: 0;
       margin-top: auto;
       margin-bottom: auto;
-    }    
+    }
   }
 }
 
@@ -279,7 +279,7 @@ button.popup-notification-dropmarker {
   align-items: center;
 }
 
-:root:not([zen-single-toolbar='true']) #nav-bar {  
+:root:not([zen-single-toolbar='true']) #nav-bar {
   margin-bottom: -1px;
 }
 

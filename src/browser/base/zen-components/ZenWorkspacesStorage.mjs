@@ -128,7 +128,7 @@ var ZenWorkspacesStorage = {
           uuid, name, icon, is_default, container_id, created_at, updated_at, "position",
           theme_type, theme_colors, theme_opacity, theme_rotation, theme_texture
         ) VALUES (
-          :uuid, :name, :icon, :is_default, :container_id, 
+          :uuid, :name, :icon, :is_default, :container_id,
           COALESCE((SELECT created_at FROM zen_workspaces WHERE uuid = :uuid), :now),
           :now,
           :position,

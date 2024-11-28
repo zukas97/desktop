@@ -51,7 +51,7 @@
 #zen-main-app-wrapper {
   background: transparent;
   overflow: hidden;
-  
+
   & > * {
     z-index: 1;
   }

@@ -8,7 +8,7 @@
     border-radius: var(--zen-border-radius);
     overflow: hidden;
     margin: 1px;
-    
+
     :root[zen-right-side='true'] & {
       margin-right: 0;
       margin-left: var(--zen-element-separation);

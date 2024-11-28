@@ -149,8 +149,8 @@ var ZenPinnedTabsStorage = {
   async getGroupChildren(groupUuid) {
     const db = await PlacesUtils.promiseDBConnection();
     const rows = await db.executeCached(`
-      SELECT * FROM zen_pins 
-      WHERE parent_uuid = :groupUuid 
+      SELECT * FROM zen_pins
+      WHERE parent_uuid = :groupUuid
       ORDER BY position ASC
     `, { groupUuid });
 
