@@ -60,7 +60,7 @@
           filter: grayscale(1);
           transition: opacity 0.2s;
         }
-        
+
         &[active='true'] {
           filter: none;
           opacity: 1;
@@ -401,7 +401,7 @@
   font-weight: 600;
   align-items: center;
   position: relative;
-  
+
   & #zen-current-workspace-indicator-icon {
     font-size: 14px;
   }

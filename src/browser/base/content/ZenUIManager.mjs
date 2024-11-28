@@ -12,7 +12,7 @@ var gZenUIManager = {
       'zen.theme.content-element-separation',
       0
     );
-    
+
     function throttle(f, delay) {
       let timer = 0;
       return function (...args) {
@@ -126,6 +126,7 @@ var gZenVerticalTabsManager = {
     Services.prefs.addObserver('zen.tabs.vertical.right-side', updateEvent);
     Services.prefs.addObserver('zen.view.sidebar-expanded.max-width', updateEvent);
     Services.prefs.addObserver('zen.view.use-single-toolbar', updateEvent);
+    Services.prefs.addObserver('zen.view.sidebar-expanded', updateEvent);
 
     this._toolbarOriginalParent = document.getElementById('nav-bar').parentElement;
 
@@ -152,6 +153,11 @@ var gZenVerticalTabsManager = {
       event.stopPropagation();
       event.preventDefault();
     }
+  },
+
+  toggleExpand() {
+    const newVal = !Services.prefs.getBoolPref('zen.view.sidebar-expanded');
+    Services.prefs.setBoolPref('zen.view.sidebar-expanded', newVal);
   },
 
   get navigatorToolbox() {
@@ -202,15 +208,16 @@ var gZenVerticalTabsManager = {
     const topButtons = document.getElementById('zen-sidebar-top-buttons');
     const isCompactMode = Services.prefs.getBoolPref('zen.view.compact');
     const isVerticalTabs = Services.prefs.getBoolPref('zen.tabs.vertical');
+    const isSidebarExpanded = Services.prefs.getBoolPref('zen.view.sidebar-expanded') || !isVerticalTabs;
     const isRightSide = Services.prefs.getBoolPref('zen.tabs.vertical.right-side') && isVerticalTabs;
-    const isSingleToolbar = Services.prefs.getBoolPref('zen.view.use-single-toolbar') && isVerticalTabs;
+    const isSingleToolbar = Services.prefs.getBoolPref('zen.view.use-single-toolbar') && (isVerticalTabs && isSidebarExpanded) || !isVerticalTabs;
     const titlebar = document.getElementById('titlebar');
 
     gBrowser.tabContainer.setAttribute('orient', isVerticalTabs ? 'vertical' : 'horizontal');
     gBrowser.tabContainer.arrowScrollbox.setAttribute('orient', isVerticalTabs ? 'vertical' : 'horizontal');
 
     const buttonsTarget = document.getElementById('zen-sidebar-top-buttons-customization-target');
-    if (isRightSide && isVerticalTabs) {
+    if (isRightSide) {
       this.navigatorToolbox.setAttribute('zen-right-side', 'true');
       document.documentElement.setAttribute('zen-right-side', 'true');
     } else {
@@ -218,8 +225,14 @@ var gZenVerticalTabsManager = {
       document.documentElement.removeAttribute('zen-right-side');
     }
 
+    if (isSidebarExpanded) {
+      this.navigatorToolbox.setAttribute('zen-sidebar-expanded', 'true');
+    } else {
+      this.navigatorToolbox.removeAttribute('zen-sidebar-expanded');
+    }
+
     const appContentNavbarContaienr = document.getElementById('zen-appcontent-navbar-container');
-    if ((!isRightSide && this.isWindowsStyledButtons) || (isRightSide && !this.isWindowsStyledButtons)) {
+    if ((!isRightSide && this.isWindowsStyledButtons) || (isRightSide && !this.isWindowsStyledButtons) || isCompactMode) {
       appContentNavbarContaienr.setAttribute('should-hide', 'true');
     } else {
       appContentNavbarContaienr.removeAttribute('should-hide');
@@ -237,9 +250,9 @@ var gZenVerticalTabsManager = {
     //  tabboxWrapper.prepend(this.navigatorToolbox);
     }
 
-    if (!isVerticalTabs) {
-      document.getElementById("urlbar-container").after(document.getElementById('navigator-toolbox'));
-    }
+    //if (!isVerticalTabs) {
+    //  document.getElementById("urlbar-container").after(document.getElementById('navigator-toolbox'));
+    //}
 
     let windowButtons = this.actualWindowButtons;
     let doNotChangeWindowButtons = !isCompactMode && isRightSide && this.isWindowsStyledButtons;
@@ -305,9 +318,9 @@ var gZenVerticalTabsManager = {
         }
       } else {
         if (isRightSide) {
-          document.getElementById('zen-appcontent-navbar-container').prepend(windowButtons);
+          document.getElementById('zen-appcontent-navbar-container').appendChild(windowButtons);
         } else {
-          navBar.prepend(windowButtons);
+          topButtons.prepend(windowButtons);
         }
       }
     } else if (!isSingleToolbar && isCompactMode) {

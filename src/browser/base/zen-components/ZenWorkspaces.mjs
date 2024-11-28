@@ -13,6 +13,13 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
   };
   _hoveringSidebar = false;
   _lastScrollTime = 0;
+  bookmarkMenus = [
+    "PlacesToolbar",
+    "bookmarks-menu-button",
+    "BMB_bookmarksToolbar",
+    "BMB_unsortedBookmarks",
+    "BMB_mobileBookmarks"
+  ];
 
   async init() {
     if (!this.shouldHaveWorkspaces) {
@@ -61,6 +68,11 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
     }
 
     Services.obs.addObserver(this, 'weave:engine:sync:finish');
+    Services.obs.addObserver(async function observe(subject) {
+      this._workspaceBookmarksCache = null;
+      await this.workspaceBookmarks();
+      this._invalidateBookmarkContainers();
+    }.bind(this), "workspace-bookmarks-updated");
   }
 
   initializeWorkspaceNavigation() {
@@ -128,7 +140,7 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
       }
 
       // Change workspace based on scroll direction
-      const direction = event.deltaX > 0 ? -1 : 1;
+      const direction = event.deltaX > 0 ? 1 : -1;
       await this.changeWorkspaceShortcut(direction);
       this._lastScrollTime = currentTime;
     }, { passive: true });
@@ -320,6 +332,21 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
     return this._workspaceCache;
   }
 
+  async workspaceBookmarks() {
+    if (this._workspaceBookmarksCache) {
+      return this._workspaceBookmarksCache;
+    }
+
+    const [bookmarks, lastChangeTimestamp] = await Promise.all([
+      ZenWorkspaceBookmarksStorage.getBookmarkGuidsByWorkspace(),
+      ZenWorkspaceBookmarksStorage.getLastChangeTimestamp(),
+    ]);
+
+    this._workspaceBookmarksCache = { bookmarks, lastChangeTimestamp };
+
+    return this._workspaceCache;
+  }
+
   async onWorkspacesEnabledChanged() {
     if (this.workspaceEnabled) {
       throw Error("Shoud've had reloaded the window");
@@ -339,6 +366,7 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
     if (this.workspaceEnabled) {
       this._initializeWorkspaceCreationIcons();
       this._initializeWorkspaceTabContextMenus();
+      await this.workspaceBookmarks();
       window.addEventListener('TabBrowserInserted', this.onTabBrowserInserted.bind(this));
       await SessionStore.promiseInitialized;
       let workspaces = await this._workspaces();
@@ -658,7 +686,7 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
             <div class="zen-workspace-container" ${containerGroup ? '' : 'hidden="true"'}>
             </div>
           </vbox>
-            <image class="toolbarbutton-icon zen-workspace-actions-reorder-icon" ></image> 
+            <image class="toolbarbutton-icon zen-workspace-actions-reorder-icon" ></image>
           <toolbarbutton closemenu="none" class="toolbarbutton-1 zen-workspace-actions">
             <image class="toolbarbutton-icon" id="zen-workspace-actions-menu-icon"></image>
           </toolbarbutton>
@@ -754,8 +782,10 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
 
       if(clearCache) {
         browser.ZenWorkspaces._workspaceCache = null;
+        browser.ZenWorkspaces._workspaceBookmarksCache = null;
       }
       let workspaces = await browser.ZenWorkspaces._workspaces();
+      await browser.ZenWorkspaces.workspaceBookmarks();
       workspaceList.innerHTML = '';
       workspaceList.parentNode.style.display = 'flex';
       if (workspaces.workspaces.length <= 0) {
@@ -1106,6 +1136,8 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
   }
 
   async _performWorkspaceChange(window, onInit) {
+    const previousWorkspace = await this.getActiveWorkspace();
+
     this.activeWorkspace = window.uuid;
     const containerId = window.containerTabId?.toString();
     const workspaces = await this._workspaces();
@@ -1121,6 +1153,20 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
 
     // Update UI and state
     await this._updateWorkspaceState(window, onInit);
+
+    // Animate acordingly
+    if (previousWorkspace && !this._animatingChange) {
+      // we want to know if we are moving forward or backward in sense of animation
+      let isNextWorkspace = onInit || 
+        (workspaces.workspaces.findIndex((w) => w.uuid === previousWorkspace.uuid) 
+          < workspaces.workspaces.findIndex((w) => w.uuid === window.uuid));
+      gBrowser.tabContainer.setAttribute('zen-workspace-animation', isNextWorkspace ? 'next' : 'previous');
+      this._animatingChange = true;
+      setTimeout(() => {
+        this._animatingChange = false;
+        gBrowser.tabContainer.removeAttribute('zen-workspace-animation');
+      }, 300);
+    }
   }
 
 
@@ -1252,14 +1298,21 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
       }
     }
 
-    // Reset bookmarks toolbar
-    const placesToolbar = document.getElementById("PlacesToolbar");
-    if (placesToolbar?._placesView) {
-      placesToolbar._placesView.invalidateContainer(placesToolbar._placesView._resultNode);
-    }
+    // Reset bookmarks
+    this._invalidateBookmarkContainers();
 
     // Update workspace indicator
     await this.updateWorkspaceIndicator();
+  }
+
+  _invalidateBookmarkContainers() {
+    for (let i = 0, len = this.bookmarkMenus.length; i < len; i++) {
+      const element = document.getElementById(this.bookmarkMenus[i]);
+      if (element && element._placesView) {
+        const placesView = element._placesView;
+        placesView.invalidateContainer(placesView._resultNode);
+      }
+    }
   }
 
   async updateWorkspaceIndicator() {
@@ -1534,12 +1587,24 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
   }
 
   isBookmarkInAnotherWorkspace(bookmark) {
-    let tags = bookmark.tags;
-    // if any tag starts with "_workspace_id" and the workspace id doesnt match the active workspace id, return null
-    if (tags) {
-      for (let tag of tags.split(",")) {
-        return  !!(tag.startsWith("zen_workspace_") && this.getActiveWorkspaceFromCache()?.uuid !== tag.split("_")[2]);
+    if (!this._workspaceBookmarksCache?.bookmarks) return false;
+    const bookmarkGuid = bookmark.bookmarkGuid;
+    const activeWorkspaceUuid = this.activeWorkspace;
+    let isInActiveWorkspace = false;
+    let isInOtherWorkspace = false;
+
+    for (const [workspaceUuid, bookmarkGuids] of Object.entries(this._workspaceBookmarksCache.bookmarks)) {
+      if (bookmarkGuids.includes(bookmarkGuid)) {
+        if (workspaceUuid === activeWorkspaceUuid) {
+          isInActiveWorkspace = true;
+        } else {
+          isInOtherWorkspace = true;
+        }
       }
     }
+
+    // Return true only if the bookmark is in another workspace and not in the active one
+    return isInOtherWorkspace && !isInActiveWorkspace;
   }
+
 })();

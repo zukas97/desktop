@@ -71,7 +71,7 @@ jobs:
 
       - name: Download Firefox and dependencies
         run: |
-          git config --global core.safecrlf false  
+          git config --global core.safecrlf false
           pnpm surfer download
 
       - name: Import patches

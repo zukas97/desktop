@@ -56,7 +56,18 @@
 
 @keyframes zen-slide-in {
   from {
-    transform: translateX(-30px);
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes zen-slide-in-reverse {
+  from {
+    transform: translateX(100%);
     opacity: 0;
   }
   to {
@@ -228,9 +239,9 @@
     height: 0%;
   }
 
-  70% {
+  80% {
     /* make the box grow to full width/height */
-    opacity: .5;
+    opacity: 1;
     transform: translate(-50%, -50%) translateZ(0);
     top: 50%;
     left: 50%;
@@ -253,31 +264,22 @@
   0% {
     /* make the box shrink to final width/height and x/y coordinates */
     transform: translate(-50%, -50%) translateZ(0);
-    opacity: 1;
     width: 85%;
     height: 100%;
     top: 50%;
     left: 50%;
-  }
-
-  50% {
-    /* make the box grow to full width/height */
     opacity: 1;
-    transform: translate(-50%, -50%) translateZ(0);
-    top: 50%;
-    left: 50%;
-    width: 87%;
-    height: 102%;
   }
 
   100% {
     /* make the box appear from initial width/height and x/y coordinates */
+    transform: translate(-50%, -50%) translateZ(0);
     opacity: 0;
+    width: 47%;
+    height: 53%;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) translateZ(0);
-    width: 0%;
-    height: 0%;
+    opacity: 0;
   }
 }
 
@@ -293,10 +295,10 @@
   to {
     width: 100%;
     height: 100%;
-    top: 0;
-    left: 0;
+    top: 50%;
+    left: 50%;
     opacity: 1;
-    transform: none;
+    transform: translate(-50%, -50%); 
   }
 }
 
@@ -307,7 +309,7 @@
   }
 
   90% {
-    width: 100%; 
+    width: 100%;
   }
 
   100% {

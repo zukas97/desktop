@@ -5,7 +5,6 @@
 }
 
 .zen-glance-background {
-  transition: transform 0.1s ease-in-out, opacity 0.1s ease-in-out;
   transform: scale(0.98);
   backdrop-filter: blur(5px);
   opacity: 0.6;
@@ -28,11 +27,10 @@
 
     & .browserContainer {
       opacity: 1;
-      animation: zen-glance-content-animation-out .5s ease-in-out forwards !important;
+      animation: zen-glance-content-animation-out .3s ease-in-out forwards !important;
 
       & browser {
-        opacity: 0;
-        transition: opacity .3s ease-in-out;
+        opacity: 1 !important;
       }
 
       & #zen-glance-sidebar-container {
