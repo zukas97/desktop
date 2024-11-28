@@ -213,7 +213,7 @@ var gZenVerticalTabsManager = {
     const isSingleToolbar = (Services.prefs.getBoolPref('zen.view.use-single-toolbar') && (isVerticalTabs && isSidebarExpanded) )|| !isVerticalTabs;
     const titlebar = document.getElementById('titlebar');
 
- // gBrowser.tabContainer.setAttribute('orient', isVerticalTabs ? 'vertical' : 'vertical');
+    gBrowser.tabContainer.setAttribute('orient', isVerticalTabs ? 'vertical' : 'vertical');
     gBrowser.tabContainer.arrowScrollbox.setAttribute('orient', isVerticalTabs ? 'vertical' : 'horizontal');
 
     const buttonsTarget = document.getElementById('zen-sidebar-top-buttons-customization-target');

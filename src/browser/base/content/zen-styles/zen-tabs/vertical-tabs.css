@@ -42,85 +42,11 @@
       }
     }
   }
+}
 
-  :root[zen-window-buttons-reversed='true'] .titlebar-buttonbox-container {
-    margin-right: auto;
-    width: fit-content;
-  }
-
-  :root[zen-single-toolbar='true']:not([customizing]) {
-    #zen-appcontent-navbar-container {
-      display: flex;
-      -moz-window-dragging: drag;
-      min-height: var(--zen-element-separation);
-      height: var(--zen-element-separation);
-
-      & #PersonalToolbar {
-        width: -moz-available;
-      }
-
-      /* We enable this trick IF we follow any of theses conditions:
-        * - We are on a Mac
-        * - We are on a Linux with reversed CSD
-        * - If we are not in any of the above, we can still enable it if the user has bookmarks toolbar enabled
-        */
-      &:has(#PersonalToolbar[collapsed='false']) {
-%include vertical-tabs-topbar.inc.css
-      }
-
-      &[should-hide='true'] {
-%include vertical-tabs-topbar.inc.css
-      }
-
-      :root[zen-window-buttons-reversed='true'] & {
-        &:has(#PersonalToolbar[collapsed="true"]) {
-          display: none;
-        }
-      }
-    }
-  }
-
-  :root[zen-single-toolbar='true'] {
-    #urlbar-container {
-      width: -moz-available !important;
-    }
-
-    .sharing-icon,
-    #identity-icon,
-    .urlbar-icon,
-    #permissions-granted-icon,
-    #tracking-protection-icon,
-    #tracking-protection-icon-box,
-    #blocked-permissions-container > .blocked-permission-icon {
-      width: 12px;
-      height: 12px;
-    }
-
-    #identity-icon-box,
-    #identity-permission-box {
-      margin-top: auto;
-      margin-bottom: auto;
-      padding: 6px !important;
-    }
-
-    & #urlbar-container,
-    & #urlbar {
-      --urlbar-container-height: 40px !important;
-      --urlbar-height: 38px !important;
-    }
-
-    & #nav-bar {
-      margin-bottom: 8px;
-    }
-
-    & #zen-sidebar-top-buttons {
-      margin: 4px 0;
-    }
-
-    & #PanelUI-menu-button {
-      padding: 0 !important;
-    }
-  }
+:root[zen-window-buttons-reversed='true'] .titlebar-buttonbox-container {
+  margin-right: auto;
+  width: fit-content;
 }
 
 #TabsToolbar > * {
@@ -135,6 +61,48 @@
   --zen-toolbox-padding: calc(var(--zen-element-separation) / 1.5);
   :root[zen-no-padding='true'] & {
     --zen-toolbox-padding: 4px;
+  }
+}
+
+:root[zen-single-toolbar='true'] {
+  #urlbar-container {
+    width: -moz-available !important;
+  }
+
+  .sharing-icon,
+  #identity-icon,
+  .urlbar-icon,
+  #permissions-granted-icon,
+  #tracking-protection-icon,
+  #tracking-protection-icon-box,
+  #blocked-permissions-container > .blocked-permission-icon {
+    width: 12px;
+    height: 12px;
+  }
+
+  #identity-icon-box,
+  #identity-permission-box {
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 6px !important;
+  }
+
+  & #urlbar-container,
+  & #urlbar {
+    --urlbar-container-height: 40px !important;
+    --urlbar-height: 38px !important;
+  }
+
+  & #nav-bar {
+    margin-bottom: 8px;
+  }
+
+  & #zen-sidebar-top-buttons {
+    margin: 4px 0;
+  }
+
+  & #PanelUI-menu-button {
+    padding: 0 !important;
   }
 }
 
@@ -173,6 +141,38 @@
 .titlebar-spacer[type='pre-tabs'],
 .titlebar-spacer[type='post-tabs'] {
   display: none;
+}
+
+:root[zen-single-toolbar='true']:not([customizing]) {
+  #zen-appcontent-navbar-container {
+    display: flex;
+    -moz-window-dragging: drag;
+    min-height: var(--zen-element-separation);
+    height: var(--zen-element-separation);
+
+    & #PersonalToolbar {
+      width: -moz-available;
+    }
+
+    /* We enable this trick IF we follow any of theses conditions:
+      * - We are on a Mac
+      * - We are on a Linux with reversed CSD
+      * - If we are not in any of the above, we can still enable it if the user has bookmarks toolbar enabled
+      */
+    &:has(#PersonalToolbar[collapsed='false']) {
+%include vertical-tabs-topbar.inc.css
+    }
+
+    &[should-hide='true'] {
+%include vertical-tabs-topbar.inc.css
+    }
+
+    :root[zen-window-buttons-reversed='true'] & {
+      &:has(#PersonalToolbar[collapsed="true"]) {
+        display: none;
+      }
+    }
+  }
 }
 
 #TabsToolbar-customization-target {
