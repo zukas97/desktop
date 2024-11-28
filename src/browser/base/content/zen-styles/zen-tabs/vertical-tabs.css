@@ -24,9 +24,21 @@
     }
   }
 
-  :root:not([zen-window-buttons-reversed='true']) .titlebar-buttonbox-container {
-    margin-left: auto;
-    width: fit-content;
+  :root:not([zen-window-buttons-reversed='true']) {
+    & .titlebar-buttonbox-container {
+      margin-left: auto;
+      width: fit-content;
+    }
+
+    &:root[zen-right-side='true'] #zen-sidebar-top-buttons-customization-target .titlebar-buttonbox-container {
+      /* Must have the zen-sidebar-top-buttons-customization-target so we target it only when it's on the sidebar */
+      margin-right: calc(-2 * var(--zen-toolbox-padding));
+      margin-top: -10px /*Make sure this stays synced with the top buttons' margin!*/;
+
+      & .titlebar-button {
+        align-items: end;
+      }
+    }
   }
 
   :root[zen-window-buttons-reversed='true'] .titlebar-buttonbox-container {
@@ -225,7 +237,7 @@
         #tabbrowser-tabs[zen-workspace-animation='next'] & {
           animation: zen-slide-in 0.2s ease-in-out;
         }
-  
+
         &[pinned] {
           animation-delay: .03s !important;
         }
@@ -584,7 +596,7 @@
           margin-inline: auto !important;
           &:is([selected], [multiselected]) {
             box-shadow: 0 0 1px 1px rgba(0,0,0,.1);
-            
+
             @media not (prefers-color-scheme: dark) {
               box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.12) !important;
             }
@@ -784,7 +796,7 @@
         padding-inline-end: var(--zen-toolbox-padding);
       }
 
-      & toolbarbutton {
+      & toolbarbutton:not(.titlebar-button) {
         height: calc(2 * var(--toolbarbutton-inner-padding) + 16px);
         padding: 0 var(--toolbarbutton-outer-padding) !important;
       }

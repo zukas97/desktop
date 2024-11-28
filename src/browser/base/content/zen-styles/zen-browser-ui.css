@@ -98,14 +98,6 @@
 
 .titlebar-buttonbox-container {
   height: 100%;
-
-  & .titlebar-buttonbox {
-    align-items: center;
-
-    & .titlebar-button {
-      height: 100%;
-    }
-  }
 }
 
 @media (-moz-platform: macos) {
