@@ -508,13 +508,6 @@
     --zen-toolbox-max-width: calc(var(--tab-min-width) + var(--zen-toolbox-padding) * 2);
     max-width: var(--zen-toolbox-max-width) !important;
     min-width: var(--zen-toolbox-max-width) !important;
-    --zen-tabbar-offset: 1px; /* Fix the tabbar offset, because there's a shadow */
-    &[zen-right-side='true'] {
-      margin-left: var(--zen-tabbar-offset);
-    }
-    &:not([zen-right-side='true']) {
-      margin-right: var(--zen-tabbar-offset);
-    }
     & #zen-current-workspace-indicator-name,
     & .toolbarbutton-text {
       display: none !important;
