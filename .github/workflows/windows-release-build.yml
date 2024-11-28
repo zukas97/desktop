@@ -1,4 +1,5 @@
 name: Windows Release Build
+
 on:
   workflow_call:
     inputs:
@@ -22,6 +23,7 @@ jobs:
   windows-build:
     name: Build Windows - ${{ matrix.arch == 'x86_64' && 'Generic' || matrix.arch == 'x86_64-v3' && 'Specific' || matrix.arch == 'aarch64' && 'ARM64' }}
     runs-on: ubuntu-latest
+
     strategy:
       fail-fast: false
       matrix:
@@ -31,24 +33,23 @@ jobs:
       - name: Free Disk Space (Ubuntu)
         uses: jlumbroso/free-disk-space@main
         with:
-          # this might remove tools that are actually needed,
-          # if set to "true" but frees about 6 GB
           tool-cache: false
 
-      - name: Install Node.js and pnpm
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20
-
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
           submodules: recursive
           token: ${{ secrets.DEPLOY_KEY }}
 
-      - name: Install pnpm
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Setup pnpm
         run: npm install -g pnpm
 
-      - name: Setup git
+      - name: Setup Git
         run: |
           git config --global user.email "mauro-balades@users.noreply.github.com"
           git config --global user.name "mauro-balades"
@@ -57,13 +58,13 @@ jobs:
         run: |
           pnpm install
 
-      - name: Load surfer CI setup
+      - name: Load Surfer CI setup
         run: pnpm surfer ci --brand ${{ inputs.release-branch }} --display-version ${{ inputs.build-version }}
 
-      - name: Download
+      - name: Download Firefox and dependencies
         run: pnpm surfer download
 
-      - name: 'win-cross Cache'
+      - name: win-cross Cache
         env:
           SEGMENT_DOWNLOAD_TIMEOUT_MINS: 5
         id: cache-win-cross
@@ -79,18 +80,16 @@ jobs:
             core.exportVariable('ACTIONS_CACHE_URL', process.env.ACTIONS_CACHE_URL || '');
             core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
 
-      - name: Setup For Windows
+      - name: Setup for Windows
         if: steps.cache-win-cross.outputs.cache-hit != 'true'
         run: |
           set -x
           mkdir -p ~/win-cross
           cd engine/
-
           echo Setup wine
           aria2c "https://firefox-ci-tc.services.mozilla.com/api/index/v1/task/gecko.cache.level-1.toolchains.v3.linux64-wine.latest/artifacts/public%2Fbuild%2Fwine.tar.zst" -o wine.tar.zst
           tar --zstd -xvf wine.tar.zst -C ~/win-cross
           rm wine.tar.zst
-
           echo Setup Visual Studio
           sudo apt install -y msitools python3-pip
           ./mach python --virtualenv build taskcluster/scripts/misc/get_vs.py build/vs/vs2022.yaml ~/win-cross/vs2022
@@ -99,32 +98,25 @@ jobs:
         run: |
           set -x
           cd engine/
-
           chmod -R +x "$(echo ~)/win-cross/vs2022" || true
-
           cd ..
           npm install -g pnpm
           export SURFER_PLATFORM="win32"
           pnpm surfer bootstrap
-
           cd engine/
           ls ~/.mozbuild/clang/lib/clang/
           echo "export LIB=\"$(cd ~/.mozbuild/clang/lib/clang/* && cd lib/windows && pwd)\"" >> ../configs/common/mozconfig
           cat ../configs/common/mozconfig
-
           sudo apt-get update
           sudo apt-get install dos2unix
-
           ls ~/win-cross/wine || true
           ls ~/win-cross/vs2022 || true
 
-      - name: setup Rust
+      - name: Setup Rust
         run: |
           cd engine/
-          # Install a rust version compatible with 17
           curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain 1.79
           source $HOME/.cargo/env
-
           if test "${{ matrix.arch }}" = "aarch64"; then
             rustup target add aarch64-pc-windows-msvc
           else
@@ -132,9 +124,7 @@ jobs:
           fi
           cargo install cargo-download
           cargo download -x windows=0.58.0
-          #? https://github.com/mozilla/sccache#known-caveats
           export CARGO_INCREMENTAL=0
-
           echo "" >> ../configs/common/mozconfig
           echo "export MOZ_WINDOWS_RS_DIR=$(pwd)/windows-0.58.0" >> ../configs/common/mozconfig
 
@@ -146,8 +136,8 @@ jobs:
       - name: Build language packs
         run: sh scripts/download-language-packs.sh
 
-      - uses: actions/download-artifact@v4
-        name: Download artifact if use profdata
+      - name: Download artifact (if use profdata)
+        uses: actions/download-artifact@v4
         if: ${{ !inputs.generate-gpo }}
         with:
           path: ~/artifact
@@ -159,7 +149,6 @@ jobs:
           ls ~/artifact
           ls ~/artifact/en-US.log
           ls ~/artifact/merged.profdata
-
           chmod +x ~/artifact/en-US.log
           chmod +x ~/artifact/merged.profdata
 
@@ -187,9 +176,9 @@ jobs:
           ls ./dist
           ls .
 
-      - name: 🐛 Debug Session
+      - name: Debug session
         if: ${{ failure() }}
-        uses: Warpbuilds/gha-debug@v1.3
+        uses: WarpBuilds/action-debugger@v1.3
         timeout-minutes: 15
 
       - name: Move package for PGO upload
@@ -205,7 +194,7 @@ jobs:
           mv ./dist/output.mar windows${{ matrix.arch == 'x86_64' && '-generic' || matrix.arch == 'aarch64' && '-arm64' || '' }}.mar
           mv ./dist/zen.installer.exe ./zen.installer${{ matrix.arch == 'x86_64' && '-generic' || matrix.arch == 'aarch64' && '-arm64' || '' }}.exe
 
-      - name: Upload PGO build
+      - name: Upload artifact (PGO)
         uses: actions/upload-artifact@v4
         if: ${{ inputs.generate-gpo }}
         with:
@@ -231,28 +220,28 @@ jobs:
           name: windows-x64-obj-${{ matrix.arch == 'x86_64' && 'generic' || matrix.arch == 'x86_64-v3' && 'specific' || matrix.arch == 'aarch64' && 'arm64' }}
           path: engine/obj-${{ matrix.arch == 'aarch64' && 'aarch64' || 'x86_64' }}-pc-windows-msvc/
 
-      - name: Upload zip file if twilight branch
+      - name: Upload artifact (if Twilight branch, binary)
         if: ${{ inputs.release-branch == 'twilight' && !inputs.generate-gpo }}
         uses: actions/upload-artifact@v4
         with:
           name: zen.win-${{ matrix.arch == 'x86_64' && 'generic' || matrix.arch == 'x86_64-v3' && 'specific' || matrix.arch == 'aarch64' && 'arm64' }}.zip
           path: ./zen.win-${{ matrix.arch == 'x86_64' && 'generic' || matrix.arch == 'x86_64-v3' && 'specific' || matrix.arch == 'aarch64' && 'arm64' }}.zip
 
-      - name: Upload installer if twilight branch
+      - name: Upload artifact (if Twilight branch, installer)
         if: ${{ inputs.release-branch == 'twilight' && !inputs.generate-gpo }}
         uses: actions/upload-artifact@v4
         with:
           name: zen.installer${{ matrix.arch == 'x86_64' && '-generic' || matrix.arch == 'aarch64' && '-arm64' ||  '' }}.exe
           path: ./zen.installer${{ matrix.arch == 'x86_64' && '-generic' || matrix.arch == 'aarch64' && '-arm64' || '' }}.exe
 
-      - name: Upload mar if twilight branch
+      - name: Upload artifact (if Twilight branch, .mar)
         if: ${{ inputs.release-branch == 'twilight' && !inputs.generate-gpo }}
         uses: actions/upload-artifact@v4
         with:
           name: windows${{ matrix.arch == 'x86_64' && '-generic' || matrix.arch == 'aarch64' && '-arm64' || '' }}.mar
           path: ./windows${{ matrix.arch == 'x86_64' && '-generic' || matrix.arch == 'aarch64' && '-arm64' || '' }}.mar
 
-      - name: Upload update manifests if twilight branch
+      - name: Upload artifact (if Twilight branch, update manifests)
         if: ${{ inputs.release-branch == 'twilight' && !inputs.generate-gpo }}
         uses: actions/upload-artifact@v4
         with:
