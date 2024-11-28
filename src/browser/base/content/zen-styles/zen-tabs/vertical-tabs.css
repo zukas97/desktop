@@ -299,6 +299,11 @@
     &::part(scrollbox) {
       gap: 0px !important;
     }
+
+    &::part(overflow-start-indicator),
+    &::part(overflow-end-indicator) {
+      display: none !important;
+    }
   }
 
   #vertical-pinned-tabs-container {
@@ -479,6 +484,7 @@
         &:is(:hover, [visuallyselected]) .tab-close-button {
           display: block;
           --tab-inline-padding: 0; /* Avoid weird padding */
+          margin-inline-end: 0 !important;
         }
 
         .tab-throbber,
