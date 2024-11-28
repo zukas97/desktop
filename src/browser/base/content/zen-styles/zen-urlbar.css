@@ -126,6 +126,10 @@
 }
 
 :root[zen-single-toolbar='true'] {
+  #urlbar[breakout-extend='true'] {
+    top: calc(var(--zen-toolbar-height) + 2px) !important;
+  }
+
   #notification-popup-box {
     align-items: center;
     justify-content: center;

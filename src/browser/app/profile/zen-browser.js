@@ -122,6 +122,8 @@ pref('zen.view.sidebar-expanded.max-width', 400);
 
 pref('zen.view.show-bottom-border', false);
 pref('zen.view.use-single-toolbar', true);
+pref('zen.view.sidebar-expanded', true);
+pref('zen.view.sidebar-collapsed.hide-mute-button', true);
 
 #ifndef XP_MACOSX
 pref('zen.view.hide-window-controls', true);
