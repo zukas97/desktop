@@ -76,7 +76,7 @@ pref('zen.welcomeScreen.seen', false);
 
 pref('zen.tabs.vertical', true);
 pref('zen.tabs.vertical.right-side', false);
-pref('zen.theme.accent-color', "#aac7ff");
+pref('zen.theme.accent-color', "#ffb787");
 pref('zen.theme.content-element-separation', 6); // In pixels
 pref('zen.theme.pill-button', false);
 pref('zen.theme.gradient', true);
@@ -111,17 +111,15 @@ pref('zen.view.compact.color-sidebar', true);
 pref('zen.glance.enabled', true);
 pref('zen.glance.hold-duration', 300); // in ms
 
-#ifdef XP_MACOSX
 pref('zen.glance.activation-method', 'alt'); // ctrl, alt, shift, none, hold
-#else
-pref('zen.glance.activation-method', 'ctrl'); // ctrl, alt, shift, none, hold
-#endif
 
 pref('zen.view.sidebar-height-throttle', 200); // in ms
 pref('zen.view.sidebar-expanded.max-width', 400);
 
 pref('zen.view.show-bottom-border', false);
-pref('zen.view.use-single-toolbar', false, locked);
+pref('zen.view.use-single-toolbar', true);
+pref('zen.view.sidebar-expanded', true);
+pref('zen.view.sidebar-collapsed.hide-mute-button', true);
 
 #ifndef XP_MACOSX
 pref('zen.view.hide-window-controls', true);

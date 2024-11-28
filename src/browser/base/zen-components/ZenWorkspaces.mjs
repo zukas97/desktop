@@ -1106,6 +1106,8 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
   }
 
   async _performWorkspaceChange(window, onInit) {
+    const previousWorkspace = await this.getActiveWorkspace();
+
     this.activeWorkspace = window.uuid;
     const containerId = window.containerTabId?.toString();
     const workspaces = await this._workspaces();
@@ -1121,6 +1123,20 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
 
     // Update UI and state
     await this._updateWorkspaceState(window, onInit);
+
+    // Animate acordingly
+    if (previousWorkspace && !this._animatingChange) {
+      // we want to know if we are moving forward or backward in sense of animation
+      let isNextWorkspace = onInit || 
+        (workspaces.workspaces.findIndex((w) => w.uuid === previousWorkspace.uuid) 
+          < workspaces.workspaces.findIndex((w) => w.uuid === window.uuid));
+      gBrowser.tabContainer.setAttribute('zen-workspace-animation', isNextWorkspace ? 'next' : 'previous');
+      this._animatingChange = true;
+      setTimeout(() => {
+        this._animatingChange = false;
+        gBrowser.tabContainer.removeAttribute('zen-workspace-animation');
+      }, 300);
+    }
   }
 
 
