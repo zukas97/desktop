@@ -170,7 +170,7 @@
 }
 
 #zen-sidebar-web-panel-wrapper {
-  margin: var(--zen-element-separation) calc(var(--zen-element-separation) / 2) var(--zen-element-separation) var(--zen-element-separation);
+  margin: 0 calc(var(--zen-element-separation) / 2) var(--zen-element-separation) var(--zen-element-separation);
 }
 
 #zen-sidebar-web-panel[pinned='true'] {
