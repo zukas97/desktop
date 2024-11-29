@@ -112,18 +112,18 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
 
   _setupSidebarHandlers() {
     const toolbox = document.getElementById('navigator-toolbox');
- 
+
     toolbox.addEventListener('mouseenter', () => {
       this._hoveringSidebar = true;
     });
- 
+
     toolbox.addEventListener('mouseleave', () => {
       this._hoveringSidebar = false;
     });
- 
+
     const scrollCooldown = 200; // Milliseconds to wait before allowing another scroll
     const scrollThreshold = 2;  // Minimum scroll delta to trigger workspace change
- 
+
     toolbox.addEventListener('wheel', async (event) => {
       if (!this.workspaceEnabled) return;
  
@@ -249,11 +249,11 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
     if (!this.workspaceEnabled || !this._swipeState?.isGestureActive) return;
     event.preventDefault();
     event.stopPropagation();
- 
+
     if (this._swipeState.direction) {
       const workspaces = (await this._workspaces()).workspaces;
       const currentIndex = workspaces.findIndex(w => w.uuid === this.activeWorkspace);
- 
+
       if (currentIndex !== -1) {
         const isRTL = document.documentElement.matches(':-moz-locale-dir(rtl)');
         const moveForward = (this._swipeState.direction === 'right') !== isRTL;
