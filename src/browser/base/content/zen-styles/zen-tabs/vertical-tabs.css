@@ -89,7 +89,7 @@
 
   & #urlbar-container,
   & #urlbar {
-    --urlbar-container-height: 40px !important;
+    --urlbar-container-height: 40px;
     --urlbar-height: 38px !important;
   }
 
@@ -169,7 +169,10 @@
 
     :root[zen-window-buttons-reversed='true'] & {
       &:has(#PersonalToolbar[collapsed="true"]) {
-        display: none;
+        opacity: 0;
+        & > * {
+          display: none;
+        }
       }
     }
   }
@@ -361,7 +364,10 @@
   padding: var(--zen-toolbox-padding);
   padding-left: 0;
   padding-top: 0;
-  z-index: 1;
+
+  #PersonalToolbar:not([collapsed='true']) {
+    padding-left: 0 !important;
+  }
 
   & #titlebar {
     min-width: 150px;
@@ -377,7 +383,7 @@
     :root[zen-single-toolbar='true'] & {
       margin-left: var(--zen-toolbox-padding);
       width: calc(100% - var(--zen-toolbox-padding));
-      & .urlbar-input-container {
+      & #urlbar:not([breakout-extend='true']) .urlbar-input-container {
         padding-left: 4px;
         padding-right: 4px;
       }
