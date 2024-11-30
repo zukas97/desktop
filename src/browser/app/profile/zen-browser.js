@@ -173,7 +173,11 @@ pref('zen.essentials.enabled', true);
 pref('zen.workspaces.container-specific-essentials-enabled', false);
 
 // Zen Watermark
+#ifdef MOZILLA_OFFICIAL
 pref('zen.watermark.enabled', true, sticky);
+#else
+pref('zen.watermark.enabled', false, sticky);
+#endif
 
 // Smooth scrolling
 pref('apz.overscroll.enabled', true); // not DEFAULT on Linux

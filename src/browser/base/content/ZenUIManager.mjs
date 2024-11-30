@@ -131,8 +131,9 @@ var gZenVerticalTabsManager = {
     this._toolbarOriginalParent = document.getElementById('nav-bar').parentElement;
 
     gZenCompactModeManager.addEventListener(updateEvent);
-    this._updateEvent();
     this.initRightSideOrderContextMenu();
+
+    window.addEventListener('DOMContentLoaded', updateEvent, { once: true });
 
     const tabs = document.getElementById('tabbrowser-tabs');
 

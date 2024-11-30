@@ -20,6 +20,9 @@
   min-width: 45%;
   --urlbar-container-height: 55px !important;
   --urlbar-margin-inline: 10px !important;
+  position: fixed;
+
+  top: calc(var(--zen-toolbar-height) * 4);
   left: 50%;
   transform: translateX(-50%);
 
