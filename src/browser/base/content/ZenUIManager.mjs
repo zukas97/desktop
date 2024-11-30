@@ -118,7 +118,8 @@ var gZenUIManager = {
 var gZenVerticalTabsManager = {
   init() {
     ChromeUtils.defineLazyGetter(this, 'isWindowsStyledButtons', () => {
-      return !(window.AppConstants.platform === 'macosx' || window.matchMedia('(-moz-gtk-csd-reversed-placement)').matches);
+      return !(window.AppConstants.platform === 'macosx' || window.matchMedia('(-moz-gtk-csd-reversed-placement)').matches
+        || Services.prefs.getBoolPref('zen.view.experimental-force-window-controls-left'));
     });
 
     var updateEvent = this._updateEvent.bind(this);
