@@ -10,12 +10,50 @@
   --urlbarView-hover-background: var(--toolbarbutton-hover-background);
   --urlbarView-highlight-background: var(--toolbarbutton-hover-background);
   border-radius: var(--toolbarbutton-border-radius);
-  overflow: hidden;
   padding: 1px;
+  font-size: 1.1em;
 }
 
-#urlbar[focused='true'][breakout-extend='true'] {
-  overflow: visible;
+#urlbar[breakout-extend='true'] {
+  z-index: 1000;
+  max-width: 45%;
+  min-width: 45%;
+  --urlbar-container-height: 55px !important;
+  --urlbar-margin-inline: 10px !important;
+  position: fixed;
+
+  top: calc(var(--zen-toolbar-height) * 4);
+  left: 50%;
+  transform: translateX(-50%);
+
+  & #urlbar-background {
+    background: var(--zen-branding-bg) !important;
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--arrowpanel-border-color) !important;
+  }
+
+  & #identity-box {
+    margin-right: var(--urlbar-margin-inline);
+  }
+
+  #urlbar-container:has(&) {
+    border-radius: var(--toolbarbutton-border-radius);
+    background: var(--toolbarbutton-hover-background);
+
+    &::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+  }
 }
 
 #searchbar:focus-within {
@@ -84,7 +122,7 @@
   position: relative;
 }
 
-#urlbar:not([extend='true']) #identity-box:is(:not(.chromeUI), [pageproxystate='invalid']) {
+#urlbar:not([breakout-extend='true']) #identity-box:is(:not(.chromeUI), [pageproxystate='invalid']) {
   margin-inline-end: 0 !important;
 }
 
@@ -126,10 +164,6 @@
 }
 
 :root[zen-single-toolbar='true'] {
-  #urlbar[breakout-extend='true'] {
-    top: 0px !important;
-    width: calc(var(--urlbar-width) + 2 * var(--urlbar-margin-inline) * 4);
-  }
 
   #notification-popup-box {
     align-items: center;
@@ -308,7 +342,3 @@ button.popup-notification-dropmarker {
 /*.titlebar-button:last-child {
   padding-right: var(--zen-element-separation) !important;
 }*/
-
-#PersonalToolbar:not([collapsed='true']) {
-  padding-left: 0 !important;
-}

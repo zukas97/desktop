@@ -118,7 +118,8 @@ var gZenUIManager = {
 var gZenVerticalTabsManager = {
   init() {
     ChromeUtils.defineLazyGetter(this, 'isWindowsStyledButtons', () => {
-      return !(window.AppConstants.platform === 'macosx' || window.matchMedia('(-moz-gtk-csd-reversed-placement)').matches);
+      return !(window.AppConstants.platform === 'macosx' || window.matchMedia('(-moz-gtk-csd-reversed-placement)').matches
+        || Services.prefs.getBoolPref('zen.view.experimental-force-window-controls-left'));
     });
 
     var updateEvent = this._updateEvent.bind(this);
@@ -131,8 +132,9 @@ var gZenVerticalTabsManager = {
     this._toolbarOriginalParent = document.getElementById('nav-bar').parentElement;
 
     gZenCompactModeManager.addEventListener(updateEvent);
-    this._updateEvent();
     this.initRightSideOrderContextMenu();
+
+    window.addEventListener('DOMContentLoaded', updateEvent, { once: true });
 
     const tabs = document.getElementById('tabbrowser-tabs');
 

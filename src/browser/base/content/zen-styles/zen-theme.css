@@ -96,6 +96,8 @@
   --zen-main-browser-background: light-dark(rgb(235, 235, 235), #1b1b1b);
   --zen-main-browser-background-toolbar: var(--zen-main-browser-background);
 
+  --browser-area-z-index-toolbox: 2 !important;
+
   --zen-appcontent-border: 1px solid var(--zen-colors-border);
   --zen-panel-radius: var(--zen-border-radius);
 

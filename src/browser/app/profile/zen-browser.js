@@ -120,6 +120,7 @@ pref('zen.view.show-bottom-border', false);
 pref('zen.view.use-single-toolbar', true);
 pref('zen.view.sidebar-expanded', true);
 pref('zen.view.sidebar-collapsed.hide-mute-button', true);
+pref('zen.view.experimental-force-window-controls-left', false);
 
 #ifndef XP_MACOSX
 pref('zen.view.hide-window-controls', true);
@@ -175,7 +176,11 @@ pref('zen.essentials.enabled', true);
 pref('zen.workspaces.container-specific-essentials-enabled', false);
 
 // Zen Watermark
+#ifdef MOZILLA_OFFICIAL
 pref('zen.watermark.enabled', true, sticky);
+#else
+pref('zen.watermark.enabled', false, sticky);
+#endif
 
 // Smooth scrolling
 pref('apz.overscroll.enabled', true); // not DEFAULT on Linux
