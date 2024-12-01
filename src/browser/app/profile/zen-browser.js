@@ -219,7 +219,7 @@ pref('browser.newtabpage.activity-stream.system.showWeather', true);
 
 pref("browser.toolbars.bookmarks.visibility", "never");
 
-// Enable experimental settings page (Usef for Zen Labs)
+// Enable experimental settings page (Used for Zen Labs)
 pref('browser.preferences.experimental', true);
 
 #include better-fox.js
