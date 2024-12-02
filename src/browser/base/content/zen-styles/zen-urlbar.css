@@ -20,7 +20,7 @@
   min-width: 45%;
   --urlbar-container-height: 55px !important;
   --urlbar-margin-inline: 10px !important;
-  position: fixed;
+  position: absolute;
 
   top: calc(var(--zen-toolbar-height) * 4);
   left: 50%;
@@ -74,7 +74,7 @@
 }
 
 #urlbar:not([focused='true']):not([breakout-extend="true"]) > #urlbar-background {
-  background: light-dark(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1)) !important;
+  background: light-dark(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.1)) !important;
   backdrop-filter: blur(10px);
 }
 

@@ -90,7 +90,7 @@
       #navigator-toolbox:has(*[open='true']:not(tab):not(.zen-compact-mode-ignore)) {
         opacity: 1;
 
-        transform: translateX(calc(100% - var(--zen-element-separation)));
+        transform: translateX(calc(100% - var(--zen-element-separation) - 1px));
         :root[zen-right-side='true'] & {
           transform: translateX(calc(-100% + var(--zen-element-separation) + 1px));
         }

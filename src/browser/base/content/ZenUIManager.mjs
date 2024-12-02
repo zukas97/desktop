@@ -262,14 +262,13 @@ var gZenVerticalTabsManager = {
 
     if (isSingleToolbar) {
       this._navbarParent = navBar.parentElement;
-      let elements = document.querySelectorAll('#nav-bar-customization-target > *:is(toolbarbutton, #stop-reload-button)');
+      let elements = document.querySelectorAll('#nav-bar-customization-target > :is([cui-areatype="toolbar"], .chromeclass-toolbar-additional):not(#urlbar-container)');
       elements = Array.from(elements);
       // Add separator if it doesn't exist
       if (!buttonsTarget.contains(this._topButtonsSeparatorElement)) {
         buttonsTarget.append(this._topButtonsSeparatorElement);
       }
       for (const button of elements) {
-        button.setAttribute('zen-single-toolbar', 'true');
         buttonsTarget.append(button);
       }
       buttonsTarget.prepend(document.getElementById('unified-extensions-button'));
@@ -290,12 +289,9 @@ var gZenVerticalTabsManager = {
       this._hasSetSingleToolbar = false;
       // Do the opposite
       this._navbarParent.prepend(navBar);
-      const elements = document.querySelectorAll('#zen-sidebar-top-buttons-customization-target > *:is(toolbarbutton, #stop-reload-button)');
+      const elements = document.querySelectorAll('#zen-sidebar-top-buttons-customization-target > :is([cui-areatype="toolbar"], .chromeclass-toolbar-additional)');
       for (const button of elements) {
-        if (button.hasAttribute('zen-single-toolbar')) {
-          button.removeAttribute('zen-single-toolbar');
-          document.getElementById('nav-bar-customization-target').append(button);
-        }
+        document.getElementById('nav-bar-customization-target').append(button);
       }
       document.documentElement.removeAttribute("zen-single-toolbar");
       navBar.appendChild(document.getElementById('PanelUI-button'));
