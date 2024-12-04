@@ -78,7 +78,7 @@
   --zen-button-padding: 0.6rem 1.2rem;
 
   --zen-toolbar-element-bg: light-dark(
-    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0.4),
     rgba(170, 170, 170, 0.2)
   );
 
