@@ -234,7 +234,7 @@
 
   & .tabbrowser-tab {
     animation: none;
-    transition: none;
+    transition: scale 0.1s ease-in-out;
     &[fadein='true']:not([zen-essential='true']) {
       #tabbrowser-tabs[zen-workspace-animation='previous'] & {
         animation: zen-slide-in-reverse 0.2s ease-in-out;
@@ -243,6 +243,10 @@
       #tabbrowser-tabs[zen-workspace-animation='next'] & {
         animation: zen-slide-in 0.2s ease-in-out;
       }
+    }
+
+    &:not([zen-essential='true']):active {
+      scale: 0.98;
     }
 
     max-width: unset;

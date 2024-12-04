@@ -123,16 +123,15 @@ var gZenVerticalTabsManager = {
     });
 
     var updateEvent = this._updateEvent.bind(this);
-    Services.prefs.addObserver('zen.tabs.vertical', updateEvent);
-    Services.prefs.addObserver('zen.tabs.vertical.right-side', updateEvent);
-    Services.prefs.addObserver('zen.view.sidebar-expanded.max-width', updateEvent);
-    Services.prefs.addObserver('zen.view.use-single-toolbar', updateEvent);
-    Services.prefs.addObserver('zen.view.sidebar-expanded', updateEvent);
 
+    this.initializePreferences(updateEvent);
     this._toolbarOriginalParent = document.getElementById('nav-bar').parentElement;
 
     gZenCompactModeManager.addEventListener(updateEvent);
     this.initRightSideOrderContextMenu();
+
+    window.addEventListener('customizationstarting', this._preCustomize.bind(this));
+    window.addEventListener('aftercustomization', updateEvent);
 
     window.addEventListener('DOMContentLoaded', updateEvent, { once: true });
 
@@ -196,12 +195,64 @@ var gZenVerticalTabsManager = {
   get actualWindowButtons() {
     // we have multiple ".titlebar-buttonbox-container" in the DOM, because of the titlebar
     if (!this.__actualWindowButtons) {
-      this.__actualWindowButtons = document.querySelector('#nav-bar .titlebar-buttonbox-container');
+      this.__actualWindowButtons = AppConstants.platform === 'macosx' ?
+          document.querySelector('.titlebar-buttonbox-container') : // TODO: test if it works 100% of the time
+          document.querySelector('#nav-bar .titlebar-buttonbox-container');
     }
     return this.__actualWindowButtons;
   },
 
-  _updateEvent() {
+  _preCustomize() {
+    this._updateEvent({ forceMultipleToolbar: true });
+  },
+
+  initializePreferences(updateEvent) {
+    XPCOMUtils.defineLazyPreferenceGetter(
+      this,
+      "_prefsCompactMode",
+      "zen.view.compact",
+      false
+      // no need to update the event, it's handled by the compact mode manager
+    );
+
+    XPCOMUtils.defineLazyPreferenceGetter(
+      this,
+      "_prefsVerticalTabs",
+      "zen.tabs.vertical",
+      true,
+      updateEvent
+    );
+    XPCOMUtils.defineLazyPreferenceGetter(
+      this,
+      "_prefsRightSide",
+      "zen.tabs.vertical.right-side",
+      false,
+      updateEvent
+    );
+    XPCOMUtils.defineLazyPreferenceGetter(
+      this,
+      "_prefsUseSingleToolbar",
+      "zen.view.use-single-toolbar",
+      false,
+      updateEvent
+    );
+    XPCOMUtils.defineLazyPreferenceGetter(
+      this,
+      "_prefsSidebarExpanded",
+      "zen.view.sidebar-expanded",
+      false,
+      updateEvent
+    );
+    XPCOMUtils.defineLazyPreferenceGetter(
+      this,
+      "_prefsSidebarExpandedMaxWidth",
+      "zen.view.sidebar-expanded.max-width",
+      300,
+      updateEvent
+    );
+  },
+
+  _updateEvent({ forceMultipleToolbar = false } = {}) {
     if (this._isUpdating) {
       return;
     }
@@ -209,14 +260,14 @@ var gZenVerticalTabsManager = {
     try {
       this._updateMaxWidth();
       const topButtons = document.getElementById('zen-sidebar-top-buttons');
-      const isCompactMode = Services.prefs.getBoolPref('zen.view.compact');
-      const isVerticalTabs = Services.prefs.getBoolPref('zen.tabs.vertical');
-      const isSidebarExpanded = Services.prefs.getBoolPref('zen.view.sidebar-expanded') || !isVerticalTabs;
-      const isRightSide = Services.prefs.getBoolPref('zen.tabs.vertical.right-side') && isVerticalTabs;
-      const isSingleToolbar = (Services.prefs.getBoolPref('zen.view.use-single-toolbar') && (isVerticalTabs && isSidebarExpanded) )|| !isVerticalTabs;
+      const isCompactMode = this._prefsCompactMode;
+      const isVerticalTabs = this._prefsVerticalTabs || forceMultipleToolbar;
+      const isSidebarExpanded = this._prefsSidebarExpanded || !isVerticalTabs;
+      const isRightSide = this._prefsRightSide && isVerticalTabs;
+      const isSingleToolbar = ((this._prefsUseSingleToolbar && (isVerticalTabs && isSidebarExpanded) )|| !isVerticalTabs) && !forceMultipleToolbar;
       const titlebar = document.getElementById('titlebar');
 
-      gBrowser.tabContainer.setAttribute('orient', isVerticalTabs ? 'vertical' : 'vertical');
+      gBrowser.tabContainer.setAttribute('orient', isVerticalTabs ? 'vertical' : 'horizontal');
       gBrowser.tabContainer.arrowScrollbox.setAttribute('orient', isVerticalTabs ? 'vertical' : 'horizontal');
 
       const buttonsTarget = document.getElementById('zen-sidebar-top-buttons-customization-target');
@@ -347,10 +398,9 @@ var gZenVerticalTabsManager = {
   },
 
   _updateMaxWidth() {
-    const isCompactMode = Services.prefs.getBoolPref('zen.view.compact');
     const maxWidth = Services.prefs.getIntPref('zen.view.sidebar-expanded.max-width');
     const toolbox = document.getElementById('navigator-toolbox');
-    if (!isCompactMode) {
+    if (!this._prefsCompactMode) {
       toolbox.style.maxWidth = `${maxWidth}px`;
     } else {
       toolbox.style.removeProperty('maxWidth');
