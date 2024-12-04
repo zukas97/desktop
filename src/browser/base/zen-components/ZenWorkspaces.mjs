@@ -30,6 +30,19 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
     this.ownerWindow = window;
     XPCOMUtils.defineLazyPreferenceGetter(
       this,
+      'activationMethod',
+      'zen.workspaces.scroll-modifier-key',
+      'ctrl',
+      this._expandWorkspacesStrip.bind(this)
+    );
+    XPCOMUtils.defineLazyPreferenceGetter(
+      this,
+      'shouldWrapAroundNavigation',
+      'zen.workspaces.wrap-around-navigation',
+      true
+    );
+    XPCOMUtils.defineLazyPreferenceGetter(
+      this,
       'shouldShowIconStrip',
       'zen.workspaces.show-icon-strip',
       true,
@@ -135,7 +148,7 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
  
       //if the scroll is vertical this checks that a modifier key is used before proceeding
       if (isVerticalScroll) {
-        const activationMethod = Services.prefs.getStringPref('zen.workspaces.scroll-modifier-key', 'ctrl');
+        
         const activationKeyMap = {
           ctrl: event.ctrlKey,
           alt: event.altKey,
@@ -143,7 +156,7 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
           meta: event.metaKey,
         };
  
-        if (activationMethod in activationKeyMap && !activationKeyMap[activationMethod]) {
+        if (this.activationMethod in activationKeyMap && !activationKeyMap[this.activationMethod]) {
           return;
         }
       }
@@ -165,7 +178,7 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
  
       let targetIndex = currentIndex + direction;
  
-      if (Services.prefs.getBoolPref('zen.workspaces.wrap-around-navigation', false)) {
+      if (this.shouldWrapAroundNavigation) {
         // Add length to handle negative indices and loop
         targetIndex = (targetIndex + workspaces.length) % workspaces.length;
       } else {
