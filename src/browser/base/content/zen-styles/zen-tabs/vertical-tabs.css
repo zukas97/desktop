@@ -94,7 +94,7 @@
   }
 
   & #nav-bar {
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
 
   & #zen-sidebar-top-buttons {
@@ -435,7 +435,7 @@
   }
 
   & #zen-essentials-container {
-    --tab-min-height: 42px;
+    --tab-min-height: 44px;
   }
 
   /* Mark: Fix separator paddings */
@@ -506,7 +506,7 @@
       & .tab-background {
         @media not (prefers-color-scheme: dark) {
           &:is([selected], [multiselected]) {
-            box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 .5px 1px rgba(0, 0, 0, 0.1);
           }
         }
         margin-inline: var(--tab-block-margin);
@@ -894,7 +894,8 @@
   }
 
   &:not([selected]) .tab-background {
-    background: light-dark(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.1));
+    background: var(--zen-toolbar-element-bg);
+    backdrop-filter: none !important;
   }
 
   & .tab-content {

@@ -34,9 +34,10 @@
 
   --zen-secondary-btn-color: var(--zen-colors-primary-foreground);
 
-  --in-content-primary-button-background: color-mix(in srgb, var(--zen-primary-color) 10%, var(--zen-branding-bg-reverse) 90%) !important;
-  --in-content-primary-button-background-hover: color-mix(in srgb, var(--zen-primary-color) 5%, var(--zen-branding-bg-reverse) 60%) !important;
-  --in-content-primary-button-background-active: color-mix(in srgb, var(--zen-primary-color) 7%, var(--zen-branding-bg-reverse) 50%) !important;
+  --in-content-primary-button-background: color-mix(in srgb, var(--zen-primary-color) 10%, var(--zen-branding-bg) 90%) !important;
+  --in-content-primary-button-background-hover: color-mix(in srgb, var(--zen-primary-color) 15%, var(--zen-branding-bg) 85%) !important;
+  --in-content-primary-button-background-active: color-mix(in srgb, var(--zen-primary-color) 20%, var(--zen-branding-bg) 80%) !important;
+  --button-text-color-primary: var(--zen-branding-bg-reverse) !important;
   --in-content-primary-button-text-color: var(--zen-colors-primary-foreground) !important;
   --in-content-primary-button-border-color: transparent !important;
   --in-content-primary-button-border-hover: transparent !important;
@@ -48,8 +49,7 @@
   /* This is like the secondary button */
   --in-content-button-background: transparent !important;
   --in-content-button-text-color: var(--zen-secondary-btn-color) !important;
-  --in-content-button-background-hover: color-mix(in srgb, var(--zen-primary-color) 5%, var(--zen-branding-bg-reverse) 60%) !important;
-  --in-content-button-text-color-hover: var(--zen-branding-bg) !important;
+  --in-content-button-background-hover: color-mix(in srgb, var(--zen-primary-color) 5%, var(--zen-branding-bg) 60%) !important;
   --button-bgcolor: var(--in-content-button-background) !important;
   --button-hover-bgcolor: var(--in-content-button-background-hover) !important;
   --button-hover-color: var(--in-content-button-text-color-hover) !important;
@@ -65,7 +65,6 @@
 
   --button-background-color: var(--in-content-button-background) !important;
   --button-background-color-hover: var(--in-content-button-background-hover) !important;
-  --button-text-color-hover: var(--in-content-button-text-color-hover) !important;
   --button-background-color-active: var(--in-content-primary-button-background-active) !important;
 
   --color-accent-primary: var(--button-primary-bgcolor) !important;
@@ -77,6 +76,11 @@
 
   --zen-button-border-radius: 5px;
   --zen-button-padding: 0.6rem 1.2rem;
+
+  --zen-toolbar-element-bg: light-dark(
+    rgba(255, 255, 255, 0.5),
+    rgba(170, 170, 170, 0.2)
+  );
 
   /* Toolbar */
   --zen-toolbar-height: 38px;
