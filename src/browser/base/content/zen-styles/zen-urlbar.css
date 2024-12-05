@@ -328,7 +328,7 @@ button.popup-notification-dropmarker {
   padding-right: var(--zen-element-separation) !important;
 }*/
 
-#urlbar[breakout-extend='true'] {
+#urlbar[open] {
   z-index: 1000;
   min-width: 600px;
   top: 0 !important;
@@ -339,11 +339,7 @@ button.popup-notification-dropmarker {
     /* We cant have a transparent background with a backdrop-filter because on normal websites,
       the backdrop woudn't work, we would need to apply a clip-path to the site and that's not recommended
       due to performance issues */
-      background-color: light-dark(
-        rgba(255, 255, 255, 0.55),
-        rgba(25, 25, 25, 0.65)
-      ) !important;
-      backdrop-filter: blur(30px) !important;
+    background-color: var(--zen-branding-bg) !important;
     box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1) !important;
     outline: 1px solid light-dark(rgba(20, 20, 20, 0.2), rgba(235, 235, 235, 0.2)) !important;
     outline-offset: -1px !important;
@@ -362,7 +358,7 @@ button.popup-notification-dropmarker {
     min-width: 45%;
     position: absolute;
 
-    top: calc(var(--zen-toolbar-height) * 4) !important;
+    top: calc(var(--zen-toolbar-height) * 2) !important;
     left: 50%;
     transform: translateX(-50%);
 
