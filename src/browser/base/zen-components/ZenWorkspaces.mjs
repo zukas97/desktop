@@ -275,7 +275,7 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
           ? currentIndex + 1
           : currentIndex - 1;
  
-        if (Services.prefs.getBoolPref('zen.workspaces.wrap-around-navigation', false)) {
+        if (this.shouldWrapAroundNavigation) {
           // Add length to handle negative indices and clamp within bounds
           targetIndex = (targetIndex + workspaces.length) % workspaces.length;
         } else {
