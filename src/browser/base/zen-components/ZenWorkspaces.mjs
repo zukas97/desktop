@@ -30,6 +30,19 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
     this.ownerWindow = window;
     XPCOMUtils.defineLazyPreferenceGetter(
       this,
+      'activationMethod',
+      'zen.workspaces.scroll-modifier-key',
+      'ctrl',
+      this._expandWorkspacesStrip.bind(this)
+    );
+    XPCOMUtils.defineLazyPreferenceGetter(
+      this,
+      'shouldWrapAroundNavigation',
+      'zen.workspaces.wrap-around-navigation',
+      true
+    );
+    XPCOMUtils.defineLazyPreferenceGetter(
+      this,
       'shouldShowIconStrip',
       'zen.workspaces.show-icon-strip',
       true,
@@ -121,27 +134,62 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
       this._hoveringSidebar = false;
     });
 
-    const scrollCooldown = 500; // Milliseconds to wait before allowing another scroll
-    const scrollThreshold = 5; // Minimum scroll delta to trigger workspace change
+    const scrollCooldown = 200; // Milliseconds to wait before allowing another scroll
+    const scrollThreshold = 2;  // Minimum scroll delta to trigger workspace change
 
     toolbox.addEventListener('wheel', async (event) => {
       if (!this.workspaceEnabled) return;
-      // Only process horizontal scroll (deltaX)
-      if (!event.deltaX) return;
-
+ 
+      // Only process non-gesture scrolls
+      if (event.deltaMode !== 1) return;
+ 
+      const isVerticalScroll = event.deltaY && !event.deltaX;
+      const isHorizontalScroll = event.deltaX && !event.deltaY;
+ 
+      //if the scroll is vertical this checks that a modifier key is used before proceeding
+      if (isVerticalScroll) {
+        
+        const activationKeyMap = {
+          ctrl: event.ctrlKey,
+          alt: event.altKey,
+          shift: event.shiftKey,
+          meta: event.metaKey,
+        };
+ 
+        if (this.activationMethod in activationKeyMap && !activationKeyMap[this.activationMethod]) {
+          return;
+        }
+      }
+ 
       const currentTime = Date.now();
-      if (currentTime - this._lastScrollTime < scrollCooldown) {
-        return;
+      if (currentTime - this._lastScrollTime < scrollCooldown) return;
+ 
+      //this decides which delta to use
+      const delta = isVerticalScroll ? event.deltaY : event.deltaX;
+      if (Math.abs(delta) < scrollThreshold) return;
+ 
+      // Determine scroll direction
+      const direction = delta > 0 ? -1 : 1;
+ 
+      // Workspace logic
+      const workspaces = (await this._workspaces()).workspaces;
+      const currentIndex = workspaces.findIndex(w => w.uuid === this.activeWorkspace);
+      if (currentIndex === -1) return; // No valid current workspace
+ 
+      let targetIndex = currentIndex + direction;
+ 
+      if (this.shouldWrapAroundNavigation) {
+        // Add length to handle negative indices and loop
+        targetIndex = (targetIndex + workspaces.length) % workspaces.length;
+      } else {
+        // Clamp within bounds to disable looping
+        targetIndex = Math.max(0, Math.min(workspaces.length - 1, targetIndex));
       }
-
-      // Only process if the horizontal scroll is significant enough
-      if (Math.abs(event.deltaX) < scrollThreshold) {
-        return;
+ 
+      if (targetIndex !== currentIndex) {
+        await this.changeWorkspace(workspaces[targetIndex]);
       }
-
-      // Change workspace based on scroll direction
-      const direction = event.deltaX > 0 ? 1 : -1;
-      await this.changeWorkspaceShortcut(direction);
+ 
       this._lastScrollTime = currentTime;
     }, { passive: true });
   }
@@ -212,7 +260,6 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
 
   async _handleSwipeEnd(event) {
     if (!this.workspaceEnabled || !this._swipeState?.isGestureActive) return;
-
     event.preventDefault();
     event.stopPropagation();
 
@@ -223,15 +270,22 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
       if (currentIndex !== -1) {
         const isRTL = document.documentElement.matches(':-moz-locale-dir(rtl)');
         const moveForward = (this._swipeState.direction === 'right') !== isRTL;
-
-        let targetIndex;
-        if (moveForward) {
-          targetIndex = (currentIndex + 1) % workspaces.length;
+ 
+        let targetIndex = moveForward
+          ? currentIndex + 1
+          : currentIndex - 1;
+ 
+        if (this.shouldWrapAroundNavigation) {
+          // Add length to handle negative indices and clamp within bounds
+          targetIndex = (targetIndex + workspaces.length) % workspaces.length;
         } else {
-          targetIndex = (currentIndex - 1 + workspaces.length) % workspaces.length;
+          // Clamp within bounds for to remove looping
+          targetIndex = Math.max(0, Math.min(workspaces.length - 1, targetIndex));
         }
-
-        await this.changeWorkspace(workspaces[targetIndex]);
+ 
+        if (targetIndex !== currentIndex) {
+          await this.changeWorkspace(workspaces[targetIndex]);
+        }
       }
     }
 
