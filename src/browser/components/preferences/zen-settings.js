@@ -1000,16 +1000,6 @@ Preferences.addAll([
     default: true,
   },
   {
-    id: 'zen.workspaces.wrap-around-navigation',
-    type: 'bool',
-    default: true,
-  },
-  {
-    id: 'zen.workspaces.scroll-modifier-key',
-    type: "string",
-    default: "ctrl", 
-  },
-  {
     id: 'zen.pinned-tab-manager.close-shortcut-behavior',
     type: 'string',
     default: 'switch',
