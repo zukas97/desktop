@@ -110,3 +110,10 @@
     margin-inline-end: 8px;
   }
 }
+
+@media (-moz-windows-mica) {
+  :root[should-hide='true'] .titlebar-buttonbox {
+    /* We need to add a background so windows doesnt generate a default one */
+    background: var(--zen-branding-bg);
+  }
+}

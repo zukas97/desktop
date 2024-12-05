@@ -11,7 +11,6 @@
   --urlbarView-highlight-background: var(--toolbarbutton-hover-background);
   border-radius: var(--toolbarbutton-border-radius);
   padding: 1px;
-  font-size: 1.1em;
 }
 
 #searchbar:focus-within {
@@ -344,6 +343,7 @@ button.popup-notification-dropmarker {
   top: 0 !important;
   --urlbar-container-height: 55px !important;
   --urlbar-margin-inline: 10px !important;
+  font-size: 1.1em;
 
   & #urlbar-background {
     /* We cant have a transparent background with a backdrop-filter because on normal websites,
