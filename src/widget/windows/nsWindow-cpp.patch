@@ -1,0 +1,13 @@
+diff --git a/widget/windows/nsWindow.cpp b/widget/windows/nsWindow.cpp
+index 00681c216c838efedbbcded9d6b843dbd8b5b0b6..9e0450e4258373327faa7d58b5b9f851ab4082a5 100644
+--- a/widget/windows/nsWindow.cpp
++++ b/widget/windows/nsWindow.cpp
+@@ -1075,7 +1075,7 @@ nsresult nsWindow::Create(nsIWidget* aParent, const LayoutDeviceIntRect& aRect,
+ 
+   if (WinUtils::MicaEnabled() && !IsPopup()) {
+     // Enable Mica Alt Material if available.
+-    const DWM_SYSTEMBACKDROP_TYPE tabbedWindow = DWMSBT_TABBEDWINDOW;
++    const DWM_SYSTEMBACKDROP_TYPE tabbedWindow = DWMSBT_MAINWINDOW;
+     DwmSetWindowAttribute(mWnd, DWMWA_SYSTEMBACKDROP_TYPE, &tabbedWindow,
+                           sizeof tabbedWindow);
+   }
