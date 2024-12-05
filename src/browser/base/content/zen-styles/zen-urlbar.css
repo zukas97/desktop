@@ -328,6 +328,16 @@ button.popup-notification-dropmarker {
   padding-right: var(--zen-element-separation) !important;
 }*/
 
+#urlbar {
+  & .search-panel-one-offs-header {
+    display: none;
+  }
+
+  & .search-panel-one-offs-container .searchbar-engine-one-off-item {
+    box-shadow: none;
+  }
+}
+
 #urlbar[open] {
   z-index: 1000;
   min-width: 600px;

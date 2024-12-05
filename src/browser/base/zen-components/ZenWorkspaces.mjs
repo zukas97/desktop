@@ -1157,8 +1157,8 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
     // Animate acordingly
     if (previousWorkspace && !this._animatingChange) {
       // we want to know if we are moving forward or backward in sense of animation
-      let isNextWorkspace = onInit || 
-        (workspaces.workspaces.findIndex((w) => w.uuid === previousWorkspace.uuid) 
+      let isNextWorkspace = onInit ||
+        (workspaces.workspaces.findIndex((w) => w.uuid === previousWorkspace.uuid)
           < workspaces.workspaces.findIndex((w) => w.uuid === window.uuid));
       gBrowser.tabContainer.setAttribute('zen-workspace-animation', isNextWorkspace ? 'next' : 'previous');
       this._animatingChange = true;
@@ -1398,16 +1398,18 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
     const tab = gBrowser.getTabForBrowser(browser);
     const workspaceID = tab.getAttribute('zen-workspace-id');
     const isEssential = tab.getAttribute("zen-essential") === "true";
-    const activeWorkspace = await parent.ZenWorkspaces.getActiveWorkspace();
+    if (!isEssential) {
+      const activeWorkspace = await parent.ZenWorkspaces.getActiveWorkspace();
 
-    // Only update last selected tab for non-essential tabs in their workspace
-    if (!isEssential && workspaceID === activeWorkspace.uuid) {
-      this._lastSelectedWorkspaceTabs[workspaceID] = tab;
-    }
+      // Only update last selected tab for non-essential tabs in their workspace
+      if (!isEssential && workspaceID === activeWorkspace.uuid) {
+        this._lastSelectedWorkspaceTabs[workspaceID] = tab;
+      }
 
-    // Switch workspace if needed
-    if (workspaceID && workspaceID !== activeWorkspace.uuid) {
-      await parent.ZenWorkspaces.changeWorkspace({ uuid: workspaceID });
+      // Switch workspace if needed
+      if (workspaceID && workspaceID !== activeWorkspace.uuid) {
+        await parent.ZenWorkspaces.changeWorkspace({ uuid: workspaceID });
+      }
     }
   }
 

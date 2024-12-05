@@ -122,6 +122,13 @@ var gZenVerticalTabsManager = {
         || Services.prefs.getBoolPref('zen.view.experimental-force-window-controls-left'));
     });
 
+    ChromeUtils.defineLazyGetter(this, 'hidesTabsToolbar', () => {
+      return (
+        document.documentElement.getAttribute('chromehidden').includes('toolbar') ||
+        document.documentElement.getAttribute('chromehidden').includes('menubar')
+      );
+    });
+
     var updateEvent = this._updateEvent.bind(this);
 
     this.initializePreferences(updateEvent);
@@ -264,7 +271,7 @@ var gZenVerticalTabsManager = {
       const isVerticalTabs = this._prefsVerticalTabs || forceMultipleToolbar;
       const isSidebarExpanded = this._prefsSidebarExpanded || !isVerticalTabs;
       const isRightSide = this._prefsRightSide && isVerticalTabs;
-      const isSingleToolbar = ((this._prefsUseSingleToolbar && (isVerticalTabs && isSidebarExpanded) )|| !isVerticalTabs) && !forceMultipleToolbar;
+      const isSingleToolbar = ((this._prefsUseSingleToolbar && (isVerticalTabs && isSidebarExpanded) )|| !isVerticalTabs) && !forceMultipleToolbar && !this.hidesTabsToolbar;
       const titlebar = document.getElementById('titlebar');
 
       gBrowser.tabContainer.setAttribute('orient', isVerticalTabs ? 'vertical' : 'horizontal');
