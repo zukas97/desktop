@@ -1,5 +1,5 @@
 diff --git a/widget/windows/nsWindow.cpp b/widget/windows/nsWindow.cpp
-index 00681c216c838efedbbcded9d6b843dbd8b5b0b6..49180ec513155ce262a8928566fc7938ba4a201c 100644
+index 00681c216c838efedbbcded9d6b843dbd8b5b0b6..055e4b1c5c1ebbeadcb67a7969b7c1fefc21f130 100644
 --- a/widget/windows/nsWindow.cpp
 +++ b/widget/windows/nsWindow.cpp
 @@ -1078,6 +1078,14 @@ nsresult nsWindow::Create(nsIWidget* aParent, const LayoutDeviceIntRect& aRect,
@@ -12,7 +12,7 @@ index 00681c216c838efedbbcded9d6b843dbd8b5b0b6..49180ec513155ce262a8928566fc7938
 +    // annoying for us because it wont allow us to have those hiding animations.
 +    // Let's just... remove them... and hope for the best.
 +    LONG_PTR style = ::GetWindowLongPtr(mWnd, GWL_STYLE);
-+    style &= ~(kTitlebarItemsWindowStyles);
++    style &= ~(WS_SYSMENU | WS_MINIMIZEBOX | WS_MAXIMIZEBOX);
 +    ::SetWindowLongPtr(mWnd, GWL_STYLE, style);
    }
  
