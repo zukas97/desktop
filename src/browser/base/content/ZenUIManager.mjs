@@ -295,7 +295,12 @@ var gZenVerticalTabsManager = {
       }
 
       const appContentNavbarContaienr = document.getElementById('zen-appcontent-navbar-container');
-      if ((!isRightSide && this.isWindowsStyledButtons) || (isRightSide && !this.isWindowsStyledButtons) || isCompactMode) {
+      if ((!isRightSide && this.isWindowsStyledButtons) || (isRightSide && !this.isWindowsStyledButtons)
+        || (
+          isCompactMode && isSingleToolbar && !(
+            (!this.isWindowsStyledButtons && !isRightSide)
+          )
+        )) {
         appContentNavbarContaienr.setAttribute('should-hide', 'true');
       } else {
         appContentNavbarContaienr.removeAttribute('should-hide');
@@ -335,7 +340,7 @@ var gZenVerticalTabsManager = {
         buttonsTarget.prepend(document.getElementById('unified-extensions-button'));
         buttonsTarget.prepend(document.getElementById('PanelUI-button'));
         if (this.isWindowsStyledButtons && !doNotChangeWindowButtons) {
-          document.getElementById('zen-appcontent-navbar-container').append(windowButtons);
+          appContentNavbarContaienr.append(windowButtons);
         }
         if (isCompactMode) {
           titlebar.prepend(navBar);
@@ -379,19 +384,23 @@ var gZenVerticalTabsManager = {
       } else if (!isSingleToolbar && !isCompactMode) {
         if (this.isWindowsStyledButtons) {
           if (isRightSide) {
-            document.getElementById('zen-appcontent-navbar-container').append(windowButtons);
+            appContentNavbarContaienr.append(windowButtons);
           } else {
             navBar.append(windowButtons);
           }
         } else {
           if (isRightSide) {
-            document.getElementById('zen-appcontent-navbar-container').appendChild(windowButtons);
+            appContentNavbarContaienr.appendChild(windowButtons);
           } else {
             topButtons.prepend(windowButtons);
           }
         }
       } else if (!isSingleToolbar && isCompactMode) {
         navBar.appendChild(windowButtons);
+      } else if (isSingleToolbar && isCompactMode) {
+        if (!isRightSide && !this.isWindowsStyledButtons) {
+          topButtons.prepend(windowButtons);
+        }
       }
 
       gZenCompactModeManager.updateCompactModeContext(isSingleToolbar);
