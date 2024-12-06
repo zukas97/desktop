@@ -373,7 +373,6 @@
 #PanelUI-zen-workspaces-new,
 #PanelUI-zen-workspaces-reorder-mode,
 #PanelUI-zen-gradient-generator-color-custom-add {
-  margin-left: auto;
   min-height: 1px !important;
   padding: 3px;
   border-radius: 4px;
@@ -393,6 +392,10 @@
 #PanelUI-zen-workspaces-create-footer button[default='true'],
 #PanelUI-zen-workspaces-edit-footer button[default='true'] {
   width: 100%;
+}
+
+#PanelUI-zen-workspaces-header {
+  margin-right: auto;
 }
 
 /* Mark workspaces indicator */
