@@ -155,8 +155,8 @@
     }
 
     /* We enable this trick IF we follow any of theses conditions:
-      * - We are on a Mac
-      * - We are on a Linux with reversed CSD
+      * - We are supposed to hide the window controls (e.g. left sidebar, windows like layouts)
+      *    - This also involves linux's reverse GTK window controls, we'll need to handle that a bit differently
       * - If we are not in any of the above, we can still enable it if the user has bookmarks toolbar enabled
       */
     &:has(#PersonalToolbar[collapsed='false']) {
