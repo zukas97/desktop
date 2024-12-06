@@ -108,6 +108,13 @@ pref('zen.view.compact.toolbar-hide-after-hover.duration', 1000);
 pref('zen.view.compact.color-toolbar', true);
 pref('zen.view.compact.color-sidebar', true);
 
+#ifdef XP_MACOSX
+// Disable for macos in the meantime until @HarryHeres finds a solution for hight DPI screens
+pref('zen.view.experimental-rounded-view', false);
+#else
+pref('zen.view.experimental-rounded-view', true);
+#endif
+
 pref('zen.glance.enabled', true);
 pref('zen.glance.hold-duration', 300); // in ms
 
