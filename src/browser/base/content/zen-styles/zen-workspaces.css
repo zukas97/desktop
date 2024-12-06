@@ -419,11 +419,11 @@
     display: block;
 
     position: absolute;
-    max-width: 100%;
+    max-width: calc(100% - var(--zen-toolbox-padding) * 4);
   }
 
   & #zen-current-workspace-indicator-icon:not([hidden]) + #zen-current-workspace-indicator-name  {
-    margin-left: 22px;
+    margin-left: 24px;
   }
 }
 
