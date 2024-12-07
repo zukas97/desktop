@@ -242,16 +242,12 @@ class Pages {
    * @param {Page[]} pages The pages
    */
   constructor(pages) {
-    console.info('Initializing welcome pages...');
     this.pages = pages;
     this.currentPage = 0;
-
-    window.maximize();
 
     this.pages.forEach((page) => page.setPages(this));
 
     this._displayCurrentPage();
-    console.info('Welcome pages initialized.');
 
     this.nextEl = document.getElementById(`next`);
     this.prevEl = document.getElementById(`back`);

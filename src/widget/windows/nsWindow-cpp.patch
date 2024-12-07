@@ -1,5 +1,5 @@
 diff --git a/widget/windows/nsWindow.cpp b/widget/windows/nsWindow.cpp
-index 00681c216c838efedbbcded9d6b843dbd8b5b0b6..76ef1b343908b13e2e1c7c85ddebaf0ccea112cd 100644
+index 00681c216c838efedbbcded9d6b843dbd8b5b0b6..eca12711fa5093992817ff1075c3559b03e935d3 100644
 --- a/widget/windows/nsWindow.cpp
 +++ b/widget/windows/nsWindow.cpp
 @@ -1078,6 +1078,16 @@ nsresult nsWindow::Create(nsIWidget* aParent, const LayoutDeviceIntRect& aRect,
@@ -11,7 +11,7 @@ index 00681c216c838efedbbcded9d6b843dbd8b5b0b6..76ef1b343908b13e2e1c7c85ddebaf0c
 +    // Windows creates some sort of control buttons under the titlebar, which is
 +    // annoying for us because it wont allow us to have those hiding animations.
 +    // Let's just... remove them... and hope for the best.
-+    if (mWindowType == WindowType::TopLevel) {
++    if (sFirstTopLevelWindowCreated) {
 +      LONG_PTR style = ::GetWindowLongPtr(mWnd, GWL_STYLE);
 +      style &= ~(WS_SYSMENU | WS_MINIMIZEBOX | WS_MAXIMIZEBOX);
 +      ::SetWindowLongPtr(mWnd, GWL_STYLE, style);

@@ -14,9 +14,13 @@
   --zen-border-radius: 7px;
   --zen-primary-color: #ffb787;
 
-  --zen-branding-bg-dark: #202020;
-  --zen-branding-bg: light-dark(#F2F0E3, var(--zen-branding-bg-dark));
-  --zen-branding-bg-reverse: light-dark(var(--zen-branding-bg-dark), #F2F0E3);
+  /* Branding */
+  --zen-branding-dark: #202020;
+  --zen-branding-coral: #F76F53;
+  --zen-branding-paper: #F2F0E3;
+
+  --zen-branding-bg: light-dark(var(--zen-branding-paper), var(--zen-branding-dark));
+  --zen-branding-bg-reverse: light-dark(var(--zen-branding-dark), var(--zen-branding-paper));
 
   /** Zen colors are generated automatically from the primary color */
   --zen-colors-primary: color-mix(in srgb, var(--zen-primary-color) 50%, black 50%);
