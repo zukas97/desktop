@@ -135,7 +135,6 @@
 
   display: flex;
 
-  & toolbarspring { display: none; }
 }
 
 .titlebar-spacer[type='pre-tabs'],
@@ -319,10 +318,6 @@
 
   & > toolbarbutton:not(#zen-workspaces-button) {
     padding: 0 !important;
-  }
-
-  & toolbarspring {
-    display: none;
   }
 }
 
