@@ -1,5 +1,5 @@
 diff --git a/widget/windows/nsWindow.cpp b/widget/windows/nsWindow.cpp
-index 00681c216c838efedbbcded9d6b843dbd8b5b0b6..830ab9dd21790189b075e8553fbc4156a6a360e7 100644
+index 00681c216c838efedbbcded9d6b843dbd8b5b0b6..76ef1b343908b13e2e1c7c85ddebaf0ccea112cd 100644
 --- a/widget/windows/nsWindow.cpp
 +++ b/widget/windows/nsWindow.cpp
 @@ -1078,6 +1078,16 @@ nsresult nsWindow::Create(nsIWidget* aParent, const LayoutDeviceIntRect& aRect,
@@ -19,47 +19,3 @@ index 00681c216c838efedbbcded9d6b843dbd8b5b0b6..830ab9dd21790189b075e8553fbc4156
    }
  
    if (mOpeningAnimationSuppressed) {
-@@ -1278,43 +1288,6 @@ static const wchar_t* ChooseWindowClass(WindowType aWindowType) {
-  *
-  **************************************************************/
- 
--const DWORD kTitlebarItemsWindowStyles =
--    WS_SYSMENU | WS_MINIMIZEBOX | WS_MAXIMIZEBOX;
--const DWORD kAllBorderStyles =
--    kTitlebarItemsWindowStyles | WS_THICKFRAME | WS_DLGFRAME;
--
--static DWORD WindowStylesRemovedForBorderStyle(BorderStyle aStyle) {
--  if (aStyle == BorderStyle::Default || aStyle == BorderStyle::All) {
--    return 0;
--  }
--  if (aStyle == BorderStyle::None) {
--    return kAllBorderStyles;
--  }
--  DWORD toRemove = 0;
--  if (!(aStyle & BorderStyle::Border)) {
--    toRemove |= WS_BORDER;
--  }
--  if (!(aStyle & BorderStyle::Title)) {
--    toRemove |= WS_DLGFRAME;
--  }
--  if (!(aStyle & (BorderStyle::Menu | BorderStyle::Close))) {
--    // Looks like getting rid of the system menu also does away with the close
--    // box. So, we only get rid of the system menu and the close box if you
--    // want neither. How does the Windows "Dialog" window class get just
--    // closebox and no sysmenu? Who knows.
--    toRemove |= WS_SYSMENU;
--  }
--  if (!(aStyle & BorderStyle::ResizeH)) {
--    toRemove |= WS_THICKFRAME;
--  }
--  if (!(aStyle & BorderStyle::Minimize)) {
--    toRemove |= WS_MINIMIZEBOX;
--  }
--  if (!(aStyle & BorderStyle::Maximize)) {
--    toRemove |= WS_MAXIMIZEBOX;
--  }
--  return toRemove;
--}
- 
- // Return nsWindow styles
- DWORD nsWindow::WindowStyle() {
