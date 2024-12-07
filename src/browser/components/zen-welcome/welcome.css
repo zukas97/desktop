@@ -32,19 +32,19 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
-  overflow: hidden;
-  width: 50%;
+  width: fit-content;
   margin: auto;
 }
 
-#welcome .zen-branding-title {
+#welcome .zen-branding-title,
+#thanks .zen-branding-title {
   text-align: center;
   font-size: 11rem;
 }
 
 #buttons-footer {
   margin-top: auto;
-  padding: 10px;
+  padding: 20px 0;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -52,24 +52,28 @@ body {
   z-index: 2;
 }
 
-body:has(#welcome:not([hidden='true'])) {
+body:has(:is(#welcome, #thanks):not([hidden='true'])) {
   background: var(--zen-branding-coral);
   color: var(--zen-branding-paper);
 
   & #buttons-footer {
     justify-content: center;
     position: fixed;
-    bottom: 22px;
+    bottom: 40px;
     margin: 0 auto;
 
     & button {
-      background: var(--zen-branding-paper);
-      color: var(--zen-branding-dark);
+      background: var(--zen-branding-paper) !important;
+      color: var(--zen-branding-dark) !important;
     }
   }
 }
 
-#main-view:has(#welcome:not([hidden='true'])) {
+:is(#theme, #search) > div:nth-child(2) {
+  width: 100%;
+}
+
+#main-view:has(:is(#welcome, #thanks):not([hidden='true'])) {
   width: 100%;
 
   & #back {
@@ -80,11 +84,17 @@ body:has(#welcome:not([hidden='true'])) {
 button {
   padding: 8px;
   border-radius: 999px;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 button.primary {
   background: var(--zen-branding-bg-reverse);
   color: var(--zen-branding-bg);
+
+  &:hover {
+    background: var(--zen-branding-bg-reverse);
+  }
 }
 
 .page {
@@ -109,7 +119,7 @@ h2 {
   justify-content: start;
 }
 
-.page-split > div:first-child {
+.page-split:not(#import) > div:first-child {
   margin-bottom: 20px;
 }
 
@@ -178,7 +188,7 @@ p {
   height: 42px;
   width: 42px;
   position: absolute;
-  top: 22px;
+  top: 40px;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -229,6 +239,46 @@ input[type='checkbox'] {
   animation: fadeInRight 0.3s ease-in-out forwards;
 }
 
+#importBrowser {
+  width: 100%;
+  background: transparent !important;
+  border: 1px solid var(--zen-branding-bg-reverse);
+  color: var(--zen-branding-bg-reverse);
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  justify-content: start;
+  display: flex;
+}
+
+#layoutList {
+  display: flex;
+  gap: 20px;
+
+  & > [layout] {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    font-weight: 600;
+    cursor: pointer;
+
+    &[disabled='true'] {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    & img {
+      width: 250px;
+      border-radius: 10px;
+      border: 4px solid transparent;
+    }
+
+    &.selected img {
+      border: 4px solid var(--zen-colors-primary);
+    }
+  }
+}
+
 @keyframes fadeInRight {
   from {
     opacity: 0;
@@ -244,10 +294,12 @@ input[type='checkbox'] {
 }
 
 /* There should be no more than 5 elements in a page */
-.page:not([hidden='true']) > *:nth-child(2) {
+.page:not([hidden='true']) > *:nth-child(2),
+#layoutList [layout]:nth-child(2) {
   animation-delay: 0.1s;
 }
-.page:not([hidden='true']) > *:nth-child(3) {
+.page:not([hidden='true']) > *:nth-child(3),
+#layoutList [layout]:nth-child(3) {
   animation-delay: 0.2s;
 }
 .page:not([hidden='true']) > *:nth-child(4) {
@@ -313,7 +365,7 @@ input[type='checkbox'] {
   border: 3px solid light-dark(#000, #fff);
 }
 
-#welcome {
+#welcome, #thanks {
   justify-content: center;
 }
 

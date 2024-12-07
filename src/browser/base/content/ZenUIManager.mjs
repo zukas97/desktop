@@ -295,13 +295,15 @@ var gZenVerticalTabsManager = {
       }
 
       const appContentNavbarContaienr = document.getElementById('zen-appcontent-navbar-container');
-      if ((!isRightSide && this.isWindowsStyledButtons) || (isRightSide && !this.isWindowsStyledButtons)
+      let shouldHide = false;
+      if (((!isRightSide && this.isWindowsStyledButtons) || (isRightSide && !this.isWindowsStyledButtons)
         || (
           isCompactMode && isSingleToolbar && !(
             (!this.isWindowsStyledButtons && !isRightSide)
           )
-        )) {
+        )) && isSingleToolbar) {
         appContentNavbarContaienr.setAttribute('should-hide', 'true');
+        shouldHide = true;
       } else {
         appContentNavbarContaienr.removeAttribute('should-hide');
       }
@@ -401,6 +403,10 @@ var gZenVerticalTabsManager = {
         if (!isRightSide && !this.isWindowsStyledButtons) {
           topButtons.prepend(windowButtons);
         }
+      }
+
+      if (shouldHide) {
+        appContentNavbarContaienr.append(windowButtons);
       }
 
       gZenCompactModeManager.updateCompactModeContext(isSingleToolbar);

@@ -55,6 +55,9 @@
         # Images
         content/browser/zen-images/gradient.png                 (content/zen-images/gradient.png)
         content/browser/zen-images/gradient-display.png         (content/zen-images/gradient-display.png)
+        content/browser/zen-images/layouts/collapsed.png        (content/zen-images/layouts/collapsed.png)
+        content/browser/zen-images/layouts/multiple-toolbar.png (content/zen-images/layouts/multiple-toolbar.png)
+        content/browser/zen-images/layouts/single-toolbar.png   (content/zen-images/layouts/single-toolbar.png)
 
         # Actors
         content/browser/zen-components/actors/ZenThemeMarketplaceParent.sys.mjs (zen-components/actors/ZenThemeMarketplaceParent.sys.mjs)
