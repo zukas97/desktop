@@ -44,7 +44,6 @@ pref("image.mem.decode_bytes_at_a_time", 32768);
 pref("network.http.max-connections", 1800);
 pref("network.http.max-persistent-connections-per-server", 10);
 pref("network.http.max-urgent-start-excessive-connections-per-host", 5);
-pref("network.http.pacing.requests.enabled", false);
 pref("network.dnsCacheExpiration", 3600);
 pref("network.http.max-persistent-connections-per-proxy", 48); // default=32
 pref("network.websocket.max-connections", 400); // default=200
