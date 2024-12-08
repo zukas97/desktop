@@ -49,6 +49,7 @@
   --in-content-box-border-color: var(--zen-colors-border) !important;
 
   --in-content-accent-color: var(--zen-colors-primary) !important;
+  --in-content-accent-color-active: currentColor !important;
 
   /* This is like the secondary button */
   --in-content-button-background: transparent !important;

@@ -139,45 +139,45 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
 
     toolbox.addEventListener('wheel', async (event) => {
       if (!this.workspaceEnabled) return;
- 
+
       // Only process non-gesture scrolls
       if (event.deltaMode !== 1) return;
- 
+
       const isVerticalScroll = event.deltaY && !event.deltaX;
       const isHorizontalScroll = event.deltaX && !event.deltaY;
- 
+
       //if the scroll is vertical this checks that a modifier key is used before proceeding
       if (isVerticalScroll) {
-        
+
         const activationKeyMap = {
           ctrl: event.ctrlKey,
           alt: event.altKey,
           shift: event.shiftKey,
           meta: event.metaKey,
         };
- 
+
         if (this.activationMethod in activationKeyMap && !activationKeyMap[this.activationMethod]) {
           return;
         }
       }
- 
+
       const currentTime = Date.now();
       if (currentTime - this._lastScrollTime < scrollCooldown) return;
- 
+
       //this decides which delta to use
       const delta = isVerticalScroll ? event.deltaY : event.deltaX;
       if (Math.abs(delta) < scrollThreshold) return;
- 
+
       // Determine scroll direction
       const direction = delta > 0 ? -1 : 1;
- 
+
       // Workspace logic
       const workspaces = (await this._workspaces()).workspaces;
       const currentIndex = workspaces.findIndex(w => w.uuid === this.activeWorkspace);
       if (currentIndex === -1) return; // No valid current workspace
- 
+
       let targetIndex = currentIndex + direction;
- 
+
       if (this.shouldWrapAroundNavigation) {
         // Add length to handle negative indices and loop
         targetIndex = (targetIndex + workspaces.length) % workspaces.length;
@@ -185,11 +185,11 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
         // Clamp within bounds to disable looping
         targetIndex = Math.max(0, Math.min(workspaces.length - 1, targetIndex));
       }
- 
+
       if (targetIndex !== currentIndex) {
         await this.changeWorkspace(workspaces[targetIndex]);
       }
- 
+
       this._lastScrollTime = currentTime;
     }, { passive: true });
   }
@@ -270,11 +270,11 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
       if (currentIndex !== -1) {
         const isRTL = document.documentElement.matches(':-moz-locale-dir(rtl)');
         const moveForward = (this._swipeState.direction === 'right') !== isRTL;
- 
+
         let targetIndex = moveForward
           ? currentIndex + 1
           : currentIndex - 1;
- 
+
         if (this.shouldWrapAroundNavigation) {
           // Add length to handle negative indices and clamp within bounds
           targetIndex = (targetIndex + workspaces.length) % workspaces.length;
@@ -282,7 +282,7 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
           // Clamp within bounds for to remove looping
           targetIndex = Math.max(0, Math.min(workspaces.length - 1, targetIndex));
         }
- 
+
         if (targetIndex !== currentIndex) {
           await this.changeWorkspace(workspaces[targetIndex]);
         }
@@ -1602,7 +1602,7 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
 
   getContextIdIfNeeded(userContextId, fromExternal, allowInheritPrincipal) {
     if (!this.workspaceEnabled) {
-      return [userContextId, false];
+      return [userContextId, false, undefined];
     }
 
     if (this.shouldForceContainerTabsToWorkspace && typeof userContextId !== 'undefined' && this._workspaceCache?.workspaces) {
@@ -1614,7 +1614,7 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
         const workspace = matchingWorkspaces[0];
         if (workspace.uuid !== this.getActiveWorkspaceFromCache().uuid) {
           this.changeWorkspace(workspace);
-          return [userContextId, true];
+          return [userContextId, true, workspace.uuid];
         }
       }
     }
@@ -1623,13 +1623,13 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
     const activeWorkspaceUserContextId = activeWorkspace?.containerTabId;
 
     if ((fromExternal || allowInheritPrincipal === false) && !!activeWorkspaceUserContextId) {
-      return [activeWorkspaceUserContextId, true];
+      return [activeWorkspaceUserContextId, true, undefined];
     }
 
     if (typeof userContextId !== 'undefined' && userContextId !== activeWorkspaceUserContextId) {
-      return [userContextId, false];
+      return [userContextId, false, undefined];
     }
-    return [activeWorkspaceUserContextId, true];
+    return [activeWorkspaceUserContextId, true, undefined];
   }
 
   async shortcutSwitchTo(index) {
