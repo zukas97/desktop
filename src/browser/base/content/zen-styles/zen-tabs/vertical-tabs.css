@@ -808,6 +808,10 @@
       height: calc(2 * var(--toolbarbutton-inner-padding) + 16px);
       padding: 0 var(--toolbarbutton-outer-padding) !important;
     }
+
+    & toolbarspring {
+      display: none;
+    }
   }
 
   & .zen-sidebar-action-button {
