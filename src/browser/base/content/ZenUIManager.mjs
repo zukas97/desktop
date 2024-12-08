@@ -331,13 +331,13 @@ var gZenVerticalTabsManager = {
       if (isSingleToolbar) {
         this._navbarParent = navBar.parentElement;
         let elements = document.querySelectorAll('#nav-bar-customization-target > :is([cui-areatype="toolbar"], .chromeclass-toolbar-additional):not(#urlbar-container)');
-        elements = Array.from(elements);
+        elements = Array.from(elements).reverse();
         // Add separator if it doesn't exist
         if (!buttonsTarget.contains(this._topButtonsSeparatorElement)) {
           buttonsTarget.append(this._topButtonsSeparatorElement);
         }
         for (const button of elements) {
-          buttonsTarget.append(button);
+          this._topButtonsSeparatorElement.after(button);
         }
         buttonsTarget.prepend(document.getElementById('unified-extensions-button'));
         buttonsTarget.prepend(document.getElementById('PanelUI-button'));
@@ -361,6 +361,7 @@ var gZenVerticalTabsManager = {
         for (const button of elements) {
           document.getElementById('nav-bar-customization-target').append(button);
         }
+        this._topButtonsSeparatorElement.remove();
         document.documentElement.removeAttribute("zen-single-toolbar");
         navBar.appendChild(document.getElementById('PanelUI-button'));
         this._toolbarOriginalParent.prepend(navBar);
