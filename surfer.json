@@ -12,13 +12,13 @@
   },
   "addons": {},
   "brands": {
-    "alpha": {
+    "beta": {
       "backgroundColor": "#282A33",
       "brandShorterName": "Zen",
       "brandShortName": "Zen Browser",
       "brandFullName": "Zen Browser",
       "release": {
-        "displayVersion": "1.0.1-a.22",
+        "displayVersion": "1.0.2-b.0",
         "github": {
           "repo": "zen-browser/desktop"
         },
@@ -40,7 +40,7 @@
       "brandShortName": "Zen Twilight",
       "brandFullName": "Zen Twilight",
       "release": {
-        "displayVersion": "1.0.1-t.22",
+        "displayVersion": "1.0.2-t.0",
         "github": {
           "repo": "zen-browser/desktop"
         }
