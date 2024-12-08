@@ -302,7 +302,7 @@
 }
 
 #identity-box[pageproxystate='valid'].chromeUI #identity-icon {
-  list-style-image: url('firefox.svg') !important;
+  filter: grayscale(1);
 }
 
 #identity-box[pageproxystate='valid'].localResource #identity-icon {
