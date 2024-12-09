@@ -366,15 +366,14 @@ button.popup-notification-dropmarker {
   @media not (-moz-bool-pref: 'zen.view.compact') {
     max-width: 45%;
     min-width: 45%;
-    position: absolute;
+  }
+  position: absolute;
 
-    top: calc(var(--zen-toolbar-height) * 2) !important;
-    left: 50%;
-    transform: translateX(-50%);
+  top: calc(var(--zen-toolbar-height) * 2) !important;
+  left: 25vw;
 
-    #urlbar-container:has(&) {
-      border-radius: 10px;
-      background: var(--toolbarbutton-hover-background);
-    }
+  #urlbar-container:has(&) {
+    border-radius: 10px;
+    background: var(--toolbarbutton-hover-background);
   }
 }
