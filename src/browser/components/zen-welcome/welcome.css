@@ -52,10 +52,12 @@ body {
   z-index: 2;
 }
 
-body:has(:is(#welcome, #thanks):not([hidden='true'])) {
+body:has(#welcome:not([hidden='true'])) {
   background: var(--zen-branding-coral);
   color: var(--zen-branding-paper);
+}
 
+body:has(:is(#welcome, #thanks):not([hidden='true'])) {
   & #buttons-footer {
     justify-content: center;
     position: fixed;

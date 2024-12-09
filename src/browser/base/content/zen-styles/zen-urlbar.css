@@ -370,7 +370,7 @@ button.popup-notification-dropmarker {
   position: absolute;
 
   top: calc(var(--zen-toolbar-height) * 2) !important;
-  left: 25vw;
+  left: 28vw;
 
   #urlbar-container:has(&) {
     border-radius: 10px;
