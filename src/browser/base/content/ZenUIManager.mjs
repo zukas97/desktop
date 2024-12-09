@@ -391,12 +391,8 @@ var gZenVerticalTabsManager = {
           } else {
             navBar.append(windowButtons);
           }
-        } else {
-          if (isRightSide) {
-            appContentNavbarContaienr.appendChild(windowButtons);
-          } else {
-            topButtons.prepend(windowButtons);
-          }
+        } else { // not windows styled buttons
+          navBar.appendChild(windowButtons);
         }
       } else if (!isSingleToolbar && isCompactMode) {
         navBar.appendChild(windowButtons);
