@@ -117,7 +117,7 @@
 
 :root[zen-single-toolbar='true'] {
 
-  .urlbar-page-action:not(#star-button-box),
+  .urlbar-page-action:not(#star-button-box):not([open]),
   #tracking-protection-icon-container {
     margin-inline-end: calc(-16px - 2 * var(--urlbar-icon-padding)) !important;
     opacity: 0;
@@ -132,8 +132,8 @@
     margin-inline-end: 0 !important;
   }
 
-  #identity-permission-box,
-  #notification-popup-box {
+  #identity-permission-box:not([open]),
+  #notification-popup-box:not([open]) {
     margin-inline-start: calc(-16px - 2 * var(--urlbar-icon-padding));
     opacity: 0;
     transition: all 0.2s;
