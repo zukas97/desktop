@@ -673,35 +673,10 @@ jobs:
           git-token: ${{ secrets.DEPLOY_KEY }}
           delete-branch: true
 
-  release-homebrew-beta:
-    if: ${{ inputs.create_release && inputs.update_branch == 'beta' }}
+  release-homebrew:
+    if: ${{ inputs.create_release && inputs.update_version && inputs.update_branch == 'twilight' }}
     permissions: write-all
-    name: Homebrew release for beta build
-    needs: [release, mac, build-data]
-    runs-on: macos-latest
-
-    steps:
-      - name: Setup Homebrew
-        uses: Homebrew/actions/setup-homebrew@master
-        with:
-          cask: true
-          test-bot: false
-
-      - name: Setup Git
-        uses: Homebrew/actions/git-user-config@master
-        with:
-          username: zen-browser-auto
-
-      - name: Bump cask
-        uses: Homebrew/actions/bump-packages@master
-        with:
-          token: ${{ secrets.DEPLOY_KEY }}
-          casks: zen-browser
-
-  release-homebrew-twilight:
-    if: ${{ inputs.create_release && inputs.update_branch == 'twilight' }}
-    permissions: write-all
-    name: Homebrew release for twilight build
+    name: Release Homebrew
     needs: [release, mac, build-data]
     runs-on: macos-latest
 
