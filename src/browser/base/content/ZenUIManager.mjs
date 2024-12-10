@@ -202,7 +202,7 @@ var gZenVerticalTabsManager = {
   get actualWindowButtons() {
     // we have multiple ".titlebar-buttonbox-container" in the DOM, because of the titlebar
     if (!this.__actualWindowButtons) {
-      this.__actualWindowButtons = AppConstants.platform === 'macosx' ?
+      this.__actualWindowButtons = (AppConstants.platform === 'macosx' || this.isWindowsStyledButtons) ?
           document.querySelector('.titlebar-buttonbox-container') : // TODO: test if it works 100% of the time
           document.querySelector('#nav-bar .titlebar-buttonbox-container');
     }

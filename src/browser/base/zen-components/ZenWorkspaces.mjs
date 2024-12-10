@@ -430,11 +430,11 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
         let activeWorkspace = await this.getActiveWorkspace();
         if (!activeWorkspace) {
           activeWorkspace = workspaces.workspaces.find((workspace) => workspace.default);
-          this.activeWorkspace = activeWorkspace.uuid;
+          this.activeWorkspace = activeWorkspace?.uuid;
         }
         if (!activeWorkspace) {
           activeWorkspace = workspaces.workspaces[0];
-          this.activeWorkspace = activeWorkspace.uuid;
+          this.activeWorkspace = activeWorkspace?.uuid;
         }
         await this.changeWorkspace(activeWorkspace, true);
       }
