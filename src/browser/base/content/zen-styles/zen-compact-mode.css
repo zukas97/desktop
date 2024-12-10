@@ -42,6 +42,15 @@
         }
       }
 
+      /* When we have multiple toolbars and the top-toolbar is NOT being hidden,
+        * we need to adjust the top-padding of the toolbox to account for the
+        * extra toolbar height. */
+      @media not (-moz-bool-pref: 'zen.view.compact.hide-toolbar') {
+        &:not([zen-single-toolbar='true']) #navigator-toolbox {
+          margin-top: var(--zen-toolbar-height) !important;
+        }
+      }
+
       &[zen-right-side='true'] {
         & #navigator-toolbox {
           --zen-compact-float: calc(var(--zen-element-separation) + 1px);
