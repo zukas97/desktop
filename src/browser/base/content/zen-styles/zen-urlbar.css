@@ -339,7 +339,8 @@ button.popup-notification-dropmarker {
 
 #urlbar[open] {
   z-index: 1000;
-  min-width: 600px;
+  min-width: 45vw;
+  max-width: 45vw;
   top: 0 !important;
   --urlbar-container-height: 55px !important;
   --urlbar-margin-inline: 10px !important;
@@ -361,11 +362,6 @@ button.popup-notification-dropmarker {
 
   :root[zen-right-side='true'] & {
     right: 0;
-  }
-
-  @media not (-moz-bool-pref: 'zen.view.compact') {
-    max-width: 45%;
-    min-width: 45%;
   }
   position: absolute;
 

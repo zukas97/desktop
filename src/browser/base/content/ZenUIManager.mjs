@@ -202,7 +202,7 @@ var gZenVerticalTabsManager = {
   get actualWindowButtons() {
     // we have multiple ".titlebar-buttonbox-container" in the DOM, because of the titlebar
     if (!this.__actualWindowButtons) {
-      this.__actualWindowButtons = (AppConstants.platform === 'macosx' || this.isWindowsStyledButtons) ?
+      this.__actualWindowButtons = (!this.isWindowsStyledButtons) ?
           document.querySelector('.titlebar-buttonbox-container') : // TODO: test if it works 100% of the time
           document.querySelector('#nav-bar .titlebar-buttonbox-container');
     }
@@ -392,7 +392,11 @@ var gZenVerticalTabsManager = {
             navBar.append(windowButtons);
           }
         } else { // not windows styled buttons
-          navBar.appendChild(windowButtons);
+          if (isRightSide) {
+            navBar.prepend(windowButtons);
+          } else {
+            topButtons.prepend(windowButtons);
+          }
         }
       } else if (!isSingleToolbar && isCompactMode) {
         navBar.appendChild(windowButtons);
