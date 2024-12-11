@@ -375,3 +375,9 @@ button.popup-notification-dropmarker {
     }
   }
 }
+
+@media (-moz-bool-pref: 'zen.view.use-deprecated-urlbar') {
+  #urlbar[open] {
+    top: 0 !important;
+  }
+}
