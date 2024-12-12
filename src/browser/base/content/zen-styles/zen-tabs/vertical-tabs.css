@@ -53,10 +53,6 @@
   justify-content: center;
 }
 
-#private-browsing-indicator-with-label {
-  display: none !important;
-}
-
 #browser {
   --zen-toolbox-padding: calc(var(--zen-element-separation) / 1.5);
   :root[zen-no-padding='true'] & {
