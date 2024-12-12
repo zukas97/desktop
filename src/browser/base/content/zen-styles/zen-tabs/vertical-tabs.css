@@ -42,6 +42,12 @@
       }
     }
   }
+
+  #vertical-pinned-tabs-container, #tabbrowser-arrowscrollbox {
+    .tabbrowser-tab[fadein='true'][zen-initial-fadein='true'] {
+      animation: zen-new-tab-appear-vertical 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+    }
+  }
 }
 
 :root[zen-window-buttons-reversed='true'] .titlebar-buttonbox-container {
@@ -218,7 +224,6 @@
   }
 
   & .tabbrowser-tab {
-    animation: none;
     transition: scale 0.1s ease-in-out;
     &[fadein='true']:not([zen-essential='true']) {
       #tabbrowser-tabs[zen-workspace-animation='previous'] & {
@@ -366,7 +371,7 @@
     padding-right: 0;
 
     :root[zen-single-toolbar='true'] & {
-      margin-left: var(--zen-toolbox-padding);
+      margin-left: calc(var(--zen-toolbox-padding) / 2);
       width: calc(100% - var(--zen-toolbox-padding));
       & #urlbar:not([breakout-extend='true']) .urlbar-input-container {
         padding-left: 4px;
