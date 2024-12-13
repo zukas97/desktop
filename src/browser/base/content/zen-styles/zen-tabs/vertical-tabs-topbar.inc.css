@@ -2,7 +2,7 @@ height: var(--zen-toolbar-height);
 
 @media (-moz-bool-pref: 'zen.view.hide-window-controls') {
   & {
-    transition: height 0.2s ease-out, opacity 0.2s ease-out;
+    transition: height 0.2s ease, opacity 0.2s ease-out;
     transition-delay: 0.05s;
   }
 

@@ -371,7 +371,7 @@
     padding-right: 0;
 
     :root[zen-single-toolbar='true'] & {
-      margin-left: calc(var(--zen-toolbox-padding) / 2);
+      margin-left: var(--zen-toolbox-padding);
       width: calc(100% - var(--zen-toolbox-padding));
       & #urlbar:not([breakout-extend='true']) .urlbar-input-container {
         padding-left: 4px;

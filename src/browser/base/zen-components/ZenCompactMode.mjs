@@ -93,6 +93,56 @@ var gZenCompactModeManager = {
     this._evenListeners.forEach((callback) => callback());
     this._disableTabsOnHoverIfConflict();
     this.updateContextMenu();
+    this.animateCompactMode();
+  },
+
+  animateCompactMode() {
+    const isCompactMode = this.prefefence;
+    const canHideSidebar = Services.prefs.getBoolPref('zen.view.compact.hide-tabbar');
+    if (this._isAnimating) {
+      return;
+    }
+    this._isAnimating = true;
+    if (canHideSidebar && isCompactMode) {
+      window.requestAnimationFrame(() => {
+        this.sidebar.style.position = "relative";
+        this.sidebar.style.transition = "margin-left .3s ease";
+        this.sidebar.style.marginLeft = `calc(-1 * ${this.sidebar.getAttribute("width")}px)`;
+        this.sidebar.style.pointerEvents = "none";
+        this.sidebar.style.opacity = "0";
+
+        setTimeout(() => {
+          window.requestAnimationFrame(() => {
+            this._isAnimating = false;
+            this.sidebar.style.removeProperty("position");
+            this.sidebar.style.removeProperty("transition");
+            this.sidebar.style.removeProperty("margin-left");
+            this.sidebar.style.removeProperty("pointer-events");
+            this.sidebar.style.removeProperty("opacity");
+          });
+        }, 300);
+      });
+    } else if (canHideSidebar && !isCompactMode) {
+      // we are in compact mode and we are exiting it
+      this.sidebar.style.marginLeft = `calc(-1 * ${this.sidebar.getAttribute("width")}px)`;
+
+      window.requestAnimationFrame(() => {
+        this.sidebar.style.position = "relative";
+        this.sidebar.style.transition = "margin-left .3s ease";
+        this.sidebar.style.marginLeft = "0";
+        this.sidebar.style.pointerEvents = "none";
+
+        setTimeout(() => {
+          window.requestAnimationFrame(() => {
+            this._isAnimating = false;
+            this.sidebar.style.removeProperty("position");
+            this.sidebar.style.removeProperty("transition");
+            this.sidebar.style.removeProperty("margin-left");
+            this.sidebar.style.removeProperty("pointer-events");
+          });
+        }, 300);
+      });
+    }
   },
 
   updateContextMenu() {
