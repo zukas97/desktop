@@ -211,6 +211,8 @@ var gZenVerticalTabsManager = {
 
   _preCustomize() {
     this._updateEvent({ forceMultipleToolbar: true });
+    this.navigatorToolbox.setAttribute('zen-sidebar-expanded', 'true');
+    document.documentElement.setAttribute('zen-sidebar-expanded', 'true'); // force expanded sidebar
   },
 
   initializePreferences(updateEvent) {
