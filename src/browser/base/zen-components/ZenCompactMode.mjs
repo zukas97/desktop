@@ -104,7 +104,10 @@ var gZenCompactModeManager = {
       return;
     }
     this._isAnimating = true;
-    const sidebarWidth = this.sidebar.getBoundingClientRect().width;
+    let sidebarWidth = this.sidebar.getBoundingClientRect().width;
+    if (sidebarWidth < 300) {
+      sidebarWidth += sidebarWidth < 210 ? 9 : 11; // Bug: IF sidebar is too small, it will not animate properly
+    }
     if (canHideSidebar && isCompactMode) {
       this.sidebar.style.position = "relative";
       this.sidebar.style.transition = "margin .3s ease, opacity .3s ease";
@@ -132,7 +135,7 @@ var gZenCompactModeManager = {
             this.sidebar.style.removeProperty("left");
             document.getElementById('browser').style.removeProperty("overflow");
           });
-        }, 500);
+        }, 400);
       });
     } else if (canHideSidebar && !isCompactMode) {
       document.getElementById('browser').style.overflow = "hidden";
@@ -171,7 +174,7 @@ var gZenCompactModeManager = {
 
             document.getElementById('browser').style.removeProperty("overflow");
           });
-        }, 500);
+        }, 400);
       });
     }
   },

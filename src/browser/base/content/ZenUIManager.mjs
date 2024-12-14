@@ -300,9 +300,7 @@ var gZenVerticalTabsManager = {
       let shouldHide = false;
       if (((!isRightSide && this.isWindowsStyledButtons) || (isRightSide && !this.isWindowsStyledButtons)
         || (
-          isCompactMode && isSingleToolbar && !(
-            (!this.isWindowsStyledButtons && !isRightSide)
-          )
+          isCompactMode && isSingleToolbar && this.isWindowsStyledButtons && !isRightSide
         )) && isSingleToolbar) {
         appContentNavbarContaienr.setAttribute('should-hide', 'true');
         shouldHide = true;
@@ -384,6 +382,10 @@ var gZenVerticalTabsManager = {
       if (!doNotChangeWindowButtons && isSingleToolbar && !isCompactMode && !isRightSide && !this.isWindowsStyledButtons) {
         topButtons.prepend(windowButtons);
       }
+      // Case: single toolbar, compact mode, right side and windows styled buttons
+      if (isSingleToolbar && isCompactMode && isRightSide && this.isWindowsStyledButtons) {
+        topButtons.prepend(windowButtons);
+      }
 
       if (doNotChangeWindowButtons) {
         if (isRightSide && !isSidebarExpanded) {
@@ -413,7 +415,7 @@ var gZenVerticalTabsManager = {
         }
       }
 
-      if (shouldHide) {
+      if (shouldHide && !isCompactMode) {
         appContentNavbarContaienr.append(windowButtons);
       }
 

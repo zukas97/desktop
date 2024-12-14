@@ -6,7 +6,7 @@ height: var(--zen-toolbar-height);
     transition-delay: 0.05s;
 
     & > * {
-      transition: transform 0.1s ease-out;
+      transition: transform 0.2s ease-out;
     }
   }
 
