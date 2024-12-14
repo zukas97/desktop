@@ -108,7 +108,7 @@ pref('zen.view.compact.toolbar-hide-after-hover.duration', 1000);
 pref('zen.view.compact.color-toolbar', true);
 pref('zen.view.compact.color-sidebar', true);
 
-pref('zen.urlbar.behavior', 'float'); // default, floating-on-type, float
+pref('zen.urlbar.behavior', 'floating-on-type'); // default, floating-on-type, float
 
 #ifdef XP_MACOSX
 // Disable for macos in the meantime until @HarryHeres finds a solution for hight DPI screens

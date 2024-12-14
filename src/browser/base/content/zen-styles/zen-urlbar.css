@@ -353,9 +353,12 @@ button.popup-notification-dropmarker {
   }
 }
 
+:root[zen-single-toolbar='true'] #urlbar[open] {
+  min-width: 45vw;
+}
+
 #urlbar[open][zen-floating-urlbar='true'] {
   z-index: 1000;
-  min-width: 45vw;
   max-width: 45vw;
   top: 0 !important;
 
@@ -435,7 +438,7 @@ button.popup-notification-dropmarker {
   }
 
   &:hover {
-    background-color: var(--zen-colors-primary) !important;
+    background-color: light-dark(var(--zen-colors-secondary), var(--zen-colors-primary)) !important;
 
     .urlbarView-favicon {
       background-color: color-mix(in srgb, var(--zen-branding-bg-reverse) 20%, transparent 80%) !important;
