@@ -37,7 +37,8 @@ var gZenCompactModeManager = {
     if (this._sidebarIsOnRight) {
       return this._sidebarIsOnRight;
     }
-    return Services.prefs.getBoolPref('zen.tabs.vertical.right-side');
+    this._sidebarIsOnRight = Services.prefs.getBoolPref('zen.tabs.vertical.right-side');
+    return this._sidebarIsOnRight;
   },
 
   get sidebar() {
@@ -105,42 +106,46 @@ var gZenCompactModeManager = {
     this._isAnimating = true;
     if (canHideSidebar && isCompactMode) {
       window.requestAnimationFrame(() => {
-        this.sidebar.style.position = "relative";
-        this.sidebar.style.transition = "margin-left .3s ease";
-        this.sidebar.style.marginLeft = `calc(-1 * ${this.sidebar.getAttribute("width")}px)`;
-        this.sidebar.style.pointerEvents = "none";
-        this.sidebar.style.opacity = "0";
+        window.requestAnimationFrame(() => {
+          this.sidebar.style.position = "relative";
+          this.sidebar.style.transition = "margin-left .3s ease";
+          this.sidebar.style.marginLeft = `${(this.sidebarIsOnRight ? 1 : -1) * this.sidebar.getAttribute("width")}px`;
+          this.sidebar.style.pointerEvents = "none";
+          this.sidebar.style.opacity = "0";
 
-        setTimeout(() => {
-          window.requestAnimationFrame(() => {
-            this._isAnimating = false;
-            this.sidebar.style.removeProperty("position");
-            this.sidebar.style.removeProperty("transition");
-            this.sidebar.style.removeProperty("margin-left");
-            this.sidebar.style.removeProperty("pointer-events");
-            this.sidebar.style.removeProperty("opacity");
-          });
-        }, 300);
+          setTimeout(() => {
+            window.requestAnimationFrame(() => {
+              this._isAnimating = false;
+              this.sidebar.style.removeProperty("position");
+              this.sidebar.style.removeProperty("transition");
+              this.sidebar.style.removeProperty("margin-left");
+              this.sidebar.style.removeProperty("pointer-events");
+              this.sidebar.style.removeProperty("opacity");
+            });
+          }, 300);
+        });
       });
     } else if (canHideSidebar && !isCompactMode) {
       // we are in compact mode and we are exiting it
-      this.sidebar.style.marginLeft = `calc(-1 * ${this.sidebar.getAttribute("width")}px)`;
+      this.sidebar.style.marginLeft = `${(this.sidebarIsOnRight ? 1 : -1) * this.sidebar.getAttribute("width")}px`;
 
       window.requestAnimationFrame(() => {
-        this.sidebar.style.position = "relative";
-        this.sidebar.style.transition = "margin-left .3s ease";
-        this.sidebar.style.marginLeft = "0";
-        this.sidebar.style.pointerEvents = "none";
+        window.requestAnimationFrame(() => {
+          this.sidebar.style.position = "relative";
+          this.sidebar.style.transition = "margin-left .3s ease";
+          this.sidebar.style.marginLeft = "0";
+          this.sidebar.style.pointerEvents = "none";
 
-        setTimeout(() => {
-          window.requestAnimationFrame(() => {
-            this._isAnimating = false;
-            this.sidebar.style.removeProperty("position");
-            this.sidebar.style.removeProperty("transition");
-            this.sidebar.style.removeProperty("margin-left");
-            this.sidebar.style.removeProperty("pointer-events");
-          });
-        }, 300);
+          setTimeout(() => {
+            window.requestAnimationFrame(() => {
+              this._isAnimating = false;
+              this.sidebar.style.removeProperty("position");
+              this.sidebar.style.removeProperty("transition");
+              this.sidebar.style.removeProperty("margin-left");
+              this.sidebar.style.removeProperty("pointer-events");
+            });
+          }, 300);
+        });
       });
     }
   },
