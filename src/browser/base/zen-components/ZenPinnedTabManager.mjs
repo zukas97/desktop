@@ -494,7 +494,7 @@
         return `data:${faviconData.mimeType};base64,${base64String}`;
       } catch (ex) {
      // console.error("Failed to get favicon:", ex);
-        return null;
+        return `page-icon:${pageUrl}`; // Use this as a fallback
       }
     }
 
