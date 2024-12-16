@@ -62,7 +62,7 @@
         * we need to adjust the top-padding of the toolbox to account for the
         * extra toolbar height. */
       @media not (-moz-bool-pref: 'zen.view.compact.hide-toolbar') {
-        &:not([zen-single-toolbar='true']) #navigator-toolbox {
+        &:not([zen-single-toolbar='true']) #navigator-toolbox:not([animate='true']) {
           margin-top: var(--zen-toolbar-height) !important;
         }
       }
