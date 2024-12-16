@@ -365,7 +365,7 @@ var gZenVerticalTabsManager = {
         document.documentElement.removeAttribute("zen-single-toolbar");
         navBar.appendChild(document.getElementById('PanelUI-button'));
         this._toolbarOriginalParent.prepend(navBar);
-        CustomizableUI.zenInternalCU._rebuildRegisteredAreas();
+        this.rebuildAreas();
       }
 
       if (isCompactMode) {
@@ -427,6 +427,10 @@ var gZenVerticalTabsManager = {
       console.error(e);
     }
     this._isUpdating = false;
+  },
+
+  rebuildAreas() {
+    CustomizableUI.zenInternalCU._rebuildRegisteredAreas(/* zenDontRebuildCollapsed */ true);
   },
 
   _updateMaxWidth() {
