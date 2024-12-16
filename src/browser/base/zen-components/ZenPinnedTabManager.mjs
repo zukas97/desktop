@@ -87,7 +87,7 @@
         // Enhance pins with favicons
         const enhancedPins = await Promise.all(pins.map(async pin => {
           try {
-            const image = await this.getFaviconAsBase64(pin.url);
+            const image = await this.getFaviconAsBase64(Services.io.newURI(pin.url).spec);
             return {
               ...pin,
               iconUrl: image || null
@@ -361,7 +361,8 @@
     }
 
     async _removePinnedAttributes(tab, isClosing = false) {
-      if(!tab.getAttribute("zen-pin-id")) {
+      if(!tab.getAttribute("zen-pin-id") || this._temporarilyUnpiningEssential) {
+        this._temporarilyUnpiningEssential = false;
         return;
       }
 
@@ -506,6 +507,7 @@
           tab.removeAttribute("zen-workspace-id");
         }
         if (tab.pinned) {
+          this._temporarilyUnpiningEssential = true;
           gBrowser.unpinTab(tab);
         }
         gBrowser.pinTab(tab);
