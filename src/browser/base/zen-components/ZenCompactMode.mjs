@@ -107,7 +107,7 @@ var gZenCompactModeManager = {
     // Do this so we can get the correct width ONCE compact mode styled have been applied
     this.sidebar.setAttribute("animate", "true");
     window.requestAnimationFrame(() => {
-      let sidebarWidth = Math.max(this.sidebar.getAttribute("width"), this.sidebar.getBoundingClientRect().width);
+      let sidebarWidth = this.sidebar.getBoundingClientRect().width;
       if (canHideSidebar && isCompactMode) {
         this.sidebar.style.position = "relative";
         this.sidebar.style.transition = "margin .4s ease, opacity .4s ease";

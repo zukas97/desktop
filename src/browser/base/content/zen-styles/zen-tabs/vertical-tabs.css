@@ -553,13 +553,6 @@
   :root[customizing] & #zen-sidebar-icons-wrapper {
     min-width: unset !important;
   }
-  #zen-sidebar-top-buttons:has(#zen-sidebar-top-buttons-customization-target:empty) {
-    max-height: 0 !important;
-    min-height: 0 !important;
-    opacity: 0;
-    overflow: hidden;
-    pointer-events: none;
-  }
   & #zen-sidebar-top-buttons {
     justify-content: center;
     max-height: unset !important;
@@ -964,6 +957,8 @@
     & #zen-appcontent-navbar-container {
       padding-left: var(--zen-element-separation);
     }
+
+%include vertical-tabs-topbuttons-fix.css
   }
 
   :root:not([zen-right-side='true']):not([zen-sidebar-expanded='true'])[zen-window-buttons-reversed='true'] {
@@ -986,5 +981,7 @@
     & #zen-appcontent-navbar-container {
       padding-right: var(--zen-element-separation);
     }
+
+%include vertical-tabs-topbuttons-fix.css
   }
 }

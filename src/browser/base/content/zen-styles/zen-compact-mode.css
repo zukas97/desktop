@@ -28,7 +28,7 @@
       }
 
       #navigator-toolbox {
-        --zen-toolbox-max-width: 54px !important;
+        --zen-toolbox-max-width: 64px !important;
         --zen-compact-float: calc(var(--zen-element-separation) - 1px);
 
         &:not([animate='true']) {
