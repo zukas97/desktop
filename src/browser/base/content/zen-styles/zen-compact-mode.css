@@ -38,9 +38,7 @@
           top: 0;
           bottom: var(--zen-element-separation);
           opacity: 0;
-          padding-left: var(--zen-compact-float) !important;
-          padding-bottom: 0 !important;
-          padding-top: 0 !important;
+          padding: 0 var(--zen-compact-float) !important;
 
           :root[zen-single-toolbar='true'] & {
             top: var(--zen-element-separation);
@@ -49,6 +47,10 @@
               margin-left: calc(var(--zen-toolbox-padding) / 2) !important;
             }
           }
+        }
+
+        & #urlbar[open] {
+          top: 0 !important;
         }
       }
 
