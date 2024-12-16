@@ -17,7 +17,7 @@
   /* Branding */
   --zen-branding-dark: #202020;
   --zen-branding-coral: #F76F53;
-  --zen-branding-paper: #F2F0E3;
+  --zen-branding-paper: #ebebeb;
 
   --zen-branding-bg: light-dark(var(--zen-branding-paper), var(--zen-branding-dark));
   --zen-branding-bg-reverse: light-dark(var(--zen-branding-dark), var(--zen-branding-paper));

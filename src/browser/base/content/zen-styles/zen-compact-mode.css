@@ -30,21 +30,24 @@
       #navigator-toolbox {
         --zen-toolbox-max-width: 54px !important;
         --zen-compact-float: calc(var(--zen-element-separation) - 1px);
-        position: absolute;
-        z-index: 10;
-        transition: transform 0.25s ease, opacity 0.1s ease-in-out;
-        top: 0;
-        bottom: var(--zen-element-separation);
-        opacity: 0;
-        padding-left: var(--zen-compact-float) !important;
-        padding-bottom: 0 !important;
-        padding-top: 0 !important;
 
-        :root[zen-single-toolbar='true'] & {
-          top: var(--zen-element-separation);
+        &:not([animate='true']) {
+          position: absolute;
+          z-index: 10;
+          transition: transform 0.25s ease, opacity 0.1s ease-in-out;
+          top: 0;
+          bottom: var(--zen-element-separation);
+          opacity: 0;
+          padding-left: var(--zen-compact-float) !important;
+          padding-bottom: 0 !important;
+          padding-top: 0 !important;
 
-          & #nav-bar {
-            margin-left: calc(var(--zen-toolbox-padding) / 2) !important;
+          :root[zen-single-toolbar='true'] & {
+            top: var(--zen-element-separation);
+
+            & #nav-bar {
+              margin-left: calc(var(--zen-toolbox-padding) / 2) !important;
+            }
           }
         }
       }
@@ -76,7 +79,7 @@
         }
       }
 
-      #titlebar {
+      #navigator-toolbox:not([animate='true']) #titlebar {
         box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
         border-radius: calc(var(--zen-border-radius) - 2px);
         padding: var(--zen-toolbox-padding) !important;

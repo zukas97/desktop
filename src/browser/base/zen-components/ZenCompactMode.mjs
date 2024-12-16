@@ -104,79 +104,82 @@ var gZenCompactModeManager = {
       return;
     }
     this._isAnimating = true;
-    let sidebarWidth = this.sidebar.getBoundingClientRect().width;
-    if (sidebarWidth < 300) {
-      sidebarWidth += sidebarWidth < 210 ? 9 : 11; // Bug: IF sidebar is too small, it will not animate properly
-    }
-    if (canHideSidebar && isCompactMode) {
-      this.sidebar.style.position = "relative";
-      this.sidebar.style.transition = "margin .3s ease, opacity .3s ease";
-      this.sidebar.style.left = "0";
-      this.sidebar.style.setProperty("opacity", "1", "important");
-      if (!this.sidebarIsOnRight) {
-        this.sidebar.style.marginLeft = `${-1 * sidebarWidth}px`;
-      } else {
-        this.sidebar.style.marginRight = `${-1 * sidebarWidth}px`;
-      }
-      this.sidebar.style.pointerEvents = "none";
-
-      window.requestAnimationFrame(() => {
-        this.sidebar.style.removeProperty("opacity");
-        setTimeout(() => {
-          window.requestAnimationFrame(() => {
-            this._isAnimating = false;
-            this.sidebar.style.removeProperty("opacity");
-            this.sidebar.style.removeProperty("position");
-            this.sidebar.style.removeProperty("transition");
-            this.sidebar.style.removeProperty("pointer-events");
-            this.sidebar.style.removeProperty("margin-left");
-            this.sidebar.style.removeProperty("margin-right");
-            this.sidebar.style.removeProperty("transform");
-            this.sidebar.style.removeProperty("left");
-            document.getElementById('browser').style.removeProperty("overflow");
-          });
-        }, 400);
-      });
-    } else if (canHideSidebar && !isCompactMode) {
-      document.getElementById('browser').style.overflow = "hidden";
-      this.sidebar.style.position = "relative";
-      this.sidebar.style.left = "0";
-
-      if (!this.sidebarIsOnRight) {
-        this.sidebar.style.marginLeft = `${-1 * sidebarWidth}px`;
-      } else {
-        this.sidebar.style.marginRight = `${-1 * sidebarWidth}px`;
-        this.sidebar.style.transform = `translateX(${sidebarWidth}px)`;
-      }
-
-      window.requestAnimationFrame(() => {
-        this.sidebar.style.transition = "margin .3s ease, transform .4s ease, opacity .3s ease";
-        // we are in compact mode and we are exiting it
+    // Do this so we can get the correct width ONCE compact mode styled have been applied
+    this.sidebar.setAttribute("animate", "true");
+    window.requestAnimationFrame(() => {
+      let sidebarWidth = Math.max(this.sidebar.getAttribute("width"), this.sidebar.getBoundingClientRect().width);
+      if (canHideSidebar && isCompactMode) {
+        this.sidebar.style.position = "relative";
+        this.sidebar.style.transition = "margin .4s ease, opacity .4s ease";
+        this.sidebar.style.left = "0";
+        this.sidebar.style.setProperty("opacity", "1", "important");
         if (!this.sidebarIsOnRight) {
-          this.sidebar.style.marginLeft = "0";
+          this.sidebar.style.marginLeft = `${-1 * sidebarWidth}px`;
         } else {
-          this.sidebar.style.marginRight = "0";
-          this.sidebar.style.transform = "translateX(0)";
+          this.sidebar.style.marginRight = `${-1 * sidebarWidth}px`;
         }
         this.sidebar.style.pointerEvents = "none";
 
-        setTimeout(() => {
-          window.requestAnimationFrame(() => {
-            this._isAnimating = false;
-            this.sidebar.style.removeProperty("position");
-            this.sidebar.style.removeProperty("pointer-events");
-            this.sidebar.style.removeProperty("opacity");
-            this.sidebar.style.removeProperty("margin-left");
-            this.sidebar.style.removeProperty("margin-right");
-            this.sidebar.style.removeProperty("transform");
-            this.sidebar.style.removeProperty("transition");
-            this.sidebar.style.removeProperty("left");
+        window.requestAnimationFrame(() => {
+          this.sidebar.style.opacity = "0";
+          setTimeout(() => {
+            window.requestAnimationFrame(() => {
+              this._isAnimating = false;
+              this.sidebar.style.removeProperty("opacity");
+              this.sidebar.style.removeProperty("position");
+              this.sidebar.style.removeProperty("transition");
+              this.sidebar.style.removeProperty("pointer-events");
+              this.sidebar.style.removeProperty("margin-left");
+              this.sidebar.style.removeProperty("margin-right");
+              this.sidebar.style.removeProperty("transform");
+              this.sidebar.style.removeProperty("left");
+              document.getElementById('browser').style.removeProperty("overflow");
+              this.sidebar.removeAttribute("animate");
+            });
+          }, 450);
+        });
+      } else if (canHideSidebar && !isCompactMode) {
+        document.getElementById('browser').style.overflow = "hidden";
+        this.sidebar.style.position = "relative";
+        this.sidebar.style.left = "0";
 
-            document.getElementById('browser').style.removeProperty("overflow");
-          });
-        }, 400);
-      });
-    }
+        if (!this.sidebarIsOnRight) {
+          this.sidebar.style.marginLeft = `${-1 * sidebarWidth}px`;
+        } else {
+          this.sidebar.style.marginRight = `${-1 * sidebarWidth}px`;
+          this.sidebar.style.transform = `translateX(${sidebarWidth}px)`;
+        }
+
+        window.requestAnimationFrame(() => {
+          this.sidebar.style.transition = "margin .3s ease, transform .4s ease, opacity .3s ease";
+          // we are in compact mode and we are exiting it
+          if (!this.sidebarIsOnRight) {
+            this.sidebar.style.marginLeft = "0";
+          } else {
+            this.sidebar.style.marginRight = "0";
+            this.sidebar.style.transform = "translateX(0)";
+          }
+          this.sidebar.style.pointerEvents = "none";
+
+          setTimeout(() => {
+            window.requestAnimationFrame(() => {
+              this._isAnimating = false;
+              this.sidebar.style.removeProperty("position");
+              this.sidebar.style.removeProperty("pointer-events");
+              this.sidebar.style.removeProperty("opacity");
+              this.sidebar.style.removeProperty("margin-left");
+              this.sidebar.style.removeProperty("margin-right");
+              this.sidebar.style.removeProperty("transform");
+              this.sidebar.style.removeProperty("transition");
+              this.sidebar.style.removeProperty("left");
+
+              document.getElementById('browser').style.removeProperty("overflow");
+              this.sidebar.removeAttribute("animate");
+            });
+          }, 400);
+        });
+      }
+    });
   },
 
   updateContextMenu() {
