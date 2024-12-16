@@ -72,9 +72,9 @@
   --button-background-color-hover: var(--in-content-button-background-hover) !important;
   --button-background-color-active: var(--in-content-primary-button-background-active) !important;
 
-  --color-accent-primary: var(--button-primary-bgcolor) !important;
-  --color-accent-primary-hover: var(--button-primary-hover-bgcolor) !important;
-  --color-accent-primary-active: var(--button-primary-active-bgcolor) !important;
+  --color-accent-primary: var(--zen-colors-primary) !important;
+  --color-accent-primary-hover: var(--zen-branding-bg-reverse) !important;
+  --color-accent-primary-active: var(--zen-branding-bg-reverse) !important;
 
   --in-content-page-background: var(--zen-colors-tertiary) !important;
   --zen-in-content-dialog-background: var(--zen-colors-tertiary);
