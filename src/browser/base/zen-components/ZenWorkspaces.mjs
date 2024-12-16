@@ -33,7 +33,12 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
       'activationMethod',
       'zen.workspaces.scroll-modifier-key',
       'ctrl',
-      this._expandWorkspacesStrip.bind(this)
+    );
+    XPCOMUtils.defineLazyPreferenceGetter(
+      this,
+      'naturalScroll',
+      'zen.workspaces.natural-scroll',
+      true
     );
     XPCOMUtils.defineLazyPreferenceGetter(
       this,
@@ -169,7 +174,10 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
       if (Math.abs(delta) < scrollThreshold) return;
 
       // Determine scroll direction
-      const direction = delta > 0 ? -1 : 1;
+      let direction = delta > 0 ? -1 : 1;
+      if (this.naturalScroll) {
+        direction = delta > 0 ? 1 : -1;
+      }
 
       // Workspace logic
       const workspaces = (await this._workspaces()).workspaces;
