@@ -668,8 +668,8 @@
           }
         }
 
-        browser.document.documentElement.style.setProperty('--zen-main-browser-background', gradient);
         browser.document.documentElement.style.setProperty('--zen-main-browser-background-toolbar', gradientToolbar);
+        browser.document.documentElement.style.setProperty('--zen-main-browser-background', gradient);
 
         const dominantColor = this.getMostDominantColor(workspaceTheme.gradientColors);
         if (dominantColor) {
