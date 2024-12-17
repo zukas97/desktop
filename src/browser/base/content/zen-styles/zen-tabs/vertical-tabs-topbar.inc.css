@@ -3,7 +3,7 @@ height: var(--zen-toolbar-height);
 @media (-moz-bool-pref: 'zen.view.hide-window-controls') {
   & {
     transition: height 0.2s ease, opacity 0.2s ease-out;
-    transition-delay: 0.05s;
+    transition-delay: 0.2s;
 
     & > * {
       transition: transform 0.2s ease-out;
@@ -11,6 +11,7 @@ height: var(--zen-toolbar-height);
   }
 
   &:not([zen-has-hover='true']):not([has-popup-menu]):not(:focus-within) {
+    transition-delay: 0.05s;
     height: var(--zen-element-separation);
     overflow: hidden;
     opacity: 0;
