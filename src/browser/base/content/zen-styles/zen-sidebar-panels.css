@@ -281,9 +281,8 @@
   animation: better-sidebar-pinned-hide 0.15s ease-in-out forwards !important;
 }
 
-#zen-sidebar-web-panel-wrapper:has(#zen-sidebar-web-panel:not(:is([hidden='true']))) {
+#zen-sidebar-web-panel-wrapper:has(#zen-sidebar-web-panel:not([hidden='true'])) {
   :root:not([zen-right-side='true']) & {
-    margin-left: 0 !important;
     margin-right: calc(var(--zen-element-separation) * 2 - 3px) !important;
   }
 
