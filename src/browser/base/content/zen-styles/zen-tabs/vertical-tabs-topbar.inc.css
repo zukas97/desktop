@@ -11,7 +11,7 @@ height: var(--zen-toolbar-height);
   }
 
   &:not([zen-has-hover='true']):not([has-popup-menu]):not(:focus-within) {
-    transition-delay: 0.05s;
+    transition-delay: 0.1s;
     height: var(--zen-element-separation);
     overflow: hidden;
     opacity: 0;

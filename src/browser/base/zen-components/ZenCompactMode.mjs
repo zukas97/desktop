@@ -17,6 +17,8 @@ var gZenCompactModeManager = {
     Services.prefs.addObserver('zen.view.sidebar-expanded.on-hover', this._disableTabsOnHoverIfConflict.bind(this));
     Services.prefs.addObserver('zen.tabs.vertical.right-side', this._updateSidebarIsOnRight.bind(this));
 
+    this._canAnimateSidebar = Services.prefs.getBoolPref('zen.view.compact.animate-sidebar', true);
+
     gZenUIManager.addPopupTrackingAttribute(this.sidebar);
     gZenUIManager.addPopupTrackingAttribute(document.getElementById('zen-appcontent-navbar-container'));
 
@@ -100,7 +102,7 @@ var gZenCompactModeManager = {
   animateCompactMode() {
     const isCompactMode = this.prefefence;
     const canHideSidebar = Services.prefs.getBoolPref('zen.view.compact.hide-tabbar');
-    if (this._isAnimating) {
+    if (this._isAnimating || !this._canAnimateSidebar) {
       return;
     }
     this._isAnimating = true;
