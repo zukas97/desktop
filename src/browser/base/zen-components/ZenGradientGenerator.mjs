@@ -497,11 +497,17 @@
       this.updateCurrentWorkspace();
     }
 
+    getToolbarModifiedBase() {
+      return this.isDarkMode ?
+        'color-mix(in srgb, var(--zen-themed-toolbar-bg) 70%, #fff 30%)'
+      : 'color-mix(in srgb, var(--zen-themed-toolbar-bg) 95%, #000 5%)';
+    }
+
     getSingleRGBColor(color, forToolbar = false) {
       if (color.isCustom) {
         return color.c;
       }
-      const toolbarBg = forToolbar ? 'var(--zen-themed-toolbar-bg)' : 'var(--zen-themed-toolbar-bg-transparent)';
+      const toolbarBg = forToolbar ? this.getToolbarModifiedBase() : 'var(--zen-themed-toolbar-bg-transparent)';
       return `color-mix(in srgb, rgb(${color.c[0]}, ${color.c[1]}, ${color.c[2]}) ${this.currentOpacity * 100}%, ${toolbarBg} ${(1 - this.currentOpacity) * 100}%)`;
     }
 

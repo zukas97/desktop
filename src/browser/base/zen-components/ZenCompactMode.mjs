@@ -179,6 +179,8 @@ var gZenCompactModeManager = {
             });
           }, 400);
         });
+      } else {
+        this.sidebar.removeAttribute("animate"); // remove the attribute if we are not animating
       }
     });
   },
