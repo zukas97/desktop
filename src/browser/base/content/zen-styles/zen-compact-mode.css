@@ -56,7 +56,7 @@
       }
 
       &:not([zen-right-side='true']) #navigator-toolbox {
-        right: calc(100% - var(--zen-element-separation));
+        right: calc(100% - var(--zen-element-separation) + 1px);
       }
 
       /* When we have multiple toolbars and the top-toolbar is NOT being hidden,
@@ -71,9 +71,7 @@
       &[zen-right-side='true'] {
         & #navigator-toolbox {
           --zen-compact-float: calc(var(--zen-element-separation) + 1px);
-          padding-left: unset !important;
-          padding-right: var(--zen-compact-float) !important;
-          left: calc(100% - var(--zen-element-separation));
+          left: calc(100% - var(--zen-element-separation) + 1px);
         }
 
         & .browserSidebarContainer {
