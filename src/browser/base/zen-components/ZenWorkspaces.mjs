@@ -1465,6 +1465,9 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
     const isEssential = tab.getAttribute("zen-essential") === "true";
     if (!isEssential) {
       const activeWorkspace = await parent.ZenWorkspaces.getActiveWorkspace();
+      if (!activeWorkspace) {
+        return;
+      }
 
       // Only update last selected tab for non-essential tabs in their workspace
       if (!isEssential && workspaceID === activeWorkspace.uuid) {
