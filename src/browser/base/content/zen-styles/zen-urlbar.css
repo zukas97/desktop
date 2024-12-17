@@ -372,13 +372,17 @@ button.popup-notification-dropmarker {
     margin-right: var(--urlbar-margin-inline);
   }
 
-  :root[zen-right-side='true'] & {
-    right: 0;
-  }
   position: absolute;
 
   top: calc(var(--zen-toolbar-height) * 2) !important;
-  left: 28vw;
+
+  :root[zen-right-side='true'] & {
+    right: 28vw !important;
+  }
+
+  :root:not([zen-right-side='true']) & {
+    left: 28vw !important;
+  }
 
   #urlbar-container:has(&) {
     border-radius: 10px;

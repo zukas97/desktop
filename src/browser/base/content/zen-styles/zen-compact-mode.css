@@ -12,8 +12,10 @@
 
     @media (-moz-bool-pref: 'zen.view.compact.hide-tabbar') or (-moz-bool-pref: 'zen.view.use-single-toolbar') {
       #zen-sidebar-web-panel-wrapper:has(#zen-sidebar-web-panel[pinned='true']) {
-        margin-left: calc(var(--zen-sidebar-web-panel-spacing) * 2) !important;
+        margin-left: var(--zen-sidebar-web-panel-spacing) !important;
       }
+
+      #urlbar[open]
 
       #zen-appcontent-wrapper {
         margin-left: var(--zen-element-separation) !important;
@@ -34,7 +36,8 @@
         &:not([animate='true']) {
           position: absolute;
           z-index: 10;
-          transition: transform 0.25s ease, opacity 0.1s ease-in-out;
+          transition: transform 0.25s ease, opacity 1s ease;
+          transform: translateX(0);
           top: 0;
           bottom: var(--zen-element-separation);
           opacity: 0;
@@ -112,6 +115,7 @@
       #mainPopupSet:has(> #appMenu-popup:hover) ~ toolbox,
       #navigator-toolbox:has(.tabbrowser-tab:active),
       #navigator-toolbox:has(*[open='true']:not(tab):not(.zen-compact-mode-ignore)) {
+        transition: transform 0.25s ease;
         opacity: 1;
 
         transform: translateX(calc(100% - var(--zen-element-separation) - 1px));

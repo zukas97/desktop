@@ -300,7 +300,7 @@ var gZenVerticalTabsManager = {
       let shouldHide = false;
       if (((!isRightSide && this.isWindowsStyledButtons) || (isRightSide && !this.isWindowsStyledButtons)
         || (
-          isCompactMode && isSingleToolbar && this.isWindowsStyledButtons && !isRightSide
+          isCompactMode && isSingleToolbar && this.isWindowsStyledButtons
         )) && isSingleToolbar) {
         appContentNavbarContaienr.setAttribute('should-hide', 'true');
         shouldHide = true;
@@ -415,7 +415,7 @@ var gZenVerticalTabsManager = {
         }
       }
 
-      if (shouldHide && !isCompactMode) {
+      if (shouldHide) {
         appContentNavbarContaienr.append(windowButtons);
       }
 
