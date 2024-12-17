@@ -15,8 +15,6 @@
         margin-left: var(--zen-sidebar-web-panel-spacing) !important;
       }
 
-      #urlbar[open]
-
       #zen-appcontent-wrapper {
         margin-left: var(--zen-element-separation) !important;
       }
@@ -36,7 +34,7 @@
         &:not([animate='true']) {
           position: absolute;
           z-index: 10;
-          transition: transform 0.25s ease, opacity 1s ease;
+          transition: transform 0.25s ease, opacity 1.5s ease;
           transform: translateX(0);
           top: 0;
           bottom: var(--zen-element-separation);
@@ -112,15 +110,16 @@
       #navigator-toolbox[flash-popup],
       #navigator-toolbox[has-popup-menu],
       #navigator-toolbox[movingtab],
-      #mainPopupSet:has(> #appMenu-popup:hover) ~ toolbox,
       #navigator-toolbox:has(.tabbrowser-tab:active),
       #navigator-toolbox:has(*[open='true']:not(tab):not(.zen-compact-mode-ignore)) {
-        transition: transform 0.25s ease;
-        opacity: 1;
+        &:not([animate='true']) {
+          transition: transform 0.25s ease;
+          opacity: 1;
 
-        transform: translateX(calc(100% - var(--zen-element-separation) - 1px));
-        :root[zen-right-side='true'] & {
-          transform: translateX(calc(-100% + var(--zen-element-separation) + 1px));
+          transform: translateX(calc(100% - var(--zen-element-separation) - 1px));
+          :root[zen-right-side='true'] & {
+            transform: translateX(calc(-100% + var(--zen-element-separation) + 1px));
+          }
         }
       }
     }

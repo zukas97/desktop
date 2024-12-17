@@ -111,34 +111,33 @@ var gZenCompactModeManager = {
     window.requestAnimationFrame(() => {
       let sidebarWidth = this.sidebar.getBoundingClientRect().width;
       if (canHideSidebar && isCompactMode) {
-        this.sidebar.style.position = "relative";
-        this.sidebar.style.transition = "margin .4s ease, opacity .4s ease";
-        this.sidebar.style.left = "0";
-        this.sidebar.style.setProperty("opacity", "1", "important");
-        if (!this.sidebarIsOnRight) {
-          this.sidebar.style.marginLeft = `${-1 * sidebarWidth}px`;
-        } else {
-          this.sidebar.style.marginRight = `${-1 * sidebarWidth}px`;
-        }
-        this.sidebar.style.pointerEvents = "none";
-
         window.requestAnimationFrame(() => {
-          this.sidebar.style.opacity = "0";
-          setTimeout(() => {
-            window.requestAnimationFrame(() => {
-              this._isAnimating = false;
-              this.sidebar.style.removeProperty("opacity");
-              this.sidebar.style.removeProperty("position");
-              this.sidebar.style.removeProperty("transition");
-              this.sidebar.style.removeProperty("pointer-events");
-              this.sidebar.style.removeProperty("margin-left");
-              this.sidebar.style.removeProperty("margin-right");
-              this.sidebar.style.removeProperty("transform");
-              this.sidebar.style.removeProperty("left");
-              document.getElementById('browser').style.removeProperty("overflow");
-              this.sidebar.removeAttribute("animate");
-            });
-          }, 450);
+          this.sidebar.style.position = "unset";
+          this.sidebar.style.transition = "margin .4s ease";
+          this.sidebar.style.left = "0";
+          if (!this.sidebarIsOnRight) {
+            this.sidebar.style.marginLeft = `${-1 * sidebarWidth}px`;
+          } else {
+            this.sidebar.style.marginRight = `${-1 * sidebarWidth}px`;
+          }
+          this.sidebar.style.pointerEvents = "none";
+
+          window.requestAnimationFrame(() => {
+            setTimeout(() => {
+              window.requestAnimationFrame(() => {
+                this._isAnimating = false;
+                this.sidebar.style.removeProperty("position");
+                this.sidebar.style.removeProperty("pointer-events");
+                this.sidebar.style.removeProperty("margin-left");
+                this.sidebar.style.removeProperty("margin-right");
+                this.sidebar.style.removeProperty("transform");
+                this.sidebar.style.removeProperty("left");
+                document.getElementById('browser').style.removeProperty("overflow");
+                this.sidebar.removeAttribute("animate");
+                this.sidebar.style.removeProperty("transition");
+              });
+            }, 450);
+          });
         });
       } else if (canHideSidebar && !isCompactMode) {
         document.getElementById('browser').style.overflow = "hidden";
