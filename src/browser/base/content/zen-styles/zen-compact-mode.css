@@ -17,6 +17,10 @@
 
       #zen-appcontent-wrapper {
         margin-left: var(--zen-element-separation) !important;
+
+        & #tabbrowser-tabbox {
+          margin-left: 0 !important;
+        }
       }
 
       #zen-sidebar-top-buttons-customization-target {
