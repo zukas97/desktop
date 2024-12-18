@@ -6,17 +6,18 @@ height: var(--zen-toolbar-height);
     transition-delay: 0.2s;
 
     & > * {
-      transition: transform 0.2s ease-out;
+      transition: opacity 0.2s ease-out;
+      transition-delay: 0.2s;
     }
   }
 
   &:not([zen-has-hover='true']):not([has-popup-menu]):not(:focus-within) {
-    transition-delay: 0.1s;
+    transition-delay: 0.2s;
     height: var(--zen-element-separation);
     overflow: hidden;
     opacity: 0;
     & > * {
-      transform: translateY(-100%);
+      opacity: 0;
       pointer-events: none;
     }
   }

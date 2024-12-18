@@ -2,7 +2,7 @@
   const lazy = {};
 
   class ZenPinnedTabsObserver {
-    static ALL_EVENTS = ['TabPinned', 'TabUnpinned'];
+    static ALL_EVENTS = ['TabPinned', 'TabUnpinned', 'TabMove'];
 
     #listeners = [];
 
@@ -49,7 +49,6 @@
 
       this._zenClickEventListener = this._onTabClick.bind(this);
       ZenWorkspaces.addChangeListeners(this.onWorkspaceChange.bind(this));
-
     }
 
     async onWorkspaceChange(newWorkspace, onInit) {
@@ -271,10 +270,33 @@
             delete tab._zenClickEventListener;
           }
           break;
+        case "TabMove":
+          this._onTabMove(tab);
+          break;
         default:
           console.warn('ZenPinnedTabManager: Unhandled tab event', action);
           break;
       }
+    }
+
+    async _onTabMove(tab) {
+      if (!tab.pinned) {
+        return;
+      }
+
+      // Recollect pinned tabs and essentials after a tab move
+      const currentWorkspace = await ZenWorkspaces.getActiveWorkspace();
+
+      tab.position = tab._tPos;
+
+      for (let otherTab of gBrowser.tabs) {
+        if (otherTab.pinned && otherTab._tPos > tab.position) {
+          otherTab.position = otherTab._tPos;
+          await ZenPinnedTabsStorage.savePin(otherTab, false);
+        }
+      }
+
+      await ZenPinnedTabsStorage.savePin(tab);
     }
 
     _onTabClick(e) {
