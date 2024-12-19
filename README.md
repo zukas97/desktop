@@ -38,6 +38,21 @@ Zen is currently built using firefox version `133.0.3`! 🚀
 
 Zen is an open-source project, and we welcome contributions from the community! Please take a look at the [contribution guidelines](./docs/contribute.md) before getting started!
 
+### Versioning
+
+Zen uses [Semantic Versioning](https://semver.org/) for versioning. Meaning, versions are displayed as `a.b.c-d.e` where:
+* `a` is the major version
+* `b` is the minor version
+* `c` is the patch version
+* `d` is the branch prefix
+* `e` is the build number
+
+### Branches
+
+Zen is divided into 2 main branches. We use `dev` for development and `stable` for stable releases. The `dev` branch is where all the new features are added and where `twilight` builds are generated. The `stable` branch is where the stable releases are generated. 
+
+We divide into 2 branches in case there's any really important security update (for example) that needs to be released before the next stable release. This allows us to do patches without releasing unstable versions to the public.
+
 ## ⚡ Performance
 
 Zen is built with performance in mind, and we have optimized the browser to be as fast as possible! Checkout the latest [performance benchmarks](https://docs.zen-browser.app/benchmarks)!
