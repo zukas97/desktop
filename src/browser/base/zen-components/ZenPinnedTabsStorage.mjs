@@ -5,48 +5,52 @@ var ZenPinnedTabsStorage = {
   },
 
   async _ensureTable() {
-    await PlacesUtils.withConnectionWrapper('ZenPinnedTabsStorage._ensureTable', async (db) => {
-      // Create the pins table if it doesn't exist
-      await db.execute(`
-        CREATE TABLE IF NOT EXISTS zen_pins (
-      id INTEGER PRIMARY KEY,
-      uuid TEXT UNIQUE NOT NULL,
-      title TEXT NOT NULL,
-      url TEXT,
-      container_id INTEGER,
-      workspace_uuid TEXT,
-      position INTEGER NOT NULL DEFAULT 0,
-      is_essential BOOLEAN NOT NULL DEFAULT 0,
-      is_group BOOLEAN NOT NULL DEFAULT 0,
-      parent_uuid TEXT,
-      created_at INTEGER NOT NULL,
-      updated_at INTEGER NOT NULL,
-      FOREIGN KEY (parent_uuid) REFERENCES zen_pins(uuid) ON DELETE SET NULL
+    return new Promise(async (resolve, reject) => {
+      await PlacesUtils.withConnectionWrapper('ZenPinnedTabsStorage._ensureTable', async (db) => {
+        console.log('ZenPinnedTabsStorage: Ensuring tables...');
+        // Create the pins table if it doesn't exist
+        await db.execute(`
+          CREATE TABLE IF NOT EXISTS zen_pins (
+        id INTEGER PRIMARY KEY,
+        uuid TEXT UNIQUE NOT NULL,
+        title TEXT NOT NULL,
+        url TEXT,
+        container_id INTEGER,
+        workspace_uuid TEXT,
+        position INTEGER NOT NULL DEFAULT 0,
+        is_essential BOOLEAN NOT NULL DEFAULT 0,
+        is_group BOOLEAN NOT NULL DEFAULT 0,
+        parent_uuid TEXT,
+        created_at INTEGER NOT NULL,
+        updated_at INTEGER NOT NULL,
+        FOREIGN KEY (parent_uuid) REFERENCES zen_pins(uuid) ON DELETE SET NULL
+            )
+        `);
+
+
+        // Create indices
+        await db.execute(`
+          CREATE INDEX IF NOT EXISTS idx_zen_pins_uuid ON zen_pins(uuid)
+        `);
+
+        await db.execute(`
+          CREATE INDEX IF NOT EXISTS idx_zen_pins_parent_uuid ON zen_pins(parent_uuid)
+        `);
+
+        // Create the changes tracking table if it doesn't exist
+        await db.execute(`
+          CREATE TABLE IF NOT EXISTS zen_pins_changes (
+            uuid TEXT PRIMARY KEY,
+            timestamp INTEGER NOT NULL
           )
-      `);
+        `);
 
-
-      // Create indices
-      await db.execute(`
-        CREATE INDEX IF NOT EXISTS idx_zen_pins_uuid ON zen_pins(uuid)
-      `);
-
-      await db.execute(`
-        CREATE INDEX IF NOT EXISTS idx_zen_pins_parent_uuid ON zen_pins(parent_uuid)
-      `);
-
-      // Create the changes tracking table if it doesn't exist
-      await db.execute(`
-        CREATE TABLE IF NOT EXISTS zen_pins_changes (
-          uuid TEXT PRIMARY KEY,
-          timestamp INTEGER NOT NULL
-        )
-      `);
-
-      // Create an index on the uuid column for changes tracking table
-      await db.execute(`
-        CREATE INDEX IF NOT EXISTS idx_zen_pins_changes_uuid ON zen_pins_changes(uuid)
-      `);
+        // Create an index on the uuid column for changes tracking table
+        await db.execute(`
+          CREATE INDEX IF NOT EXISTS idx_zen_pins_changes_uuid ON zen_pins_changes(uuid)
+        `);
+        resolve();
+      });
     });
   },
 
@@ -337,3 +341,5 @@ var ZenPinnedTabsStorage = {
     });
   }
 };
+
+ZenPinnedTabsStorage.init();

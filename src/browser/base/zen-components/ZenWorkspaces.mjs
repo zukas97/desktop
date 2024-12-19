@@ -73,7 +73,7 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
     );
     ChromeUtils.defineLazyGetter(this, 'tabContainer', () => document.getElementById('tabbrowser-tabs'));
     this._activeWorkspace = Services.prefs.getStringPref('zen.workspaces.active', '');
-    await ZenWorkspacesStorage.init();
+    this._delayedStartup();
   }
 
   async _delayedStartup() {
@@ -435,10 +435,11 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
       window.addEventListener('TabBrowserInserted', this.onTabBrowserInserted.bind(this));
       await SessionStore.promiseInitialized;
       let workspaces = await this._workspaces();
+      let activeWorkspace = null;
       if (workspaces.workspaces.length === 0) {
-        await this.createAndSaveWorkspace('Default Workspace', true, '🏠');
+        activeWorkspace = await this.createAndSaveWorkspace('Default Workspace', true, '🏠');
       } else {
-        let activeWorkspace = await this.getActiveWorkspace();
+        activeWorkspace = await this.getActiveWorkspace();
         if (!activeWorkspace) {
           activeWorkspace = workspaces.workspaces.find((workspace) => workspace.default);
           this.activeWorkspace = activeWorkspace?.uuid;
@@ -450,7 +451,9 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
         await this.changeWorkspace(activeWorkspace, true);
       }
       try {
-        window.gZenThemePicker = new ZenThemePicker();
+        if (activeWorkspace) {
+          window.gZenThemePicker = new ZenThemePicker();
+        }
       } catch (e) {
         console.error('ZenWorkspaces: Error initializing theme picker', e);
       }
@@ -658,9 +661,14 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
         if (workspace.default) {
           element.setAttribute('default', 'true');
         }
-        const containerGroup = browser.ContextualIdentityService.getPublicIdentities().find(
-          (container) => container.userContextId === workspace.containerTabId
-        );
+        let containerGroup = undefined;
+        try {
+          containerGroup = browser.ContextualIdentityService.getPublicIdentities().find(
+            (container) => container.userContextId === workspace.containerTabId
+          );
+        } catch (e) {
+          console.warn('ZenWorkspaces: Error setting container color', e);
+        }
         if (containerGroup) {
           element.classList.add('identity-color-' + containerGroup.color);
           element.setAttribute('data-usercontextid', containerGroup.userContextId);
@@ -668,7 +676,6 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
         if (this.isReorderModeOn(browser)) {
           element.setAttribute('draggable', 'true');
         }
-
         element.addEventListener(
           'dragstart',
           function (event) {
@@ -1426,6 +1433,7 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
       default: isDefault,
       icon: icon,
       name: name,
+      theme: ZenThemePicker.getTheme([]),
     };
     this._prepareNewWorkspace(window);
     return window;
@@ -1438,6 +1446,7 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
     let workspaceData = this._createWorkspaceData(name, isDefault, icon);
     await this.saveWorkspace(workspaceData);
     await this.changeWorkspace(workspaceData);
+    return workspaceData;
   }
 
   async onTabBrowserInserted(event) {

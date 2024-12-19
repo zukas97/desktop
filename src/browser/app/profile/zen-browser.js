@@ -400,6 +400,8 @@ pref("browser.newtabpage.activity-stream.telemetry", false, locked);
 pref("browser.ping-centre.telemetry", false);
 pref("browser.attribution.enabled", false);
 pref("toolkit.telemetry.pioneer-new-studies-available", false);
+pref("app.normandy.enabled", false);
+pref("app.normandy.api_url", "");
 
 // Common UI changes
 pref("browser.privatebrowsing.vpnpromourl", "", locked);

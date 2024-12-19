@@ -92,7 +92,6 @@
       this.initContextMenu();
       this.initThemePicker();
 
-
       this._hasInitialized = true;
       this.onDarkModeChange(null);
     }
@@ -521,10 +520,10 @@
       return `linear-gradient(${this.currentRotation}deg, ${themedColors.map(color => this.getSingleRGBColor(color, forToolbar)).join(', ')})`;
     }
 
-    getTheme(colors, opacity = 0.5, rotation = 45, texture = 0) {
+    static getTheme(colors = [], opacity = 0.5, rotation = 45, texture = 0) {
       return {
         type: 'gradient',
-        gradientColors: colors.filter(color => color), // remove undefined
+        gradientColors: colors ? colors.filter(color => color) : [], // remove undefined
         opacity,
         rotation,
         texture,
@@ -723,7 +722,7 @@
         const isCustom = dot.classList.contains('custom');
         return {c: isCustom ? color : color.match(/\d+/g).map(Number), isCustom};
       });
-      const gradient = this.getTheme(colors, this.currentOpacity, this.currentRotation, this.currentTexture);
+      const gradient = ZenThemePicker.getTheme(colors, this.currentOpacity, this.currentRotation, this.currentTexture);
       let currentWorkspace = await ZenWorkspaces.getActiveWorkspace();
 
       if(!skipSave) {

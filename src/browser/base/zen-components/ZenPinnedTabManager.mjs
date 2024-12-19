@@ -71,9 +71,6 @@
     }
 
     async _refreshPinnedTabs(currentWorkspace,{ init = false } = {}) {
-      if(init) {
-        await ZenPinnedTabsStorage.init();
-      }
       await this._initializePinsCache();
       await this._initializePinnedTabs(init,currentWorkspace);
     }
