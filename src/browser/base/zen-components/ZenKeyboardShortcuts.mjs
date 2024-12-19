@@ -66,6 +66,7 @@ const defaultKeyboardGroups = {
     'zen-search-find-again-shortcut-prev',
   ],
   pageOperations: [
+    'zen-text-action-copy-url-shortcut',
     'zen-location-open-shortcut',
     'zen-location-open-shortcut-alt',
     'zen-save-page-shortcut',
@@ -702,7 +703,7 @@ function zenGetDefaultShortcuts() {
 }
 
 class ZenKeyboardShortcutsVersioner {
-  static LATEST_KBS_VERSION = 5;
+  static LATEST_KBS_VERSION = 6;
 
   constructor() {}
 
@@ -819,6 +820,21 @@ class ZenKeyboardShortcutsVersioner {
           KeyShortcutModifiers.fromObject({ alt: true }),
           'code:gZenVerticalTabsManager.toggleExpand()',
           'zen-sidebar-shortcut-toggle'
+        )
+      );
+    }
+    if (version < 6) {
+      // Migrate from 5 to 6
+      // In this new version, we add the "Copy URL" shortcut to the default shortcuts
+      data.push(
+        new KeyShortcut(
+          'zen-copy-url',
+          'C',
+          '',
+          ZEN_OTHER_SHORTCUTS_GROUP,
+          KeyShortcutModifiers.fromObject({ accel: true, shift: true }),
+          'code:gZenCommonActions.copyCurrentURLToClipboard()',
+          'zen-text-action-copy-url-shortcut'
         )
       );
     }

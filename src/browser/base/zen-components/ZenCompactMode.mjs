@@ -152,7 +152,7 @@ var gZenCompactModeManager = {
         }
 
         window.requestAnimationFrame(() => {
-          this.sidebar.style.transition = "margin .3s ease, transform .3s ease, opacity .3s ease";
+          this.sidebar.style.transition = "margin .3s ease, transform .275s ease, opacity .3s ease";
           // we are in compact mode and we are exiting it
           if (!this.sidebarIsOnRight) {
             this.sidebar.style.marginLeft = "0";

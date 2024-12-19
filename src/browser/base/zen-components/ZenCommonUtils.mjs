@@ -53,3 +53,27 @@ class ZenPreloadedFeature {
     document.addEventListener('MozBeforeInitialXULLayout', initBound, { once: true });
   }
 }
+
+var gZenCommonActions = {
+  copyCurrentURLToClipboard() {
+    const currentUrl = gBrowser.currentURI.spec;
+    if (currentUrl) {
+      let str = Cc["@mozilla.org/supports-string;1"].createInstance(
+        Ci.nsISupportsString
+      );
+      str.data = currentUrl;
+      let transferable = Cc[
+        "@mozilla.org/widget/transferable;1"
+      ].createInstance(Ci.nsITransferable);
+      transferable.init(getLoadContext());
+      transferable.addDataFlavor("text/plain");
+      transferable.setTransferData("text/plain", str);
+      Services.clipboard.setData(
+        transferable,
+        null,
+        Ci.nsIClipboard.kGlobalClipboard
+      );
+      ConfirmationHint.show(document.getElementById("PanelUI-menu-button"), "zen-copy-current-url-confirmation");
+    }
+  }
+};
