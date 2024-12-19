@@ -592,8 +592,8 @@ jobs:
           commit_user_email: zen-browser-auto@users.noreply.github.com
           repository: ./flatpak
 
-      - name: Wait 4 minutes for the Flatpak repo to update
-        run: sleep 240
+      - name: Wait 2 minutes for the Flatpak repo to update
+        run: sleep 120
 
   release-flatpak:
     if: ${{ inputs.create_release && inputs.update_branch == 'beta' }}
