@@ -174,9 +174,9 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
       if (Math.abs(delta) < scrollThreshold) return;
 
       // Determine scroll direction
-      let direction = delta > 0 ? -1 : 1;
+      let direction = delta > 0 ? 1 : -1;
       if (this.naturalScroll) {
-        direction = delta > 0 ? 1 : -1;
+        direction = delta > 0 ? -1 : 1;
       }
 
       // Workspace logic
@@ -261,9 +261,9 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
 
     // Determine swipe direction based on cumulative delta
     if (Math.abs(this._swipeState.cumulativeDelta) > 0.25) {
-      this._swipeState.direction = this._swipeState.cumulativeDelta > 0 ? 'right' : 'left';
+      this._swipeState.direction = this._swipeState.cumulativeDelta > 0 ? 'left' : 'right';
       if (this.naturalScroll){
-        this._swipeState.direction = this._swipeState.cumulativeDelta > 0 ? 'left' : 'right';
+        this._swipeState.direction = this._swipeState.cumulativeDelta > 0 ? 'right' : 'left';
       }
     }
 
