@@ -239,7 +239,7 @@ pref('browser.migrate.opera.enabled', true);
 // pref('network.trr.mode', 5);
 
 // security: They must enable this themselves, to avoid people downloading malware
-//pref('xpinstall.signatures.required', false);
+pref('xpinstall.signatures.required', false);
 
 // Experimental Zen Features
 // Strategy to use for bytecode cache (Thanks https://github.com/gunir)
@@ -296,7 +296,7 @@ pref("general.smoothScroll.msdPhysics.motionBeginSpringConstant", 600);
 pref("general.smoothScroll.msdPhysics.regularSpringConstant", 650);
 pref("general.smoothScroll.msdPhysics.slowdownMinDeltaMS", 25);
 pref("general.smoothScroll.msdPhysics.slowdownSpringConstant", 250);
-pref("mousewheel.default.delta_multiplier_y", 300);
+pref("mousewheel.default.delta_multiplier_y", 200);
 #endif
 
 #if defined(XP_WIN)
@@ -346,7 +346,7 @@ pref("media.hardware-video-decoding.enabled", true);
 pref("layers.gpu-process.enabled", true);
 
 // VAAPI/FFMPEG is Linux only
-#ifdef XP_UNIX
+#ifdef UNIX_BUT_NOT_MAC
 pref('media.ffmpeg.vaapi.enabled', true);
 pref('media.ffmpeg.encoder.enabled', true);
 #endif
