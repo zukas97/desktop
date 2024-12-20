@@ -124,7 +124,7 @@
     transition: all 0.2s;
   }
 
-  #blocked-permissions-container {
+  #identity-permission-box > *:not(#permissions-granted-icon) {
     visibility: collapse;
   }
 
