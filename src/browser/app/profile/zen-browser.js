@@ -403,6 +403,12 @@ pref("toolkit.telemetry.pioneer-new-studies-available", false);
 pref("app.normandy.enabled", false);
 pref("app.normandy.api_url", "");
 
+// Fullscreen notice
+pref("full-screen-api.transition-duration.enter", "0 0");
+pref("full-screen-api.transition-duration.leave", "0 0");
+pref("full-screen-api.warning.delay", -1);
+pref("full-screen-api.warning.timeout", 0);
+
 // Common UI changes
 pref("browser.privatebrowsing.vpnpromourl", "", locked);
 pref("extensions.getAddons.showPane", false);
