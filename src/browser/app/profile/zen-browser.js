@@ -400,8 +400,9 @@ pref("browser.newtabpage.activity-stream.telemetry", false, locked);
 pref("browser.ping-centre.telemetry", false);
 pref("browser.attribution.enabled", false);
 pref("toolkit.telemetry.pioneer-new-studies-available", false);
-pref("app.normandy.enabled", false);
-pref("app.normandy.api_url", "");
+pref("app.shield.optoutstudies.enabled", false, locked);
+pref("app.normandy.enabled", false, locked);
+pref("app.normandy.api_url", "", locked);
 
 // Fullscreen notice
 pref("full-screen-api.transition-duration.enter", "0 0");
