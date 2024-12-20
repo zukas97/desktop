@@ -124,6 +124,10 @@
     transition: all 0.2s;
   }
 
+  #blocked-permissions-container {
+    visibility: collapse;
+  }
+
   #urlbar[open] :is(#tracking-protection-icon-container, .urlbar-page-action),
   #urlbar:hover :is(#tracking-protection-icon-container, .urlbar-page-action),
   .urlbar-page-action[open],

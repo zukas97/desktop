@@ -57,7 +57,7 @@ var gZenThemesImporter = new (class {
 
     try {
       window.SessionStore.promiseInitialized.then(async () => {
-        if (Services.prefs.getBoolPref('zen.themes.disable-all', false)) {
+        if (Services.prefs.getBoolPref('zen.themes.disable-all', false) || Services.appinfo.inSafeMode) {
           console.log('[ZenThemesImporter]: Disabling all themes.');
           return;
         }
