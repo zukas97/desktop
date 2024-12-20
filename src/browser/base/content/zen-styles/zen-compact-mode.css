@@ -33,7 +33,7 @@
 
       #navigator-toolbox {
         --zen-toolbox-max-width: 64px !important;
-        --zen-compact-float: calc(var(--zen-element-separation) - 1px);
+        --zen-compact-float: var(--zen-element-separation);
 
         &:not([animate='true']) {
           position: absolute;
@@ -118,9 +118,9 @@
           transition: transform 0.25s ease;
           opacity: 1;
 
-          transform: translateX(calc(100% - var(--zen-element-separation) - 1px));
+          transform: translateX(calc(100% - var(--zen-compact-float)));
           :root[zen-right-side='true'] & {
-            transform: translateX(calc(-100% + var(--zen-element-separation) + 1px));
+            transform: translateX(calc(-100% + var(--zen-compact-float)));
           }
         }
       }
