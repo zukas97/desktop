@@ -44,4 +44,5 @@ jobs:
       with:
         title: Monthly issue metrics report
         content-filepath: ./issue_metrics.md
-        assignees: mr-cheff
+        token: ${{ secrets.DEPLOY_KEY }}
+        assignees: zen-browser-auto
