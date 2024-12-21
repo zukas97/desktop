@@ -38,6 +38,10 @@ Zen is currently built using firefox version `133.0.3`! 🚀
 
 Zen is an open-source project, and we welcome contributions from the community! Please take a look at the [contribution guidelines](./docs/contribute.md) before getting started!
 
+### Issue metrics
+
+We keep track of how many issues are closed at the end of the month in [issue_metrics.md](issue_metrics.md). This is to keep track of how many issues are being closed, because who doesn't like to see progress? 📈
+
 ### Versioning
 
 Zen uses [Semantic Versioning](https://semver.org/) for versioning. Meaning, versions are displayed as `a.b.c-d.e` where:

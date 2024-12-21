@@ -11,6 +11,11 @@ jobs:
 
     steps:
 
+    - name: Checkout code
+      uses: actions/checkout@v2
+      with:
+        token: ${{ secrets.DEPLOY_KEY }}
+
     - name: Get dates for last month
       shell: bash
       run: |
@@ -39,10 +44,9 @@ jobs:
         GH_TOKEN: ${{ secrets.DEPLOY_KEY }}
         SEARCH_QUERY: 'repo:zen-browser/desktop is:issue created:${{ env.last_month }} -reason:"not planned"'
 
-    - name: Create issue
-      uses: peter-evans/create-issue-from-file@v4
+    - name: Commit changes
+      uses: stefanzweifel/git-auto-commit-action@v5
       with:
-        title: Monthly issue metrics report
-        content-filepath: ./issue_metrics.md
-        token: ${{ secrets.DEPLOY_KEY }}
-        assignees: zen-browser-auto
+        commit_message: 'Update monthly issue metrics'
+        commit_user_name: Zen Browser Robot
+        commit_user_email: zen-browser-auto@users.noreply.github.com
