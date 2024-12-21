@@ -37,12 +37,22 @@ jobs:
 
         echo "$first_day..$last_day"
         echo "last_month=$first_day..$last_day" >> "$GITHUB_ENV"
+        echo "last_month_year=$previous_year" >> "$GITHUB_ENV"
 
     - name: Run issue-metrics tool
       uses: github/issue-metrics@v2
       env:
         GH_TOKEN: ${{ secrets.DEPLOY_KEY }}
         SEARCH_QUERY: 'repo:zen-browser/desktop is:issue created:${{ env.last_month }} -reason:"not planned"'
+
+    - name: Move metrics to docs folder
+      run: |
+        mkdir -p docs/issue-metrics
+        mv issue_metrics.md docs/issue-metrics/${{ env.last_month_year }}_${{ env.last_month }}.md
+
+    - name: Remove metrisc JSON
+      run: |
+        rm -f issue_metrics.json
 
     - name: Commit changes
       uses: stefanzweifel/git-auto-commit-action@v5

@@ -40,7 +40,7 @@ Zen is an open-source project, and we welcome contributions from the community! 
 
 ### Issue metrics
 
-We keep track of how many issues are closed at the end of the month in [issue_metrics.md](issue_metrics.md). This is to keep track of how many issues are being closed, because who doesn't like to see progress? 📈
+We keep track of how many issues are closed at the end of the month in [./docs/issue-metrics](./issue-metrics). This is to keep track of how many issues are being closed, because who doesn't like to see progress? 📈
 
 ### Versioning
 
