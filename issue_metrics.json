@@ -1,0 +1,3800 @@
+{
+    "average_time_to_first_response": "5 days, 3:44:35",
+    "average_time_to_close": "12 days, 7:11:37",
+    "average_time_to_answer": "None",
+    "average_time_in_labels": {},
+    "median_time_to_first_response": "11:23:34",
+    "median_time_to_close": "4 days, 0:11:05",
+    "median_time_to_answer": "None",
+    "median_time_in_labels": {},
+    "90_percentile_time_to_first_response": "19 days, 15:32:47",
+    "90_percentile_time_to_close": "38 days, 0:55:41",
+    "90_percentile_time_to_answer": "None",
+    "90_percentile_time_in_labels": {},
+    "num_items_opened": 217,
+    "num_items_closed": 203,
+    "total_item_count": 420,
+    "issues": [
+        {
+            "title": "Empty window on start-up",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3319",
+            "author": "Milennin",
+            "time_to_first_response": "4:32:22",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Devtools don't open on expanded glance tabs",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3316",
+            "author": "tkukec",
+            "time_to_first_response": "10 days, 8:42:46",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Inability to unload multiple tabs",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3314",
+            "author": "peter34245",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "video playing windows go blank for split second",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3313",
+            "author": "Ak22836685",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Light mode makes some buttons look disabled",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3312",
+            "author": "everypizza1",
+            "time_to_first_response": "0:40:59",
+            "time_to_close": "20 days, 19:57:32",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Tabs unloading with the feature disabled",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3311",
+            "author": "vicky5124",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Default browser settings changes to firefox when i close the Zen",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3310",
+            "author": "ArshiAAkhavan",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "zen.source.tar.gz is incorrectly named, should be .tar.zst instead",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3308",
+            "author": "K1ngfish3r",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Tab temporarely is compacted to the width of my sidebar before loading in when switching from a split-view",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3307",
+            "author": "TheDavenk",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Pre-assigned url to a container, and associate a container to a workspace, but that chain is broken",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3306",
+            "author": "vraravam",
+            "time_to_first_response": "None",
+            "time_to_close": "9 days, 21:18:59",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Hiding tab bar not working anymore and getting nulls next to the previous page button",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3305",
+            "author": "tonne96",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Tabs On Right Buggy when enabled in compact mode",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3304",
+            "author": "yaswanth2410",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Accent colors nigh invisible in light mode",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3303",
+            "author": "kittybwained",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "PLEASE HELP: Zen Remotly unusable and Twilight lost gradient",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3302",
+            "author": "Anoms12",
+            "time_to_first_response": "5:03:09",
+            "time_to_close": "16 days, 7:38:38",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "workplace sites behind worplace VPN get Blocked",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3301",
+            "author": "sbatchelder",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Browser defaults to light mode even when the system prefers light mode",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3300",
+            "author": "everypizza1",
+            "time_to_first_response": "21 days, 3:19:32",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Memory Leaks in 1.0.1-a.22 making the broswer fill up all my RAM hanging my PC which only fixes by hard restart",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3299",
+            "author": "ishan-parihar",
+            "time_to_first_response": "3 days, 21:32:38",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Custom keyboard shortcuts lost",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3298",
+            "author": "davidmickelsen",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Content of Office 365 Word becomes unfocused when zoomed in while in Split Mode",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3297",
+            "author": "fjtluz",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Color bug on dark mode",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3296",
+            "author": "zynnowk",
+            "time_to_first_response": "11 days, 22:50:45",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Incorrect websites display after toggle letterboxing parameter",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3295",
+            "author": "baltic-tea",
+            "time_to_first_response": "16 days, 6:36:16",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Tab completely loses interactivity (mouse & keyboard) and is only returned on page refresh",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3291",
+            "author": "michaelpulis",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Linux ARM64 builds missing from latest release",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3290",
+            "author": "Botspot",
+            "time_to_first_response": "17:56:01",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Sidebar issue",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3288",
+            "author": "Xhenzu",
+            "time_to_first_response": "2:52:05",
+            "time_to_close": "22 days, 20:19:16",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Latest Linux builds 1.0.1-a.21+ doesn't respect Light mode.",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3285",
+            "author": "englut",
+            "time_to_first_response": "None",
+            "time_to_close": "0:51:58",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Search Autocomplete Overlapping with Page Content in Zen Browser",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3282",
+            "author": "MRsuffixx",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Popup window not completely displaying in Zen, but fully displays in Fire Fox",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3281",
+            "author": "Cliff411",
+            "time_to_first_response": "2:52:03",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "[Bug] On latest twilight(2024-11-28) colapsed sidebar makes icon overlap on the URL bar",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3280",
+            "author": "Tymon3310",
+            "time_to_first_response": "None",
+            "time_to_close": "4 days, 0:11:05",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "system crash on arch linux + radeon vga",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3278",
+            "author": "thumDer",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "cant type in any website that has a type here to search at the top",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3276",
+            "author": "zmepe",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "I cant collapse my sidebar",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3275",
+            "author": "Daniel10013",
+            "time_to_first_response": "0:08:42",
+            "time_to_close": "2:43:33",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Release `1.0.1-a.22` running Firefox 132",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3274",
+            "author": "lizclipse",
+            "time_to_first_response": "0:25:02",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "release `1.0.1-a.22` for `mac intel`:  download page return 404, due to wrong href in zen downloads page",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3272",
+            "author": "tresorama",
+            "time_to_first_response": "12 days, 4:50:54",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Floating History broken after update ?",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3270",
+            "author": "DroidZed",
+            "time_to_first_response": "None",
+            "time_to_close": "0:05:50",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Full screen bug",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3269",
+            "author": "rajath-2",
+            "time_to_first_response": "20 days, 15:03:49",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Font Rendering on Google Sheets",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3268",
+            "author": "MikeLBN",
+            "time_to_first_response": "12 days, 14:12:01",
+            "time_to_close": "19 days, 0:20:28",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Compact mode is not compact",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3264",
+            "author": "alox92",
+            "time_to_first_response": "23 days, 9:54:59",
+            "time_to_close": "23 days, 9:54:59",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Cannot move browser window with flexible spaces on left side of search bar",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3263",
+            "author": "chryan",
+            "time_to_first_response": "None",
+            "time_to_close": "4 days, 17:29:57",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "First page after running the app ",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3262",
+            "author": "Rashed-alothman",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "[Bug] Viewport renders over the URL menu?",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3261",
+            "author": "antikovt",
+            "time_to_first_response": "0:59:55",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "XDG Base Directory Specification Path in Linux",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3260",
+            "author": "JasonJasu",
+            "time_to_first_response": "14 days, 15:59:29",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "The window control buttons have moved to the right (macOS)",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3258",
+            "author": "mastaka",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "New update broke Everything",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3257",
+            "author": "ocean-mars",
+            "time_to_first_response": "0:18:25",
+            "time_to_close": "4:39:41",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Please back collapsable side bar !!!!!",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3256",
+            "author": "egmtncakgn",
+            "time_to_first_response": "0:12:30",
+            "time_to_close": "7:02:35",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "the left side of the screen is blank",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3254",
+            "author": "Lemgraph",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Essential Tab Changing Workspaces when Opened",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3252",
+            "author": "r4yfon",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Sidebar Problem",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3250",
+            "author": "AhmetG-0033",
+            "time_to_first_response": "0:03:30",
+            "time_to_close": "23 days, 12:56:20",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "null on the left side of the window control on Mac",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3249",
+            "author": "patrick330602",
+            "time_to_first_response": "0:02:08",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Switched labels on settings",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3248",
+            "author": "oVerde",
+            "time_to_first_response": "0:06:57",
+            "time_to_close": "0:06:57",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Massive performance tank",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3246",
+            "author": "keplerHaloxx",
+            "time_to_first_response": "1:29:20",
+            "time_to_close": "1:29:20",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Cannot move windows by clicking on empty space",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3245",
+            "author": "neonfuz",
+            "time_to_first_response": "1:44:27",
+            "time_to_close": "1:44:27",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Appearance on macOS Looks Strange",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3244",
+            "author": "chlorine3545",
+            "time_to_first_response": "0:28:34",
+            "time_to_close": "23 days, 15:40:51",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Search bar being cutoff",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3243",
+            "author": "keplerHaloxx",
+            "time_to_first_response": "1:03:06",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Google Docs letters gibberish",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3241",
+            "author": "ihatepolo",
+            "time_to_first_response": "4:10:57",
+            "time_to_close": "23 days, 14:35:43",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "URL bar still appears in Compact Mode after all elements have been hidden",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3240",
+            "author": "abhigyantrips",
+            "time_to_first_response": "0:34:25",
+            "time_to_close": "8 days, 8:10:56",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Clearkey plugin crashed!!",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3239",
+            "author": "rvsmooth",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "PDF viewer renders text incorrectly",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3238",
+            "author": "Robot-Inventor",
+            "time_to_first_response": "12 days, 12:34:48",
+            "time_to_close": "19 days, 11:38:32",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "what is \"null\"?",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3237",
+            "author": "MishonChen",
+            "time_to_first_response": "2:13:43",
+            "time_to_close": "6:20:47",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Sidebar width is removed",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3236",
+            "author": "ShakeSphereStuff",
+            "time_to_first_response": "2:41:50",
+            "time_to_close": "23 days, 19:38:09",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Audio problem in videos and music after update",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3235",
+            "author": "universish",
+            "time_to_first_response": "None",
+            "time_to_close": "0:47:20",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "There are multiple virtual desktops, and some bugs may occur when creating windows.",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3234",
+            "author": "humid1ch",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Sync and save data - Sign In NOT WORKING - Bad Request",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3233",
+            "author": "Marc-GH",
+            "time_to_first_response": "12 days, 8:18:24",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Feedback on UI Glitches and Text Display Issues",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3232",
+            "author": "FrancisMorelli",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Clicking on pinned tab does not let sidebar collapse until defocus",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3231",
+            "author": "lamteteeow",
+            "time_to_first_response": "None",
+            "time_to_close": "8 days, 11:49:33",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Overflow indicators in the tab bar have become aggressive",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3230",
+            "author": "different55",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "URL bar always visible bug",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3229",
+            "author": "lamteteeow",
+            "time_to_first_response": "None",
+            "time_to_close": "8 days, 12:36:45",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Sidebar buttons are bugged",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3227",
+            "author": "hsvfan-jan",
+            "time_to_first_response": "0:07:17",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Major performance impact due to rounded corners implementation (laggy scrolling)",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3221",
+            "author": "Manut38",
+            "time_to_first_response": "8:49:14",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Container name mis-aligned in the address bar",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3219",
+            "author": "vraravam",
+            "time_to_first_response": "None",
+            "time_to_close": "13 days, 0:06:59",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "'null' showing up on the top address bar",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3218",
+            "author": "vraravam",
+            "time_to_first_response": "8:55:52",
+            "time_to_close": "13 days, 0:08:59",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "recent update (i suppose) deleted some data",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3216",
+            "author": "littleapple-juice",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "When 'Take Screenshot' dialog is open 'Save Full Page' option is out of screen",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3214",
+            "author": "patrikkaprinay",
+            "time_to_first_response": "5:12:23",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Bug #2479 (unable to open tabs after sleep) reoccurred on latest version (a19/22)",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3210",
+            "author": "Ai-Ya-Ya",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Potential Memory leak in Zen Browser",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3209",
+            "author": "RABINGG",
+            "time_to_first_response": "24 days, 2:58:56",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Sidebar Music Playback Resets Upon Reopening Sidebar After Recent Update",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3208",
+            "author": "kpramesh2212",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "[Twilight] Top Margin Missing in Browser",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3207",
+            "author": "amtoaer",
+            "time_to_first_response": "7:08:57",
+            "time_to_close": "7 days, 11:49:39",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Twitch error 4000 and unable to play certain Youtube videos",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3205",
+            "author": "rmltrs",
+            "time_to_first_response": "5 days, 1:17:17",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Zen missing \"Refresh Firefox\" equivalent option in about:support",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3203",
+            "author": "dewantawsif",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "New tab from new windows or forced new tabs do not match the selected extension new tab.",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3201",
+            "author": "RabbyDevs",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "[Twilight] Pinned Extensions are missing in the single the new zen.view.use-single-toolbar",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3200",
+            "author": "RabbyDevs",
+            "time_to_first_response": "6 days, 15:05:03",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Open Zen on Start Up Pop-Up Misaligned",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3199",
+            "author": "dev-adal",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Zen Setting lost on update - expand tabs",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3198",
+            "author": "MemQu",
+            "time_to_first_response": "2 days, 12:53:11",
+            "time_to_close": "26 days, 9:26:10",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "mute button is ugly",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3197",
+            "author": "ArsNovaHHS",
+            "time_to_first_response": "0:07:40",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Print tab rendered incorrectly.",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3195",
+            "author": "Spontini",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "No Pre-release for macOS Intel Chips (Twlight)",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3192",
+            "author": "DevSnyco",
+            "time_to_first_response": "None",
+            "time_to_close": "6 days, 23:21:56",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Extension tab asks if I want to close all tabs on close",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3189",
+            "author": "phibkro",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Recent activity disappears",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3187",
+            "author": "array",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "split second black screen while playing youtube video",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3185",
+            "author": "Ak22836685",
+            "time_to_first_response": "None",
+            "time_to_close": "2 days, 14:59:14",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Can't see full photo on X (Twitter)",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3184",
+            "author": "Cocolin67",
+            "time_to_first_response": "1 day, 20:30:29",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "No more movement on the screen",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3181",
+            "author": "MIINII",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Pinned unloaded tabs showing only on hover when tabs aren't expanded in sidebar",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3180",
+            "author": "peter34245",
+            "time_to_first_response": "None",
+            "time_to_close": "27 days, 4:07:47",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Search Item Causes Overflow In Compact Toolbar",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3178",
+            "author": "dtsouchlakis",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Google Meet Zoom and Whatsapp Bugs",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3175",
+            "author": "urizennnn",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "\"Change Theme Colors\" menu is cut off",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3174",
+            "author": "gravityfargo",
+            "time_to_first_response": "2 days, 14:56:50",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Scrolling tabs with mouse wheel on Compact mode",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3172",
+            "author": "mia-3d",
+            "time_to_first_response": "18 days, 12:44:08",
+            "time_to_close": "27 days, 21:37:29",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Unable to see the list of open tabs with max pinned tabs in small window sizes",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3171",
+            "author": "fabioatcorreia",
+            "time_to_first_response": "2:36:00",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Closing window with multiple instances of the browser doesn't close on macOS",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3165",
+            "author": "mikeckennedy",
+            "time_to_first_response": "27 days, 19:16:24",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "While watching a video on YouTube, a pink thing suddenly appears and disappears.",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3164",
+            "author": "ulughbeg1336",
+            "time_to_first_response": "2 days, 20:44:54",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "App crashes when logging in to google from youtube",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3163",
+            "author": "EmreCogac",
+            "time_to_first_response": "19 days, 3:49:34",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Hand Gesture Swipe on Sidebar Switches Multiple Spaces Instead of One",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3162",
+            "author": "DhananjayPorwal",
+            "time_to_first_response": "3 days, 17:50:35",
+            "time_to_close": "3 days, 17:50:35",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Unresponsive for couple of seconds",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3161",
+            "author": "maloun96",
+            "time_to_first_response": "3 days, 15:33:30",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Disabling Workspaces from Settings causes a gap to occur above tabs",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3160",
+            "author": "sid3425",
+            "time_to_first_response": "1 day, 13:27:49",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "weird color bug after logging in with mozilla account",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3159",
+            "author": "pokemaster700",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Compact mode hides sidebar on all windows instead of just the current one",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3156",
+            "author": "jabuxas",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Browser window doesn't close after completing a pop up",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3155",
+            "author": "jabuxas",
+            "time_to_first_response": "7:22:57",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Workspace scrolling not working properly",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3153",
+            "author": "Enes5519",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Answering a Google Fi call crashes the tab",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3151",
+            "author": "neogeographica",
+            "time_to_first_response": "30 days, 4:30:34",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Unable to use roughly 1/2 of the screen in Zen Twilight",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3148",
+            "author": "Anoms12",
+            "time_to_first_response": "None",
+            "time_to_close": "8 days, 2:23:54",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Side Panels Theme Color Bleeding into Web Pages Without Specified Background Color (Transparent) in it's CSS.",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3147",
+            "author": "nijin26",
+            "time_to_first_response": "2 days, 1:17:05",
+            "time_to_close": "3 days, 23:05:43",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Expand Sidebar Missing On Zen Twilight",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3146",
+            "author": "Anoms12",
+            "time_to_first_response": "None",
+            "time_to_close": "1 day, 5:14:44",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Refine auto-open Picture-in-Picture (PiP) Behavior to Exclude Background Video Elements",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3145",
+            "author": "phrechu",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Browser freezes after changing some keyboard shortcuts",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3142",
+            "author": "JivenTimsina",
+            "time_to_first_response": "None",
+            "time_to_close": "1 day, 6:12:57",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "expand on hover: Tab bar (sometimes) stays expanded on top of the rest without contracting again",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3141",
+            "author": "giaaaacomo",
+            "time_to_first_response": "30 days, 13:42:55",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Crashes everytime during google login",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3140",
+            "author": "ress-rifu",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Sync suggests getting the Zen mobile app",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3137",
+            "author": "MiniGod",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Periodic flashing",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3136",
+            "author": "CarsonBurke",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Extreme zoom",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3134",
+            "author": "nikita-kostylev",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Items with `backdrop-filter` overflow roundings",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3133",
+            "author": "ghivert",
+            "time_to_first_response": "26 days, 5:16:12",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Tab crashing when loading a wav file from NotebookLM",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3129",
+            "author": "keanehatescoding",
+            "time_to_first_response": "None",
+            "time_to_close": "11 days, 20:53:22",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Workspace menu moved to left",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3128",
+            "author": "CristianSw",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Essential tabs reverting to about:blank",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3125",
+            "author": "NeekoVN",
+            "time_to_first_response": "None",
+            "time_to_close": "10:32:00",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Settings: Broken \"Unsaved shortcut! Please safe it by clicking the \"Escape\" key after retyping it.\" warning",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3124",
+            "author": "Chealer",
+            "time_to_first_response": "8 days, 23:32:39",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Does not open web pages of applications running on the web.",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3123",
+            "author": "universish",
+            "time_to_first_response": "None",
+            "time_to_close": "21 days, 14:42:28",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Initial window url not replaced",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3122",
+            "author": "AtticusHelvig",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Open in a new tab shortcut",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3119",
+            "author": "Muizzyranking",
+            "time_to_first_response": "9:08:40",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Pop-up windows add pinned tabs",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3116",
+            "author": "fillwithjoy1",
+            "time_to_first_response": "13 days, 10:56:51",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Cookie notices appear briefly, despite uBo rule",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3114",
+            "author": "CutterXYZ",
+            "time_to_first_response": "30 days, 19:55:38",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "if a tab is pinned then moved to essentials on startup its data is lost",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3112",
+            "author": "neurokitti",
+            "time_to_first_response": "1 day, 21:55:13",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "About gfx.webrender.all",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3110",
+            "author": "redactedontop",
+            "time_to_first_response": "2:31:25",
+            "time_to_close": "1 day, 0:05:30",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Problem with star-history in README.md",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3107",
+            "author": "Victor-Baert",
+            "time_to_first_response": "1 day, 12:28:26",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Login modal's callback directs to a random opened tab",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3106",
+            "author": "qu8n",
+            "time_to_first_response": "20 days, 3:16:00",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Some tabs randomly stop working entirely",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3102",
+            "author": "mcmerdith",
+            "time_to_first_response": "9:36:03",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Firefox Multi-Account Containers Extension not working in mac",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3101",
+            "author": "vankitsh",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Appimaged Fails to Register Zen",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3100",
+            "author": "jnnkB",
+            "time_to_first_response": "1 day, 17:34:50",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Split tabs not saved correctly",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3098",
+            "author": "Heinrich-XIAO",
+            "time_to_first_response": "31 days, 18:30:47",
+            "time_to_close": "31 days, 18:30:47",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "shield icon not aligned properly",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3097",
+            "author": "harshahuja49",
+            "time_to_first_response": "21 days, 9:55:19",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "When opening new window from taskbar tasks, the URL bar is visually focused but does not work",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3096",
+            "author": "MWPSBCID",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "when in compact mode, sidebar open when ever tab change or new tab",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3092",
+            "author": "ryannewcomer",
+            "time_to_first_response": "None",
+            "time_to_close": "0:11:15",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Essential Tabs and session are not restored when exited (macOS)",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3090",
+            "author": "rohan-kiratsata",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "All bookmark pages are open when startup",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3089",
+            "author": "DirkFi",
+            "time_to_first_response": "None",
+            "time_to_close": "8 days, 8:54:11",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Pages have a transparent background instead of white",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3087",
+            "author": "CritLoren",
+            "time_to_first_response": "10:59:23",
+            "time_to_close": "0:05:31",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "1.0.1-a19 Seems to Prevent Laptop from Going to Sleep (Intel MBP, Sequoia 15.1 and 15.2beta)",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3086",
+            "author": "trlinden",
+            "time_to_first_response": "None",
+            "time_to_close": "12:21:38",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Zen not showing in gnome on arch",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3085",
+            "author": "claymorwan",
+            "time_to_first_response": "1 day, 10:36:06",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Websites that dont specify `body` colour become unreadable due to default background colour",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3084",
+            "author": "nmzein",
+            "time_to_first_response": "None",
+            "time_to_close": "0:53:08",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Disabled right click menu on changing tab workspace",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3083",
+            "author": "sndev28",
+            "time_to_first_response": "1:07:26",
+            "time_to_close": "33 days, 15:08:53",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Can't Login to Pocket",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3081",
+            "author": "CrossScarDev",
+            "time_to_first_response": "9 days, 6:48:30",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Cannot bind shortcut to ctrl+1",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3080",
+            "author": "seasonalmatcha",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Zen crashes when trying to upload file to a website",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3079",
+            "author": "TheJolman",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Keyboard shortcut Order",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3078",
+            "author": "Heinrich-XIAO",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "SSL Certificate and Local Host",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3077",
+            "author": "SheepDomination",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Sidebar hover expansion interferes with notification",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3075",
+            "author": "jwueller",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Certificate issue on Discord's website when using Zen Browser",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3074",
+            "author": "ulughbeg1336",
+            "time_to_first_response": "None",
+            "time_to_close": "0:05:03",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Bookmark icon on the address bar become not clickable when keyboard shortcut Bookmark This Page deleted",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3073",
+            "author": "JER-ry",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Zen Mods doesen't work",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3071",
+            "author": "caramel-gg",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Workspacetabs closing when opening another window from other workspace",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3070",
+            "author": "Kuttesch",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "right click -open a new window cost lots time",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3069",
+            "author": "fishyo",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "When logging in with google to reddit in the small opened window one of my pinned tabs opens",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3065",
+            "author": "BlueFox1616",
+            "time_to_first_response": "None",
+            "time_to_close": "14 days, 3:56:19",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Switching between workspaces causes the focussed tab to be changed",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3063",
+            "author": "vraravam",
+            "time_to_first_response": "3 days, 1:06:30",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Workspace selector icon is faded as if it's unloaded when sidebar is collapsed",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3062",
+            "author": "InterstellarOne",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "side panel padding is wack",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3061",
+            "author": "neurokitti",
+            "time_to_first_response": "1 day, 16:10:23",
+            "time_to_close": "1 day, 16:10:23",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Unexpected New Window Behaviour With Tabliss/Bonjourr",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3060",
+            "author": "Sinhran",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "(MacOS) In compact mode, i can barely open zed's top bar",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3058",
+            "author": "eatenpancreas",
+            "time_to_first_response": "None",
+            "time_to_close": "0:07:49",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Essential Tabs & Pinned workspace tabs behave fishy in multi-window scenarios",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3057",
+            "author": "bdbch",
+            "time_to_first_response": "19:49:11",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "\"Pop up tabs\" seem to open random tabs when they are no longer needed.",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3055",
+            "author": "RabbyDevs",
+            "time_to_first_response": "3:33:13",
+            "time_to_close": "2 days, 1:29:43",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Tabs crashing in Twilight due to extensions such as Bitwarden.",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3054",
+            "author": "RabbyDevs",
+            "time_to_first_response": "1:07:25",
+            "time_to_close": "9 days, 0:24:11",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Rounded viewport corners are not rounded on some websites",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3053",
+            "author": "georg-stone",
+            "time_to_first_response": "17 days, 19:58:04",
+            "time_to_close": "34 days, 15:06:53",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "unpinned sidebar's postion resets after every startup",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3052",
+            "author": "spectrum705",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "sometimes i get workspace switch animation while opening/closing tab",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3051",
+            "author": "spectrum705",
+            "time_to_first_response": "0:33:22",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "[TWILIGHT] Bookmark Bar Forcing Tabs Max Size",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3050",
+            "author": "Anoms12",
+            "time_to_first_response": "None",
+            "time_to_close": "29 days, 22:25:20",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Spell Checker Not Working for Languages Other Than English in Zen Browser",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3049",
+            "author": "FrancoStino",
+            "time_to_first_response": "17:10:52",
+            "time_to_close": "1 day, 20:34:08",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "window background totally messed up aafter setting theme color [ websites which doesn't specify a background color and uses default css i guess ]",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3047",
+            "author": "janardannn",
+            "time_to_first_response": "2:18:48",
+            "time_to_close": "3:08:35",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Switching tabs to a different workspace is causing the sidebar to freeze",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3046",
+            "author": "oasido",
+            "time_to_first_response": "7 days, 23:34:11",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Unable to enable desktop notifications on side panel",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3045",
+            "author": "mokazemi",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Missing Downloads Button and No Download Popup Notification",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3044",
+            "author": "ItsTatsuya",
+            "time_to_first_response": "8:14:40",
+            "time_to_close": "1 day, 22:07:00",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Cannot acquire geolocation",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3043",
+            "author": "nrayamajhee",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "the hover menu has inconsistent behavior with drop down menu",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3041",
+            "author": "neurokitti",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Sidebar (for tabs) with different sizes for elements whille expanding",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3040",
+            "author": "quxer",
+            "time_to_first_response": "5 days, 15:38:10",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "All Zen Mods disappeared",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3038",
+            "author": "notSagyo",
+            "time_to_first_response": "None",
+            "time_to_close": "0:19:27",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Enabled new tab settings controls are invisible until you mouse over them",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3037",
+            "author": "Smooth-E",
+            "time_to_first_response": "1 day, 5:50:58",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Full browser overflows",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3036",
+            "author": "BramLeisink",
+            "time_to_first_response": "22 days, 11:05:26",
+            "time_to_close": "33 days, 6:20:24",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Shortcuts interfere with website-specific shortcuts",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3031",
+            "author": "tranquil-tr0",
+            "time_to_first_response": "1:00:45",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Tab Action keyboard shortcuts missing",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3030",
+            "author": "KorigamiK",
+            "time_to_first_response": "10:57:58",
+            "time_to_close": "22 days, 10:45:57",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "There is an overlap with the bookmarks sidebar and the web content",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3029",
+            "author": "neurokitti",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "YouTube player stops loading videos after 59s",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3026",
+            "author": "XSilverTH",
+            "time_to_first_response": "23 days, 17:33:10",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Transparent top bar and side panel only in prviate window",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3025",
+            "author": "SatvikUpadhyay",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Strange behaviour of Switch to tab when using pinned tabs and workspaces",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3024",
+            "author": "kakato10",
+            "time_to_first_response": "10 days, 22:59:34",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "ZEN deleted all my data",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3022",
+            "author": "kociol21",
+            "time_to_first_response": "13:07:40",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Pop-up window missing close button",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3018",
+            "author": "oerix",
+            "time_to_first_response": "0:56:22",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Bookmark Toolbar Tweaks: title bar behaves abnormally in full screen mode with \"Expand the bookmarks toolbar by hovering\" enable",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3017",
+            "author": "buidai123",
+            "time_to_first_response": "None",
+            "time_to_close": "31 days, 2:14:55",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Glance window isn't focused",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3016",
+            "author": "Abdullah16M",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Youtube video no audio",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3015",
+            "author": "Mrid-Aga",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Essentials tabs not working in new windows",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3012",
+            "author": "plankobostjan",
+            "time_to_first_response": "7 days, 6:30:43",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Spotify web player skips songs.",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3011",
+            "author": "notacodermadeaccountforreportissue",
+            "time_to_first_response": "22:49:15",
+            "time_to_close": "37 days, 2:44:01",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "[Twilight] Spamming Reload button on pinned tabs blanks it out.",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3009",
+            "author": "Shockshwat",
+            "time_to_first_response": "2 days, 4:21:56",
+            "time_to_close": "2 days, 7:19:21",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Cannot close or move pop-up login windows",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3008",
+            "author": "matined",
+            "time_to_first_response": "3:27:47",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Metamask extension does not open",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3007",
+            "author": "beeb",
+            "time_to_first_response": "None",
+            "time_to_close": "4 days, 21:58:00",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Option to disable middle click new tab",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3006",
+            "author": "RABINGG",
+            "time_to_first_response": "1 day, 17:11:54",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "[Accessibility] Hard to tell when window is focused",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3004",
+            "author": "kmandarin-orange",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Weird Pinned Tabs Behaviour",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3003",
+            "author": "88neil",
+            "time_to_first_response": "8:54:42",
+            "time_to_close": "5 days, 0:05:06",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "When using compact mode for the sidebar, sometimes there is a blank space left behind instead of the sidebar.",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3002",
+            "author": "Rimnar-1",
+            "time_to_first_response": "4:39:41",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Gap between url bar and tabs when workspaces are disabled",
+            "html_url": "https://github.com/zen-browser/desktop/issues/3001",
+            "author": "varthe",
+            "time_to_first_response": "None",
+            "time_to_close": "0:02:07",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "'Secure connection failed' error with Instagram, Threads and Facebook",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2998",
+            "author": "lumpysimon",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Resetting URL on Pinned Tabs Clears Favicon",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2997",
+            "author": "stevKalo",
+            "time_to_first_response": "1 day, 14:37:17",
+            "time_to_close": "1 day, 14:37:17",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Behaviour for Clicking \"X\" on Pinned Tab not Respecting Setting",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2994",
+            "author": "r4yfon",
+            "time_to_first_response": "1 day, 18:06:54",
+            "time_to_close": "1 day, 18:06:54",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Swaping Spaces via swiping is buggy",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2992",
+            "author": "neurokitti",
+            "time_to_first_response": "1 day, 14:30:28",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Cant drag tabs to different workspaces",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2990",
+            "author": "gambithunt",
+            "time_to_first_response": "1 day, 23:32:22",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Pinned tabs completely confused.",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2989",
+            "author": "mikedlr",
+            "time_to_first_response": "0:03:14",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Essentials get restored as pinned tabs when restored",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2988",
+            "author": "neurokitti",
+            "time_to_first_response": "None",
+            "time_to_close": "31 days, 7:01:17",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Zen hangs on startup",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2986",
+            "author": "ArikRahman",
+            "time_to_first_response": "5 days, 10:01:11",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Major: Popup windows don't close and instead open pinned/essential tab",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2985",
+            "author": "CptnFizzbin",
+            "time_to_first_response": "2:37:38",
+            "time_to_close": "21 days, 1:07:50",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "moving a tab to the workspace completely breaks the sidebar",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2980",
+            "author": "QW4D",
+            "time_to_first_response": "4:56:38",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "only the white space on the right allows to drag the window",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2977",
+            "author": "giaaaacomo",
+            "time_to_first_response": "None",
+            "time_to_close": "32 days, 3:31:10",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Essentials not keeping favicon after restarting",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2976",
+            "author": "gambithunt",
+            "time_to_first_response": "2:56:11",
+            "time_to_close": "2:56:11",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Can't open different tab while some tabs are in split view",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2973",
+            "author": "rRobis",
+            "time_to_first_response": "None",
+            "time_to_close": "17 days, 12:27:02",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Some hotkeys conflict so not working properly after open zen-browser for some time",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2972",
+            "author": "marsjane",
+            "time_to_first_response": "3 days, 10:02:03",
+            "time_to_close": "3 days, 10:02:02",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "\"Add to Essential\" is not translated into turkish.",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2967",
+            "author": "universish",
+            "time_to_first_response": "2 days, 12:24:51",
+            "time_to_close": "2 days, 12:24:51",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Tab text misaligned",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2965",
+            "author": "soufhehe",
+            "time_to_first_response": "None",
+            "time_to_close": "29 days, 2:15:41",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "synced Multi-Account Containers will log you out on another device",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2964",
+            "author": "r-tokarski",
+            "time_to_first_response": "12 days, 10:07:01",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "When sending a tab to a diferent workspace it losses right clickability",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2963",
+            "author": "neurokitti",
+            "time_to_first_response": "1 day, 23:59:18",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "When I use multiple windows, the pinned tabs don't work in the container they are supposed to work in and the pinned tabs don't synchronize with the other windows.",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2959",
+            "author": "universish",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Black line at top of browser",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2956",
+            "author": "Asidius",
+            "time_to_first_response": "10:16:39",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Tab Duplication Across Workspaces ",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2953",
+            "author": "wysh3",
+            "time_to_first_response": "1 day, 5:48:50",
+            "time_to_close": "32 days, 4:22:23",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Switching Workspaces Creates New Tab Instead of Using Pinned Tab",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2951",
+            "author": "wysh3",
+            "time_to_first_response": "7 days, 21:10:09",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Tab switches to the last tab when workspaces are changed",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2950",
+            "author": "wysh3",
+            "time_to_first_response": "2:25:11",
+            "time_to_close": "32 days, 6:22:29",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Pinning a tab upon browser startup closes the previously pinned tabs",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2949",
+            "author": "BoscoDomingo",
+            "time_to_first_response": "0:03:01",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Zen gradient color is messing with some website's background color",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2948",
+            "author": "Setsubou",
+            "time_to_first_response": "0:20:01",
+            "time_to_close": "0:58:04",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Cannot select essential tabs",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2943",
+            "author": "JSGRD22",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Grain texture isn't clipped at window corners",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2942",
+            "author": "AnthemV",
+            "time_to_first_response": "0:20:01",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Workspace emoji in list too small, cant read",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2938",
+            "author": "KoNekoD",
+            "time_to_first_response": "1:56:40",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "\"Close Window\" Shortcut is being ignored",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2936",
+            "author": "weiluntong",
+            "time_to_first_response": "11 days, 4:34:05",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Videos not respecting default Autoplay settings",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2935",
+            "author": "weiluntong",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Expanding/collapsing tabs causes overflow/resize issues",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2931",
+            "author": "jwueller",
+            "time_to_first_response": "4 days, 16:36:08",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "DRM option in settings",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2929",
+            "author": "pixelsingrey",
+            "time_to_first_response": "4:34:15",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Search Engine choice at startup does not affect incognito mode",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2925",
+            "author": "elkowar",
+            "time_to_first_response": "2:19:28",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Youtube playback dropping frames",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2914",
+            "author": "sayidabyan",
+            "time_to_first_response": "None",
+            "time_to_close": "0:52:34",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "[FEATURE REQUEST] With the feature of assigning workspaces to a website and assigning containers to a website, when we want to open the website URL, the website will open in the workspaces we assign and in the container we assign.",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2913",
+            "author": "universish",
+            "time_to_first_response": "0:18:13",
+            "time_to_close": "1 day, 0:23:30",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "[FEATURE REQUEST]  I want to be able to assign containers when creating new workspaces. Is this possible?",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2912",
+            "author": "universish",
+            "time_to_first_response": "0:26:49",
+            "time_to_close": "1:03:33",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Pinned Tabs with only grid layout icons go away :c in the latest version",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2910",
+            "author": "kattsushi",
+            "time_to_first_response": "5:03:25",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Pinned tabs moving with you when changing workspaces",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2909",
+            "author": "churuizramos",
+            "time_to_first_response": "1:18:43",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "When you expand the sidebar, the toolbar also moves to the right.",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2907",
+            "author": "universish",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Some symbols not working properly on Word files",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2906",
+            "author": "shirinqush",
+            "time_to_first_response": "1:49:38",
+            "time_to_close": "1:49:38",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "List all Tabs slow to render",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2905",
+            "author": "benni347",
+            "time_to_first_response": "2:06:49",
+            "time_to_close": "2:06:49",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Pinned tabs showing as a list instead of a grid of icons",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2902",
+            "author": "Zinnavoy",
+            "time_to_first_response": "0:23:18",
+            "time_to_close": "5 days, 15:24:26",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "The security warning of Firefox is interpreted as a hover on the tab bar by the browser on Ubuntu",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2900",
+            "author": "Espasant3",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Minor sidebar annoyance",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2898",
+            "author": "0skar2",
+            "time_to_first_response": "1:31:41",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "The \"new tab button\" (the one in the bottom) is in a different position depending on the type of window (normal and private)",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2897",
+            "author": "Espasant3",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Weird gap between home button and tabs",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2895",
+            "author": "thechief77",
+            "time_to_first_response": "3:27:15",
+            "time_to_close": "21:10:39",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "No Themeing Option When Workspaces is Disabled",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2894",
+            "author": "ido1901",
+            "time_to_first_response": "18 days, 3:20:51",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Issue with Playing Crunchyroll Videos ",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2892",
+            "author": "Hina60",
+            "time_to_first_response": "2:47:27",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "License issues with Arc_Palette",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2890",
+            "author": "Lenni-builder",
+            "time_to_first_response": "38 days, 6:28:36",
+            "time_to_close": "38 days, 6:28:36",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Ability to disable max height for pinned tabs",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2887",
+            "author": "l4kr",
+            "time_to_first_response": "2 days, 11:00:13",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Can't watch DRM content on Netflix",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2886",
+            "author": "lntreter",
+            "time_to_first_response": "0:09:16",
+            "time_to_close": "2:36:33",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "blank at the top of the tab",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2885",
+            "author": "xenlsa",
+            "time_to_first_response": "5:34:05",
+            "time_to_close": "5:39:58",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Bonjourr background image overlays rounded corners",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2884",
+            "author": "Lenni-builder",
+            "time_to_first_response": "4:26:18",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Keyboard shortcuts in series prematurely release modifier keys",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2882",
+            "author": "JSGRD22",
+            "time_to_first_response": "None",
+            "time_to_close": "31 days, 14:28:43",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Fade effect on the right of tabs do not apply to pinned tabs",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2881",
+            "author": "JSGRD22",
+            "time_to_first_response": "None",
+            "time_to_close": "31 days, 15:02:21",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Pinned tab opens in Pop-up after 'pop-up close'",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2877",
+            "author": "ramondeleonca",
+            "time_to_first_response": "1 day, 5:50:04",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Essentials do not transfer to newly opened windows",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2875",
+            "author": "sprutxz",
+            "time_to_first_response": "1:19:22",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "When using a Side Web Panel, the back button on my mouse doesn't work as expected",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2874",
+            "author": "joezimjs",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Theme reset ater moving through workspaces",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2873",
+            "author": "jandroav",
+            "time_to_first_response": "7 days, 9:32:58",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Spacing between icons and tabs in the tab bar",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2869",
+            "author": "litaniecontrelapeur",
+            "time_to_first_response": "0:16:02",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": " \u201cActivate compact mode\u201d has a spelling mistake in turkish ",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2868",
+            "author": "universish",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Bug that the sidebar opens and closes when dragging the mouse left while the sidebar is hidden.",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2867",
+            "author": "universish",
+            "time_to_first_response": "0:45:18",
+            "time_to_close": "29 days, 13:15:52",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "[FEATURE REQUEST] Suggestion to add new buttons and new features to the toolbar",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2865",
+            "author": "universish",
+            "time_to_first_response": "None",
+            "time_to_close": "14:26:29",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Pinned Tabs Ignored When Moving Between Workspaces, Regular Tabs Shown Instead",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2863",
+            "author": "red-crate",
+            "time_to_first_response": "2:27:10",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "When I do not enable workspace, the icon of workspace is still on the top of vertical tabs.",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2862",
+            "author": "emberrolland",
+            "time_to_first_response": "32 days, 13:24:38",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Issue where closing the last tab in Private Browsing does not close the window but switches to a Pinned Tab",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2861",
+            "author": "red-crate",
+            "time_to_first_response": "3:35:44",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Url Select",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2858",
+            "author": "Rexxyyy",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Compact Mode: The bookmarks toolbar is missing left padding",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2854",
+            "author": "JasonZStanley",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Issue Clicking on Buttons during Onboarding (Windows)",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2849",
+            "author": "shootyourbricks",
+            "time_to_first_response": "23 days, 18:21:45",
+            "time_to_close": "38 days, 23:11:49",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Sidebar Color Loss",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2843",
+            "author": "justingallant1988",
+            "time_to_first_response": "None",
+            "time_to_close": "0:04:15",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "New window opens all the pinned tabs on both workspaces?",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2839",
+            "author": "darkvergus",
+            "time_to_first_response": "0:05:11",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "(Request) Requesting for \"+ new tab\" button to be static and stable and doesnt go into hiding as scrolling or when multiple tabs are open.",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2835",
+            "author": "varnit-nigam",
+            "time_to_first_response": "1 day, 8:43:58",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Pinned tabs favicon disappears",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2832",
+            "author": "justingallant1988",
+            "time_to_first_response": "13 days, 14:26:28",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "macOS: Closing a window's only/last tab does not close the window, like Firefox",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2831",
+            "author": "timhenrion",
+            "time_to_first_response": "1 day, 17:08:10",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Both the close and fullscreen button of glance misbehavior",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2827",
+            "author": "nftuoa",
+            "time_to_first_response": "20:28:54",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Web page is moving left and right on hover when using Expand on Hover",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2825",
+            "author": "dewkong",
+            "time_to_first_response": "None",
+            "time_to_close": "10:15:06",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "video playback is completely broken",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2824",
+            "author": "4rtemis-4rrow",
+            "time_to_first_response": "0:26:57",
+            "time_to_close": "2 days, 0:24:51",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Zen Browser Support link broken/wrong  ",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2820",
+            "author": "orbi-tal",
+            "time_to_first_response": "None",
+            "time_to_close": "0:08:13",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Essentials URL not resetting on exit.",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2817",
+            "author": "Asidius",
+            "time_to_first_response": "7:46:29",
+            "time_to_close": "6 days, 0:03:05",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Pinned tabs and essentials appear in private mode",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2816",
+            "author": "damian-ds7",
+            "time_to_first_response": "5:56:12",
+            "time_to_close": "5 days, 2:01:29",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "pinned tab bug",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2813",
+            "author": "rajath-2",
+            "time_to_first_response": "1 day, 6:33:29",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Freeze when click edit workspace",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2812",
+            "author": "myamusashi",
+            "time_to_first_response": "None",
+            "time_to_close": "1 day, 0:53:49",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "The confirmation window for closing does not appear and zen-browser cannot cancel the closing confirmation (freeze?)",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2811",
+            "author": "myamusashi",
+            "time_to_first_response": "None",
+            "time_to_close": "1 day, 0:58:20",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Popup window bug",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2810",
+            "author": "gregorlogar991",
+            "time_to_first_response": "1 day, 15:14:48",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Workspace touchpad swap gesture wrong direction",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2808",
+            "author": "iLiranS",
+            "time_to_first_response": "20:08:53",
+            "time_to_close": "39 days, 0:32:31",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Duplicate Workspace indicator on tab bar",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2805",
+            "author": "veryloooong",
+            "time_to_first_response": "1 day, 1:21:57",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "ui is broken after update",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2804",
+            "author": "QW4D",
+            "time_to_first_response": "7:26:24",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Workspace Indicator when sidebar is collapsed feels redundant",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2801",
+            "author": "Evthestrike",
+            "time_to_first_response": "1 day, 3:37:39",
+            "time_to_close": "17 days, 21:01:13",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Pinned & Essentials tabs unable to be unloaded at all. ",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2800",
+            "author": "TMCraze",
+            "time_to_first_response": "1 day, 2:19:11",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Swipe up and down when sidebar is collapsed to change workspaces",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2797",
+            "author": "Evthestrike",
+            "time_to_first_response": "None",
+            "time_to_close": "17 days, 22:39:15",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Blank space above top tab",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2796",
+            "author": "spacey-sooty",
+            "time_to_first_response": "0:10:18",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "unloaded pinned tabs do not show website icon",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2789",
+            "author": "speedy1804",
+            "time_to_first_response": "0:02:35",
+            "time_to_close": "38 days, 15:15:12",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "The linux version isn't updated?",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2781",
+            "author": "Kimbix",
+            "time_to_first_response": "18 days, 11:42:17",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "New Updates - Bugs",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2780",
+            "author": "scanash00",
+            "time_to_first_response": "1 day, 2:58:15",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Empty space between the first tab & the topbar",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2779",
+            "author": "ridwanpr",
+            "time_to_first_response": "1:06:37",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Can't customize multiple buttons on customize toolbar",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2778",
+            "author": "kar731",
+            "time_to_first_response": "1 day, 2:51:22",
+            "time_to_close": "4 days, 3:15:58",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Ram usage",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2777",
+            "author": "Frmamlf",
+            "time_to_first_response": "0:17:22",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Automatic removal of extensions that I install",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2776",
+            "author": "AntonioBerna",
+            "time_to_first_response": "None",
+            "time_to_close": "30 days, 20:37:59",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Can't open link with special scheme",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2774",
+            "author": "loicfavory",
+            "time_to_first_response": "None",
+            "time_to_close": "1:08:09",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Fullscreen videos on double monitor",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2772",
+            "author": "darkvergus",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Import all Tabs, Folders & Profiles from Arc Browser",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2768",
+            "author": "menjilx",
+            "time_to_first_response": "None",
+            "time_to_close": "0:05:20",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "[Flatpak] Failed to create shader cache (Permission denied)",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2767",
+            "author": "litemotiv",
+            "time_to_first_response": "0:03:33",
+            "time_to_close": "4 days, 6:13:02",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Pinned tabs disappear when using multiple browser windows",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2763",
+            "author": "xperr",
+            "time_to_first_response": "0:14:57",
+            "time_to_close": "21:53:47",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "PiP UI Aesthetic - Missing rounded corners",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2762",
+            "author": "wazeerc",
+            "time_to_first_response": "1:06:37",
+            "time_to_close": "1:07:22",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Split view can't be resized vertically when bookmarks sidebar is open",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2761",
+            "author": "pettycrimes420",
+            "time_to_first_response": "1:25:45",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Password Manager Extension 'Dashlane' not working in zen anymore",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2759",
+            "author": "arnolicious",
+            "time_to_first_response": "3:42:04",
+            "time_to_close": "4:30:15",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Zen browser keep getting crash when I use Gmail",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2756",
+            "author": "Beeditor04",
+            "time_to_first_response": "5:03:29",
+            "time_to_close": "35 days, 23:46:17",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Flatpak version still on .17",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2755",
+            "author": "tanaybhomia",
+            "time_to_first_response": "0:13:50",
+            "time_to_close": "2:38:25",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "When I close glance view, it always switches to the next tab",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2754",
+            "author": "0x2F4D2",
+            "time_to_first_response": "0:02:54",
+            "time_to_close": "0:26:16",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Zen Twilight: What's New hotlink in Settings not working",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2753",
+            "author": "Anoms12",
+            "time_to_first_response": "13:05:03",
+            "time_to_close": "31 days, 19:21:08",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Sidebar text too small on macos",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2749",
+            "author": "curliq",
+            "time_to_first_response": "None",
+            "time_to_close": "0:15:56",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Opening links in Zen AppImage causes 100% CPU usage",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2748",
+            "author": "aljustiet",
+            "time_to_first_response": "20:32:37",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Automatic Light/Dark theme does not switch automatically",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2747",
+            "author": "microBob",
+            "time_to_first_response": "4 days, 10:58:28",
+            "time_to_close": "38 days, 23:52:10",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Prevent unloading tabs with forms",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2745",
+            "author": "blacklightpy",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "If I choose to expand tabs by default, I can see a button on the bottom left that allows me to collapse/expand them.",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2744",
+            "author": "M4rti21",
+            "time_to_first_response": "0:21:54",
+            "time_to_close": "31 days, 0:29:37",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "arrow keys nor working",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2743",
+            "author": "Pogeres",
+            "time_to_first_response": "2 days, 10:58:58",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "no workspace",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2742",
+            "author": "Memoryzzzzzz",
+            "time_to_first_response": "4 days, 5:04:21",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Downloads going to App Data folder instead of set folder",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2736",
+            "author": "gillpeter",
+            "time_to_first_response": "13:04:35",
+            "time_to_close": "13:04:35",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Keyboard shortcut binding issue on macOS",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2735",
+            "author": "lemon-sundae",
+            "time_to_first_response": "12:44:51",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Able to scroll the UI which brings space to the bottom of the screen and hides the addressbar ",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2731",
+            "author": "Shockshwat",
+            "time_to_first_response": "6:03:29",
+            "time_to_close": "39 days, 7:25:44",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Settings don't sync properly",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2729",
+            "author": "enoversum",
+            "time_to_first_response": "32 days, 12:22:43",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Choose your theme",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2727",
+            "author": "bphd",
+            "time_to_first_response": "5 days, 23:32:53",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "\"Zen Glance\" Preview Window Blank After Opening and Closing New Glance Window",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2720",
+            "author": "sasank-pankam",
+            "time_to_first_response": "0:12:09",
+            "time_to_close": "0:12:09",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Glances after closes, select next tab.",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2717",
+            "author": "chriztheanvill",
+            "time_to_first_response": "1:19:36",
+            "time_to_close": "1:19:36",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Zen Browser won't open on MacOS Sequo\u00ef",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2715",
+            "author": "Thomasdvrd",
+            "time_to_first_response": "2:43:53",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Glance in a pinned tab shifts icons unnaturally to the left",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2714",
+            "author": "MrPiggy105",
+            "time_to_first_response": "2:45:31",
+            "time_to_close": "2:45:31",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "[Twilight] Workspace strip not there in fresh install and on new profile",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2712",
+            "author": "RayZ3R0",
+            "time_to_first_response": "3 days, 10:34:17",
+            "time_to_close": "3 days, 10:34:17",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "[Twilight] texture slider is not working",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2711",
+            "author": "neurokitti",
+            "time_to_first_response": "0:39:53",
+            "time_to_close": "1 day, 16:35:39",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "MacOS compact mode ignores mouse on traffic buttons and collapses the bar",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2708",
+            "author": "alepouna",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "the IDM extension occasionally fails",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2706",
+            "author": "wtscse",
+            "time_to_first_response": "4:19:54",
+            "time_to_close": "9 days, 9:39:36",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Bug in the Workspace theme color-picking UI",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2705",
+            "author": "bapungiri",
+            "time_to_first_response": "1:05:52",
+            "time_to_close": "1:05:52",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Essentials not caching icons when Reset. ",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2704",
+            "author": "orbi-tal",
+            "time_to_first_response": "9 days, 21:03:04",
+            "time_to_close": "9 days, 21:03:04",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Using \"peak\" with multiple tabs refocuses to the wrong tab",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2703",
+            "author": "mikeckennedy",
+            "time_to_first_response": "12:32:59",
+            "time_to_close": "12:32:59",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Workspaces are not syncing properly.",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2702",
+            "author": "ealione",
+            "time_to_first_response": "6:50:52",
+            "time_to_close": "1 day, 23:15:10",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Zen Twilight hijacks the \"zen\" PATH variable after installation",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2700",
+            "author": "antikovt",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "When closing all tabs browser doesn't close",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2698",
+            "author": "Espasant3",
+            "time_to_first_response": "7:26:43",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Missing support for the Intel IPU6 WebCams (unlike Firefox)",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2693",
+            "author": "wrenger",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Unusable since I changed the app name on macOS",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2687",
+            "author": "igor-coding",
+            "time_to_first_response": "None",
+            "time_to_close": "2:36:11",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Auto-PIP doesn't work when switching desktops [MAC-OS]",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2682",
+            "author": "Anastand",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Cannot share screen/window on MacOS",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2679",
+            "author": "smithcoin",
+            "time_to_first_response": "34 days, 18:07:19",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "bug : Zen glance goes to next tab on closing glance instead of previous",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2677",
+            "author": "RealVishy",
+            "time_to_first_response": "13:33:57",
+            "time_to_close": "22:58:39",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Add an animation for the downloading icon when the time left is not determined",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2673",
+            "author": "Cocolin67",
+            "time_to_first_response": "None",
+            "time_to_close": "1 day, 12:42:45",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Unloading Tabs",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2672",
+            "author": "justingallant1988",
+            "time_to_first_response": "0:19:15",
+            "time_to_close": "1 day, 13:17:19",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Text rendering is blurry and glitchy on second monitor",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2671",
+            "author": "radiosilence",
+            "time_to_first_response": "1 day, 13:20:19",
+            "time_to_close": "39 days, 4:33:27",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "[twilight] if a tab is pinned to essentials it can no longer be pinned regularly",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2667",
+            "author": "neurokitti",
+            "time_to_first_response": "2:56:51",
+            "time_to_close": "2:59:18",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "[Bug] Right Click Sidebar in Compact Mode.",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2663",
+            "author": "greedjesse",
+            "time_to_first_response": "34 days, 23:45:02",
+            "time_to_close": "45 days, 22:02:03",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Glance jumps to the first unpinned tab",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2660",
+            "author": "Tealk",
+            "time_to_first_response": "7:25:08",
+            "time_to_close": "2 days, 2:54:22",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Drag and drop for sidebar widening and shrinking is offset seems like can't widen sidebar. ",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2659",
+            "author": "mikedlr",
+            "time_to_first_response": "None",
+            "time_to_close": "31 days, 7:36:24",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Tab Management Issue",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2658",
+            "author": "Benilin-B-A",
+            "time_to_first_response": "13:56:19",
+            "time_to_close": "2 days, 3:38:16",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Can't install Zen Mods",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2657",
+            "author": "MarGustafsson",
+            "time_to_first_response": "None",
+            "time_to_close": "4:07:58",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "New tab created on shifting workspaces",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2655",
+            "author": "wysh3",
+            "time_to_first_response": "1:46:55",
+            "time_to_close": "31 days, 9:25:13",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Cannot watch anything on netflix",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2653",
+            "author": "lavishyay",
+            "time_to_first_response": "5:26:42",
+            "time_to_close": "1 day, 12:21:51",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Tab Accessibility Issue in Zen Browser",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2652",
+            "author": "omarkily",
+            "time_to_first_response": "2 days, 2:51:42",
+            "time_to_close": "10 days, 12:29:15",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Make Workspaces Keep Cookies Separate, Similar to Firefox Multi-Account Containers",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2650",
+            "author": "anjerodev",
+            "time_to_first_response": "None",
+            "time_to_close": "0:35:25",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Left Active Window borders in Split View doesn't render correctly.",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2647",
+            "author": "Spacellary",
+            "time_to_first_response": "0:54:40",
+            "time_to_close": "36 days, 4:28:13",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Can not build on Windows (Locales folder issue)",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2645",
+            "author": "Max-109",
+            "time_to_first_response": "22:18:09",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Browser fails to reopen after restoring default shortcuts and restarting",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2643",
+            "author": "Spoilt",
+            "time_to_first_response": "35 days, 16:34:17",
+            "time_to_close": "40 days, 11:53:43",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Picture-In-Picture window doesn't stay on top in KDE Plasma",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2641",
+            "author": "InterstellarOne",
+            "time_to_first_response": "None",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Zen-Components just went private.",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2640",
+            "author": "mithom",
+            "time_to_first_response": "0:54:45",
+            "time_to_close": "1:16:23",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Twitch freezing in Zen",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2638",
+            "author": "Halambic",
+            "time_to_first_response": "27 days, 23:41:20",
+            "time_to_close": "40 days, 16:06:49",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "last update (to 1.0.1-a.14) reset \"How to expand tabs\" setting",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2626",
+            "author": "fautore",
+            "time_to_first_response": "6:20:36",
+            "time_to_close": "8:23:32",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Multiple new tab button",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2624",
+            "author": "soufhehe",
+            "time_to_first_response": "11:47:45",
+            "time_to_close": "11:47:45",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "FireFox PWA extension runtime is not recognized even after being installed ",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2623",
+            "author": "tanaybhomia",
+            "time_to_first_response": "16 days, 12:09:42",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Typo in Settings > Shortcuts (about:preferences#zenCKS) for Bookmark Tabs",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2621",
+            "author": "0xEddie",
+            "time_to_first_response": "1:19:28",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Old alert after updating all mods",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2616",
+            "author": "Bakterio",
+            "time_to_first_response": "None",
+            "time_to_close": "22:23:28",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Keyboard navigation",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2615",
+            "author": "ValgulNecron",
+            "time_to_first_response": "6 days, 16:37:16",
+            "time_to_close": "47 days, 1:23:07",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Persist glance on tab switch",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2612",
+            "author": "Marin-Kitagawa",
+            "time_to_first_response": "None",
+            "time_to_close": "3 days, 20:17:58",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Blury Webpages on a 32:9 window ",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2611",
+            "author": "CocoPoops",
+            "time_to_first_response": "None",
+            "time_to_close": "0:11:09",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Render flickering",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2610",
+            "author": "kantum",
+            "time_to_first_response": "None",
+            "time_to_close": "38 days, 10:38:36",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Can't see downloads in Toolbar",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2603",
+            "author": "h2110100",
+            "time_to_first_response": "None",
+            "time_to_close": "11 days, 0:27:27",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Zen not remembering where the tabs opened in the previous sessions.",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2601",
+            "author": "Sahil-Desu",
+            "time_to_first_response": "16:46:28",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "[Twilight] Show bookmarks toolbar freezes & flickers",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2600",
+            "author": "kwilcz",
+            "time_to_first_response": "None",
+            "time_to_close": "0:24:46",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Incorrect image for \"Hide Tab Bar\" and \"Hide Top Bar\" in Theme Settings",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2597",
+            "author": "hzchng",
+            "time_to_first_response": "0:11:30",
+            "time_to_close": "5:46:37",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Scroll Bar not working in vertical tabs",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2596",
+            "author": "bhaumik-tripathi",
+            "time_to_first_response": "10 days, 6:06:10",
+            "time_to_close": "42 days, 0:21:25",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Opening Find makes the whole web content jump",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2594",
+            "author": "wysh3",
+            "time_to_first_response": "5:30:19",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Video Emebeds fail to play",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2593",
+            "author": "neurokitti",
+            "time_to_first_response": "14 days, 0:48:37",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Pinned tabs in a workspace create a blank space between the end of the tab scroll region and the workspace buttons in another workspace with fewer tabs",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2592",
+            "author": "gbrlbrbs",
+            "time_to_first_response": "7 days, 15:54:43",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Icons overlay each other in toolbar when resizing the window",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2590",
+            "author": "bankosegger",
+            "time_to_first_response": "None",
+            "time_to_close": "1 day, 11:23:01",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Sidebar hover and right click makes the sidebar dissapear",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2587",
+            "author": "Shamatix",
+            "time_to_first_response": "13 days, 8:25:06",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "At Glance - go backward / go forward",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2584",
+            "author": "0skar2",
+            "time_to_first_response": "4 days, 17:08:25",
+            "time_to_close": "4 days, 17:08:35",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Only Create New Tabs When a URL is Loaded",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2582",
+            "author": "lugenx",
+            "time_to_first_response": "0:50:53",
+            "time_to_close": "0:50:53",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "REQUEST: I need the old switch to next tab in keyboard shortcuts",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2581",
+            "author": "rbjnazz",
+            "time_to_first_response": "7 days, 23:34:33",
+            "time_to_close": "7 days, 23:34:33",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Sidebar does not appear when hovered",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2579",
+            "author": "ilhamprabuzakys",
+            "time_to_first_response": "7:20:14",
+            "time_to_close": "20:32:59",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Glance in page opened from Glance",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2575",
+            "author": "EgorBakanov",
+            "time_to_first_response": "None",
+            "time_to_close": "8 days, 21:14:19",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "[bug] Layout issues with Compact Mode enabled & Tabs on Right",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2574",
+            "author": "alphabitserial",
+            "time_to_first_response": "2 days, 19:56:38",
+            "time_to_close": "49 days, 15:48:59",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Unable to add perplexity.ai as default search engine",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2572",
+            "author": "otteep",
+            "time_to_first_response": "4:10:04",
+            "time_to_close": "14:00:57",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Tabs Do Not Expand On Hover After Toggling Compact Mode",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2569",
+            "author": "Espasant3",
+            "time_to_first_response": "6 days, 18:42:45",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Title bar does not lose focus after using URL bar in compact mode",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2568",
+            "author": "JSGRD22",
+            "time_to_first_response": "16 days, 18:39:13",
+            "time_to_close": "20 days, 11:52:21",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "cannot create workspaces",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2567",
+            "author": "marcorossiIT",
+            "time_to_first_response": "1:26:45",
+            "time_to_close": "9 days, 0:19:56",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Tabs dont react after not using for some time",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2566",
+            "author": "Stevenzocker",
+            "time_to_first_response": "9:38:14",
+            "time_to_close": "30 days, 15:51:04",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "hotkey \"Toggle side bar\" doesn't work",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2564",
+            "author": "Irrisorr",
+            "time_to_first_response": "3:00:58",
+            "time_to_close": "3:05:41",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Tab panel doesn't work after move some tab to another workspace",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2562",
+            "author": "Irrisorr",
+            "time_to_first_response": "2 days, 19:16:36",
+            "time_to_close": "50 days, 0:17:12",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Glance window breaks Zen if closed with CTRL + W shortcut on Windows",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2551",
+            "author": "Tomveloper",
+            "time_to_first_response": "0:42:23",
+            "time_to_close": "4 days, 3:18:01",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Blurry viewport on Linux",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2550",
+            "author": "Lanhild",
+            "time_to_first_response": "None",
+            "time_to_close": "14 days, 3:19:43",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Glance is launching links in main window and Glance window",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2546",
+            "author": "tedbergstrand",
+            "time_to_first_response": "5 days, 22:40:22",
+            "time_to_close": "6 days, 2:00:07",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "There is no New Tab button on sidebar",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2543",
+            "author": "marcorossiIT",
+            "time_to_first_response": "None",
+            "time_to_close": "0:13:58",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Websites appear blurry with non-standard aspect ratios (ultra-wide)",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2541",
+            "author": "Git-North",
+            "time_to_first_response": "2 days, 2:54:09",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Duplicate New tab button added when closing an new tab",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2539",
+            "author": "tinemuz",
+            "time_to_first_response": "None",
+            "time_to_close": "0:07:45",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Closing last tab doesn't close the broswer window",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2537",
+            "author": "umeshn1",
+            "time_to_first_response": "1:22:17",
+            "time_to_close": "6 days, 1:24:16",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Glance when closed jumps to another tab and not to the original tab",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2535",
+            "author": "Rics-Dev",
+            "time_to_first_response": "0:31:34",
+            "time_to_close": "6 days, 1:53:32",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Closing Glance mode tab takes to the next tab automatically",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2534",
+            "author": "nashinwalker",
+            "time_to_first_response": "None",
+            "time_to_close": "0:02:05",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "No way to hide Bookmarks toolbar.",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2532",
+            "author": "Shockshwat",
+            "time_to_first_response": "0:32:12",
+            "time_to_close": "45 days, 15:03:06",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Deformed icons on bookmarks bar when in \"Density mode\" is set to \"Touch\"",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2531",
+            "author": "Alessandro-Vecchio",
+            "time_to_first_response": "13 days, 0:51:03",
+            "time_to_close": "46 days, 7:10:55",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Empty tab bar is shown on opening",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2530",
+            "author": "kjvdven",
+            "time_to_first_response": "1:31:47",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "when opening a link in split view it forms a new tab",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2529",
+            "author": "Realrubr2",
+            "time_to_first_response": "31 days, 8:32:44",
+            "time_to_close": "39 days, 4:52:47",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "The fullscreen button and close button in glance both close the window.",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2528",
+            "author": "Shockshwat",
+            "time_to_first_response": "2:17:17",
+            "time_to_close": "45 days, 17:48:29",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Glance issues - a.17",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2526",
+            "author": "wysh3",
+            "time_to_first_response": "0:39:39",
+            "time_to_close": "31 days, 8:30:40",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Pinned and Starred Tabs - pin tabs in just the current workspace or across all",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2525",
+            "author": "jasiralavibiztripz",
+            "time_to_first_response": "None",
+            "time_to_close": "0:48:10",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Cant move tab to existing new window",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2524",
+            "author": "joelpriyanth10",
+            "time_to_first_response": "2:03:18",
+            "time_to_close": "6 days, 12:34:47",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "[BUG] glance-close focuses next-tab",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2520",
+            "author": "kenny-kvibe",
+            "time_to_first_response": "2:25:28",
+            "time_to_close": "2:25:28",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Clear instructions for Updating App Images ",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2518",
+            "author": "tanaybhomia",
+            "time_to_first_response": "31 days, 13:24:28",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Can't move new tab toolbar ",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2517",
+            "author": "genesis224",
+            "time_to_first_response": "1:22:26",
+            "time_to_close": "7:58:34",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Fading edge effect on the tab sidebar does not apply to entries below (and including) the selected tab",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2516",
+            "author": "Smooth-E",
+            "time_to_first_response": "31 days, 13:56:06",
+            "time_to_close": "None",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Background Color Issue in Zen Browser",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2514",
+            "author": "trbureiyan",
+            "time_to_first_response": "4:55:19",
+            "time_to_close": "0:12:23",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Empty pinned new tab opening a url opens in a new page",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2513",
+            "author": "darkvergus",
+            "time_to_first_response": "31 days, 14:11:12",
+            "time_to_close": "31 days, 14:24:17",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Annoying border radius effect",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2512",
+            "author": "gabsdotco",
+            "time_to_first_response": "2:00:01",
+            "time_to_close": "50 days, 8:13:50",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Dragging a pinned tab unpins the tab",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2508",
+            "author": "l4kr",
+            "time_to_first_response": "31 days, 14:50:43",
+            "time_to_close": "44 days, 6:57:18",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Crash when dragging an `<a>` element",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2504",
+            "author": "gumbarros",
+            "time_to_first_response": "None",
+            "time_to_close": "0:04:33",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        },
+        {
+            "title": "Ability to make the web panel wider",
+            "html_url": "https://github.com/zen-browser/desktop/issues/2503",
+            "author": "l4kr",
+            "time_to_first_response": "10:34:58",
+            "time_to_close": "10:35:16",
+            "time_to_answer": "None",
+            "label_metrics": {}
+        }
+    ],
+    "search_query": "repo:zen-browser/desktop is:issue created:2024-11-01..2024-11-30 -reason:\"not planned\""
+}
