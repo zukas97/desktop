@@ -11,6 +11,18 @@ const KEYCODE_MAP = {
   F10: 'VK_F10',
   F11: 'VK_F11',
   F12: 'VK_F12',
+  F13: 'VK_F13',
+  F14: 'VK_F14',
+  F15: 'VK_F15',
+  F16: 'VK_F16',
+  F17: 'VK_F17',
+  F18: 'VK_F18',
+  F19: 'VK_F19',
+  F20: 'VK_F20',
+  F21: 'VK_F21',
+  F22: 'VK_F22',
+  F23: 'VK_F23',
+  F24: 'VK_F24',
   TAB: 'VK_TAB',
   ENTER: 'VK_RETURN',
   ESCAPE: 'VK_ESCAPE',
@@ -22,6 +34,8 @@ const KEYCODE_MAP = {
   DELETE: 'VK_DELETE',
   BACKSPACE: 'VK_BACK',
   HOME: 'VK_HOME',
+  NUM_LOCK: 'VK_NUMLOCK',
+  SCROLL_LOCK: 'VK_SCROLL',
 };
 
 const defaultKeyboardGroups = {
