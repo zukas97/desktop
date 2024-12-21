@@ -138,6 +138,7 @@ pref('zen.view.sidebar-collapsed.hide-mute-button', true);
 pref('zen.view.experimental-force-window-controls-left', false);
 
 pref('zen.view.hide-window-controls', true);
+pref('zen.view.experimental-no-window-controls', false);
 
 pref('zen.tabs.dim-pending', true);
 pref('zen.tabs.newtab-on-middle-click', true);

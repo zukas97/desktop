@@ -67,6 +67,8 @@ var gZenCompactModeManager = {
   },
 
   updateCompactModeContext(isSingleToolbar) {
+    this.getAndApplySidebarWidth(); // Ignore return value
+
     const IDs = ['zen-context-menu-compact-mode-hide-sidebar', 'zen-context-menu-compact-mode-hide-toolbar', 'zen-context-menu-compact-mode-hide-both'];
     for (let id of IDs) {
       document.getElementById(id).disabled = isSingleToolbar;
@@ -99,6 +101,12 @@ var gZenCompactModeManager = {
     this.animateCompactMode();
   },
 
+  getAndApplySidebarWidth() {
+    let sidebarWidth = this.sidebar.getBoundingClientRect().width;
+    this.sidebar.style.setProperty("--zen-sidebar-width", `${sidebarWidth}px`);
+    return sidebarWidth;
+  },
+
   animateCompactMode() {
     const isCompactMode = this.prefefence;
     const canHideSidebar = Services.prefs.getBoolPref('zen.view.compact.hide-tabbar');
@@ -109,8 +117,7 @@ var gZenCompactModeManager = {
     // Do this so we can get the correct width ONCE compact mode styled have been applied
     this.sidebar.setAttribute("animate", "true");
     window.requestAnimationFrame(() => {
-      let sidebarWidth = this.sidebar.getBoundingClientRect().width;
-      this.sidebar.style.setProperty("--zen-sidebar-width", `${sidebarWidth}px`);
+      let sidebarWidth = this.getAndApplySidebarWidth();
       if (!this._canAnimateSidebar) {
         this.sidebar.removeAttribute("animate");
         this._isAnimating = false;

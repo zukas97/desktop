@@ -2,7 +2,7 @@ height: var(--zen-toolbar-height);
 
 @media (-moz-bool-pref: 'zen.view.hide-window-controls') {
   & {
-    transition: height 0.2s ease, opacity 0.2s ease-out;
+    transition: height 0.15s ease, opacity 0.1s ease-out;
     transition-delay: 0.2s;
 
     & > * {
@@ -19,6 +19,15 @@ height: var(--zen-toolbar-height);
     & > * {
       opacity: 0;
       pointer-events: none;
+    }
+  }
+
+  @media (-moz-bool-pref: 'zen.view.experimental-no-window-controls') {
+    &:has(#PersonalToolbar[collapsed='true']) {
+      max-height: 0 !important;
+      overflow: hidden;
+      opacity: 0 !important;
+      pointer-events: none !important;
     }
   }
 }
