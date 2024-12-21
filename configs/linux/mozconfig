@@ -44,7 +44,7 @@ elif test "$ZEN_RELEASE"; then
     # Optimization flags for general release
     ac_add_options --enable-wasm-avx
     ac_add_options --enable-optimize="-O3 -march=x86-64-v3 -msse3 -mssse3 -msse4.1 -msse4.2 -mavx -maes -mpopcnt -mpclmul"
-        
+
     export CFLAGS="$CFLAGS -O3 -ffp-contract=fast -march=x86-64-v3 -msse3 -mssse3 -msse4.1 -msse4.2 -mavx -mavx2 -mfma -maes -mpopcnt -mpclmul"
     export CPPFLAGS="$CPPFLAGS -O3 -ffp-contract=fast -march=x86-64-v3 -msse3 -mssse3 -msse4.1 -msse4.2 -mavx -mavx2 -mfma -maes -mpopcnt -mpclmul"
     export CXXFLAGS="$CXXFLAGS -O3 -flto=thin -ffp-contract=fast -march=x86-64-v3 -msse3 -mssse3 -msse4.1 -msse4.2 -mavx -mavx2 -mfma -maes -mpopcnt -mpclmul"
@@ -61,6 +61,8 @@ ac_add_options --enable-alsa
 ac_add_options --enable-pulseaudio
 
 if test "$ZEN_RELEASE"; then
+    ac_add_options --enable-clang-plugin
+
     # Disable DMD and ELF hacks, enable linker lld
     ac_add_options --disable-dmd
     ac_add_options --enable-linker=lld
