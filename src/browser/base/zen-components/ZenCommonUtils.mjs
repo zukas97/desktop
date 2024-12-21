@@ -22,12 +22,16 @@ class ZenMultiWindowFeature {
     return Services.wm.getMostRecentWindow('navigator:browser');
   }
 
-  isActiveWindow() {
+  static get isActiveWindow() {
     return ZenMultiWindowFeature.currentBrowser === window;
   }
 
+  windowIsActive(browser) {
+    return browser === ZenMultiWindowFeature.currentBrowser;
+  }
+
   async foreachWindowAsActive(callback) {
-    if (!this.isActiveWindow()) {
+    if (!ZenMultiWindowFeature.isActiveWindow) {
       return;
     }
     for (const browser of ZenMultiWindowFeature.browsers) {
