@@ -306,8 +306,18 @@ button.popup-notification-dropmarker {
   align-items: center;
 }
 
-:root:not([zen-single-toolbar='true']) #nav-bar {
-  margin-bottom: -1px;
+:root:not([zen-single-toolbar='true']) {
+  & #nav-bar {
+    margin-bottom: -1px;
+  }
+
+  &[zen-right-side='true']:not([zen-window-buttons-reversed='true']) #nav-bar {
+    margin-inline-start: var(--zen-element-separation);
+  }
+
+  &:not([zen-right-side='true'])[zen-window-buttons-reversed='true'] #nav-bar {
+    margin-inline-end: var(--zen-element-separation);
+  }
 }
 
 /* Other small tweaks */

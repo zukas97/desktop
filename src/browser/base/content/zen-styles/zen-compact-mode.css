@@ -173,7 +173,6 @@
           width: 100%;
           opacity: 0;
           background: var(--zen-dialog-background);
-          padding-left: var(--zen-toolbox-padding) !important;
 
           max-height: var(--zen-toolbar-height);
           overflow: hidden;
@@ -185,11 +184,6 @@
           & #urlbar {
             transform: translateY(-50%);
             transition: transform 0.1s ease-in-out;
-          }
-
-          :root[zen-window-buttons-reversed='true'] & {
-            padding-left: 0 !important;
-            padding-right: var(--zen-toolbox-padding) !important;
           }
 
           @media (-moz-bool-pref: 'zen.view.compact.color-toolbar') {

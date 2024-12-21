@@ -103,7 +103,9 @@ var gZenCompactModeManager = {
 
   getAndApplySidebarWidth() {
     let sidebarWidth = this.sidebar.getBoundingClientRect().width;
-    this.sidebar.style.setProperty("--zen-sidebar-width", `${sidebarWidth}px`);
+    if (sidebarWidth > 1) {
+      this.sidebar.style.setProperty("--zen-sidebar-width", `${sidebarWidth}px`);
+    }
     return sidebarWidth;
   },
 
