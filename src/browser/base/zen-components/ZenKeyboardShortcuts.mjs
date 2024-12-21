@@ -970,7 +970,6 @@ var gZenKeyboardShortcutsManager = {
       }
 
       mainKeyset.after(keyset);
-      console.debug('Shortcuts applied...');
     }
   },
 
