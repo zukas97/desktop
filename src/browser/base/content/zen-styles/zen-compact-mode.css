@@ -38,8 +38,7 @@
         &:not([animate='true']) {
           position: absolute;
           z-index: 10;
-          transition: transform 0.25s ease, opacity 1.5s ease;
-          transform: translateX(0);
+          transition: left 0.25s ease, right 0.25s ease, opacity 1.5s ease;
           top: 0;
           bottom: var(--zen-element-separation);
           opacity: 0;
@@ -60,7 +59,7 @@
       }
 
       &:not([zen-right-side='true']) #navigator-toolbox {
-        right: calc(100% - var(--zen-element-separation) + 1px);
+        left: calc(-1 * var(--zen-sidebar-width) + 1px);
       }
 
       /* When we have multiple toolbars and the top-toolbar is NOT being hidden,
@@ -75,7 +74,10 @@
       &[zen-right-side='true'] {
         & #navigator-toolbox {
           --zen-compact-float: calc(var(--zen-element-separation) + 1px);
-          left: calc(100% - var(--zen-element-separation) + 1px);
+
+          &:not([animate='true']) {
+            right: calc(-1 * var(--zen-sidebar-width) + 1px);
+          }
         }
 
         & .browserSidebarContainer {
@@ -114,12 +116,13 @@
       #navigator-toolbox:has(.tabbrowser-tab:active),
       #navigator-toolbox:has(*:is([open='true'], #nav-bar:focus-within):not(tab):not(.zen-compact-mode-ignore)) {
         &:not([animate='true']) {
-          transition: transform 0.25s ease;
+          transition: left 0.25s ease, right 0.25s ease;
           opacity: 1;
 
-          transform: translateX(calc(100% - var(--zen-compact-float)));
+          left: -1px;
           :root[zen-right-side='true'] & {
-            transform: translateX(calc(-100% + var(--zen-compact-float)));
+            right: -1px;
+            left: auto;
           }
         }
       }

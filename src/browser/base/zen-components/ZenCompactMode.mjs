@@ -102,7 +102,7 @@ var gZenCompactModeManager = {
   animateCompactMode() {
     const isCompactMode = this.prefefence;
     const canHideSidebar = Services.prefs.getBoolPref('zen.view.compact.hide-tabbar');
-    if (this._isAnimating || !this._canAnimateSidebar) {
+    if (this._isAnimating) {
       return;
     }
     this._isAnimating = true;
@@ -110,6 +110,12 @@ var gZenCompactModeManager = {
     this.sidebar.setAttribute("animate", "true");
     window.requestAnimationFrame(() => {
       let sidebarWidth = this.sidebar.getBoundingClientRect().width;
+      this.sidebar.style.setProperty("--zen-sidebar-width", `${sidebarWidth}px`);
+      if (!this._canAnimateSidebar) {
+        this.sidebar.removeAttribute("animate");
+        this._isAnimating = false;
+        return;
+      }
       if (canHideSidebar && isCompactMode) {
         window.requestAnimationFrame(() => {
           this.sidebar.style.position = "unset";
@@ -125,16 +131,18 @@ var gZenCompactModeManager = {
           window.requestAnimationFrame(() => {
             setTimeout(() => {
               window.requestAnimationFrame(() => {
-                this._isAnimating = false;
-                this.sidebar.style.removeProperty("position");
                 this.sidebar.style.removeProperty("pointer-events");
+                this.sidebar.style.removeProperty("position");
                 this.sidebar.style.removeProperty("margin-left");
                 this.sidebar.style.removeProperty("margin-right");
                 this.sidebar.style.removeProperty("transform");
                 this.sidebar.style.removeProperty("left");
                 document.getElementById('browser').style.removeProperty("overflow");
                 this.sidebar.removeAttribute("animate");
-                this.sidebar.style.removeProperty("transition");
+                window.requestAnimationFrame(() => {
+                  this.sidebar.style.removeProperty("transition");
+                  this._isAnimating = false;
+                });
               });
             }, 450);
           });

@@ -679,7 +679,8 @@
 /* Mark: Separator styling */
 #zen-sidebar-splitter {
   opacity: 0;
-  width: var(--zen-toolbox-padding);
+  max-width: var(--zen-toolbox-padding) !important;
+  min-width: var(--zen-toolbox-padding) !important;
   height: 100%;
   transition: opacity 0.2s ease-in-out;
   background: var(--zen-colors-border);
