@@ -15,6 +15,11 @@
         margin-left: var(--zen-sidebar-web-panel-spacing) !important;
       }
 
+      #zen-tabbox-wrapper {
+        /* Remove extra 1px of margine we have to add to the tabbox */
+        margin-left: 0 !important;
+      }
+
       #zen-appcontent-wrapper {
         margin-left: var(--zen-element-separation) !important;
 
@@ -59,7 +64,7 @@
       }
 
       &:not([zen-right-side='true']) #navigator-toolbox {
-        left: calc(-1 * var(--zen-sidebar-width) + 1px);
+        left: calc(-1 * var(--zen-sidebar-width) + var(--zen-element-separation));
       }
 
       /* When we have multiple toolbars and the top-toolbar is NOT being hidden,
@@ -76,7 +81,7 @@
           --zen-compact-float: calc(var(--zen-element-separation) + 1px);
 
           &:not([animate='true']) {
-            right: calc(-1 * var(--zen-sidebar-width) + 1px);
+            right: calc(-1 * var(--zen-sidebar-width) + var(--zen-element-separation));
           }
         }
 
