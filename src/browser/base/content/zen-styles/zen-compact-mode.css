@@ -210,6 +210,10 @@
 
           & #urlbar {
             transform: translateY(0);
+
+            &[open] {
+              top: 0 !important;
+            }
           }
         }
       }
