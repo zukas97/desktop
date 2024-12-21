@@ -6,7 +6,6 @@ var ZenWorkspacesStorage = {
       PlacesUtils: "resource://gre/modules/PlacesUtils.sys.mjs",
     });
 
-    console.log('ZenWorkspacesStorage: Initializing...');
     await this._ensureTable();
     await ZenWorkspaceBookmarksStorage.init();
   },

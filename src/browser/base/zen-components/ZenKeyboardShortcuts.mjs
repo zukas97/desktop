@@ -538,7 +538,7 @@ class ZenKeyboardShortcutsLoader {
     } catch (e) {
       // Recreate shortcuts file
       Services.prefs.clearUserPref('zen.keyboard.shortcuts.version');
-      console.error('Error loading shortcuts file', e);
+      console.warn('Error loading shortcuts file', e);
       return null;
     }
   }
@@ -557,7 +557,6 @@ function zenGetDefaultShortcuts() {
   // For adding new default shortcuts, add them to inside the migration function
   //  and increment the version number.
 
-  console.info('Zen CKS: Loading default shortcuts...');
   let keySet = document.getElementById(ZEN_MAIN_KEYSET_ID);
   let newShortcutList = [];
 

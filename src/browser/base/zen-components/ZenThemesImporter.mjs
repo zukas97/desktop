@@ -53,8 +53,6 @@ var gZenStylesheetManager = {
 
 var gZenThemesImporter = new (class {
   constructor() {
-    console.info('[ZenThemesImporter]: Initializing Zen Themes Importer');
-
     try {
       window.SessionStore.promiseInitialized.then(async () => {
         if (Services.prefs.getBoolPref('zen.themes.disable-all', false) || Services.appinfo.inSafeMode) {

@@ -77,6 +77,9 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
   }
 
   async _delayedStartup() {
+    if (!this.workspaceEnabled) {
+      return;
+    }
     await this.initializeWorkspaces();
     console.info('ZenWorkspaces: ZenWorkspaces initialized');
 

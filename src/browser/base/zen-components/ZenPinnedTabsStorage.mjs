@@ -1,12 +1,10 @@
 var ZenPinnedTabsStorage = {
   async init() {
-    console.log('ZenPinnedTabsStorage: Initializing...');
     await this._ensureTable();
   },
 
   async _ensureTable() {
     await PlacesUtils.withConnectionWrapper('ZenPinnedTabsStorage._ensureTable', async (db) => {
-      console.log('ZenPinnedTabsStorage: Ensuring tables...');
       // Create the pins table if it doesn't exist
       await db.execute(`
         CREATE TABLE IF NOT EXISTS zen_pins (
