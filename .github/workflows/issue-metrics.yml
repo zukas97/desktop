@@ -48,6 +48,7 @@ jobs:
     - name: Move metrics to docs folder
       run: |
         mkdir -p docs/issue-metrics
+        rm -f docs/issue-metrics/${{ env.last_month_year }}_${{ env.last_month }}.md
         mv issue_metrics.md docs/issue-metrics/${{ env.last_month_year }}_${{ env.last_month }}.md
 
     - name: Remove metrisc JSON
