@@ -129,7 +129,7 @@ pref('zen.glance.hold-duration', 300); // in ms
 pref('zen.glance.activation-method', 'alt'); // ctrl, alt, shift, none, hold
 
 pref('zen.view.sidebar-height-throttle', 200); // in ms
-pref('zen.view.sidebar-expanded.max-width', 400);
+pref('zen.view.sidebar-expanded.max-width', 500);
 
 pref('zen.view.show-bottom-border', false);
 pref('zen.view.use-single-toolbar', true);

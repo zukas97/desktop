@@ -52,8 +52,10 @@ elif test "$ZEN_RELEASE"; then
     ac_add_options MOZ_PGO=1
 
     # Override the default LTO flags because clang++ LITERALLY SEGFAULTS while compiling with -flto=thin... How unfortunate :c
-    export MOZ_LTO=cross
-    ac_add_options --enable-lto=cross
+    if ! test "$ZEN_DISABLE_LTO"; then
+      export MOZ_LTO=cross
+      ac_add_options --enable-lto=cross
+    fi
 
     # Optimization flags for general release
     ac_add_options --enable-wasm-avx
