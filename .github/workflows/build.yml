@@ -258,6 +258,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
+          retention-days: 5
           name: zen.source.tar.gz
           path: ./zen.source.tar.gz
 
@@ -383,12 +384,14 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
+          retention-days: 5
           name: zen-${{ matrix.arch == 'x86_64' && 'generic' || matrix.arch == 'x86_64-v3' && 'specific' || matrix.arch == 'aarch64' && 'aarch64' }}.AppImage
           path: ./dist/zen-${{ matrix.arch == 'x86_64' && 'generic' || matrix.arch == 'x86_64-v3' && 'specific' || matrix.arch == 'aarch64' && 'aarch64' }}.AppImage
 
       - name: Upload artifact (ZSync)
         uses: actions/upload-artifact@v4
         with:
+          retention-days: 5
           name: zen-${{ matrix.arch == 'x86_64' && 'generic' || matrix.arch == 'x86_64-v3' && 'specific' || matrix.arch == 'aarch64' && 'aarch64' }}.AppImage.zsync
           path: ./dist/zen-${{ matrix.arch == 'x86_64' && 'generic' || matrix.arch == 'x86_64-v3' && 'specific' || matrix.arch == 'aarch64' && 'aarch64' }}.AppImage.zsync
 
@@ -652,6 +655,7 @@ jobs:
       - name: Upload Flatpak manifest
         uses: actions/upload-artifact@v4
         with:
+          retention-days: 5
           name: io.github.zen_browser.zen.yml
           path: ./io.github.zen_browser.zen.yml
 

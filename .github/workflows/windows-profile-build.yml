@@ -108,6 +108,7 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
+          retention-days: 1
           path: |
             merged.profdata
             en-US.log
