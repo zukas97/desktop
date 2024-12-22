@@ -245,9 +245,7 @@
 
     onThemePickerClick(event) {
       event.preventDefault();
-
       if (event.button !== 0 || this.dragging ) return;
-
       const gradient = this.panel.querySelector('.zen-theme-picker-gradient');
       const rect = gradient.getBoundingClientRect();
       const padding = 90; // each side
@@ -273,7 +271,6 @@
 
         const relativeX = event.clientX - rect.left;
         const relativeY = event.clientY - rect.top;
-
 
         const color = this.getColorFromPosition(relativeX, relativeY);
 
@@ -357,7 +354,6 @@
       listItems.querySelector('.zen-theme-picker-dot-custom').style.setProperty('--zen-theme-picker-dot-color', color);
       listItems.querySelector('.zen-theme-picker-custom-list-item-label').textContent = color;
 
-
       this.customColorList.appendChild(listItems);
     }
 
@@ -365,10 +361,8 @@
 
       const color = this.customColorInput.value;
       if (!color) {
-
         return;
       }
-
 
       // can be any color format, we just add it to the list as a dot, but hidden
       const dot = document.createElement('div');
@@ -379,8 +373,6 @@
       this.customColorInput.value = '';
       await this.updateCurrentWorkspace();
     }
-
-
 
     onThemePickerClick(event) {
       event.preventDefault();
@@ -403,10 +395,8 @@
         return;
       }
 
-
       const clickedElement = event.target;
       const isExistingDot = clickedElement.classList.contains('zen-theme-picker-dot');
-
 
       if (!isExistingDot && this.numberOfDots < ZenThemePicker.MAX_DOTS) {
         const relativeX = event.clientX - rect.left;
@@ -498,7 +488,7 @@
 
     getToolbarModifiedBase() {
       return this.isDarkMode ?
-        'color-mix(in srgb, var(--zen-themed-toolbar-bg) 70%, #fff 30%)'
+        'color-mix(in srgb, var(--zen-themed-toolbar-bg) 80%, #fff 20%)'
       : 'color-mix(in srgb, var(--zen-themed-toolbar-bg) 95%, #000 5%)';
     }
 
