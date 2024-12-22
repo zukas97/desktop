@@ -26,6 +26,9 @@ ac_add_options --disable-maintenance-service
 ac_add_options --disable-bits-download
 
 if test "$SURFER_COMPAT" = "x86_64"; then
+  # FIXME: For some reason, the clang plugin is not working on generic x86_64 builds
+  ac_add_options --disable-clang-plugin
+
   ac_add_options --target=x86_64-pc-windows-msvc
   ac_add_options --enable-eme=widevine
 

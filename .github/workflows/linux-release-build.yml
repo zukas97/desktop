@@ -128,10 +128,6 @@ jobs:
         continue-on-error: true
         run: |
           export SURFER_PLATFORM="linux"
-          if test "${{ matrix.arch }}" = "x86_64-v3"; then
-            # TODO: Fix this!
-            export ZEN_DISABLE_LTO=1
-          fi
           sh .github/workflows/src/release-build.sh
 
       - name: Build again if it failed
