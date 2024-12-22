@@ -8,6 +8,7 @@ else
 fi
 
 if test "$SURFER_COMPAT" = "x86_64"; then
+    ac_add_options --enable-clang-plugin
     ac_add_options --target=x86_64-pc-linux
     ac_add_options --enable-eme=widevine
 
@@ -24,6 +25,7 @@ if test "$SURFER_COMPAT" = "x86_64"; then
     export LDFLAGS="$LDFLAGS -Wl,-O3 -Wl,-mllvm,-fp-contract=fast -march=x86-64"
     export RUSTFLAGS="$RUSTFLAGS -C target-cpu=x86-64 -C codegen-units=1 -Clink-args=--icf=safe"
 elif test "$SURFER_COMPAT" = "aarch64"; then
+    ac_add_options --enable-clang-plugin
     ac_add_options --target=aarch64-linux-gnu
 
     ac_add_options --enable-optimize="-O3"
@@ -61,7 +63,6 @@ ac_add_options --enable-alsa
 ac_add_options --enable-pulseaudio
 
 if test "$ZEN_RELEASE"; then
-    ac_add_options --enable-clang-plugin
 
     # Disable DMD and ELF hacks, enable linker lld
     ac_add_options --disable-dmd
