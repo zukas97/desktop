@@ -38,7 +38,8 @@ elif test "$ZEN_RELEASE"; then
     ac_add_options --enable-eme=widevine
 
     # Enable Profile Guided Optimization
-
+    export MOZ_PGO=1
+    ac_add_options MOZ_PGO=1
 
     # Optimization flags for general release
     ac_add_options --enable-wasm-avx
