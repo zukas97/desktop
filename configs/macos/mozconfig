@@ -9,8 +9,6 @@ export MOZ_MACBUNDLE_NAME="Zen Browser.app"
 export MOZ_PGO=1
 ac_add_options MOZ_PGO=1
 
-ac_add_options --enable-clang-plugin
-
 if test "$SURFER_COMPAT" = "x86_64"; then
     ac_add_options --target=x86_64-apple-darwin
 
