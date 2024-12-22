@@ -18,6 +18,11 @@ if test "$SURFER_COMPAT" = "x86_64"; then
     # Optimization flags for SURFER_COMPAT
     ac_add_options --enable-optimize="-O3 -march=x86-64"
 
+    if ! test "$ZEN_DISABLE_LTO"; then
+      export MOZ_LTO=cross,thin
+      ac_add_options --enable-lto=cross,thin
+    fi
+
     export CFLAGS="$CFLAGS -O3 -ffp-contract=fast -march=x86-64"
     export CPPFLAGS="$CPPFLAGS -O3 -ffp-contract=fast -march=x86-64"
     export CXXFLAGS="$CXXFLAGS -O3 -flto=thin -ffp-contract=fast -march=x86-64"
@@ -27,6 +32,11 @@ elif test "$SURFER_COMPAT" = "aarch64"; then
     ac_add_options --target=aarch64-linux-gnu
 
     ac_add_options --enable-optimize="-O3"
+
+    if ! test "$ZEN_DISABLE_LTO"; then
+      export MOZ_LTO=cross,thin
+      ac_add_options --enable-lto=cross,thin
+    fi
 
     export CFLAGS="$CFLAGS -O3"
     export CPPFLAGS="$CPPFLAGS -O3"
