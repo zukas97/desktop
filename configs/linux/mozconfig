@@ -28,10 +28,6 @@ elif test "$SURFER_COMPAT" = "aarch64"; then
 
     ac_add_options --enable-optimize="-O3"
 
-    # Enable Profile Guided Optimization
-    export MOZ_PGO=1
-    ac_add_options MOZ_PGO=1
-
     export CFLAGS="$CFLAGS -O3"
     export CPPFLAGS="$CPPFLAGS -O3"
     export CXXFLAGS="$CXXFLAGS -O3"
