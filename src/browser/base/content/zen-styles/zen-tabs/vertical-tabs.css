@@ -166,6 +166,13 @@
     &[should-hide='true'] {
 %include vertical-tabs-topbar.inc.css
     }
+
+    :root[inDOMFullscreen='true'] & {
+      max-height: 0 !important;
+      min-height: unset !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
   }
 }
 
