@@ -38,8 +38,8 @@ jobs:
 
       - name: Setup Git
         run: |
-          git config --global user.email "mauro-balades@users.noreply.github.com"
-          git config --global user.name "mauro-balades"
+          git config --global user.email "mr-cheff@users.noreply.github.com"
+          git config --global user.name "mr-cheff"
 
       - name: Setup pnpm
         run: npm install -g pnpm
@@ -66,16 +66,19 @@ jobs:
           C:\MozillaBuildSetup-Latest.exe /S | out-null
 
       - name: Download Firefox and dependencies
+        if: ${{ matrix.arch == 'x86_64' }}
         run: |
           git config --global core.safecrlf false
           pnpm surfer download
 
       - name: Import patches
+        if: ${{ matrix.arch == 'x86_64' }}
         env:
           SURFER_NO_BRANDING_PATCH: true
         run: pnpm surfer import
 
       - name: Generate
+        if: ${{ matrix.arch == 'x86_64' }}
         run: |
           ls
           $Env:USE_MINTTY = "0"
@@ -95,6 +98,7 @@ jobs:
         timeout-minutes: 15
 
       - name: Move profile data
+        if: ${{ matrix.arch == 'x86_64' }}
         run: |
           dir
           dir engine
@@ -102,6 +106,7 @@ jobs:
           mv engine/en-US.log en-US.log
 
       - name: Upload artifacts
+        if: ${{ matrix.arch == 'x86_64' }}
         uses: actions/upload-artifact@v4
         with:
           retention-days: 1

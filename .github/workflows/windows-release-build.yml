@@ -138,13 +138,13 @@ jobs:
 
       - name: Download artifact (if use profdata)
         uses: actions/download-artifact@v4
-        if: ${{ !inputs.generate-gpo }}
+        if: ${{ !inputs.generate-gpo && matrix.arch == 'x86_64' }}
         with:
           path: ~/artifact
           name: windows-profdata-${{ matrix.arch == 'aarch64' && 'arm64' || matrix.arch }}
 
       - name: Show artifact info
-        if: ${{ !inputs.generate-gpo }}
+        if: ${{ !inputs.generate-gpo && matrix.arch == 'x86_64' }}
         run: |
           ls ~/artifact
           ls ~/artifact/en-US.log
