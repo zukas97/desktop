@@ -48,6 +48,7 @@ jobs:
         run: npm i -g @zen-browser/surfer
 
       - name: Download artifact
+        if: ${{ matrix.arch == 'x86_64' }}
         uses: actions/download-artifact@v4
         with:
           path: C:\artifact
