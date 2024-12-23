@@ -82,7 +82,6 @@ export class ZenGlanceChild extends JSWindowActorChild {
 
   async handleMouseDown(event) {
     const target = event.target.closest('A');
-    console.log('target', target);
     if (!target) {
       return;
     }
