@@ -248,7 +248,6 @@ pref('dom.script_loader.bytecode_cache.strategy', 2);
 pref("dom.text_fragments.enabled", true);
 
 pref("layout.css.grid-template-masonry-value.enabled", true);
-pref("dom.enable_web_task_scheduling", true);
 pref("dom.security.sanitizer.enabled", true);
 
 // Pocket
