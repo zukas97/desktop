@@ -21,13 +21,13 @@ on:
 
 jobs:
   windows-build:
-    name: Build Windows - ${{ matrix.arch == 'x86_64' && 'Generic' || matrix.arch == 'x86_64-v3' && 'Specific' || matrix.arch == 'aarch64' && 'ARM64' }}
+    name: Build Windows - ${{ matrix.arch }}
     runs-on: ubuntu-latest
 
     strategy:
       fail-fast: false
       matrix:
-        arch: [x86_64, x86_64-v3, aarch64]
+        arch: [x86_64, aarch64]
 
     steps:
       - name: Free Disk Space (Ubuntu)
@@ -141,7 +141,7 @@ jobs:
         if: ${{ !inputs.generate-gpo }}
         with:
           path: ~/artifact
-          name: windows-profdata-${{ matrix.arch == 'x86_64' && 'generic' || matrix.arch == 'x86_64-v3' && 'specific' || matrix.arch == 'aarch64' && 'arm64' }}
+          name: windows-profdata-${{ matrix.arch == 'aarch64' && 'arm64' || matrix.arch }}
 
       - name: Show artifact info
         if: ${{ !inputs.generate-gpo }}
@@ -190,16 +190,16 @@ jobs:
       - name: Rename artifacts
         if: ${{ !inputs.generate-gpo }}
         run: |
-          mv ./zen.win64.zip zen.win-${{ matrix.arch == 'x86_64' && 'generic' || matrix.arch == 'x86_64-v3' && 'specific' || matrix.arch == 'aarch64' && 'arm64' }}.zip
-          mv ./dist/output.mar windows${{ matrix.arch == 'x86_64' && '-generic' || matrix.arch == 'aarch64' && '-arm64' || '' }}.mar
-          mv ./dist/zen.installer.exe ./zen.installer${{ matrix.arch == 'x86_64' && '-generic' || matrix.arch == 'aarch64' && '-arm64' || '' }}.exe
+          mv ./zen.win64.zip zen.win-${{ matrix.arch == 'aarch64' && 'arm64' || matrix.arch }}.zip
+          mv ./dist/output.mar windows${{ matrix.arch == 'aarch64' && '-arm64' || '' }}.mar
+          mv ./dist/zen.installer.exe ./zen.installer${{ matrix.arch == 'aarch64' && '-arm64' || '' }}.exe
 
       - name: Upload artifact (PGO)
         uses: actions/upload-artifact@v4
         if: ${{ inputs.generate-gpo }}
         with:
           retention-days: 5
-          name: ${{ matrix.arch == 'x86_64' && 'generic' || matrix.arch == 'x86_64-v3' && 'specific' || matrix.arch == 'aarch64' && 'arm64' }}-${{ inputs.profile-data-path-archive }}
+          name: ${{ matrix.arch == 'aarch64' && 'arm64' || matrix.arch }}-${{ inputs.profile-data-path-archive }}
           path: ./zen.win64-pgo-stage-1.zip
 
       - name: Remove unnecessary files from obj
@@ -219,7 +219,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           retention-days: 5
-          name: windows-x64-obj-${{ matrix.arch == 'x86_64' && 'generic' || matrix.arch == 'x86_64-v3' && 'specific' || matrix.arch == 'aarch64' && 'arm64' }}
+          name: windows-x64-obj-${{ matrix.arch == 'aarch64' && 'arm64' || matrix.arch }}
           path: engine/obj-${{ matrix.arch == 'aarch64' && 'aarch64' || 'x86_64' }}-pc-windows-msvc/
 
       - name: Upload artifact (if Twilight branch, binary)
@@ -227,29 +227,29 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           retention-days: 5
-          name: zen.win-${{ matrix.arch == 'x86_64' && 'generic' || matrix.arch == 'x86_64-v3' && 'specific' || matrix.arch == 'aarch64' && 'arm64' }}.zip
-          path: ./zen.win-${{ matrix.arch == 'x86_64' && 'generic' || matrix.arch == 'x86_64-v3' && 'specific' || matrix.arch == 'aarch64' && 'arm64' }}.zip
+          name: zen.win-${{ matrix.arch == 'aarch64' && 'arm64' || matrix.arch }}.zip
+          path: ./zen.win-${{ matrix.arch == 'aarch64' && 'arm64' || matrix.arch }}.zip
 
       - name: Upload artifact (if Twilight branch, installer)
         if: ${{ inputs.release-branch == 'twilight' && !inputs.generate-gpo }}
         uses: actions/upload-artifact@v4
         with:
           retention-days: 5
-          name: zen.installer${{ matrix.arch == 'x86_64' && '-generic' || matrix.arch == 'aarch64' && '-arm64' ||  '' }}.exe
-          path: ./zen.installer${{ matrix.arch == 'x86_64' && '-generic' || matrix.arch == 'aarch64' && '-arm64' || '' }}.exe
+          name: zen.installer${{ matrix.arch == 'aarch64' && '-arm64' ||  '' }}.exe
+          path: ./zen.installer${{ matrix.arch == 'aarch64' && '-arm64' || '' }}.exe
 
       - name: Upload artifact (if Twilight branch, .mar)
         if: ${{ inputs.release-branch == 'twilight' && !inputs.generate-gpo }}
         uses: actions/upload-artifact@v4
         with:
           retention-days: 5
-          name: windows${{ matrix.arch == 'x86_64' && '-generic' || matrix.arch == 'aarch64' && '-arm64' || '' }}.mar
-          path: ./windows${{ matrix.arch == 'x86_64' && '-generic' || matrix.arch == 'aarch64' && '-arm64' || '' }}.mar
+          name: windows${{ matrix.arch == 'aarch64' && '-arm64' || '' }}.mar
+          path: ./windows${{ matrix.arch == 'aarch64' && '-arm64' || '' }}.mar
 
       - name: Upload artifact (if Twilight branch, update manifests)
         if: ${{ inputs.release-branch == 'twilight' && !inputs.generate-gpo }}
         uses: actions/upload-artifact@v4
         with:
           retention-days: 5
-          name: windows_update_manifest_${{ matrix.arch == 'x86_64' && 'generic' || matrix.arch == 'x86_64-v3' && 'specific' || matrix.arch == 'aarch64' && 'arm64' }}
+          name: windows_update_manifest_${{ matrix.arch == 'aarch64' && 'arm64' || matrix.arch }}
           path: ./dist/update

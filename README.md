@@ -75,11 +75,7 @@ If you dont see your OS listed below, that's because we already have it in our [
 ##### Winget
 
 ```ps
-# Generic version
 winget install --id Zen-Team.Zen-Browser
-
-# Optimized version
-winget install --id Zen-Team.Zen-Browser.Optimized
 ```
 
 #### macOS
@@ -98,11 +94,7 @@ brew install --cask zen-browser
 ##### Arch-based distributions
 
 ```sh
-# For generic version
 yay -S zen-browser-bin
-
-# For optimized version
-yay -S zen-browser-avx2-bin
 ```
 
 ##### Other Linux distributions (AppImage with automated system integration)
