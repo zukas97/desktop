@@ -153,6 +153,7 @@ jobs:
           chmod +x ~/artifact/merged.profdata
 
       - name: Build
+        if: ${{ !(inputs.generate-gpo && matrix.arch == 'aarch64') }}
         env:
           SURFER_COMPAT: ${{ matrix.arch }}
         run: |
@@ -166,6 +167,7 @@ jobs:
           sh .github/workflows/src/release-build.sh
 
       - name: Package
+        if: ${{ !(inputs.generate-gpo && matrix.arch == 'aarch64') }}
         env:
           SURFER_COMPAT: ${{ matrix.arch }}
         run: |
@@ -182,7 +184,7 @@ jobs:
         timeout-minutes: 15
 
       - name: Move package for PGO upload
-        if: ${{ inputs.generate-gpo }}
+        if: ${{ inputs.generate-gpo && matrix.arch == 'x86_64' }}
         run: |
           set -x
           mv ./zen.win64.zip ./zen.win64-pgo-stage-1.zip
@@ -196,7 +198,7 @@ jobs:
 
       - name: Upload artifact (PGO)
         uses: actions/upload-artifact@v4
-        if: ${{ inputs.generate-gpo }}
+        if: ${{ inputs.generate-gpo && matrix.arch == 'x86_64' }}
         with:
           retention-days: 5
           name: ${{ matrix.arch == 'aarch64' && 'arm64' || matrix.arch }}-${{ inputs.profile-data-path-archive }}
