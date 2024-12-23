@@ -211,7 +211,7 @@
           & #urlbar {
             transform: translateY(0);
 
-            &[open] {
+            &[open]:not([zen-floating-urlbar='true']) {
               top: 0 !important;
             }
           }
