@@ -117,7 +117,9 @@ var gZenCompactModeManager = {
     }
     this._isAnimating = true;
     // Do this so we can get the correct width ONCE compact mode styled have been applied
-    this.sidebar.setAttribute("animate", "true");
+    if (this._canAnimateSidebar) {
+      this.sidebar.setAttribute("animate", "true");
+    }
     window.requestAnimationFrame(() => {
       let sidebarWidth = this.getAndApplySidebarWidth();
       if (!this._canAnimateSidebar) {
