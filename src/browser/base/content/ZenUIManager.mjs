@@ -13,16 +13,12 @@ var gZenUIManager = {
       0
     );
 
-    function throttle(f, delay) {
-      let timer = 0;
-      return function (...args) {
-        clearTimeout(timer);
-        timer = setTimeout(() => f.apply(this, args), delay);
-      };
-    }
-
-    new ResizeObserver(throttle(this.updateTabsToolbar.bind(this), this.sidebarHeightThrottle)).observe(
+    new ResizeObserver(gZenCommonActions.throttle(this.updateTabsToolbar.bind(this), this.sidebarHeightThrottle)).observe(
       document.getElementById('tabbrowser-tabs')
+    );
+
+    new ResizeObserver(gZenCommonActions.throttle(gZenCompactModeManager.getAndApplySidebarWidth.bind(gZenCompactModeManager), this.sidebarHeightThrottle)).observe(
+      document.getElementById('navigator-toolbox')
     );
   },
 
