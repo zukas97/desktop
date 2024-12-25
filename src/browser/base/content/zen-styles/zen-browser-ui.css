@@ -60,7 +60,7 @@
     }
   }
 
-  @media not (-moz-windows-accent-color-in-titlebar) {
+  @media (not (-moz-windows-accent-color-in-titlebar)) and (not (-moz-windows-mica)) {
     transition: color var(--inactive-window-transition);
     color: var(--toolbox-non-lwt-textcolor-inactive);
     &:-moz-window-inactive {
