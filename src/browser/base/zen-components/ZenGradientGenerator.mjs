@@ -612,17 +612,20 @@
         }
 
 
-        const appWrapper = browser.document.getElementById('zen-main-app-wrapper');
-        if (!skipUpdate) {
+        const appWrapper = browser.document.getElementById('browser');
+        if (!skipUpdate && !this._animatingBackground) {
+          this._animatingBackground = true;
           appWrapper.removeAttribute('animating');
-          appWrapper.setAttribute('animating', 'true');
-          browser.document.body.style.setProperty('--zen-main-browser-background-old',
-            browser.document.body.style.getPropertyValue('--zen-main-browser-background')
+          browser.document.documentElement.style.setProperty('--zen-main-browser-background-old',
+            browser.document.documentElement.style.getPropertyValue('--zen-main-browser-background')
           );
           browser.window.requestAnimationFrame(() => {
+            appWrapper.setAttribute('animating', 'true');
             setTimeout(() => {
+              this._animatingBackground = false;
               appWrapper.removeAttribute('animating');
-            }, 500);
+              browser.document.documentElement.style.removeProperty('--zen-main-browser-background-old');
+            }, 700);
           });
         }
 
