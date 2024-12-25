@@ -634,9 +634,11 @@
   fill: currentColor !important;
 }
 
-menu > .menu-iconic-text,
-menuitem > .menu-iconic-text {
-  padding-inline-start: var(--fp-contextmenu-menuicon-margin-inline) !important;
+@media not (-moz-platform: windows) {
+  menu > .menu-iconic-text,
+  menuitem > .menu-iconic-text {
+    padding-inline-start: var(--fp-contextmenu-menuicon-margin-inline) !important;
+  }
 }
 
 #context-savepage {
