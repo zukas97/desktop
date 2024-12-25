@@ -22,7 +22,6 @@ var gZenUIManager = {
     );
   },
 
-
   updateTabsToolbar() {
     // Set tabs max-height to the "toolbar-items" height
     const toolbarItems = document.getElementById('tabbrowser-tabs');
