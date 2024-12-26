@@ -402,6 +402,10 @@
   list-style-image: url('customize.svg') !important;
 }
 
+#appmenu-zen-share-rice {
+  list-style-image: url('share.svg');
+}
+
 .bookmark-item[container] {
   list-style-image: url('folder.svg') !important;
 }
@@ -502,10 +506,6 @@
 
 .screen-icon.blocked-permission-icon {
   list-style-image: url('screen-blocked.svg') !important;
-}
-
-#zen-rice-share-btn {
-  list-style-image: url('share.svg');
 }
 
 .popup-notification-icon[popupid='persistent-storage'],

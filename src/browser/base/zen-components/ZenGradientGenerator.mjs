@@ -593,7 +593,7 @@
       let workspaceTheme = theme || workspace.theme;
 
       await this.foreachWindowAsActive(async (browser) => {
-        if (!browser.gZenThemePicker._hasInitialized) {
+        if (!browser.gZenThemePicker?._hasInitialized) {
           return;
         }
         // Do not rebuild if the workspace is not the same as the current one

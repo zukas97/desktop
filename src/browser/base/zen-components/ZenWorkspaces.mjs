@@ -1202,6 +1202,7 @@ var ZenWorkspaces = new (class extends ZenMultiWindowFeature {
       return;
     }
 
+    await SessionStore.promiseInitialized;
     this._inChangingWorkspace = true;
     try {
       await this._performWorkspaceChange(window, onInit);
