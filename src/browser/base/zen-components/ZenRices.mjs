@@ -83,6 +83,10 @@
         'zen.tabs.vertical.right-side',
         'zen.view.experimental-no-window-controls',
         'zen.view.hide-window-controls',
+        ...(gZenOperatingSystemCommonUtils.currentOperatingSystem === "windows"
+          ? ['widget.windows.mica']
+          : []
+        ),
       ];
       const stringPrefsToCollect = [
         'browser.uiCustomization.state'
