@@ -96,6 +96,10 @@
   list-style-image: url('chevron.svg') !important;
 }
 
+#zen-rice-share-options .options-header {
+  list-style-image: url('arrow-right.svg');
+}
+
 #PanelUI-menu-button > * {
   padding: var(--zen-toolbar-button-inner-padding);
 }
@@ -498,6 +502,10 @@
 
 .screen-icon.blocked-permission-icon {
   list-style-image: url('screen-blocked.svg') !important;
+}
+
+#zen-rice-share-btn {
+  list-style-image: url('share.svg');
 }
 
 .popup-notification-icon[popupid='persistent-storage'],

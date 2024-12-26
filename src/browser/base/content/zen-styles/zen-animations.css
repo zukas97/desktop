@@ -349,3 +349,21 @@
     transform: translateX(-100%) translateY(-50%);
   }
 }
+
+@keyframes zen-jello-animation-with-translate {
+  0% {
+    transform: scale3d(0.8, 0.8, 0.8) translate(-50%, -50%);
+    transform-origin: 50% 50%;
+  }
+
+  60% {
+    transform: scale3d(1.02, 1.02, 1.02) translate(-50%, -50%);
+    transform-origin: 50% 50%;
+  }
+
+  to {
+    opacity: 1;
+    transform: scale3d(1, 1, 1) translate(-50%, -50%);
+    transform-origin: 50% 50%;
+  }
+}
