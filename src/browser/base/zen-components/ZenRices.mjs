@@ -1,5 +1,7 @@
 
 {
+  const ZEN_RICE_API = Services.prefs.getStringPref("zen.rice.api.url", '');
+
   class ZenRiceCollector {
     constructor() {}
 
@@ -104,8 +106,8 @@
       this._workspaceThemes = workspaces.map(w => w.theme);
     }
 
-    async packRice() {
-      await this.gatherAll();
+    async packRice(...args) {
+      await this.gatherAll(...args);
       const rice = {
         userChrome: this._userChrome,
         userContent: this._userContent,
@@ -137,31 +139,48 @@
         <vbox id="zen-rice-share-dialog-overlay" hidden="true">
           <vbox id="zen-rice-share-dialog">
             <html:img src="chrome://browser/content/zen-images/brand-header.svg" class="zen-rice-share-header" />
-            <vbox class="zen-rice-share-content">
-              <html:input type="text" data-l10n-id="zen-rice-share-name" id="zen-rice-share-name" oninput="gZenThemePicker.riceManager.validateShareDialog(this)" />
-              <hbox class="zen-rice-share-author">
-                <label data-l10n-id="zen-rice-share-author" />
-                <html:input type="text" data-l10n-id="zen-rice-share-author-input" id="zen-rice-share-author" />
-              </hbox>
-              <vbox zen-collapsed="true" id="zen-rice-share-options" onclick="gZenThemePicker.riceManager.toggleOptions(event)">
-                <hbox class="options-header">
-                  <label data-l10n-id="zen-rice-share-include" />
-                  <image></image>
+            <hbox class="zen-rice-share-content">
+              <vbox id="zen-rice-share-first-form">
+                <html:input type="text" data-l10n-id="zen-rice-share-name" id="zen-rice-share-name" oninput="gZenThemePicker.riceManager.validateShareDialog(this)" />
+                <hbox class="zen-rice-share-author">
+                  <label data-l10n-id="zen-rice-share-author" />
+                  <html:input type="text" data-l10n-id="zen-rice-share-author-input" id="zen-rice-share-author" />
                 </hbox>
-                <checkbox data-l10n-id="zen-rice-share-include-userchrome" id="zen-rice-share-include-userchrome" />
-                <checkbox data-l10n-id="zen-rice-share-include-usercontent" id="zen-rice-share-include-usercontent" />
-                <checkbox data-l10n-id="zen-rice-share-include-mods" id="zen-rice-share-include-mods" />
-                <vbox class="indent">
-                  <checkbox data-l10n-id="zen-rice-share-include-mod-prefs" id="zen-rice-share-include-mod-prefs" />
+                <vbox zen-collapsed="true" id="zen-rice-share-options" onclick="gZenThemePicker.riceManager.toggleOptions(event)">
+                  <hbox class="options-header">
+                    <label data-l10n-id="zen-rice-share-include" />
+                    <image></image>
+                  </hbox>
+                  <checkbox data-l10n-id="zen-rice-share-include-userchrome" id="zen-rice-share-include-userchrome" />
+                  <checkbox data-l10n-id="zen-rice-share-include-usercontent" id="zen-rice-share-include-usercontent" />
+                  <checkbox data-l10n-id="zen-rice-share-include-mods" id="zen-rice-share-include-mods" />
+                  <vbox class="indent">
+                    <checkbox data-l10n-id="zen-rice-share-include-mod-prefs" id="zen-rice-share-include-mod-prefs" />
+                  </vbox>
+                  <checkbox data-l10n-id="zen-rice-share-include-preferences" id="zen-rice-share-include-preferences" />
+                  <checkbox data-l10n-id="zen-rice-share-include-workspace-themes" id="zen-rice-share-include-workspace-themes" />
                 </vbox>
-                <checkbox data-l10n-id="zen-rice-share-include-preferences" id="zen-rice-share-include-preferences" />
-                <checkbox data-l10n-id="zen-rice-share-include-workspace-themes" id="zen-rice-share-include-workspace-themes" />
+                <html:moz-button-group class="panel-footer">
+                  <button onclick="gZenThemePicker.riceManager.cancel()" class="footer-button" data-l10n-id="zen-rice-share-cancel" />
+                  <button onclick="gZenThemePicker.riceManager.submit()" class="footer-button" data-l10n-id="zen-rice-share-save" default="true" slot="primary" id="zen-rice-share-save" disabled="true" />
+                </html:moz-button-group>
               </vbox>
-              <html:moz-button-group class="panel-footer">
-                <button onclick="gZenThemePicker.riceManager.cancel()" class="footer-button" data-l10n-id="zen-rice-share-cancel" />
-                <button onclick="gZenThemePicker.riceManager.submit()" class="footer-button" data-l10n-id="zen-rice-share-save" default="true" slot="primary" id="zen-rice-share-save" disabled="true" />
-              </html:moz-button-group>
-            </vbox>
+              <vbox id="zen-rice-share-second-form" hidden="true">
+                <hbox></hbox>
+                <vbox id="zen-rice-share-error" hidden="true">
+                  <label data-l10n-id="zen-rice-share-error" />
+                  <button onclick="gZenThemePicker.riceManager.resetShareDialog()" data-l10n-id="zen-close-label" class="footer-button" />
+                </vbox>
+              </vbox>
+              <vbox id="zen-rice-share-success" hidden="true">
+                <h1 data-l10n-id="zen-rice-share-success" />
+                <label data-l10n-id="zen-rice-share-success-link" />
+                <html:input type="text" readonly="true" id="zen-rice-share-success-link" onclick="this.select()" />
+                <html:moz-button-group class="panel-footer">
+                  <button onclick="gZenThemePicker.riceManager.resetShareDialog()" data-l10n-id="zen-close-label" class="footer-button" slot="primary" default="true" />
+                </html:moz-button-group>
+              </vbox>
+            </hbox>
           </vbox>
         </vbox>
       `);
@@ -191,11 +210,16 @@
       this.validateShareDialog(document.getElementById("zen-rice-share-name"));
     }
 
-    cancel() {
-      this.shareDialog.setAttribute("hidden", "true");
+    resetShareDialog() {
+      const dialog = this.shareDialog;
+      dialog.setAttribute("hidden", "true");
       document.getElementById("zen-rice-share-name").value = "";
       document.getElementById("zen-rice-share-author").value = "";
       document.getElementById("zen-rice-share-save").disabled = true;
+    }
+
+    cancel() {
+      this.resetShareDialog();
     }
 
     getAllowedRice() {
@@ -207,6 +231,10 @@
         preferences: document.getElementById("zen-rice-share-include-preferences").checked,
         workspaceThemes: document.getElementById("zen-rice-share-include-workspace-themes").checked,
       };
+    }
+
+    get userAgent() {
+      return `ZenBrowser/${Services.appinfo.version} (${gZenOperatingSystemCommonUtils.currentOperatingSystem})`;
     }
 
     canShareRice() {
@@ -227,6 +255,71 @@
     }
 
     async submit() {
+      const firstForm = document.getElementById("zen-rice-share-first-form");
+      const secondForm = document.getElementById("zen-rice-share-second-form");
+      firstForm.setAttribute("fade-out", "true");
+      secondForm.removeAttribute("hidden");
+      await this._submit();
+    }
+
+    async _submit() {
+      const allowedRice = this.getAllowedRice();
+      const rice = await this._collector.packRice(allowedRice);
+      const name = document.getElementById("zen-rice-share-name").value;
+      const author = document.getElementById("zen-rice-share-author").value;
+      const response = await this._sendRice({ name, author, rice });
+      //if (response) {
+        this.showSuccessDialog({id:"abawdawd"});
+      //}
+    }
+
+    async _sendRice({ name, author, rice }) {
+      // Encode the rice as base64 and send it as request body, change user agent to "ZenBrowser" and send author info in the headers
+      const base64 = btoa(JSON.stringify(rice));
+      const headers = new Headers();
+      headers.append("X-Zen-Rice-Name", name);
+      headers.append("X-Zen-Rice-Author", author);
+      headers.append("User-Agent", this.userAgent);
+      headers.append("Content-Type", "application/json");
+      try {
+        const response = await fetch(`${ZEN_RICE_API}/api/create`, {
+          method: "POST",
+          headers,
+          body: base64,
+        });
+      } catch (e) {
+        this.showErrorMessage("An error occurred while sharing your rice. Please try again later.");
+        return null;
+      }
+      return await this._verifyResponse(response);
+    }
+
+    async _verifyResponse(response) {
+      const json = await response.json();
+      if (!response.ok) {
+        const message = json.message || "An error occurred while sharing your rice.";
+        this.showErrorMessage(message);
+        return null;
+      }
+
+      return json;
+    }
+
+    showErrorMessage(message) {
+      const errorBox = document.getElementById("zen-rice-share-error");
+      errorBox.removeAttribute("hidden");
+      errorBox.querySelector("label").textContent = message;
+    }
+
+    showSuccessDialog(riceInfo) {
+      const { id } = riceInfo;
+      setTimeout(() => {
+        const successBox = document.getElementById("zen-rice-share-success");
+        document.getElementById("zen-rice-share-second-form").setAttribute("fade-out", "true");
+        successBox.removeAttribute("hidden");
+        const link = document.getElementById("zen-rice-share-success-link");
+        link.value = `${ZEN_RICE_API}${id}`;
+      }, 2000);
     }
   }
 

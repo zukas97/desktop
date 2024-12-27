@@ -90,6 +90,12 @@ pref('zen.tabs.show-newtab-vertical', true);
 pref('zen.view.show-newtab-button-border-top', true);
 pref('zen.view.show-newtab-button-top', false);
 
+#ifdef MOZILLA_OFFICIAL
+pref('zen.rice.api.url', "https://share.zen-browser.app/");
+#else
+pref('zen.rice.api.url', "http://localhost:8000/");
+#endif
+
 #ifdef XP_MACOSX
 pref('zen.theme.border-radius', 10); // In pixels
 #else
