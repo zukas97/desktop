@@ -44,13 +44,12 @@ We keep track of how many issues are closed at the end of the month in [docs/iss
 
 ### Versioning
 
-Zen uses [Semantic Versioning](https://semver.org/) for versioning. Meaning, versions are displayed as `a.b.c-d.e` where:
+Zen uses [Semantic Versioning](https://semver.org/) for versioning. Meaning, versions are displayed as `a.bc.d` where:
 
 - `a` is the major version
 - `b` is the minor version
-- `c` is the patch version
-- `d` is the branch prefix
-- `e` is the build number
+- `c` is the branch prefix
+- `d` is the patch version
 
 ### Branches
 
