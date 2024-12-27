@@ -128,7 +128,7 @@
     }
 
     async packRice() {
-      return this._collector.packRice();
+      return await this._collector.packRice();
     }
 
     get shareDialog() {
@@ -280,18 +280,18 @@
     }
 
     async _sendRice({ name, author, rice }) {
-      // Encode the rice as base64 and send it as request body, change user agent to "ZenBrowser" and send author info in the headers
-      const base64 = btoa(JSON.stringify(rice));
       const headers = new Headers();
       headers.append("X-Zen-Rice-Name", name);
       headers.append("X-Zen-Rice-Author", author);
       headers.append("User-Agent", this.userAgent);
+      headers.append("Content-Type", "application/json");
+      headers.append("Accept", "application/json");
       let response;
       try {
         response = await fetch(`${ZEN_RICE_API}/rices`, {
           method: "POST",
           headers,
-          body: base64,
+          body: JSON.stringify(rice),
         });
       } catch (e) {
         this.showErrorMessage("An error occurred while sharing your rice. Please try again later.");
