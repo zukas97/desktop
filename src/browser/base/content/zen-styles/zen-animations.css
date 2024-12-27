@@ -367,7 +367,7 @@
   99% {
     transform: translateX(-100%);
     opacity: 0;
-    max-height: 50px;
+    max-height: 15px;
     position: relative;
   }
 

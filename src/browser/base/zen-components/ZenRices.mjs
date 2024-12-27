@@ -141,10 +141,10 @@
             <html:img src="chrome://browser/content/zen-images/brand-header.svg" class="zen-rice-share-header" />
             <hbox class="zen-rice-share-content">
               <vbox id="zen-rice-share-first-form">
-                <html:input type="text" data-l10n-id="zen-rice-share-name" id="zen-rice-share-name" oninput="gZenThemePicker.riceManager.validateShareDialog(this)" />
+                <html:input type="text" data-l10n-id="zen-rice-share-name" id="zen-rice-share-name" oninput="gZenThemePicker.riceManager.validateShareDialog()" />
                 <hbox class="zen-rice-share-author">
                   <label data-l10n-id="zen-rice-share-author" />
-                  <html:input type="text" data-l10n-id="zen-rice-share-author-input" id="zen-rice-share-author" />
+                  <html:input type="text" data-l10n-id="zen-rice-share-author-input" id="zen-rice-share-author" oninput="gZenThemePicker.riceManager.validateShareDialog();" />
                 </hbox>
                 <vbox zen-collapsed="true" id="zen-rice-share-options" onclick="gZenThemePicker.riceManager.toggleOptions(event)">
                   <hbox class="options-header">
@@ -194,7 +194,7 @@
         const options = document.getElementById("zen-rice-share-options");
         options.setAttribute("zen-collapsed", options.getAttribute("zen-collapsed") === "true" ? "false" : "true");
       }
-      this.validateShareDialog(document.getElementById("zen-rice-share-name"));
+      this.validateShareDialog();
     }
 
     openShareDialog() {
@@ -206,8 +206,10 @@
       const dialog = this.shareDialog;
       dialog.removeAttribute("hidden");
 
+      document.getElementById("zen-rice-share-name").focus();
+
       // Initialize the dialog with the current values
-      this.validateShareDialog(document.getElementById("zen-rice-share-name"));
+      this.validateShareDialog();
     }
 
     resetShareDialog() {
@@ -255,9 +257,12 @@
       return Object.values(allowedRice).some(v => v);
     }
 
-    validateShareDialog(input) {
+    validateShareDialog() {
       const saveButton = document.getElementById("zen-rice-share-save");
-      saveButton.disabled = !this.canShareRice() || input.value.trim().length < 3 || input.value.trim().length > 30;
+      const authorInput = document.getElementById("zen-rice-share-author");
+      const input = document.getElementById("zen-rice-share-name");
+      saveButton.disabled = !this.canShareRice() || input.value.trim().length < 3 || input.value.trim().length > 30
+        || authorInput.value.trim().length < 3 || authorInput.value.trim().length > 15;
     }
 
     async submit() {
@@ -310,7 +315,6 @@
         console.error(json);
         return null;
       }
-
       return json;
     }
 
@@ -321,13 +325,14 @@
     }
 
     showSuccessDialog(riceInfo) {
-      const { id } = riceInfo;
+      const { slug, token } = riceInfo;
+      // 'token' is like some sort of password to edit the rice, do NOT expose it
       setTimeout(() => {
         const successBox = document.getElementById("zen-rice-share-success");
         document.getElementById("zen-rice-share-second-form").setAttribute("fade-out", "true");
         successBox.removeAttribute("hidden");
         const link = document.getElementById("zen-rice-share-success-link");
-        link.value = `${ZEN_RICE_API}${id}`;
+        link.value = `${ZEN_RICE_API}/${slug}`;
       }, 2000);
     }
   }
