@@ -95,6 +95,7 @@ pref('zen.rice.api.url', "https://share.zen-browser.app");
 #else
 pref('zen.rice.api.url', "http://localhost:3000");
 #endif
+pref('zen.rice.share.notice.accepted', false);
 
 #ifdef XP_MACOSX
 pref('zen.theme.border-radius', 10); // In pixels

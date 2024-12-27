@@ -137,7 +137,15 @@
       }
       this._shareDialog = window.MozXULElement.parseXULToFragment(`
         <vbox id="zen-rice-share-dialog-overlay" hidden="true">
-          <vbox id="zen-rice-share-dialog">
+          <vbox id="zen-rice-share-dialog-notice">
+            <h1 data-l10n-id="zen-rice-share-notice" />
+            <p data-l10n-id="zen-rice-share-notice-details" />
+            <html:moz-button-group class="panel-footer">
+              <html:a href="https://docs.zen-browser.app/guides/" target="_blank" data-l10n-id="zen-learn-more-text" onclick="gZenThemePicker.riceManager.openLink(event)" />
+              <button onclick="gZenThemePicker.riceManager.acceptNotice()" class="footer-button" data-l10n-id="zen-rice-share-accept" slot="primary" default="true" />
+            </html:moz-button-group>
+          </vbox>
+          <vbox id="zen-rice-share-dialog" hidden="true">
             <html:img src="chrome://browser/content/zen-images/brand-header.svg" class="zen-rice-share-header" />
             <hbox class="zen-rice-share-content">
               <vbox id="zen-rice-share-first-form">
@@ -174,6 +182,7 @@
               </vbox>
               <vbox id="zen-rice-share-success" hidden="true">
                 <h1 data-l10n-id="zen-rice-share-success" />
+                <p data-l10n-id="zen-rice-share-succes-details" />
                 <label data-l10n-id="zen-rice-share-success-link" />
                 <html:input type="text" readonly="true" id="zen-rice-share-success-link" onclick="this.select()" />
                 <html:moz-button-group class="panel-footer">
@@ -189,6 +198,27 @@
       return this._shareDialog;
     }
 
+    get hasAcceptedNotice() {
+      return Services.prefs.getBoolPref("zen.rice.share.notice.accepted", false);
+    }
+
+    set hasAcceptedNotice(value) {
+      Services.prefs.setBoolPref("zen.rice.share.notice.accepted", value);
+    }
+
+    openLink(event) {
+      event.stopPropagation();
+      this.cancel();
+      gZenUIManager.openAndChangeToTab("https://docs.zen-browser.app/guides/");
+    }
+
+    acceptNotice() {
+      this.hasAcceptedNotice = true;
+      const notice = document.getElementById("zen-rice-share-dialog-notice");
+      notice.setAttribute("hidden", "true");
+      this.openShareDialog();
+    }
+
     toggleOptions(event) {
       if (event.originalTarget.closest(".options-header")) {
         const options = document.getElementById("zen-rice-share-options");
@@ -202,10 +232,16 @@
         .QueryInterface(Ci.nsIInterfaceRequestor)
         .getInterface(Ci.nsIAppWindow)
         .rollupAllPopups();
-
       const dialog = this.shareDialog;
       dialog.removeAttribute("hidden");
 
+      if (!this.hasAcceptedNotice) {
+        const notice = document.getElementById("zen-rice-share-dialog-notice");
+        notice.removeAttribute("hidden");
+        return;
+      }
+
+      document.getElementById("zen-rice-share-dialog").removeAttribute("hidden");
       document.getElementById("zen-rice-share-name").focus();
 
       // Initialize the dialog with the current values

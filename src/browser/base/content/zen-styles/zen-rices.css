@@ -12,7 +12,8 @@
   align-items: center;
 }
 
-#zen-rice-share-dialog {
+#zen-rice-share-dialog,
+#zen-rice-share-dialog-notice {
   color: var(--panel-color);
   background: var(--arrowpanel-background);
   border-radius: var(--zen-panel-radius);
@@ -141,11 +142,11 @@
     position: absolute;
     transform: translateX(-100%);
     pointer-events: none;
-    animation: zen-rice-form-out 0.8s ease;
+    animation: zen-rice-form-out 0.5s ease;
   }
 
   #zen-rice-share-second-form {
-    animation: zen-rice-form-in 0.8s ease forwards;
+    animation: zen-rice-form-in 0.5s ease forwards;
     justify-content: center;
 
     & > hbox {
@@ -183,9 +184,13 @@
     max-height: 0px;
     animation: zen-rice-form-in-2 0.5s ease forwards;
 
-    & h1 {
+    & > h1 {
       margin: 0;
       font-size: 20px;
+    }
+
+    & > p {
+      color: var(--text-color-deemphasized);
     }
 
     & label {
@@ -194,5 +199,19 @@
       font-weight: 600;
       margin-bottom: 5px;
     }
+  }
+}
+
+#zen-rice-share-dialog-notice {
+  padding: 15px;
+
+  & > p {
+    color: var(--text-color-deemphasized);
+    margin-top: 5px;
+  }
+
+  .panel-footer {
+    margin-top: 10px;
+    align-items: center;
   }
 }
