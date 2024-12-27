@@ -312,6 +312,11 @@ var gZenCompactModeManager = {
           }
         }
 
+        // If it's a child element but not the target, ignore the event
+        if (target.contains(event.explicitOriginalTarget) && event.explicitOriginalTarget !== target) {
+          return;
+        }
+
         if (this.hoverableElements[i].keepHoverDuration) {
           this.flashElement(target, keepHoverDuration, 'has-hover' + target.id, 'zen-has-hover');
         } else {
