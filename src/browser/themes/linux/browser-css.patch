@@ -1,8 +1,8 @@
 diff --git a/browser/themes/linux/browser.css b/browser/themes/linux/browser.css
-index a9276a678f16a67e2a003474203c37cb5c9300ad..7d30aaf66659ffa53937f45b0db98f9aebb483c7 100644
+index a9276a678f16a67e2a003474203c37cb5c9300ad..892c69950d2a695b890fec9f8ea3f6e64032fe25 100644
 --- a/browser/themes/linux/browser.css
 +++ b/browser/themes/linux/browser.css
-@@ -42,15 +42,16 @@
+@@ -42,15 +42,17 @@
      -moz-default-appearance: -moz-window-decorations;
      appearance: auto;
  
@@ -10,7 +10,8 @@ index a9276a678f16a67e2a003474203c37cb5c9300ad..7d30aaf66659ffa53937f45b0db98f9a
 -    dialog::backdrop {
 +    #zen-main-app-wrapper,
 +    dialog::backdrop,
-+    #browser::after {
++    #browser::after,
++    #browser::before {
        border-top-left-radius: env(-moz-gtk-csd-titlebar-radius);
        border-top-right-radius: env(-moz-gtk-csd-titlebar-radius);
      }
