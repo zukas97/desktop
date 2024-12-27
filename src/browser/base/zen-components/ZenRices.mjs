@@ -216,6 +216,12 @@
       document.getElementById("zen-rice-share-name").value = "";
       document.getElementById("zen-rice-share-author").value = "";
       document.getElementById("zen-rice-share-save").disabled = true;
+      document.getElementById("zen-rice-share-first-form").removeAttribute("fade-out");
+      document.getElementById("zen-rice-share-second-form").setAttribute("hidden", "true");
+      document.getElementById("zen-rice-share-second-form").removeAttribute("fade-out");
+      document.getElementById("zen-rice-share-error").setAttribute("hidden", "true");
+      document.getElementById("zen-rice-share-success").setAttribute("hidden", "true");
+      document.getElementById("zen-rice-share-options").setAttribute("zen-collapsed", "true");
     }
 
     cancel() {
