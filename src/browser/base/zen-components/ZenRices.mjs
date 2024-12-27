@@ -268,9 +268,9 @@
       const name = document.getElementById("zen-rice-share-name").value;
       const author = document.getElementById("zen-rice-share-author").value;
       const response = await this._sendRice({ name, author, rice });
-      //if (response) {
-        this.showSuccessDialog({id:"abawdawd"});
-      //}
+      if (response) {
+        this.showSuccessDialog(response);
+      }
     }
 
     async _sendRice({ name, author, rice }) {
@@ -280,17 +280,19 @@
       headers.append("X-Zen-Rice-Name", name);
       headers.append("X-Zen-Rice-Author", author);
       headers.append("User-Agent", this.userAgent);
-      headers.append("Content-Type", "application/json");
+      let response;
       try {
-        const response = await fetch(`${ZEN_RICE_API}/api/create`, {
+        response = await fetch(`${ZEN_RICE_API}/rices`, {
           method: "POST",
           headers,
           body: base64,
         });
       } catch (e) {
         this.showErrorMessage("An error occurred while sharing your rice. Please try again later.");
+        console.error(e);
         return null;
       }
+      // Here, response will never be a null object
       return await this._verifyResponse(response);
     }
 
@@ -299,6 +301,7 @@
       if (!response.ok) {
         const message = json.message || "An error occurred while sharing your rice.";
         this.showErrorMessage(message);
+        console.error(json);
         return null;
       }
 
