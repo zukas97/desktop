@@ -131,13 +131,19 @@ h2 {
   justify-content: start;
 }
 
-.page-split:not(#import) > div:first-child {
+.page-split:not(#import, #theme) > div:first-child {
   margin-bottom: 20px;
 }
 
 :not(#theme) .card h3 {
   margin: auto;
   text-align: center;
+}
+
+#theme {
+  & > div:first-child p {
+    margin-bottom: 0 !important;
+  }
 }
 
 #theme .card[disabled='true'] {
