@@ -387,15 +387,24 @@
       const end = Date.now() + 2500;
       function frame() {
         this.conffettiWrapper({
-          angle: 125,
-          spread: 60,
-          particleCount: 3,
+          angle: 135,
+          spread: 55,
+          particleCount: 5,
+          startVelocity: 55,
           origin: { y: 0.6 },
         });
         this.conffettiWrapper({
-          angle: 55,
-          spread: 60,
-          particleCount: 3,
+          angle: 45,
+          spread: 55,
+          particleCount: 5,
+          startVelocity: 55,
+          origin: { y: 0.6 },
+        });
+        this.conffettiWrapper({
+          angle: 90,
+          spread: 55,
+          particleCount: 5,
+          startVelocity: 55,
           origin: { y: 0.6 },
         });
         if (Date.now() < end) {
