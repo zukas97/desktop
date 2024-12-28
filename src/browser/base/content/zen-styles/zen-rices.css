@@ -6,7 +6,7 @@
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 1;
+  z-index: 3;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,6 +23,10 @@
 
   animation: zen-jello-animation 0.3s ease;
   max-width: 400px;
+
+  &[animate="true"] {
+    animation: zen-rice-submit-animation 1s cubic-bezier(.77,0,.18,1);
+  }
 
   & .zen-rice-share-content {
     padding: 10px 0;
@@ -54,7 +58,7 @@
     }
 
     & #zen-rice-share-name {
-      font-style: normal;
+      font-style: normal !important;
       font-size: 24px;
       margin-left: 1px;
     }
@@ -205,9 +209,13 @@
 #zen-rice-share-dialog-notice {
   padding: 15px;
 
+  & br {
+    margin-bottom: 10px;
+  }
+
   & > p {
     color: var(--text-color-deemphasized);
-    margin-top: 5px;
+    margin-top: 10px;
   }
 
   .panel-footer {

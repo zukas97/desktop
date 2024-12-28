@@ -71,3 +71,6 @@
         # Fonts
         content/browser/zen-fonts/JunicodeVF-Italic.woff2       (content/zen-fonts/JunicodeVF-Italic.woff2)
         content/browser/zen-fonts/JunicodeVF-Roman.woff2        (content/zen-fonts/JunicodeVF-Roman.woff2)
+
+        # JS Vendor
+        content/browser/zen-vendor/tsparticles.confetti.bundle.min.js (content/zen-vendor/tsparticles.confetti.bundle.min.js)

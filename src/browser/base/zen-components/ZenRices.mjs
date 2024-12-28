@@ -127,6 +127,13 @@
     init() {
     }
 
+    get conffettiWrapper() {
+      if (!this.confetti) {
+        Services.scriptloader.loadSubScript("chrome://browser/content/zen-vendor/tsparticles.confetti.bundle.min.js", this);
+      }
+      return this.confetti;
+    }
+
     async packRice() {
       return await this._collector.packRice();
     }
@@ -139,7 +146,7 @@
         <vbox id="zen-rice-share-dialog-overlay" hidden="true">
           <vbox id="zen-rice-share-dialog-notice">
             <h1 data-l10n-id="zen-rice-share-notice" />
-            <p data-l10n-id="zen-rice-share-notice-details" />
+            <p data-l10n-id="zen-rice-share-notice-description" />
             <html:moz-button-group class="panel-footer">
               <html:a href="https://docs.zen-browser.app/guides/" target="_blank" data-l10n-id="zen-learn-more-text" onclick="gZenThemePicker.riceManager.openLink(event)" />
               <button onclick="gZenThemePicker.riceManager.acceptNotice()" class="footer-button" data-l10n-id="zen-rice-share-accept" slot="primary" default="true" />
@@ -242,6 +249,7 @@
       }
 
       document.getElementById("zen-rice-share-dialog").removeAttribute("hidden");
+      document.getElementById("zen-rice-share-dialog-notice").setAttribute("hidden", "true");
       document.getElementById("zen-rice-share-name").focus();
 
       // Initialize the dialog with the current values
@@ -251,6 +259,7 @@
     resetShareDialog() {
       const dialog = this.shareDialog;
       dialog.setAttribute("hidden", "true");
+      document.getElementById("zen-rice-share-dialog").removeAttribute("animate");
       document.getElementById("zen-rice-share-name").value = "";
       document.getElementById("zen-rice-share-author").value = "";
       document.getElementById("zen-rice-share-save").disabled = true;
@@ -364,12 +373,36 @@
       const { slug, token } = riceInfo;
       // 'token' is like some sort of password to edit the rice, do NOT expose it
       setTimeout(() => {
+        document.getElementById("zen-rice-share-dialog").setAttribute("animate", "true");
         const successBox = document.getElementById("zen-rice-share-success");
         document.getElementById("zen-rice-share-second-form").setAttribute("fade-out", "true");
         successBox.removeAttribute("hidden");
         const link = document.getElementById("zen-rice-share-success-link");
         link.value = `${ZEN_RICE_API}/${slug}`;
+        this.showConffetti();
       }, 2000);
+    }
+
+    showConffetti() {
+      const end = Date.now() + 2500;
+      function frame() {
+        this.conffettiWrapper({
+          angle: 125,
+          spread: 60,
+          particleCount: 3,
+          origin: { y: 0.6 },
+        });
+        this.conffettiWrapper({
+          angle: 55,
+          spread: 60,
+          particleCount: 3,
+          origin: { y: 0.6 },
+        });
+        if (Date.now() < end) {
+          requestAnimationFrame(frame.bind(this));
+        }
+      }
+      frame.call(this);
     }
   }
 

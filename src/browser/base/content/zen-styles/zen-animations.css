@@ -410,3 +410,18 @@
     max-height: 450px;
   }
 }
+
+@keyframes zen-rice-submit-animation {
+  /* Scale and shake the dialog */
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
