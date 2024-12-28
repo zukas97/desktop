@@ -273,6 +273,10 @@ input[type='checkbox'] {
   display: flex;
 }
 
+#layout {
+  text-align: center;
+}
+
 #layoutList {
   display: flex;
   gap: 20px;
