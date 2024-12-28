@@ -167,7 +167,7 @@ h2 {
   flex-direction: column;
   align-items: center;
   align-content: space-between;
-  border: 2px solid var(--arrowpanel-border-color) !important;
+  border: 2px solid transparent !important;
   transition: all 0.1s ease-in-out !important;
   margin: 0 10px;
   border-radius: 7px;
@@ -418,10 +418,6 @@ input[type='checkbox'] {
   border: 3px solid transparent;
   border-radius: 15px;
   height: -moz-available;
-}
-
-#themeList > svg:nth-child(1) {
-  margin-right: 10px;
 }
 
 #themeList > svg.selected {
