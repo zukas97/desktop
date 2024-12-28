@@ -21,7 +21,7 @@
   border: var(--zen-appcontent-border);
   overflow: hidden;
 
-  animation: zen-jello-animation 0.3s ease;
+  animation: zen-jello-animation-large 0.4s ease;
   max-width: 400px;
 
   &[animate="true"] {
