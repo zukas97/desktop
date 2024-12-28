@@ -50,6 +50,16 @@ body {
   justify-content: space-between;
   align-items: center;
   z-index: 2;
+
+  & button {
+    opacity: 0;
+    animation: fadeIn .5s ease-in-out forwards;
+    animation-delay: .8s;
+  }
+
+  & button:nth-child(2) {
+    animation-delay: 1s;
+  }
 }
 
 body:has(#welcome:not([hidden='true'])) {
@@ -236,9 +246,11 @@ input[type='checkbox'] {
   display: flex;
 }
 
-.page:not([hidden='true']) > * {
+.page:not([hidden='true']) > *:not(:has(.delay-animation)),
+.delay-animation,
+.delay-animation-2 {
   opacity: 0;
-  animation: fadeInRight 0.3s ease-in-out forwards;
+  animation: fadeIn .5s ease-in-out forwards;
 }
 
 #importBrowser {
@@ -281,7 +293,7 @@ input[type='checkbox'] {
   }
 }
 
-@keyframes fadeInRight {
+@keyframes fadeIn {
   from {
     opacity: 0;
     transform: translate3d(0, 40px, 0);
@@ -296,19 +308,33 @@ input[type='checkbox'] {
 }
 
 /* There should be no more than 5 elements in a page */
-.page:not([hidden='true']) > *:nth-child(2),
-#layoutList [layout]:nth-child(2) {
-  animation-delay: 0.1s;
-}
-.page:not([hidden='true']) > *:nth-child(3),
-#layoutList [layout]:nth-child(3) {
+.page:not([hidden='true']) > *:nth-child(2):not(:has(.delay-animation)) {
   animation-delay: 0.2s;
 }
-.page:not([hidden='true']) > *:nth-child(4) {
-  animation-delay: 0.3s;
-}
-.page:not([hidden='true']) > *:nth-child(5) {
+.page:not([hidden='true']) > *:nth-child(3),
+.delay-animation:nth-child(1) {
   animation-delay: 0.4s;
+}
+.page:not([hidden='true']) > *:nth-child(4),
+.delay-animation:nth-child(2) {
+  animation-delay: 0.6s;
+}
+.page:not([hidden='true']) > *:nth-child(5),
+.delay-animation:nth-child(3),
+.delay-animation-2:nth-child(1) {
+  animation-delay: 0.8s;
+}
+
+.page:not([hidden='true']) > *:nth-child(6),
+.delay-animation:nth-child(4),
+.delay-animation-2:nth-child(2) {
+  animation-delay: 1s;
+}
+
+#welcome {
+  & h1 {
+    animation-duration: .8s !important;
+  }
 }
 
 .card h3 {
@@ -411,5 +437,11 @@ input[type='checkbox'] {
 
   &.selected {
     transform: scale(1.01);
+  }
+
+  & img {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
   }
 }
