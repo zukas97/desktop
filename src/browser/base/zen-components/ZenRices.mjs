@@ -269,6 +269,9 @@
       document.getElementById("zen-rice-share-error").setAttribute("hidden", "true");
       document.getElementById("zen-rice-share-success").setAttribute("hidden", "true");
       document.getElementById("zen-rice-share-options").setAttribute("zen-collapsed", "true");
+
+      // Remove confetti module from memory
+      this.confetti = null;
     }
 
     cancel() {
